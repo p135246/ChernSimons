@@ -1,0 +1,1100 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     38461,       1091]
+NotebookOptionsPosition[     29963,        927]
+NotebookOutlinePosition[     31038,        960]
+CellTagsIndexPosition[     30959,        955]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["WordDegree", "ObjectName",
+ CellID->1224892054,ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec"],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo",ExpressionUUID->"dc75dbee-03d6-4c9d-a55b-08bbaa3e79c0"],
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["WordDegree"]], "paclet:IBLInfinity/ref/WordDegree", 
+     "IBLInfinity Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["w", "TI"], ",", " ", 
+    StyleBox["data", "TI"]}], "]"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "48ec5c80-363e-435e-8fac-49ab250fb70a"],
+ "\[LineSeparator]",
+ "gives the degree of the cyclic word ",
+ StyleBox["w", "TI"],
+ ", the sum of the degrees of its particles.",
+ "\n",
+ Cell["   ", "ModInfo",ExpressionUUID->"964d639b-f214-4564-b3c4-7b63c1bd9bf1"],
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["WordDegree"]], "paclet:IBLInfinity/ref/WordDegree", 
+     "IBLInfinity Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["w", "TI"], ",", " ", 
+    StyleBox["pairing", "TI"], ",", " ", "\"\<Exterior\>\""}], "]"}]], 
+  "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "ecc248ff-0bdc-4a65-9e95-593f53e90961"],
+ "\[LineSeparator]",
+ "gives its degree in the exterior grading ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["[",
+    SpanMaxSize->1], "-", 
+   StyleBox["]",
+    SpanMaxSize->1]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "83d81886-2054-47dd-bd49-811a18bde32c"],
+ ".",
+ "\n",
+ Cell["   ", "ModInfo",ExpressionUUID->"ea7eba97-d3b4-43a5-ac45-e3607c00612f"],
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["WordDegree"]], "paclet:IBLInfinity/ref/WordDegree", 
+     "IBLInfinity Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["w", "TI"], ",", " ", 
+    StyleBox["pairing", "TI"], ",", " ", "\"\<Symmetric\>\""}], "]"}]], 
+  "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "bf8d7360-7856-4607-8ed3-b497ab428f27"],
+ "\[LineSeparator]",
+ "gives its degree in the symmetric grading ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox[
+    RowBox[{
+     StyleBox["[",
+      SpanMaxSize->1], "-", 
+     StyleBox["]",
+      SpanMaxSize->1]}], "1"], "=", 
+   StyleBox["[",
+    SpanMaxSize->1], "-", 
+   StyleBox["]",
+    SpanMaxSize->1], "-", "1"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "d30b74a3-f11d-4609-8dc7-5e6b516b8fc5"],
+ "."
+}], "Usage",ExpressionUUID->"bc5c267f-e904-4d30-b167-ccc49edbd171"],
+
+Cell[TextData[{
+ StyleBox["w", "TI"],
+ " is a ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["CyclicWord"]], "paclet:IBLInfinity/ref/CyclicWord", 
+    "IBLInfinity Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "20e564fb-0f2f-44ce-8896-cf68c96e5da4"],
+ " or a bare list of particles; the two are interchangeable."
+}], "Notes",ExpressionUUID->"2b907fef-6129-4325-b8a2-753a96883709"],
+
+Cell[TextData[{
+ "The two-argument form reads only degrees, so ",
+ StyleBox["data", "TI"],
+ " may be a pairing object or a bare association from particles to degrees."
+}], "Notes",ExpressionUUID->"4d76c262-e2ea-4d6c-8633-66f7c09e7922"],
+
+Cell["\<\
+The three-argument forms shift by the degree of the pairing and therefore \
+need a real pairing object.\
+\>", "Notes",ExpressionUUID->"3e7dd4b4-2833-404f-ad1b-bc0e142586b3"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "a271ba28-4870-4b90-ad98-434eff9a5e6e"], Cell["grading", "TableText",
+     FontWeight->Bold,ExpressionUUID->"96bb32c6-c636-4498-912a-474c2f18b100"],
+     Cell["value", "TableText",
+     FontWeight->Bold,ExpressionUUID->"21da51e2-6045-430e-b65e-007ffce2d16b"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "341fa469-3a4c-44fd-a5b6-5123c5e1fcbe"], Cell[
+    "plain", "TableText",ExpressionUUID->
+     "27a954e0-6e42-43a0-ab15-bc9f9746b31b"], Cell[TextData[{
+     Cell[BoxData[
+      TemplateBox[{
+        StyleBox["w", "TI"]},
+       "Abs"]], "InlineFormula",
+      FontSize->0.9 Inherited,ExpressionUUID->
+      "13c4e31d-8cf6-4ed8-8444-996c2ac25f8c"],
+     ", the sum of the particle degrees"
+    }], "TableText",ExpressionUUID->"814d7c98-6a4a-479e-8712-f4f2f33115ed"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "cd616d52-f029-4535-833f-353f368c87fd"], Cell[TextData[Cell[
+    BoxData["\"\<Exterior\>\""], "InlineFormula",
+     FontSize->0.9 Inherited,ExpressionUUID->
+     "66ab3fcc-e413-412b-8399-96f6fd9e6fba"]], "TableText",ExpressionUUID->
+     "72ed11aa-dcb3-490e-bfbb-8bc6376111ea"], Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       RowBox[{
+        StyleBox["[",
+         SpanMaxSize->1], 
+        StyleBox["w", "TI"], 
+        StyleBox["]",
+         SpanMaxSize->1]}], "=", 
+       RowBox[{
+        TemplateBox[{
+          StyleBox["w", "TI"]},
+         "Abs"], "+", 
+        TemplateBox[{
+          RowBox[{
+            StyleBox["\[LeftAngleBracket]", SpanMaxSize -> 1], "\[CenterDot]",
+             ",", "\[CenterDot]", 
+            StyleBox["\[RightAngleBracket]", SpanMaxSize -> 1]}]},
+         "Abs"]}]}]], "InlineFormula",
+      FontSize->0.9 Inherited,ExpressionUUID->
+      "1c9e5476-621d-40e5-b686-e5d3335c791d"],
+     ", the Koszul degree carried by ",
+     Cell[BoxData[
+      TemplateBox[{
+        Cell[
+         TextData["ExteriorProduct"]], 
+        "paclet:IBLInfinity/ref/ExteriorProduct", 
+        "IBLInfinity Package Symbol"},
+       "PackageLink",
+       BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+      "823483dc-a670-48ad-83d8-d2f5ca9f57d3"]
+    }], "TableText",ExpressionUUID->"197931b8-7945-4dae-8833-6672377feb5e"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "2e89348c-0c13-46ca-90bc-2bcc904b3bfa"], Cell[TextData[Cell[
+    BoxData["\"\<Symmetric\>\""], "InlineFormula",
+     FontSize->0.9 Inherited,ExpressionUUID->
+     "40d5dc58-77b3-4df2-8619-4f18ab5c8f8e"]], "TableText",ExpressionUUID->
+     "ca7a05e2-3b01-4f44-bba5-cbf4ce704867"], Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       SubscriptBox[
+        RowBox[{
+         StyleBox["[",
+          SpanMaxSize->1], 
+         StyleBox["w", "TI"], 
+         StyleBox["]",
+          SpanMaxSize->1]}], "1"], "=", 
+       StyleBox["[",
+        SpanMaxSize->1], 
+       StyleBox["w", "TI"], 
+       StyleBox["]",
+        SpanMaxSize->1], "-", "1"}]], "InlineFormula",
+      FontSize->0.9 Inherited,ExpressionUUID->
+      "5b50c777-bff8-4080-9881-48a72a4560d6"],
+     ", the Koszul degree carried by ",
+     Cell[BoxData[
+      TemplateBox[{
+        Cell[
+         TextData["SymmetricProduct"]], 
+        "paclet:IBLInfinity/ref/SymmetricProduct", 
+        "IBLInfinity Package Symbol"},
+       "PackageLink",
+       BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+      "2fdf8bad-139e-4b1a-950e-38a6ec38c7ea"]
+    }], "TableText",ExpressionUUID->"3451644a-8f52-45f9-a850-e1060f4f94e9"]}
+  }]], "2ColumnTableMod",ExpressionUUID->"1456239c-2fc0-4bbe-97a2-\
+4be8bfd2b155"],
+
+Cell[TextData[{
+ "The two shifted gradings are what make the sign bookkeeping of the two \
+pictures differ, and choosing between them is the whole content of the ",
+ Cell[BoxData["\"\<Convention\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "12095173-27f2-4c06-9ea9-e48daa2cc412"],
+ " key of the pairing object. The symmetric grading is one lower than the \
+exterior one, uniformly."
+}], "Notes",ExpressionUUID->"68e569d6-0f07-4c96-991c-e46bd9a22b2e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "See Also",
+ Cell[BoxData[
+  TemplateBox[{"SeeAlso", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Insert links to any related reference (function) pages.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "b7caa910-e086-4d39-871e-e78bfb02a4b9"]
+}], "SeeAlsoSection",
+ CellID->1559318232,ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["CyclicWord"]], "paclet:IBLInfinity/ref/CyclicWord", 
+    "IBLInfinity Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "faf25a6c-f09e-4fa5-a7d2-8da5bcdc9cd2"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["CyclicWords"]], "paclet:IBLInfinity/ref/CyclicWords", 
+    "IBLInfinity Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "a641634c-9b86-4d99-9578-2c5fce9779e5"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["Pairing"]], "paclet:IBLInfinity/ref/Pairing", 
+    "IBLInfinity Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "edd2a77e-260d-47c7-ae86-d44bc3e72e72"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["ExteriorProduct"]], "paclet:IBLInfinity/ref/ExteriorProduct", 
+    "IBLInfinity Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "8b575055-a192-411f-919e-3b2513adf006"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SymmetricProduct"]], "paclet:IBLInfinity/ref/SymmetricProduct",
+     "IBLInfinity Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "f56ac113-05de-4832-ba4c-0006ff16bd95"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["KoszulSign"]], "paclet:IBLInfinity/ref/KoszulSign", 
+    "IBLInfinity Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "e47d2cdf-1db7-43bf-be42-04ac1da56d0b"]
+}], "SeeAlso",ExpressionUUID->"5f788111-cb37-4e46-97ca-879df1b3f22f"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Tech Notes",
+ Cell[BoxData[
+  TemplateBox[{"TechNotes", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell["Insert links to related tech notes.", "MoreInfoText"], BaseStyle -> 
+       "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "a0027a76-2f69-4270-bf06-cff364aa09d7"]
+}], "TechNotesSection",
+ CellID->792424486,ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74"],
+
+Cell["Related Guides", "MoreAboutSection",
+ CellID->38303248,ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5"],
+
+Cell[TextData[{
+ "Related Links",
+ Cell[BoxData[
+  TemplateBox[{"RelatedLinks", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Insert links to any related page, including web pages.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "88f916ad-99d1-4784-a15f-dfa2faf44f02"]
+}], "RelatedLinksSection",
+ CellID->47113304,ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Examples Initialization",
+ Cell[BoxData[
+  TemplateBox[{"ExamplesInitialization", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Input that is to be evaluated before any examples are run, e.g. \
+Needs[\[Ellipsis]].", "MoreInfoText"], BaseStyle -> "IFrameBox"]], 
+     "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "1ca4d14a-308f-4a68-bbf6-e6901ce2ab4c"]
+}], "ExamplesInitializationSection",
+ CellID->1718580883,ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<IBLInfinity`\>\"", "]"}]], "ExampleInitialization",\
+
+ CellID->1969679695,ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox[
+      RowBox[{"Basic", " ", "Examples"}], "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151,ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42"],
+
+Cell["The three degrees of a word of the circle:", "ExampleText",ExpressionUUID->"a603aa80-123f-41da-85c5-35c63ebfbd5b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pairing", " ", "=", " ", 
+   RowBox[{"Pairing", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"x", " ", "->", " ", 
+        RowBox[{"-", "1"}]}], ",", " ", 
+       RowBox[{"y", " ", "->", " ", "0"}]}], "|>"}], ",", " ", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"WordDegree", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", ",", " ", "y"}], "}"}], ",", " ", "pairing"}], "]"}], ",", 
+   " ", 
+   RowBox[{"WordDegree", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", ",", " ", "y"}], "}"}], ",", " ", "pairing", ",", 
+     " ", "\"\<Exterior\>\""}], "]"}], ",", " ", 
+   RowBox[{"WordDegree", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", ",", " ", "y"}], "}"}], ",", " ", "pairing", ",", 
+     " ", "\"\<Symmetric\>\""}], "]"}]}], "}"}]}], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"f380725d-f039-48fc-b171-8864bd91b732"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "1"}], ",", 
+   RowBox[{"-", "2"}], ",", 
+   RowBox[{"-", "3"}]}], "}"}]], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"d196418a-5642-4e9a-9db4-400f40c1b3a7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "21d839bd-086e-45c6-8403-2c2171d96d33"],
+  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"dcd13b6d-2c8b-4a6f-\
+931d-bfa86513cc02"],
+
+Cell["The plain degree is just the sum of the particle degrees:", \
+"ExampleText",ExpressionUUID->"58bb321b-b483-4b08-9355-f38e710664d0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"WordDegree", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x", ",", " ", "y", ",", " ", "y", ",", " ", "y"}], "}"}], ",", 
+   " ", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"x", " ", "->", " ", 
+      RowBox[{"-", "1"}]}], ",", " ", 
+     RowBox[{"y", " ", "->", " ", "0"}]}], "|>"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"d14bfa06-f9ba-495f-9ecb-d92e24ffc9ce"],
+
+Cell[BoxData[
+ RowBox[{"-", "1"}]], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"b7fdecbc-7c46-43fc-a622-e74b10b1e548"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "b05c5178-7c0e-4cab-8625-acbb3412316b"],
+  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"f27300ab-54f2-411e-\
+8a98-f0d381227949"],
+
+Cell[TextData[{
+ "A ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["CyclicWord"]], "paclet:IBLInfinity/ref/CyclicWord", 
+    "IBLInfinity Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "f0541436-e4b1-4b12-998e-dc1bacfa133e"],
+ " may be given instead of a list:"
+}], "ExampleText",ExpressionUUID->"f7211892-a667-4ef8-bc89-e4413ded7deb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"WordDegree", "[", 
+  RowBox[{
+   RowBox[{"CyclicWord", "[", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", " ", "y"}], "}"}], "]"}], ",", " ", 
+   RowBox[{"Pairing", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"x", " ", "->", " ", 
+        RowBox[{"-", "1"}]}], ",", " ", 
+       RowBox[{"y", " ", "->", " ", "0"}]}], "|>"}], ",", " ", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
+    "]"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"6d4f8cd2-6bf6-43b7-8aed-67547451f6a4"],
+
+Cell[BoxData[
+ RowBox[{"-", "1"}]], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"ea2f17d6-3cf5-4ee6-945c-6f932cd2d3ac"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "More Examples",
+ Cell[BoxData[
+  TemplateBox[{"MoreExamples", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell["Extended examples in standardized sections.", "MoreInfoText"], 
+       BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "352b6acf-a93b-4224-8779-658881cdabd0"]
+}], "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->533848431,ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Scope", "ExampleSection",ExpressionUUID->
+   "32e79d70-f7af-47ff-bb41-513374ef55db"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265,ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75"],
+
+Cell[TextData[{
+ "Over the whole alphabet of the circle in length at most ",
+ Cell[BoxData["3"], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "cd2378dd-e484-4a69-8418-f3c01aa59d17"],
+ ":"
+}], "ExampleText",ExpressionUUID->"9a55d24a-eff8-476b-b04a-538d0d6b7be4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pairing", " ", "=", " ", 
+   RowBox[{"Pairing", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"x", " ", "->", " ", 
+        RowBox[{"-", "1"}]}], ",", " ", 
+       RowBox[{"y", " ", "->", " ", "0"}]}], "|>"}], ",", " ", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"Map", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"#", " ", "->", " ", 
+     RowBox[{"WordDegree", "[", 
+      RowBox[{"#", ",", " ", "pairing"}], "]"}]}], " ", "&"}], ",", " ", 
+   RowBox[{"CyclicWords", "[", 
+    RowBox[{"3", ",", " ", "pairing", ",", " ", 
+     RowBox[{"\"\<UpTo\>\"", " ", "->", " ", "True"}]}], "]"}]}], 
+  "]"}]}], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"7305022b-48fd-4253-a0c6-5aeff1874d2c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"CyclicWord", "[", 
+     RowBox[{"{", "x", "}"}], "]"}], "\[Rule]", 
+    RowBox[{"-", "1"}]}], ",", 
+   RowBox[{
+    RowBox[{"CyclicWord", "[", 
+     RowBox[{"{", "y", "}"}], "]"}], "\[Rule]", "0"}], ",", 
+   RowBox[{
+    RowBox[{"CyclicWord", "[", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], "]"}], "\[Rule]", 
+    RowBox[{"-", "1"}]}], ",", 
+   RowBox[{
+    RowBox[{"CyclicWord", "[", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "y"}], "}"}], "]"}], "\[Rule]", "0"}], ",", 
+   RowBox[{
+    RowBox[{"CyclicWord", "[", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "x", ",", "x"}], "}"}], "]"}], "\[Rule]", 
+    RowBox[{"-", "3"}]}], ",", 
+   RowBox[{
+    RowBox[{"CyclicWord", "[", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "x", ",", "y"}], "}"}], "]"}], "\[Rule]", 
+    RowBox[{"-", "2"}]}], ",", 
+   RowBox[{
+    RowBox[{"CyclicWord", "[", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y", ",", "y"}], "}"}], "]"}], "\[Rule]", 
+    RowBox[{"-", "1"}]}], ",", 
+   RowBox[{
+    RowBox[{"CyclicWord", "[", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "y", ",", "y"}], "}"}], "]"}], "\[Rule]", "0"}]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"1c23821b-7dad-439b-ac0d-0152196c89df"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "fd02e3b6-5171-4393-90c0-e5328cbd6d79"],
+  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"d92b913b-dcb9-43c3-\
+a377-21cb2721a424"],
+
+Cell["The two shifted gradings, side by side:", "ExampleText",ExpressionUUID->"46a8238c-2397-4c7d-ab66-4d066de2db8a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pairing", " ", "=", " ", 
+   RowBox[{"Pairing", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"x", " ", "->", " ", 
+        RowBox[{"-", "1"}]}], ",", " ", 
+       RowBox[{"y", " ", "->", " ", "0"}]}], "|>"}], ",", " ", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"Map", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"#", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"WordDegree", "[", 
+        RowBox[{"#", ",", " ", "pairing", ",", " ", "\"\<Exterior\>\""}], 
+        "]"}], ",", " ", 
+       RowBox[{"WordDegree", "[", 
+        RowBox[{"#", ",", " ", "pairing", ",", " ", "\"\<Symmetric\>\""}], 
+        "]"}]}], "}"}]}], " ", "&"}], ",", " ", 
+   RowBox[{"CyclicWords", "[", 
+    RowBox[{"2", ",", " ", "pairing", ",", " ", 
+     RowBox[{"\"\<UpTo\>\"", " ", "->", " ", "True"}]}], "]"}]}], 
+  "]"}]}], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"89932826-0c2a-4533-b6f8-a295b6c4dbaf"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"CyclicWord", "[", 
+     RowBox[{"{", "x", "}"}], "]"}], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "2"}], ",", 
+      RowBox[{"-", "3"}]}], "}"}]}], ",", 
+   RowBox[{
+    RowBox[{"CyclicWord", "[", 
+     RowBox[{"{", "y", "}"}], "]"}], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "1"}], ",", 
+      RowBox[{"-", "2"}]}], "}"}]}], ",", 
+   RowBox[{
+    RowBox[{"CyclicWord", "[", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], "]"}], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "2"}], ",", 
+      RowBox[{"-", "3"}]}], "}"}]}], ",", 
+   RowBox[{
+    RowBox[{"CyclicWord", "[", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "y"}], "}"}], "]"}], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "1"}], ",", 
+      RowBox[{"-", "2"}]}], "}"}]}]}], "}"}]], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"1cfe8920-7e31-4752-b5fc-214f314ad093"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Generalizations & Extensions", "ExampleSection",ExpressionUUID->
+   "a148ce84-caec-4483-aa99-5b7bd6d55bf1"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627,ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Options", "ExampleSection",ExpressionUUID->
+   "b26b6366-7922-4236-a426-38c0f5de13f0"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341,ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Applications", "ExampleSection",ExpressionUUID->
+   "d5715ee2-1cae-4f33-89b2-0e99ea9caa6e"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157,ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Properties & Relations", "ExampleSection",ExpressionUUID->
+   "d18b1e1f-4c4c-49a5-bb54-1e5e145ddf4e"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759,ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438"],
+
+Cell[TextData[{
+ "The symmetric grading is the exterior one shifted down by ",
+ Cell[BoxData["1"], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "88b5b007-3aff-4d84-98f8-333b00f9f871"],
+ ":"
+}], "ExampleText",ExpressionUUID->"5677eb6a-7f36-4b19-b2f2-89b0eafa1088"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pairing", " ", "=", " ", 
+   RowBox[{"Pairing", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"x", " ", "->", " ", 
+        RowBox[{"-", "1"}]}], ",", " ", 
+       RowBox[{"y", " ", "->", " ", "0"}]}], "|>"}], ",", " ", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"AllTrue", "[", 
+  RowBox[{
+   RowBox[{"CyclicWords", "[", 
+    RowBox[{"4", ",", " ", "pairing", ",", " ", 
+     RowBox[{"\"\<UpTo\>\"", " ", "->", " ", "True"}]}], "]"}], ",", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"WordDegree", "[", 
+      RowBox[{"#", ",", " ", "pairing", ",", " ", "\"\<Symmetric\>\""}], 
+      "]"}], " ", "===", " ", 
+     RowBox[{
+      RowBox[{"WordDegree", "[", 
+       RowBox[{"#", ",", " ", "pairing", ",", " ", "\"\<Exterior\>\""}], 
+       "]"}], " ", "-", " ", "1"}]}], " ", "&"}]}], "]"}]}], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"4b9f67ab-ad89-4ea0-af47-0f9c764a713b"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"1c340e38-7294-435b-ace1-b44a5015521d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "81ee57db-764f-4c41-bbf6-08775acb4763"],
+  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"4259eb94-f2e9-433c-\
+b27d-7401ec18f312"],
+
+Cell["\<\
+The exterior grading is the plain degree shifted by the degree of the pairing:\
+\>", "ExampleText",ExpressionUUID->"04a260a6-8766-46e9-8973-f288a05a62bc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pairing", " ", "=", " ", 
+   RowBox[{"Pairing", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"x", " ", "->", " ", 
+        RowBox[{"-", "1"}]}], ",", " ", 
+       RowBox[{"y", " ", "->", " ", "0"}]}], "|>"}], ",", " ", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"AllTrue", "[", 
+  RowBox[{
+   RowBox[{"CyclicWords", "[", 
+    RowBox[{"4", ",", " ", "pairing", ",", " ", 
+     RowBox[{"\"\<UpTo\>\"", " ", "->", " ", "True"}]}], "]"}], ",", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"WordDegree", "[", 
+      RowBox[{"#", ",", " ", "pairing", ",", " ", "\"\<Exterior\>\""}], "]"}],
+      " ", "===", " ", 
+     RowBox[{
+      RowBox[{"WordDegree", "[", 
+       RowBox[{"#", ",", " ", "pairing"}], "]"}], " ", "+", " ", 
+      RowBox[{"pairing", "[", "\"\<Degree\>\"", "]"}]}]}], " ", "&"}]}], 
+  "]"}]}], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"62c919cd-0d10-48e8-b2b9-dba544ce120e"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"9cee4a1d-65c5-4aa7-967a-926f16d81a5a"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Possible Issues", "ExampleSection",ExpressionUUID->
+   "dda06a82-eb41-4b48-8510-6cb821647761"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373,ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Interactive Examples", "ExampleSection",ExpressionUUID->
+   "e1fe5ce4-66df-44f8-b96d-14ea9265eaf2"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318,ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Neat Examples", "ExampleSection",ExpressionUUID->
+   "898193c6-0d9f-4097-90dd-7bc455972e43"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740,ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->311882160,ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"c83e5b59-d200-4539-afdc-500ed06d3c87"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"d4e38c0c-d937-44f2-85a5-7c0e8fc755ab"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "4c68d818-8923-4121-80f8-cf0eabb4c0de"]
+}], "History",
+ CellID->341476719,ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Categorization",
+ Cell[BoxData[
+  TemplateBox[{"Metadata", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Metadata such as page URI, context, and type of documentation page.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "4b3d4122-3cd4-481f-a8ff-5aefbb03e00d"]
+}], "CategorizationSection",
+ CellID->1755438392,ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a"],
+
+Cell["IBLInfinity", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec"],
+
+Cell["IBLInfinity`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191"],
+
+Cell["IBLInfinity/ref/WordDegree", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"744380bd-84fa-4ad9-b91d-3b91d9c3a0ee"]
+}, Closed]],
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294,ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6"],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408,ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412,ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909,ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930,ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254,ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{5, Automatic}, {Automatic, 0}},
+TaggingRules->{
+ "Metadata" -> {
+   "title" -> "WordDegree", "context" -> "IBLInfinity`", 
+    "keywords" -> {
+     "degree", "grading", "shift", "Koszul degree", "cyclic word"}, "summary" -> 
+    "", "paclet" -> "IBLInfinity", "uri" -> "IBLInfinity/ref/WordDegree", 
+    "type" -> "Symbol", "index" -> True, "language" -> "en"}},
+CreateCellID->True,
+CellContext->CellGroup,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (May 19, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"c207366e-060a-406b-a297-9e30e1628f43"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[16679, 512, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+   CellTags->"ExtendedExamples",
+   CellID->533848431]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 30765, 948}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 108, 1, 70, "ObjectName",ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec",
+ CellID->1224892054],
+Cell[687, 25, 2477, 79, 70, "Usage",ExpressionUUID->"bc5c267f-e904-4d30-b167-ccc49edbd171"],
+Cell[3167, 106, 449, 12, 70, "Notes",ExpressionUUID->"2b907fef-6129-4325-b8a2-753a96883709"],
+Cell[3619, 120, 235, 4, 70, "Notes",ExpressionUUID->"4d76c262-e2ea-4d6c-8633-66f7c09e7922"],
+Cell[3857, 126, 183, 3, 70, "Notes",ExpressionUUID->"3e7dd4b4-2833-404f-ad1b-bc0e142586b3"],
+Cell[4043, 131, 3603, 89, 70, "2ColumnTableMod",ExpressionUUID->"1456239c-2fc0-4bbe-97a2-4be8bfd2b155"],
+Cell[7649, 222, 474, 8, 70, "Notes",ExpressionUUID->"68e569d6-0f07-4c96-991c-e46bd9a22b2e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8160, 235, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
+ CellID->1559318232],
+Cell[8622, 250, 1883, 54, 70, "SeeAlso",ExpressionUUID->"5f788111-cb37-4e46-97ca-879df1b3f22f"]
+}, Open  ]],
+Cell[10520, 307, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
+ CellID->792424486],
+Cell[10958, 321, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
+ CellID->38303248],
+Cell[11077, 324, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
+ CellID->47113304],
+Cell[CellGroupData[{
+Cell[11573, 341, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
+ CellID->1718580883],
+Cell[12107, 357, 171, 3, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
+ CellID->1969679695]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12315, 365, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
+ CellID->880084151],
+Cell[12760, 379, 120, 0, 70, "ExampleText",ExpressionUUID->"a603aa80-123f-41da-85c5-35c63ebfbd5b"],
+Cell[CellGroupData[{
+Cell[12905, 383, 1073, 32, 70, "Input",ExpressionUUID->"f380725d-f039-48fc-b171-8864bd91b732"],
+Cell[13981, 417, 219, 6, 70, "Output",ExpressionUUID->"d196418a-5642-4e9a-9db4-400f40c1b3a7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14237, 428, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"dcd13b6d-2c8b-4a6f-931d-bfa86513cc02"],
+Cell[14464, 435, 137, 1, 70, "ExampleText",ExpressionUUID->"58bb321b-b483-4b08-9355-f38e710664d0"],
+Cell[CellGroupData[{
+Cell[14626, 440, 410, 11, 70, "Input",ExpressionUUID->"d14bfa06-f9ba-495f-9ecb-d92e24ffc9ce"],
+Cell[15039, 453, 124, 2, 70, "Output",ExpressionUUID->"b7fdecbc-7c46-43fc-a622-e74b10b1e548"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15212, 461, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"f27300ab-54f2-411e-8a98-f0d381227949"],
+Cell[15439, 468, 403, 11, 70, "ExampleText",ExpressionUUID->"f7211892-a667-4ef8-bc89-e4413ded7deb"],
+Cell[CellGroupData[{
+Cell[15867, 483, 624, 18, 70, "Input",ExpressionUUID->"6d4f8cd2-6bf6-43b7-8aed-67547451f6a4"],
+Cell[16494, 503, 124, 2, 70, "Output",ExpressionUUID->"ea2f17d6-3cf5-4ee6-945c-6f932cd2d3ac"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16679, 512, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+ CellTags->"ExtendedExamples",
+ CellID->533848431],
+Cell[CellGroupData[{
+Cell[17191, 529, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
+ CellID->1293636265],
+Cell[17436, 536, 278, 6, 70, "ExampleText",ExpressionUUID->"9a55d24a-eff8-476b-b04a-538d0d6b7be4"],
+Cell[CellGroupData[{
+Cell[17739, 546, 874, 25, 70, "Input",ExpressionUUID->"7305022b-48fd-4253-a0c6-5aeff1874d2c"],
+Cell[18616, 573, 1277, 39, 70, "Output",ExpressionUUID->"1c23821b-7dad-439b-ac0d-0152196c89df"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19930, 617, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"d92b913b-dcb9-43c3-a377-21cb2721a424"],
+Cell[20157, 624, 117, 0, 70, "ExampleText",ExpressionUUID->"46a8238c-2397-4c7d-ab66-4d066de2db8a"],
+Cell[CellGroupData[{
+Cell[20299, 628, 1097, 31, 70, "Input",ExpressionUUID->"89932826-0c2a-4533-b6f8-a295b6c4dbaf"],
+Cell[21399, 661, 986, 33, 70, "Output",ExpressionUUID->"1cfe8920-7e31-4752-b5fc-214f314ad093"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[22424, 699, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
+ CellID->1020263627],
+Cell[22692, 706, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
+ CellID->2061341341],
+Cell[22939, 713, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
+ CellID->258228157],
+Cell[CellGroupData[{
+Cell[23212, 722, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
+ CellID->2123667759],
+Cell[23474, 729, 280, 6, 70, "ExampleText",ExpressionUUID->"5677eb6a-7f36-4b19-b2f2-89b0eafa1088"],
+Cell[CellGroupData[{
+Cell[23779, 739, 1068, 29, 70, "Input",ExpressionUUID->"4b9f67ab-ad89-4ea0-af47-0f9c764a713b"],
+Cell[24850, 770, 110, 1, 70, "Output",ExpressionUUID->"1c340e38-7294-435b-ace1-b44a5015521d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24997, 776, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"4259eb94-f2e9-433c-b27d-7401ec18f312"],
+Cell[25224, 783, 164, 2, 70, "ExampleText",ExpressionUUID->"04a260a6-8766-46e9-8973-f288a05a62bc"],
+Cell[CellGroupData[{
+Cell[25413, 789, 1082, 30, 70, "Input",ExpressionUUID->"62c919cd-0d10-48e8-b2b9-dba544ce120e"],
+Cell[26498, 821, 110, 1, 70, "Output",ExpressionUUID->"9cee4a1d-65c5-4aa7-967a-926f16d81a5a"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[26647, 827, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
+ CellID->1305812373],
+Cell[26902, 834, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
+ CellID->1653164318],
+Cell[27162, 841, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
+ CellID->589267740]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27448, 851, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
+ CellID->311882160],
+Cell[27561, 854, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
+ CellID->341476719],
+Cell[CellGroupData[{
+Cell[28062, 870, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
+ CellID->1755438392],
+Cell[28550, 885, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
+ CellID->686433507],
+Cell[28687, 889, 139, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
+ CellID->605800465],
+Cell[28829, 893, 136, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
+ CellID->468444828],
+Cell[28968, 897, 126, 1, 70, "Categorization",ExpressionUUID->"744380bd-84fa-4ad9-b91d-3b91d9c3a0ee"]
+}, Closed]],
+Cell[29109, 901, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
+ CellID->477174294],
+Cell[CellGroupData[{
+Cell[29244, 906, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
+ CellID->1872225408],
+Cell[29367, 909, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
+ CellID->1562036412],
+Cell[29519, 913, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
+ CellID->158391909],
+Cell[29659, 917, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
+ CellID->1360575930],
+Cell[29798, 921, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
+ CellID->793782254]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
