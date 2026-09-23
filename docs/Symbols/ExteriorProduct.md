@@ -1,11 +1,12 @@
 ---
 Template: Symbol
 Name: ExteriorProduct
-Context: IBLInfinity`
-Paclet: IBLInfinity
-URI: IBLInfinity/ref/ExteriorProduct
+Context: ChernSimons`
+Paclet: ChernSimons
+URI: ChernSimons/ref/ExteriorProduct
 Keywords: [exterior product, wedge, Koszul sign, graded commutative]
-SeeAlso: [SymmetricProduct, ShiftIsomorphism, WordDegree, Bracket, Cobracket, Pairing]
+SeeAlso: [SymmetricProduct, ShiftIsomorphism, WordDegree, InvolutiveBracket, InvolutiveCobracket, GradedPairing]
+RelatedGuides: [ChernSimons]
 ---
 
 ## Usage
@@ -22,16 +23,18 @@ The normalized result carries only its factors — the pairing argument is consu
 
 A product with a repeated factor of odd exterior degree is $0$.
 
-The product of a single factor is a legitimate one-factor product, not the bare word: the arities of [Bracket]() and [Cobracket]() as a derivation and a co-derivation are counted in factors.
+The product of a single factor is the word itself. The arities of [InvolutiveBracket]() and [InvolutiveCobracket]() as a derivation and a co-derivation are counted in factors, a bare word counting as one. The factors may be given as lists of particles, and the product is linear in every factor.
 
 This is the exterior half of the pair of pictures the paclet works in. Use it when the pairing object carries `"Convention" -> "Exterior"`; the symmetric picture is [SymmetricProduct]().
+
+A normalized product displays as its factors joined by $\wedge$, each word in its own parentheses.
 
 ## Basic Examples
 
 Two factors already in order:
 
 ```wl
-ExteriorProduct[CyclicWord[{x}], CyclicWord[{y}], Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+ExteriorProduct[CyclicWord[{x}], CyclicWord[{y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => ExteriorProduct[CyclicWord[{x}], CyclicWord[{y}]] -->
@@ -41,7 +44,7 @@ ExteriorProduct[CyclicWord[{x}], CyclicWord[{y}], Pairing[<|x -> -1, y -> 0|>, <
 Exchanging them costs a Koszul sign:
 
 ```wl
-ExteriorProduct[CyclicWord[{y}], CyclicWord[{x}], Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+ExteriorProduct[CyclicWord[{y}], CyclicWord[{x}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => -ExteriorProduct[CyclicWord[{x}], CyclicWord[{y}]] -->
@@ -51,7 +54,7 @@ ExteriorProduct[CyclicWord[{y}], CyclicWord[{x}], Pairing[<|x -> -1, y -> 0|>, <
 A repeated factor of odd exterior degree vanishes:
 
 ```wl
-ExteriorProduct[CyclicWord[{x}], CyclicWord[{x}], Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+ExteriorProduct[CyclicWord[{x}], CyclicWord[{x}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => 0 -->
@@ -61,7 +64,7 @@ ExteriorProduct[CyclicWord[{x}], CyclicWord[{x}], Pairing[<|x -> -1, y -> 0|>, <
 Any number of factors is sorted at once:
 
 ```wl
-ExteriorProduct[CyclicWord[{y, y}], CyclicWord[{y}], CyclicWord[{x}], Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+ExteriorProduct[CyclicWord[{y, y}], CyclicWord[{y}], CyclicWord[{x}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => ExteriorProduct[CyclicWord[{x}], CyclicWord[{y}], CyclicWord[{y, y}]] -->
@@ -71,7 +74,7 @@ ExteriorProduct[CyclicWord[{y, y}], CyclicWord[{y}], CyclicWord[{x}], Pairing[<|
 A repeated factor of even exterior degree survives:
 
 ```wl
-ExteriorProduct[CyclicWord[{y}], CyclicWord[{y}], Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+ExteriorProduct[CyclicWord[{y}], CyclicWord[{y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => ExteriorProduct[CyclicWord[{y}], CyclicWord[{y}]] -->
@@ -81,7 +84,7 @@ ExteriorProduct[CyclicWord[{y}], CyclicWord[{y}], Pairing[<|x -> -1, y -> 0|>, <
 [ShiftIsomorphism]() is what carries a [SymmetricProduct]() over to an [ExteriorProduct]():
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 ShiftIsomorphism[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], pairing], pairing]
 ```
 
@@ -92,7 +95,7 @@ ShiftIsomorphism[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], pairing], pa
 The two pictures disagree on signs, which is the whole point of keeping both:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 {ExteriorProduct[CyclicWord[{y}], CyclicWord[{x}], pairing], SymmetricProduct[CyclicWord[{y}], CyclicWord[{x}], pairing]}
 ```
 
@@ -100,11 +103,11 @@ pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 
 ---
 
-[Cobracket]() lands in a two-factor product:
+[InvolutiveCobracket]() lands in a two-factor product:
 
 ```wl
-pairing = Append[Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"];
-Cobracket[CyclicWord[{x, y, y, y}], pairing]
+pairing = Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"];
+InvolutiveCobracket[CyclicWord[{x, y, y, y}], pairing]
 ```
 
 <!-- => ExteriorProduct[CyclicWord[{y}], CyclicWord[{y}]] -->

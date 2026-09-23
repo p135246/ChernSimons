@@ -1,11 +1,12 @@
 ---
 Template: Symbol
 Name: WordDegree
-Context: IBLInfinity`
-Paclet: IBLInfinity
-URI: IBLInfinity/ref/WordDegree
+Context: ChernSimons`
+Paclet: ChernSimons
+URI: ChernSimons/ref/WordDegree
 Keywords: [degree, grading, shift, Koszul degree, cyclic word]
-SeeAlso: [CyclicWord, CyclicWords, Pairing, ExteriorProduct, SymmetricProduct, KoszulSign]
+SeeAlso: [CyclicWord, CyclicWords, GradedPairing, ExteriorProduct, SymmetricProduct, KoszulSign]
+RelatedGuides: [ChernSimons]
 ---
 
 ## Usage
@@ -37,7 +38,7 @@ The two shifted gradings are what make the sign bookkeeping of the two pictures 
 The three degrees of a word of the circle:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 {WordDegree[{x, y}, pairing], WordDegree[{x, y}, pairing, "Exterior"], WordDegree[{x, y}, pairing, "Symmetric"]}
 ```
 
@@ -58,7 +59,7 @@ WordDegree[{x, y, y, y}, <|x -> -1, y -> 0|>]
 A [CyclicWord]() may be given instead of a list:
 
 ```wl
-WordDegree[CyclicWord[{x, y}], Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+WordDegree[CyclicWord[{x, y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => -1 -->
@@ -68,7 +69,7 @@ WordDegree[CyclicWord[{x, y}], Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 Over the whole alphabet of the circle in length at most $3$:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 Map[# -> WordDegree[#, pairing] &, CyclicWords[3, pairing, "UpTo" -> True]]
 ```
 
@@ -79,7 +80,7 @@ Map[# -> WordDegree[#, pairing] &, CyclicWords[3, pairing, "UpTo" -> True]]
 The two shifted gradings, side by side:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 Map[# -> {WordDegree[#, pairing, "Exterior"], WordDegree[#, pairing, "Symmetric"]} &, CyclicWords[2, pairing, "UpTo" -> True]]
 ```
 
@@ -90,7 +91,7 @@ Map[# -> {WordDegree[#, pairing, "Exterior"], WordDegree[#, pairing, "Symmetric"
 The symmetric grading is the exterior one shifted down by $1$:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 AllTrue[CyclicWords[4, pairing, "UpTo" -> True], WordDegree[#, pairing, "Symmetric"] === WordDegree[#, pairing, "Exterior"] - 1 &]
 ```
 
@@ -101,7 +102,7 @@ AllTrue[CyclicWords[4, pairing, "UpTo" -> True], WordDegree[#, pairing, "Symmetr
 The exterior grading is the plain degree shifted by the degree of the pairing:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 AllTrue[CyclicWords[4, pairing, "UpTo" -> True], WordDegree[#, pairing, "Exterior"] === WordDegree[#, pairing] + pairing["Degree"] &]
 ```
 

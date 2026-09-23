@@ -1,10 +1,12 @@
-bvDelta[e_] := unwrapOdot[hatQ120Odot[e] + hbar hatQ210Odot[e]]
+bdOperator[e_] := unwrapOdot[hatQ110Odot[e] + hatQ120Odot[e] + HBar hatQ210Odot[e]]
 
-bvDeltaNaive[e_] := unwrapOdot[hatQ120Odot[e] + hbar hatQ210OdotNaive[e]]
+bdOperatorNaive[e_] := unwrapOdot[hatQ120Odot[e] + HBar hatQ210OdotNaive[e]]
 
-bvBracket[u : _cyc | _odot, v : _cyc | _odot] := unwrapOdot[sgn[degF1[u]] (bvDelta[odot[u, v]] - odot[bvDelta[u], v]) - odot[u, bvDelta[v]]]
+bvBracket[u : _cyc | _odot, v : _cyc | _odot] := unwrapOdot[sgn[degF1[u]] (bdOperator[odot[u, v]] - odot[bdOperator[u], v]) - odot[u, bdOperator[v]]]
 
-bvQme[s_] := Expand[bvDelta[s] + 1/2 bvBracket[s, s]]
+bdBracket[u_, v_] := Expand[bvBracket[u, v]/HBar]
+
+bvQme[s_] := Expand[bdOperator[s] + 1/2 bvBracket[s, s]]
 
 hochschildPrimal[cyc[f_List]] := 0 /; Length[f] < 2
 
@@ -26,4 +28,4 @@ primalTerm[f_List, r_Integer] := With[{w = RotateLeft[f, r - 1]},
 
 $diamondProduct = <|{"a", "a"} -> {1, "a"}, {"a", "b"} -> {1, "b"}, {"b", "a"} -> {-1, "b"}|>;
 
-Scan[declareLinear, {bvBracket, hochschildPrimal}]
+Scan[declareLinear, {bvBracket, bdBracket, hochschildPrimal}]

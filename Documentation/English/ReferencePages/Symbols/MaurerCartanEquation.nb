@@ -1,0 +1,849 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     29586,        840]
+NotebookOptionsPosition[     22613,        699]
+NotebookOutlinePosition[     23714,        733]
+CellTagsIndexPosition[     23635,        728]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["MaurerCartanEquation", "ObjectName",
+ CellID->1224892054,ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec"],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo",ExpressionUUID->"cc456a7c-78c3-4456-a0e7-811bc339a77d"],
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["MaurerCartanEquation"]], 
+     "paclet:ChernSimons/ref/MaurerCartanEquation", 
+     "ChernSimons Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["s", "TI"], ",", " ", 
+    StyleBox["pairing", "TI"]}], "]"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "d608a996-622e-40c9-bde5-035a55b05963"],
+ "\[LineSeparator]",
+ "gives the obstruction of the Maurer-Cartan equation for the element whose \
+BD action is ",
+ StyleBox["s", "TI"],
+ "; ",
+ Cell[BoxData[
+  FormBox["0", TraditionalForm]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "d579d561-e820-4338-8b68-c56c440d55aa"],
+ " means it is a Maurer-Cartan element.",
+ "\n",
+ Cell["   ", "ModInfo",ExpressionUUID->"16414912-e51b-45d2-8a63-031829c7ceab"],
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["MaurerCartanEquation"]], 
+     "paclet:ChernSimons/ref/MaurerCartanEquation", 
+     "ChernSimons Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["s", "TI"], ",", " ", 
+    StyleBox["pairing", "TI"], ",", " ", "\"\<Equations\>\""}], "]"}]], 
+  "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "d0d4c532-f3f4-461d-a30e-fd8ab004d5a5"],
+ "\[LineSeparator]",
+ "gives the Association of scalar equations on the coefficients of ",
+ StyleBox["s", "TI"],
+ "."
+}], "Usage",ExpressionUUID->"f8c0cfdc-049e-4317-8701-d2f5b7138a54"],
+
+Cell[TextData[{
+ "The same function as ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["BeilinsonDrinfeldMasterEquation"]], 
+    "paclet:ChernSimons/ref/BeilinsonDrinfeldMasterEquation", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "e33ee5a1-fa95-428c-8fb1-40fcec963ca2"],
+ ": the coefficient of the BD master equation in ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     StyleBox["S",
+      FontSlant->"Plain"], "\[ScriptL]"], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       StyleBox["C", "TI"], 
+       RowBox[{"[", "1", "]"}]}], ")"}], 
+     StyleBox["g", "TI"]]}], TraditionalForm]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "788d919c-ba04-471b-b18a-5a5208624fb3"],
+ " is exactly the ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", 
+    RowBox[{"\[ScriptL]", ",", 
+     StyleBox["g", "TI"]}], ")"}], TraditionalForm]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "2657c9f4-165e-4a7e-8ee6-b9c2a45f55d3"],
+ " Maurer-Cartan equation, so the two names name one computation seen from \
+two sides."
+}], "Notes",ExpressionUUID->"dd75e071-8905-4083-b3b7-eade56c94cd1"],
+
+Cell[TextData[{
+ "The recipe that produces a Maurer-Cartan element from a geometry \
+\[LongDash] ribbon graphs, their combinatorial coefficients, the \
+configuration-space integrals and the signs \[LongDash] is ",
+ StyleBox["not",
+  FontWeight->"Bold"],
+ " implemented. An element is supplied, either written out or as a ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["MaurerCartanAnsatz"]], 
+    "paclet:ChernSimons/ref/MaurerCartanAnsatz", "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "74c225cf-1f7c-4e00-9836-e6f0d5b3a187"],
+ " over ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["MaurerCartanBasis"]], 
+    "paclet:ChernSimons/ref/MaurerCartanBasis", "ChernSimons Package Symbol"},
+   
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "e31de43d-91ea-4845-8ec7-3511d37e2523"],
+ "."
+}], "Notes",ExpressionUUID->"59413f2a-51c7-4197-bbbd-79f60e2459f7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "See Also",
+ Cell[BoxData[
+  TemplateBox[{"SeeAlso", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Insert links to any related reference (function) pages.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "b7caa910-e086-4d39-871e-e78bfb02a4b9"]
+}], "SeeAlsoSection",
+ CellID->1559318232,ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["MaurerCartanQ"]], "paclet:ChernSimons/ref/MaurerCartanQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "58c04586-5c98-455e-9b9b-a1aeb3c681f6"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["MaurerCartanBasis"]], 
+    "paclet:ChernSimons/ref/MaurerCartanBasis", "ChernSimons Package Symbol"},
+   
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "cd0f1fc6-c3eb-451f-ad66-1d5fee50fd9a"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["MaurerCartanAnsatz"]], 
+    "paclet:ChernSimons/ref/MaurerCartanAnsatz", "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "3f19457f-2512-4d32-8f49-bf2bbc79a9fe"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["BeilinsonDrinfeldMasterEquation"]], 
+    "paclet:ChernSimons/ref/BeilinsonDrinfeldMasterEquation", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "2eadd744-1304-4a45-8706-42935c4eedb2"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["PlanckDegree"]], "paclet:ChernSimons/ref/PlanckDegree", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "1f505a16-daf5-4d79-9606-c4828ece9a19"]
+}], "SeeAlso",ExpressionUUID->"f3016933-b3cb-435a-97a2-42ff7f635e01"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Tech Notes",
+ Cell[BoxData[
+  TemplateBox[{"TechNotes", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell["Insert links to related tech notes.", "MoreInfoText"], BaseStyle -> 
+       "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "a0027a76-2f69-4270-bf06-cff364aa09d7"]
+}], "TechNotesSection",
+ CellID->792424486,ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74"],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "MoreAboutSection",
+ CellID->38303248,ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5"],
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox["ChernSimons",
+  BaseStyle->"Link",
+  ButtonData->
+   "paclet:ChernSimons/guide/ChernSimons"]], \
+"InlineFormula",ExpressionUUID->"a0548742-a997-4fca-a49e-944bad6314a0"]], \
+"MoreAbout",ExpressionUUID->"409a199a-8319-4d1f-a6b7-05cd26be9eab"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Related Links",
+ Cell[BoxData[
+  TemplateBox[{"RelatedLinks", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Insert links to any related page, including web pages.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "88f916ad-99d1-4784-a15f-dfa2faf44f02"]
+}], "RelatedLinksSection",
+ CellID->47113304,ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Examples Initialization",
+ Cell[BoxData[
+  TemplateBox[{"ExamplesInitialization", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Input that is to be evaluated before any examples are run, e.g. \
+Needs[\[Ellipsis]].", "MoreInfoText"], BaseStyle -> "IFrameBox"]], 
+     "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "1ca4d14a-308f-4a68-bbf6-e6901ce2ab4c"]
+}], "ExamplesInitializationSection",
+ CellID->1718580883,ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<ChernSimons`\>\"", "]"}]], "ExampleInitialization",\
+
+ CellID->1969679695,ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox[
+      RowBox[{"Basic", " ", "Examples"}], "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151,ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42"],
+
+Cell["\<\
+The canonical element of the circle, and a word that is not a solution:\
+\>", "ExampleText",ExpressionUUID->"6b31cd76-f54e-4d44-8bdb-d45f67f98008"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pairing", " ", "=", " ", 
+   RowBox[{"GradedPairing", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"x", " ", "->", " ", 
+        RowBox[{"-", "1"}]}], ",", " ", 
+       RowBox[{"y", " ", "->", " ", "0"}]}], "|>"}], ",", " ", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"MaurerCartanEquation", "[", 
+    RowBox[{
+     RowBox[{"CyclicWord", "[", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", " ", "x", ",", " ", "y"}], "}"}], "]"}], ",", " ", 
+     "pairing"}], "]"}], ",", " ", 
+   RowBox[{"MaurerCartanEquation", "[", 
+    RowBox[{
+     RowBox[{"CyclicWord", "[", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", " ", "x", ",", " ", "y", ",", " ", "y"}], "}"}], 
+      "]"}], ",", " ", "pairing"}], "]"}]}], "}"}]}], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"202ddf90-83bf-4521-a0fd-e843319a97dc"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", 
+   RowBox[{
+    InterpretationBox[
+     RowBox[{"(", 
+      RowBox[{
+      "x", "\[ThinSpace]", "x", "\[ThinSpace]", "y", "\[ThinSpace]", "x", "\[ThinSpace]",
+        "y", "\[ThinSpace]", "y"}], ")"}],
+     ChernSimons`CyclicWord[{
+      MTNB$1jv0izlut6bhl`x, MTNB$1jv0izlut6bhl`x, MTNB$1jv0izlut6bhl`y, 
+       MTNB$1jv0izlut6bhl`x, MTNB$1jv0izlut6bhl`y, MTNB$1jv0izlut6bhl`y}],
+     Editable->False], "-", 
+    InterpretationBox[
+     RowBox[{"(", 
+      RowBox[{
+      "x", "\[ThinSpace]", "x", "\[ThinSpace]", "y", "\[ThinSpace]", "y", "\[ThinSpace]",
+        "x", "\[ThinSpace]", "y"}], ")"}],
+     ChernSimons`CyclicWord[{
+      MTNB$1jv0izlut6bhl`x, MTNB$1jv0izlut6bhl`x, MTNB$1jv0izlut6bhl`y, 
+       MTNB$1jv0izlut6bhl`y, MTNB$1jv0izlut6bhl`x, MTNB$1jv0izlut6bhl`y}],
+     Editable->False]}]}], "}"}]], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"f3cdf40d-1b85-49e2-84e5-7f5ea22a64ae"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "More Examples",
+ Cell[BoxData[
+  TemplateBox[{"MoreExamples", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell["Extended examples in standardized sections.", "MoreInfoText"], 
+       BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "352b6acf-a93b-4224-8779-658881cdabd0"]
+}], "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->533848431,ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Scope", "ExampleSection",ExpressionUUID->
+   "32e79d70-f7af-47ff-bb41-513374ef55db"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265,ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75"],
+
+Cell[TextData[{
+ "The ",
+ Cell[BoxData["\"\<Equations\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "f078bc36-fd0e-48d1-92af-2af3fd62a7b2"],
+ " form turns an Ansatz into the equations on its unknowns, which is what \
+makes the round trip useful:"
+}], "ExampleText",ExpressionUUID->"ef68b613-4b19-43d3-bb6e-22b63637cb72"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pairing", " ", "=", " ", 
+   RowBox[{"GradedPairing", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"x", " ", "->", " ", 
+        RowBox[{"-", "1"}]}], ",", " ", 
+       RowBox[{"y", " ", "->", " ", "0"}]}], "|>"}], ",", " ", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"MaurerCartanEquation", "[", 
+  RowBox[{
+   RowBox[{"MaurerCartanAnsatz", "[", 
+    RowBox[{"c", ",", " ", "pairing", ",", " ", "4"}], "]"}], ",", " ", 
+   "pairing", ",", " ", "\"\<Equations\>\""}], "]"}]}], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"12b70cbd-6e07-4fed-8414-794d9a385361"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{
+    InterpretationBox[
+     RowBox[{"(", 
+      RowBox[{
+      "x", "\[ThinSpace]", "x", "\[ThinSpace]", "y", "\[ThinSpace]", "x", "\[ThinSpace]",
+        "y", "\[ThinSpace]", "y"}], ")"}],
+     ChernSimons`CyclicWord[{
+      MTNB$1jv0izlut6bhl`x, MTNB$1jv0izlut6bhl`x, MTNB$1jv0izlut6bhl`y, 
+       MTNB$1jv0izlut6bhl`x, MTNB$1jv0izlut6bhl`y, MTNB$1jv0izlut6bhl`y}],
+     Editable->False], "\[Rule]", 
+    SuperscriptBox[
+     RowBox[{"c", "[", "2", "]"}], "2"]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     RowBox[{"(", 
+      RowBox[{
+      "x", "\[ThinSpace]", "x", "\[ThinSpace]", "y", "\[ThinSpace]", "y", "\[ThinSpace]",
+        "x", "\[ThinSpace]", "y"}], ")"}],
+     ChernSimons`CyclicWord[{
+      MTNB$1jv0izlut6bhl`x, MTNB$1jv0izlut6bhl`x, MTNB$1jv0izlut6bhl`y, 
+       MTNB$1jv0izlut6bhl`y, MTNB$1jv0izlut6bhl`x, MTNB$1jv0izlut6bhl`y}],
+     Editable->False], "\[Rule]", 
+    RowBox[{"-", 
+     SuperscriptBox[
+      RowBox[{"c", "[", "2", "]"}], "2"]}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"5bb74f93-08bd-4290-b9c1-f3431b137b1a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "915566df-2e89-4e88-ac50-d26d67eedf9d"],
+  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"bb40a6da-9136-4645-\
+86e8-80b0922e829b"],
+
+Cell[TextData[{
+ "Those equations are what ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["Solve"]], "paclet:ref/Solve"},
+   "RefLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "b9d88388-cf83-4b54-abd9-cd0fa66cfc5e"],
+ " wants:"
+}], "ExampleText",ExpressionUUID->"8c5ed125-dbfa-4e19-9fd6-609aa883a86d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pairing", " ", "=", " ", 
+   RowBox[{"GradedPairing", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"x", " ", "->", " ", 
+        RowBox[{"-", "1"}]}], ",", " ", 
+       RowBox[{"y", " ", "->", " ", "0"}]}], "|>"}], ",", " ", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"equations", " ", "=", " ", 
+     RowBox[{"Values", "[", 
+      RowBox[{"MaurerCartanEquation", "[", 
+       RowBox[{
+        RowBox[{"MaurerCartanAnsatz", "[", 
+         RowBox[{"c", ",", " ", "pairing", ",", " ", "4"}], "]"}], ",", " ", 
+        "pairing", ",", " ", "\"\<Equations\>\""}], "]"}], "]"}]}], "}"}], ",",
+    "\n", " ", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"Thread", "[", 
+      RowBox[{"equations", " ", "==", " ", "0"}], "]"}], ",", " ", 
+     RowBox[{"Variables", "[", "equations", "]"}]}], "]"}]}], "]"}]}], "Input",\
+
+ CellLabel->"In[1]:= ",ExpressionUUID->"0151a6d7-b2d9-40f9-954c-0c90c6714b73"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"c", "[", "2", "]"}], "\[Rule]", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"c", "[", "2", "]"}], "\[Rule]", "0"}], "}"}]}], "}"}]], "Output",\
+
+ CellLabel->"Out[1]= ",ExpressionUUID->"a1cac07f-f144-4fe6-88bf-0180bdc12752"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Generalizations & Extensions", "ExampleSection",ExpressionUUID->
+   "a148ce84-caec-4483-aa99-5b7bd6d55bf1"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627,ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Options", "ExampleSection",ExpressionUUID->
+   "b26b6366-7922-4236-a426-38c0f5de13f0"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341,ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Applications", "ExampleSection",ExpressionUUID->
+   "d5715ee2-1cae-4f33-89b2-0e99ea9caa6e"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157,ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Properties & Relations", "ExampleSection",ExpressionUUID->
+   "d18b1e1f-4c4c-49a5-bb54-1e5e145ddf4e"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759,ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438"],
+
+Cell["\<\
+Nothing here is the circle's \[LongDash] a three-letter alphabet works the \
+same way:\
+\>", "ExampleText",ExpressionUUID->"c95d5432-4107-47f6-b775-0b3d5005836a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"three", " ", "=", " ", 
+   RowBox[{"GradedPairing", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"p", " ", "->", " ", 
+        RowBox[{"-", "1"}]}], ",", " ", 
+       RowBox[{"q", " ", "->", " ", "0"}], ",", " ", 
+       RowBox[{"r", " ", "->", " ", 
+        RowBox[{"-", "1"}]}]}], "|>"}], ",", " ", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"p", ",", " ", "q"}], "}"}], " ", "->", " ", "1"}], ",", " ", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"r", ",", " ", "q"}], "}"}], " ", "->", " ", "1"}]}], 
+      "|>"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"MaurerCartanEquation", "[", 
+    RowBox[{
+     RowBox[{"CyclicWord", "[", 
+      RowBox[{"{", 
+       RowBox[{"p", ",", " ", "p", ",", " ", "q"}], "}"}], "]"}], ",", " ", 
+     "three"}], "]"}], ",", " ", 
+   RowBox[{"MaurerCartanEquation", "[", 
+    RowBox[{
+     RowBox[{"CyclicWord", "[", 
+      RowBox[{"{", 
+       RowBox[{"p", ",", " ", "q", ",", " ", "q"}], "}"}], "]"}], ",", " ", 
+     "three"}], "]"}]}], "}"}]}], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"d5b618ec-90a9-4c2d-a20a-c02786386001"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "0"}], "}"}]], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"ef7db622-f660-404d-bfd0-327b1852a73b"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Possible Issues", "ExampleSection",ExpressionUUID->
+   "dda06a82-eb41-4b48-8510-6cb821647761"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373,ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Interactive Examples", "ExampleSection",ExpressionUUID->
+   "e1fe5ce4-66df-44f8-b96d-14ea9265eaf2"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318,ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Neat Examples", "ExampleSection",ExpressionUUID->
+   "898193c6-0d9f-4097-90dd-7bc455972e43"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740,ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->311882160,ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"c83e5b59-d200-4539-afdc-500ed06d3c87"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"d4e38c0c-d937-44f2-85a5-7c0e8fc755ab"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "4c68d818-8923-4121-80f8-cf0eabb4c0de"]
+}], "History",
+ CellID->341476719,ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Categorization",
+ Cell[BoxData[
+  TemplateBox[{"Metadata", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Metadata such as page URI, context, and type of documentation page.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "4b3d4122-3cd4-481f-a8ff-5aefbb03e00d"]
+}], "CategorizationSection",
+ CellID->1755438392,ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a"],
+
+Cell["ChernSimons", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec"],
+
+Cell["ChernSimons`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191"],
+
+Cell["ChernSimons/ref/MaurerCartanEquation", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"5c12de49-09f4-497c-9f7b-e08db0a73a51"]
+}, Closed]],
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294,ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6"],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408,ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412,ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909,ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930,ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254,ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{5, Automatic}, {Automatic, 0}},
+TaggingRules->{
+ "Metadata" -> {
+   "title" -> "MaurerCartanEquation", "context" -> "ChernSimons`", 
+    "keywords" -> {
+     "Maurer-Cartan equation", "obstruction", "BD master equation"}, 
+    "summary" -> "", "paclet" -> "ChernSimons", "uri" -> 
+    "ChernSimons/ref/MaurerCartanEquation", "type" -> "Symbol", "index" -> 
+    True, "language" -> "en"}},
+CreateCellID->True,
+CellContext->CellGroup,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (July 2, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"c207366e-060a-406b-a297-9e30e1628f43"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[11437, 356, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+   CellTags->"ExtendedExamples",
+   CellID->533848431]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 23441, 721}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 118, 1, 70, "ObjectName",ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec",
+ CellID->1224892054],
+Cell[697, 25, 1610, 47, 70, "Usage",ExpressionUUID->"f8c0cfdc-049e-4317-8701-d2f5b7138a54"],
+Cell[2310, 74, 1215, 36, 70, "Notes",ExpressionUUID->"dd75e071-8905-4083-b3b7-eade56c94cd1"],
+Cell[3528, 112, 983, 26, 70, "Notes",ExpressionUUID->"59413f2a-51c7-4197-bbbd-79f60e2459f7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4548, 143, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
+ CellID->1559318232],
+Cell[5010, 158, 1654, 47, 70, "SeeAlso",ExpressionUUID->"f3016933-b3cb-435a-97a2-42ff7f635e01"]
+}, Open  ]],
+Cell[6679, 208, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
+ CellID->792424486],
+Cell[CellGroupData[{
+Cell[7139, 224, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
+ CellID->38303248],
+Cell[7258, 227, 280, 6, 70, "MoreAbout",ExpressionUUID->"409a199a-8319-4d1f-a6b7-05cd26be9eab"]
+}, Open  ]],
+Cell[7553, 236, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
+ CellID->47113304],
+Cell[CellGroupData[{
+Cell[8049, 253, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
+ CellID->1718580883],
+Cell[8583, 269, 171, 3, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
+ CellID->1969679695]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8791, 277, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
+ CellID->880084151],
+Cell[9236, 291, 157, 2, 70, "ExampleText",ExpressionUUID->"6b31cd76-f54e-4d44-8bdb-d45f67f98008"],
+Cell[CellGroupData[{
+Cell[9418, 297, 1017, 29, 70, "Input",ExpressionUUID->"202ddf90-83bf-4521-a0fd-e843319a97dc"],
+Cell[10438, 328, 950, 22, 70, "Output",ExpressionUUID->"f3cdf40d-1b85-49e2-84e5-7f5ea22a64ae"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11437, 356, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+ CellTags->"ExtendedExamples",
+ CellID->533848431],
+Cell[CellGroupData[{
+Cell[11949, 373, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
+ CellID->1293636265],
+Cell[12194, 380, 343, 7, 70, "ExampleText",ExpressionUUID->"ef68b613-4b19-43d3-bb6e-22b63637cb72"],
+Cell[CellGroupData[{
+Cell[12562, 391, 753, 20, 70, "Input",ExpressionUUID->"12b70cbd-6e07-4fed-8414-794d9a385361"],
+Cell[13318, 413, 1160, 29, 70, "Output",ExpressionUUID->"5bb74f93-08bd-4290-b9c1-f3431b137b1a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14515, 447, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"bb40a6da-9136-4645-86e8-80b0922e829b"],
+Cell[14742, 454, 367, 11, 70, "ExampleText",ExpressionUUID->"8c5ed125-dbfa-4e19-9fd6-609aa883a86d"],
+Cell[CellGroupData[{
+Cell[15134, 469, 1143, 32, 70, "Input",ExpressionUUID->"0151a6d7-b2d9-40f9-954c-0c90c6714b73"],
+Cell[16280, 503, 326, 10, 70, "Output",ExpressionUUID->"a1cac07f-f144-4fe6-88bf-0180bdc12752"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[16645, 518, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
+ CellID->1020263627],
+Cell[16913, 525, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
+ CellID->2061341341],
+Cell[17160, 532, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
+ CellID->258228157],
+Cell[CellGroupData[{
+Cell[17433, 541, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
+ CellID->2123667759],
+Cell[17695, 548, 172, 3, 70, "ExampleText",ExpressionUUID->"c95d5432-4107-47f6-b775-0b3d5005836a"],
+Cell[CellGroupData[{
+Cell[17892, 555, 1213, 35, 70, "Input",ExpressionUUID->"d5b618ec-90a9-4c2d-a20a-c02786386001"],
+Cell[19108, 592, 152, 3, 70, "Output",ExpressionUUID->"ef7db622-f660-404d-bfd0-327b1852a73b"]
+}, Open  ]]
+}, Open  ]],
+Cell[19287, 599, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
+ CellID->1305812373],
+Cell[19542, 606, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
+ CellID->1653164318],
+Cell[19802, 613, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
+ CellID->589267740]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20088, 623, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
+ CellID->311882160],
+Cell[20201, 626, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
+ CellID->341476719],
+Cell[CellGroupData[{
+Cell[20702, 642, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
+ CellID->1755438392],
+Cell[21190, 657, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
+ CellID->686433507],
+Cell[21327, 661, 139, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
+ CellID->605800465],
+Cell[21469, 665, 136, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
+ CellID->468444828],
+Cell[21608, 669, 136, 1, 70, "Categorization",ExpressionUUID->"5c12de49-09f4-497c-9f7b-e08db0a73a51"]
+}, Closed]],
+Cell[21759, 673, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
+ CellID->477174294],
+Cell[CellGroupData[{
+Cell[21894, 678, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
+ CellID->1872225408],
+Cell[22017, 681, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
+ CellID->1562036412],
+Cell[22169, 685, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
+ CellID->158391909],
+Cell[22309, 689, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
+ CellID->1360575930],
+Cell[22448, 693, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
+ CellID->793782254]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

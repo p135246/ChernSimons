@@ -1,11 +1,12 @@
 ---
 Template: Symbol
 Name: KoszulSign
-Context: IBLInfinity`
-Paclet: IBLInfinity
-URI: IBLInfinity/ref/KoszulSign
+Context: ChernSimons`
+Paclet: ChernSimons
+URI: ChernSimons/ref/KoszulSign
 Keywords: [Koszul sign, permutation, graded, parity, transposition]
 SeeAlso: [WordDegree, ExteriorProduct, SymmetricProduct, ShiftIsomorphism]
+RelatedGuides: [ChernSimons]
 ---
 
 ## Usage
@@ -87,7 +88,7 @@ Map[# -> KoszulSign[#, {-1, 0, -1}, 0] &, Permutations[Range[3]]]
 The sign the products apply when sorting is this one, at the grading and parity of the picture: [ExteriorProduct]() sorts at the exterior degree with *parity* $1$, [SymmetricProduct]() at the symmetric degree with *parity* $0$.
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 {ExteriorProduct[CyclicWord[{y}], CyclicWord[{x}], pairing], KoszulSign[{2, 1}, {WordDegree[{y}, pairing, "Exterior"], WordDegree[{x}, pairing, "Exterior"]}, 1]}
 ```
 
@@ -98,7 +99,7 @@ pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 The symmetric picture sorts the same factors at parity $0$, and gets the other sign:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 {SymmetricProduct[CyclicWord[{y}], CyclicWord[{x}], pairing], KoszulSign[{2, 1}, {WordDegree[{y}, pairing, "Symmetric"], WordDegree[{x}, pairing, "Symmetric"]}, 0]}
 ```
 

@@ -1,11 +1,12 @@
 ---
 Template: Symbol
 Name: DualPairing
-Context: IBLInfinity`
-Paclet: IBLInfinity
-URI: IBLInfinity/ref/DualPairing
+Context: ChernSimons`
+Paclet: ChernSimons
+URI: ChernSimons/ref/DualPairing
 Keywords: [dual pairing, evaluation, dual alphabet, cyclic word]
-SeeAlso: [ProductPairing, Pairing, CyclicWord, KoszulSign]
+SeeAlso: [ProductPairing, GradedPairing, CyclicWord, KoszulSign]
+RelatedGuides: [ChernSimons]
 ---
 
 ## Usage
@@ -14,7 +15,7 @@ SeeAlso: [ProductPairing, Pairing, CyclicWord, KoszulSign]
 
 ## Details & Options
 
-*pairing* must carry a `"Dual"` key, so it has to be built with the four-argument form <code>[Pairing]()[*degrees*, *spec*, *dualDegrees*, *evaluation*]</code>. Without it [DualPairing]() issues `Pairing::dual` and aborts.
+*pairing* must carry a `"Dual"` key, so it has to be built with the four-argument form <code>[GradedPairing]()[*degrees*, *spec*, *dualDegrees*, *evaluation*]</code>. Without it [DualPairing]() issues `GradedPairing::dual` and aborts.
 
 The value is a number: the sum over all matchings of the particles of *f* against the dual particles of *e*, each weighted by the Koszul sign of the rotation that produces it and by the entries of the *evaluation* association.
 
@@ -29,7 +30,7 @@ The extension of this evaluation to products of words is [ProductPairing]().
 A dual alphabet with $\langle x,a\rangle=1$ and $\langle y,b\rangle=1$, and the evaluation of $xy$ on $ab$:
 
 ```wl
-dual = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>];
+dual = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>];
 DualPairing[CyclicWord[{x, y}], CyclicWord[{a, b}], dual]
 ```
 
@@ -40,7 +41,7 @@ DualPairing[CyclicWord[{x, y}], CyclicWord[{a, b}], dual]
 A word whose two rotations both match counts both:
 
 ```wl
-dual = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>];
+dual = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>];
 DualPairing[CyclicWord[{y, y}], CyclicWord[{b, b}], dual]
 ```
 
@@ -51,7 +52,7 @@ DualPairing[CyclicWord[{y, y}], CyclicWord[{b, b}], dual]
 Words of different lengths do not pair:
 
 ```wl
-dual = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>];
+dual = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>];
 DualPairing[CyclicWord[{x, y}], CyclicWord[{a, b, b}], dual]
 ```
 
@@ -62,7 +63,7 @@ DualPairing[CyclicWord[{x, y}], CyclicWord[{a, b, b}], dual]
 The pairing is on cyclic words, so a rotation of the dual word gives the same value:
 
 ```wl
-dual = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>];
+dual = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>];
 {DualPairing[CyclicWord[{x, y}], CyclicWord[{a, b}], dual], DualPairing[CyclicWord[{x, y}], CyclicWord[{b, a}], dual]}
 ```
 
@@ -73,7 +74,7 @@ dual = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, 
 The full evaluation table in length $2$:
 
 ```wl
-dual = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>];
+dual = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>];
 Outer[DualPairing[#1, #2, dual] &, {CyclicWord[{x, y}], CyclicWord[{y, y}]}, {CyclicWord[{a, b}], CyclicWord[{b, b}]}]
 ```
 
@@ -84,7 +85,7 @@ Outer[DualPairing[#1, #2, dual] &, {CyclicWord[{x, y}], CyclicWord[{y, y}]}, {Cy
 [ProductPairing]() extends the evaluation to products of equal length:
 
 ```wl
-dual = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>];
+dual = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>];
 ProductPairing[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], dual], SymmetricProduct[CyclicWord[{a}], CyclicWord[{b}], dual], dual]
 ```
 
@@ -92,10 +93,10 @@ ProductPairing[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], dual], Symmetr
 
 ## Possible Issues
 
-A pairing object built with two arguments carries no dual alphabet, and [DualPairing]() aborts on it with `Pairing::dual`. Check for the key before evaluating.
+A pairing object built with two arguments carries no dual alphabet, and [DualPairing]() aborts on it with `GradedPairing::dual`. Check for the key before evaluating.
 
 ```wl
-KeyExistsQ[Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Dual"]
+KeyExistsQ[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Dual"]
 ```
 
 <!-- => False -->

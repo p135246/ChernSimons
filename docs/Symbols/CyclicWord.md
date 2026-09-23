@@ -1,11 +1,12 @@
 ---
 Template: Symbol
 Name: CyclicWord
-Context: IBLInfinity`
-Paclet: IBLInfinity
-URI: IBLInfinity/ref/CyclicWord
+Context: ChernSimons`
+Paclet: ChernSimons
+URI: ChernSimons/ref/CyclicWord
 Keywords: [cyclic word, canonical rotation, Koszul sign, graded alphabet]
-SeeAlso: [CyclicWords, WordDegree, Pairing, ExteriorProduct, SymmetricProduct]
+SeeAlso: [CyclicWords, WordDegree, GradedPairing, ExteriorProduct, SymmetricProduct]
+RelatedGuides: [ChernSimons]
 ---
 
 ## Usage
@@ -18,7 +19,7 @@ SeeAlso: [CyclicWords, WordDegree, Pairing, ExteriorProduct, SymmetricProduct]
 
 [CyclicWord]() with one argument is inert: it is the normal form in which every operation of the paclet returns its words, and it carries no grading of its own.
 
-*data* is either a pairing object built by [Pairing](), or a bare association from particles to degrees. Only the degrees are read, so the two are interchangeable here.
+*data* is either a pairing object built by [GradedPairing](), or a bare association from particles to degrees. Only the degrees are read, so the two are interchangeable here.
 
 A cyclic word is a word up to rotation, and rotating past a particle of odd degree costs a Koszul sign. The canonical rotation is the least one in the paclet's internal order; the sign relating *w* to it is returned as a scalar coefficient.
 
@@ -26,12 +27,20 @@ A word fixed by a rotation of odd total sign equals its own negative and is ther
 
 The two-argument form is a normalization, not a constructor: it is idempotent, and applying it to a word already in canonical form returns that word unchanged.
 
+<code>[CyclicWord]()[{}]</code> is the empty word, a word of degree $0$ that the paper's positive-length convention does not have and the empty-word extension does.
+
+A word displays as its letters in parentheses, $(x\,y\,y)$, and the empty word as $\epsilon$. A letter that is not a symbol is set in its own parentheses, so juxtaposition always says where one letter ends and the next begins. The displayed form is the word itself: copying it back into an input cell gives the same expression, and <code>[InputForm]()</code> and <code>[OutputForm]()</code> are untouched.
+
+| option | default | effect |
+|---|---|---|
+| <code>"EmptyWord"</code> | <code>False</code> | whether <code>[CyclicWord]()[{}, *data*]</code> is the empty word rather than $0$ |
+
 ## Basic Examples
 
 Rotating a word into canonical form:
 
 ```wl
-CyclicWord[{y, x}, Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+CyclicWord[{y, x}, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => CyclicWord[{x, y}] -->
@@ -41,7 +50,7 @@ CyclicWord[{y, x}, Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 A cyclically antisymmetric word vanishes:
 
 ```wl
-CyclicWord[{x, x}, Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+CyclicWord[{x, x}, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => 0 -->
@@ -71,7 +80,7 @@ CyclicWord[{y, y, x}, <|x -> -1, y -> 0|>]
 Longer words are normalized the same way:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 CyclicWord[#, pairing] & /@ {{y, x}, {y, y, x}, {y, x, y, y}}
 ```
 
@@ -82,18 +91,29 @@ CyclicWord[#, pairing] & /@ {{y, x}, {y, y, x}, {y, x, y, y}}
 Every word that a rotation sends to minus itself is $0$:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 CyclicWord[#, pairing] & /@ {{x, x}, {x, y, x, y}, {y, x, y, x}}
 ```
 
 <!-- => {0, 0, 0} -->
+
+---
+
+The empty word is $0$ in the paper's convention and a word in the extension:
+
+```wl
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+{CyclicWord[{}, pairing], CyclicWord[{}, pairing, "EmptyWord" -> True], WordDegree[{}, pairing, "Symmetric"]}
+```
+
+<!-- => {0, CyclicWord[{}], -2} -->
 
 ## Properties and Relations
 
 [CyclicWords]() enumerates exactly the words that the two-argument [CyclicWord]() does not send to $0$:
 
 ```wl
-CyclicWords[2, Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+CyclicWords[2, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => {CyclicWord[{x, y}], CyclicWord[{y, y}]} -->
@@ -103,7 +123,7 @@ CyclicWords[2, Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 Normalization is idempotent:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 CyclicWord[{y, y, x}, pairing] === CyclicWord[{x, y, y}, pairing]
 ```
 

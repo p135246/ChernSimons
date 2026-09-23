@@ -1,11 +1,12 @@
 ---
 Template: Symbol
 Name: ShiftIsomorphism
-Context: IBLInfinity`
-Paclet: IBLInfinity
-URI: IBLInfinity/ref/ShiftIsomorphism
+Context: ChernSimons`
+Paclet: ChernSimons
+URI: ChernSimons/ref/ShiftIsomorphism
 Keywords: [shift isomorphism, decalage, reversal rule, position rule, sign convention]
-SeeAlso: [SymmetricProduct, ExteriorProduct, Bracket, Cobracket, WordDegree, KoszulSign]
+SeeAlso: [SymmetricProduct, ExteriorProduct, InvolutiveBracket, InvolutiveCobracket, WordDegree, KoszulSign]
+RelatedGuides: [ChernSimons]
 ---
 
 ## Usage
@@ -25,7 +26,7 @@ The symmetric and exterior products are graded by $[-]_1$ and $[-]$, one apart, 
 
 The rule may also be given positionally as a third argument, which is the same as setting the `"Rule"` option.
 
-**The reversal rule is the one that matters.** It is the convention that intertwines [Bracket]() and [Cobracket]() in every arity; the position rule does not, and is provided so that the difference between the two can be examined rather than assumed.
+**The reversal rule is the one that matters.** It is the convention that intertwines [InvolutiveBracket]() and [InvolutiveCobracket]() in every arity; the position rule does not, and is provided so that the difference between the two can be examined rather than assumed.
 
 The two rules differ by a sign that depends on the degrees of the factors and on how many there are. Over the alphabet of the circle they coincide on every product of an even number of factors, and differ on some products of every odd number — including on a single factor, where they disagree exactly when its symmetric degree is even.
 
@@ -36,7 +37,7 @@ With `"Inverse" -> True` the map runs the other way, from [ExteriorProduct]() to
 Sending a two-factor symmetric product to the exterior picture:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 ShiftIsomorphism[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], pairing], pairing]
 ```
 
@@ -47,7 +48,7 @@ ShiftIsomorphism[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], pairing], pa
 On three factors the shift costs a sign:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 ShiftIsomorphism[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], CyclicWord[{y, y}], pairing], pairing]
 ```
 
@@ -58,7 +59,7 @@ ShiftIsomorphism[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], CyclicWord[{
 Running it backwards returns the original:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 e = SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], CyclicWord[{y, y}], pairing];
 ShiftIsomorphism[ShiftIsomorphism[e, pairing], pairing, "Inverse" -> True] === e
 ```
@@ -70,7 +71,7 @@ ShiftIsomorphism[ShiftIsomorphism[e, pairing], pairing, "Inverse" -> True] === e
 The two rules agree on this two-factor product:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 e = SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], pairing];
 ShiftIsomorphism[e, pairing] === ShiftIsomorphism[e, pairing, "Position"]
 ```
@@ -82,19 +83,19 @@ ShiftIsomorphism[e, pairing] === ShiftIsomorphism[e, pairing, "Position"]
 On a single factor of even symmetric degree they already differ by a sign:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
-e = SymmetricProduct[CyclicWord[{y}], pairing];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+e = CyclicWord[{y}];
 {WordDegree[{y}, pairing, "Symmetric"], ShiftIsomorphism[e, pairing], ShiftIsomorphism[e, pairing, "Position"]}
 ```
 
-<!-- => {-2, ExteriorProduct[CyclicWord[{y}]], -ExteriorProduct[CyclicWord[{y}]]} -->
+<!-- => {-2, CyclicWord[{y}], -CyclicWord[{y}]} -->
 
 ---
 
 On three factors they differ by a sign here too:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 e = SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], CyclicWord[{x, y}], pairing];
 {ShiftIsomorphism[e, pairing], ShiftIsomorphism[e, pairing, "Position"]}
 ```
@@ -106,7 +107,7 @@ e = SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], CyclicWord[{x, y}], pairi
 The rule may be given as an option rather than positionally:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 e = SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], CyclicWord[{x, y}], pairing];
 ShiftIsomorphism[e, pairing, "Rule" -> "Position"] === ShiftIsomorphism[e, pairing, "Position"]
 ```
@@ -118,7 +119,7 @@ ShiftIsomorphism[e, pairing, "Rule" -> "Position"] === ShiftIsomorphism[e, pairi
 Over every product of at most four words of length at most $3$, the two rules agree on all the even numbers of factors and disagree on some of the odd ones:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 words = CyclicWords[3, pairing, "UpTo" -> True];
 Table[k -> Tally[Table[
      SameQ[ShiftIsomorphism[SymmetricProduct @@ Append[tuple, pairing], pairing],
@@ -133,9 +134,9 @@ Table[k -> Tally[Table[
 The reversal rule intertwines the co-bracket of the two pictures:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 exterior = Append[pairing, "Convention" -> "Exterior"];
-{ShiftIsomorphism[Cobracket[CyclicWord[{x, y, y, y}], pairing], pairing], Cobracket[CyclicWord[{x, y, y, y}], exterior]}
+{ShiftIsomorphism[InvolutiveCobracket[CyclicWord[{x, y, y, y}], pairing], pairing], InvolutiveCobracket[CyclicWord[{x, y, y, y}], exterior]}
 ```
 
 <!-- => {ExteriorProduct[CyclicWord[{y}], CyclicWord[{y}]], ExteriorProduct[CyclicWord[{y}], CyclicWord[{y}]]} -->
@@ -145,7 +146,7 @@ exterior = Append[pairing, "Convention" -> "Exterior"];
 The direction is set by the `"Inverse"` option alone, never by the `"Convention"` key of the pairing object. The inverse of an [ExteriorProduct]() is taken against the same pairing object as the forward map.
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 exterior = Append[pairing, "Convention" -> "Exterior"];
 ShiftIsomorphism[ExteriorProduct[CyclicWord[{x}], CyclicWord[{y}], CyclicWord[{y, y}], exterior], pairing, "Inverse" -> True]
 ```

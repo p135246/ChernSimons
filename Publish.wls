@@ -9,11 +9,11 @@ $pacletDirectory = DirectoryName[ $InputFileName ];
 
 $staged = { "PacletInfo.wl", "Kernel", "Engine" };
 
-$cloudPath = "s1paper/IBLInfinity.paclet";
+$cloudPath = "s1paper/ChernSimons.paclet";
 
 PublishPaclet[ ] :=
   Module[ { stage, archive, object },
-    stage = FileNameJoin[ { CreateDirectory[ ], "IBLInfinity" } ];
+    stage = FileNameJoin[ { CreateDirectory[ ], "ChernSimons" } ];
     CreateDirectory[ stage ];
     Scan[ item |-> CopyItem[ FileNameJoin[ { $pacletDirectory, item } ], FileNameJoin[ { stage, item } ] ], $staged ];
     archive = CreatePacletArchive[ stage ];

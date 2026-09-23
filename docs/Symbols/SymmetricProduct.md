@@ -1,11 +1,12 @@
 ---
 Template: Symbol
 Name: SymmetricProduct
-Context: IBLInfinity`
-Paclet: IBLInfinity
-URI: IBLInfinity/ref/SymmetricProduct
+Context: ChernSimons`
+Paclet: ChernSimons
+URI: ChernSimons/ref/SymmetricProduct
 Keywords: [symmetric product, odot, Koszul sign, shifted grading]
-SeeAlso: [ExteriorProduct, ShiftIsomorphism, WordDegree, Bracket, Cobracket, Pairing]
+SeeAlso: [ExteriorProduct, ShiftIsomorphism, WordDegree, InvolutiveBracket, InvolutiveCobracket, GradedPairing]
+RelatedGuides: [ChernSimons]
 ---
 
 ## Usage
@@ -14,7 +15,7 @@ SeeAlso: [ExteriorProduct, ShiftIsomorphism, WordDegree, Bracket, Cobracket, Pai
 
 ## Details & Options
 
-The factors are cyclic words; the last argument is always the pairing object.
+The factors are cyclic words, or lists of particles; the last argument is always the pairing object. The product is linear in every factor.
 
 Sorting uses the symmetric grading $[-]_1 = [-]-1$, the one [WordDegree]() returns under `"Symmetric"`. Exchanging two factors costs $(-1)^{[u]_1[v]_1}$.
 
@@ -24,14 +25,16 @@ The normalized result carries only its factors — the pairing argument is consu
 
 A product with a repeated factor of odd symmetric degree is $0$.
 
-This is the default picture: a pairing object built by [Pairing]() carries `"Convention" -> "Symmetric"` unless it is reset.
+This is the default picture: a pairing object built by [GradedPairing]() carries `"Convention" -> "Symmetric"` unless it is reset.
+
+A normalized product displays as its factors joined by $\odot$, each word in its own parentheses.
 
 ## Basic Examples
 
 Two factors, sorted into canonical order:
 
 ```wl
-SymmetricProduct[CyclicWord[{y}], CyclicWord[{x}], Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+SymmetricProduct[CyclicWord[{y}], CyclicWord[{x}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}]] -->
@@ -41,7 +44,7 @@ SymmetricProduct[CyclicWord[{y}], CyclicWord[{x}], Pairing[<|x -> -1, y -> 0|>, 
 A repeated factor of odd symmetric degree vanishes:
 
 ```wl
-SymmetricProduct[CyclicWord[{x}], CyclicWord[{x}], Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+SymmetricProduct[CyclicWord[{x}], CyclicWord[{x}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => 0 -->
@@ -51,27 +54,38 @@ SymmetricProduct[CyclicWord[{x}], CyclicWord[{x}], Pairing[<|x -> -1, y -> 0|>, 
 Any number of factors is sorted at once:
 
 ```wl
-SymmetricProduct[CyclicWord[{y, y}], CyclicWord[{y}], CyclicWord[{x}], Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+SymmetricProduct[CyclicWord[{y, y}], CyclicWord[{y}], CyclicWord[{x}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], CyclicWord[{y, y}]] -->
 
 ## Scope
 
-A single factor is a one-factor product, not the bare word:
+A single factor is the word itself:
 
 ```wl
-SymmetricProduct[CyclicWord[{x}], Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+SymmetricProduct[CyclicWord[{x}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
-<!-- => SymmetricProduct[CyclicWord[{x}]] -->
+<!-- => CyclicWord[{x}] -->
+
+---
+
+Factors may be given as lists of particles, and are brought into canonical rotation:
+
+```wl
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+{SymmetricProduct[{y}, {x}, pairing], SymmetricProduct[CyclicWord[{y, x, x}], CyclicWord[{y}], pairing]}
+```
+
+<!-- => {SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}]], SymmetricProduct[CyclicWord[{y}], CyclicWord[{x, x, y}]]} -->
 
 ---
 
 A repeated factor of even symmetric degree survives:
 
 ```wl
-SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}], Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}]] -->
@@ -81,7 +95,7 @@ SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}], Pairing[<|x -> -1, y -> 0|>, 
 The symmetric and exterior pictures differ by exactly the shift in the grading:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 {SymmetricProduct[CyclicWord[{y}], CyclicWord[{x}], pairing], ExteriorProduct[CyclicWord[{y}], CyclicWord[{x}], pairing]}
 ```
 
@@ -92,7 +106,7 @@ pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 [ShiftIsomorphism]() carries one to the other, and back:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
 e = SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], CyclicWord[{y, y}], pairing];
 ShiftIsomorphism[ShiftIsomorphism[e, pairing], pairing, "Inverse" -> True] === e
 ```
@@ -101,11 +115,11 @@ ShiftIsomorphism[ShiftIsomorphism[e, pairing], pairing, "Inverse" -> True] === e
 
 ---
 
-[Cobracket]() of a word lands in a two-factor symmetric product:
+[InvolutiveCobracket]() of a word lands in a two-factor symmetric product:
 
 ```wl
-pairing = Pairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
-Cobracket[CyclicWord[{x, y, y, y}], pairing]
+pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>];
+InvolutiveCobracket[CyclicWord[{x, y, y, y}], pairing]
 ```
 
 <!-- => -SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}]] -->
