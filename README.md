@@ -20,7 +20,7 @@ One can imagine it as the open part of an open-closed string field theory of hol
 
 - 🗺️ Map of the computational boundary of the theory.
 - 🤖 Computational API for LLM agents to verify papers.
-- 🧪 Finite set verification of axiomatic formalization.
+- 🧪 Bounded-case verification of axiomatic formalization.
 - 🧵 String topology computations.
 
 ## ⚙️ Installation
