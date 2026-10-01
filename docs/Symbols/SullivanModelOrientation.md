@@ -4,38 +4,66 @@ Name: SullivanModelOrientation
 Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/ref/SullivanModelOrientation
-Keywords: [orientation, volume form, integration, Poincare duality degree]
-SeeAlso: [SullivanModel, SullivanModelPairing, SullivanModelProduct, SullivanModelDifferential, NondegenerateQuotient]
-RelatedGuides: [ChernSimons]
+Keywords: [orientation, integration, Poincare duality degree]
+SeeAlso: [SullivanModel, OrientationQ, SullivanModelPairing, SullivanModelProduct, SullivanModelDifferential, NondegenerateQuotient]
+RelatedGuides: [SullivanModels]
 ---
 
 ## Usage
 
-<code>[SullivanModelOrientation]()[*e*, *model*]</code> is the coefficient of the volume monomial in *e*.
+<code>[SullivanModelOrientation]()[*e*, *model*]</code> gives the orientation of the Sullivan model *model* applied to the element *e*.
+
+<!-- #| annotation: 26.09.30: Design review - the model keeps its orientation as values on the monomials of degree n, under the key "Orientation", so that an orientation may take other values than 1 and on several monomials, as the request of 2026-09-23 asked; this function expands e in monomials and weights each coefficient by its value. Alternative name considered: ModelOrientation, the name until 2026-09-21, renamed because "Model" alone is generic. Prior art: the Wolfram Language integrates functions with Integrate and has no algebraic orientation of a graded algebra. The engine the verification suites load orients a model by one volume monomial and reads its coefficient; the suites pin this function over the catalogue, where it kills the image of the differential and is 1 on the volume monomial, and through the pairing and the triple product of the nondegenerate quotient, which they compare with the engine's. -->
 
 ## Details & Options
 
-An *orientation* of degree $n$ on a cochain complex $(V,\mathrm{d})$ is a linear map $\mathcal{O}\colon V\to\mathbb{K}$ such that $\mathcal{O}$ vanishes outside degree $n$, $\mathcal{O}\circ\mathrm{d} = 0$, and the induced map on cohomology is nonzero. Projecting onto a single monomial of degree $n$ satisfies the first condition by construction; the other two hold for every model in [$SullivanModels]().
-
-For the de Rham algebra of a closed oriented manifold the corresponding map is integration, so this is the algebraic stand-in for $\omega\mapsto\int_X\omega$.
+- An orientation of degree $n$ on a cochain complex $(V,\mathrm{d})$ is a linear map $\mathcal{O}\colon V\to\mathbb{K}$ that vanishes outside degree $n$, satisfies $\mathcal{O}\circ\mathrm{d} = 0$, and induces a nonzero map on cohomology.
+- The model stores the values of $\mathcal{O}$ on the monomials of degree $n$ under the key `"Orientation"`. [SullivanModelOrientation]() gives the sum of the coefficients of *e* on those monomials, weighted by their values.
+- It is linear, and it is $0$ on every monomial that has no value.
+- [SullivanModel]() checks with [OrientationQ]() that the values define an orientation when it builds a model.
+- For the de Rham algebra of a closed oriented manifold $X$ the corresponding map is integration, $\omega\mapsto\int_X\omega$.
+- A monomial is read in the order the model declares its generators, so a reordering carries no sign; the sign comes from [SullivanModelProduct]().
+- An element that is not a polynomial in the generators returns unevaluated.
 
 ## Basic Examples
 
-The volume monomial of the model of $\mathbb{CP}^2$ is $a^2$, and the orientation sees nothing else:
+The orientation of the model of $\mathbb{CP}^2$ is $1$ on $a^2$:
 
 ```wl
-model = SullivanModel["ComplexProjectiveSpace"[2]];
-{SullivanModelOrientation[a^2, model], SullivanModelOrientation[a^3, model], SullivanModelOrientation[b, model]}
+SullivanModelOrientation[a^2, SullivanModel["ComplexProjectiveSpace"[2]]]
 ```
 
-<!-- => {1, 0, 0} -->
+<!-- => 1 -->
 
 ---
+
+The model of $\mathbb{CP}^2$:
+
+```wl
+model = SullivanModel["ComplexProjectiveSpace"[2]]
+```
+
+<!-- => a SullivanModel object with generators a of degree 2 and b of degree 5, of degree 4 -->
+
+It is $0$ outside degree $4$:
+
+```wl
+SullivanModelOrientation[a^3, model]
+```
+
+<!-- => 0 -->
+
+It is $0$ on $b$ as well:
+
+```wl
+SullivanModelOrientation[b, model]
+```
+
+<!-- => 0 -->
 
 It is linear, so a coefficient comes out:
 
 ```wl
-model = SullivanModel["ComplexProjectiveSpace"[2]];
 SullivanModelOrientation[3 a^2 + 5 b, model]
 ```
 
@@ -43,34 +71,126 @@ SullivanModelOrientation[3 a^2 + 5 b, model]
 
 ## Scope
 
-On the Heisenberg nilmanifold the volume monomial is $xyz$, and the sign of a reordering is visible:
+The model of the Heisenberg nilmanifold:
 
 ```wl
-model = SullivanModel["HeisenbergNilmanifold"];
-{SullivanModelOrientation[SullivanModelProduct[x, y, z, model], model],
- SullivanModelOrientation[SullivanModelProduct[z, y, x, model], model]}
+model = SullivanModel["HeisenbergNilmanifold"]
 ```
 
-<!-- => {1, -1} -->
+<!-- => a SullivanModel object with generators x, y, z of degree 1, of degree 3 -->
+
+The orientation is $1$ on $xyz$:
+
+```wl
+SullivanModelOrientation[SullivanModelProduct[x, y, z, model], model]
+```
+
+<!-- => 1 -->
+
+The sign of a reordering shows in the product:
+
+```wl
+SullivanModelOrientation[SullivanModelProduct[z, y, x, model], model]
+```
+
+<!-- => -1 -->
+
+---
+
+On $S^2\times S^2$ an orientation given by its value on $pr$:
+
+```wl
+square = SullivanModel[<|p -> 2, q -> 3, r -> 2, s -> 3|>, <|q -> p^2, s -> r^2|>, <|p r -> 3|>]
+```
+
+<!-- => a SullivanModel object with generators p, r of degree 2 and q, s of degree 3, of degree 4 -->
+
+It is $3$ on $pr$:
+
+```wl
+SullivanModelOrientation[p r, square]
+```
+
+<!-- => 3 -->
+
+It is $0$ on the boundaries $p^2$ and $r^2$:
+
+```wl
+SullivanModelOrientation[p^2 + r^2, square]
+```
+
+<!-- => 0 -->
+
+---
+
+Coefficients may be symbolic:
+
+```wl
+SullivanModelOrientation[t a^2, SullivanModel["ComplexProjectiveSpace"[2]]]
+```
+
+<!-- => t -->
 
 ## Properties and Relations
 
-It kills the image of the differential:
+The model of the Kodaira-Thurston manifold:
 
 ```wl
-model = SullivanModel["KodairaThurston"];
-Union[Map[e |-> SullivanModelOrientation[SullivanModelDifferential[e, model], model], SullivanModelBasis[model, 3]]]
+model = SullivanModel["KodairaThurston"]
+```
+
+<!-- => a SullivanModel object with generators x, y, z, t of degree 1, of degree 4 -->
+
+The orientation kills the image of the differential:
+
+```wl
+Union[(e |-> SullivanModelOrientation[SullivanModelDifferential[e, model], model]) /@ SullivanModelBasis[model, 3]]
 ```
 
 <!-- => {0} -->
 
 ---
 
-The pairing of the model is the orientation of the product:
+The model of $\mathbb{CP}^3$:
 
 ```wl
-model = SullivanModel["ComplexProjectiveSpace"[3]];
-{SullivanModelPairing[a, a^2, model], SullivanModelOrientation[SullivanModelProduct[a, a^2, model], model]}
+model = SullivanModel["ComplexProjectiveSpace"[3]]
 ```
 
-<!-- => {1, 1} -->
+<!-- => a SullivanModel object with generators a of degree 2 and b of degree 7, of degree 6 -->
+
+The pairing of $a$ and $a^2$:
+
+```wl
+SullivanModelPairing[a, a^2, model]
+```
+
+<!-- => 1 -->
+
+It is the orientation of the product:
+
+```wl
+SullivanModelOrientation[SullivanModelProduct[a, a^2, model], model]
+```
+
+<!-- => 1 -->
+
+---
+
+The values of the orientation are the key `"Orientation"` of the model:
+
+```wl
+SullivanModel["ComplexProjectiveSpace"[3]]["Orientation"]
+```
+
+<!-- => <|a^3 -> 1|> -->
+
+## Possible Issues
+
+An element that is not a polynomial in the generators returns unevaluated:
+
+```wl
+SullivanModelOrientation[Sin[a], SullivanModel["ComplexProjectiveSpace"[2]]]
+```
+
+<!-- => the input, unevaluated -->

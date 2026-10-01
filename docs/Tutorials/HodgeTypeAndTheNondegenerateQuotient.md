@@ -6,7 +6,7 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/tutorial/HodgeTypeAndTheNondegenerateQuotient
 Keywords: [Hodge decomposition, Hodge type, degenerate subspace, nondegenerate quotient, differential Poincare duality model, nilmanifold, counterexample]
-RelatedGuides: [ChernSimons]
+RelatedGuides: [ChernSimons, HodgeDecompositions]
 RelatedTutorials: [FromASullivanModelToAnIBLAlgebra, TheCanonicalIBLAlgebraOfTheCircle]
 ---
 
@@ -29,7 +29,7 @@ Two facts tie the notions together, both from the reference and both used here:
 - if $V$ is of Hodge type and the pairing on $H(V)$ is nondegenerate, then $\pi_{\mathcal{Q}}\colon V\to\mathcal{Q}(V)$ is a quasi-isomorphism;
 - conversely, in characteristic $\neq 2$, if $\pi_{\mathcal{Q}}$ is a quasi-isomorphism and $\mathcal{Q}(V)$ is of finite type, then $V$ is of Hodge type.
 
-And $\pi_{\mathcal{Q}}$ is a quasi-isomorphism exactly when its kernel $V_{\mathrm{deg}}$ is acyclic. So the computable form of "of Hodge type" is: **$H(V_{\mathrm{deg}}) = 0$**. That is what [HodgeTypeQ]() tests.
+And $\pi_{\mathcal{Q}}$ is a quasi-isomorphism exactly when its kernel $V_{\mathrm{deg}}$ is acyclic. So the computable form of "of Hodge type" is $H(V_{\mathrm{deg}}) = 0$. That is what [HodgeTypeQ]() tests.
 
 ## In which degrees
 
@@ -46,7 +46,7 @@ model = SullivanModel["ComplexProjectiveSpace"[3]];
 
 <!-- => {6, True, True} -->
 
-The report tells the same story in columns. `Degenerate` grows to fill `Dimension` past degree $n$, and `DegenerateCohomology` stays zero — that is the quasi-isomorphism. `Cohomology` and `Quotient` also agree here, which is a further fact: the quotient carries no differential, so it is the cohomology. In general the quasi-isomorphism only gives `Cohomology` $\le$ `Quotient`, the two agreeing exactly when the quotient's differential vanishes.
+The report tells the same story in columns. `Degenerate` grows to fill `Dimension` past degree $n$, and `DegenerateCohomology` stays zero: that is the quasi-isomorphism. `Cohomology` and `Quotient` also agree here, which is a further fact: the quotient carries no differential, so it is the cohomology. In general the quasi-isomorphism only gives `Cohomology` $\le$ `Quotient`, the two agreeing exactly when the quotient's differential vanishes.
 
 ```wl
 HodgeTypeReport[model]
@@ -58,10 +58,10 @@ Example 6.3 of the reference is a $1$-connected PDGA of degree $4$ that is not o
 
 ```wl
 bad = SullivanModel["Degree4Obstruction"];
-{Normal[bad["Generators"]], bad["Volume"], bad["Truncation"]}
+{Normal[bad["Generators"]], bad["Orientation"], bad["Truncation"]}
 ```
 
-<!-- => {{a -> 2, c -> 3}, {a, a}, 4} -->
+<!-- => {{a -> 2, c -> 3}, <|a^2 -> 1|>, <|{a, c} -> 4|>} -->
 
 The truncation is what makes this finite: the ideal of monomials above degree $4$ is a differential graded ideal, so the quotient is a CDGA, and it is four-dimensional.
 
@@ -71,7 +71,7 @@ Table[SullivanModelBasis[bad, k], {k, 0, 5}]
 
 <!-- => {{1}, {}, {a}, {c}, {a^2}, {}} -->
 
-Its cohomology is $\mathbb{R}$ in degree $0$ and $\mathbb{R}\{a^2\}$ in degree $4$ — the cohomology of $S^4$ — and the pairing on it is perfect, so this is an oriented PDGA of degree $4$. But $\langle a,a\rangle = \mathcal{O}(a^2) = 1$, and $a$ spans the whole of degree $2$, so the coexact part in degree $2$ can only be $\mathbb{R}\{a\}$, which is not isotropic. No Hodge decomposition exists.
+Its cohomology is $\mathbb{R}$ in degree $0$ and $\mathbb{R}\{a^2\}$ in degree $4$, the cohomology of $S^4$, and the pairing on it is perfect, so this is an oriented PDGA of degree $4$. But $\langle a,a\rangle = \mathcal{O}(a^2) = 1$, and $a$ spans the whole of degree $2$, so the coexact part in degree $2$ can only be $\mathbb{R}\{a\}$, which is not isotropic. No Hodge decomposition exists.
 
 ```wl
 {SullivanModelPairing[a, a, bad], HodgeTypeQ[bad]}
@@ -91,7 +91,7 @@ DegenerateSubspace[bad, 3]
 
 <!-- => {c} -->
 
-The consequence is exactly what the theory predicts: the quotient is *not* quasi-isomorphic to the model. It is three-dimensional with zero differential — the cohomology of $\mathbb{CP}^2$, not of $S^4$.
+The consequence is exactly what the theory predicts: the quotient is *not* quasi-isomorphic to the model. It is three-dimensional with zero differential: the cohomology of $\mathbb{CP}^2$, not of $S^4$.
 
 ```wl
 quotient = NondegenerateQuotient[bad];
@@ -106,14 +106,14 @@ Three against two: the quotient map has killed the class of $c$ but not the clas
 
 At the other extreme are models whose pairing is already perfect on chain level, so $V_{\mathrm{deg}} = 0$ and $\mathcal{Q}(V) = V$. The minimal model of a nilmanifold is one: a finite-dimensional exterior algebra on generators of degree $1$, with the differential of the nilpotent Lie algebra.
 
-The three-dimensional Heisenberg nilmanifold has $\Lambda(x,y,z)$ with $\mathrm{d}z = xy$, and the volume form $xyz$.
+The three-dimensional Heisenberg nilmanifold has $\Lambda(x,y,z)$ with $\mathrm{d}z = xy$, and the orientation $1$ on $xyz$.
 
 ```wl
 heis = SullivanModel["HeisenbergNilmanifold"];
-{Normal[heis["Generators"]], heis["Volume"], SullivanModelDifferential[z, heis]}
+{Normal[heis["Generators"]], heis["Orientation"], SullivanModelDifferential[z, heis]}
 ```
 
-<!-- => {{x -> 1, y -> 1, z -> 1}, {x, y, z}, x y} -->
+<!-- => {{x -> 1, y -> 1, z -> 1}, <|x y z -> 1|>, x y} -->
 
 ```wl
 HodgeTypeReport[heis]
@@ -135,22 +135,22 @@ That entry is $\langle \mathrm{d}z, z\rangle = \mathcal{O}(xyz) = 1$, the second
 NondegenerateQuotient[heis]["Differential"] // MatrixForm
 ```
 
-The one nonzero entry sends $z$ to $xy$. In the canonical dIBL structure of a cyclic cochain complex this differential is carried by the operation $\mathfrak{q}_{1,1,0}$, and [CyclicDifferential]() is that operation: dually to $\mathrm{d}z = xy$, it replaces the letter $xy$ by the letter $z$, with the running sign of the letters after the slot.
+The one nonzero entry sends $z$ to $xy$. In the canonical dIBL structure of a cyclic cochain complex this differential is carried by the operation $\mathfrak{q}_{1,1,0}$, and [CyclicHochschildDifferential]() is that operation: dually to $\mathrm{d}z = xy$, it replaces the letter $xy$ by the letter $z$, with the running sign of the letters after the slot.
 
 ```wl
 With[{pr = GradedPairing[NondegenerateQuotient[heis]]},
-   CyclicDifferential[CyclicWord[{x*y, y}], pr]]
+   CyclicHochschildDifferential[CyclicWord[{x*y, y}], pr]]
 ```
 
 <!-- => CyclicWord[{y, z}] -->
 
-[CanonicalMaurerCartan]() is unchanged by this: the element of the *product* alone solves the Maurer-Cartan equation of the structure with $\mathfrak{q}_{1,1,0}$, because the operation kills it — the Leibniz rule of the algebra, read on the element that carries its triple product. Twisting by the element then stacks the bracket on top of the differential, so [TwistedDifferential]() is the differential of the dPD algebra with its $\mathrm{d}$, not merely of the underlying Poincaré duality algebra.
+[CanonicalMaurerCartan]() is unchanged by this: the element of the *product* alone solves the Maurer-Cartan equation of the structure with $\mathfrak{q}_{1,1,0}$, because the operation kills it. That is the Leibniz rule of the algebra, read on the element that carries its triple product. Twisting by the element then stacks the bracket on top of the differential, so [TwistedDifferential]() is the differential of the dPD algebra with its $\mathrm{d}$, not merely of the underlying Poincaré duality algebra.
 
 ```wl
 With[{pr = GradedPairing[NondegenerateQuotient[heis]]},
    With[{m = CanonicalMaurerCartan[pr]},
-     {CyclicDifferential[m, pr], MaurerCartanQ[m, pr],
-      TwistedDifferential[m, CyclicWord[{x*y}], pr]}]]
+     {CyclicHochschildDifferential[m[{1, 0}], pr], RelationsQ[m],
+      TwistedDifferential[m, CyclicWord[{x*y}]]}]]
 ```
 
 <!-- => {0, True, CyclicWord[{z}]} -->

@@ -25,16 +25,17 @@ One can imagine it as the open part of an open-closed string field theory of hol
 
 ## ⚙️ Installation
 
-Runs on the [Wolfram Engine](https://www.wolfram.com/engine/), which is freely available.
+Runs on the [Wolfram Engine](https://www.wolfram.com/engine/) 15.0.1 or later, which is freely available.
 For a human interface, either buy [Mathematica](https://www.wolfram.com/mathematica/) or run it from the terminal via [wolframscript](https://www.wolfram.com/wolframscript/), from [Jupyter](https://github.com/WolframResearch/WolframLanguageForJupyter), or in chat in [VS Code](https://marketplace.visualstudio.com/items?itemName=WolframResearch.wolfram).
 
-Install the development version of the paclet:
+The paclet is a public resource on the Wolfram Cloud, documentation included: **[ChernSimons](https://www.wolframcloud.com/obj/hajek_pavel/DeployedResources/Paclet/ChernSimons)**. Install it from there:
 
 ```wl
-PacletInstall["https://www.wolframcloud.com/obj/hajek_pavel/s1paper/ChernSimons.paclet",
-  ForceVersionInstall -> True]
+PacletInstall[ResourceObject["https://www.wolframcloud.com/obj/hajek_pavel/DeployedResources/Paclet/ChernSimons"], ForceVersionInstall -> True]
 Needs["ChernSimons`"]
 ```
+
+The same build is also available as a plain archive, `PacletInstall["https://www.wolframcloud.com/obj/hajek_pavel/s1paper/ChernSimons.paclet", ForceVersionInstall -> True]`. The documentation can be read online without installing anything, starting at the [Chern-Simons Theory guide](https://www.wolframcloud.com/obj/hajek_pavel/DeployedResources/Paclet/ChernSimons/Documentation/ChernSimons/guide/ChernSimons.html).
 
 List the symbols and follow the documentation:
 
@@ -49,10 +50,23 @@ circle = SullivanModel["Circle"];
 HodgeTypeQ[circle]
 pairing = GradedPairing[NondegenerateQuotient[circle], {x, y}];
 CanonicalMaurerCartan[pairing]
-InvolutiveBracket[CyclicWord[{x, x, x}], CyclicWord[{y, y}], pairing]
+StringBracket[CyclicWord[{x, x, x}], CyclicWord[{y, y}], pairing]
 ```
 
 ## 📜 Licence
 
 [MIT](https://opensource.org/license/mit) for the code.
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) for the mathematics and the ideas.
+
+## 🚀 Build and deploy
+
+After every merged change to `Kernel/` or `docs/`, bump the patch version in `PacletInfo.wl` in the same commit and redeploy, in this order:
+
+```
+wolframscript -file Paclet/ChernSimons/PackageDocs.wls        # build the paclet with its pages in $TemporaryDirectory/ChernSimons-package, check, render HTML
+wolframscript -file Paclet/ChernSimons/PublishDocs.wls        # deploy the built paclet as the public resource; ends with an HTTP check of every page
+wolframscript -file Paclet/ChernSimons/Publish.wls            # upload the same archive to obj/hajek_pavel/s1paper/ChernSimons.paclet
+wolframscript -file Paclet/ChernSimons/PublishDocs.wls check  # the HTTP check alone, any time
+```
+
+The kernel must be cloud-connected as `hajek_pavel`; `PublishDocs.wls` refuses any other account. Nothing is bumped on a commit that is not deployed.

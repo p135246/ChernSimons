@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     19357,        532]
-NotebookOptionsPosition[     13110,        405]
-NotebookOutlinePosition[     14226,        439]
-CellTagsIndexPosition[     14147,        434]
+NotebookDataLength[     32419,        878]
+NotebookOptionsPosition[     23516,        703]
+NotebookOutlinePosition[     24837,        742]
+CellTagsIndexPosition[     24725,        736]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,7 +24,7 @@ Cell["PoincareDualityAlgebraQ", "ObjectName",
  CellID->1224892054,ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec"],
 
 Cell[TextData[{
- Cell["   ", "ModInfo",ExpressionUUID->"170a88bd-a285-465f-ae52-3f8dd1e6aa52"],
+ Cell["   ", "ModInfo",ExpressionUUID->"ed53e607-c712-49e2-9905-29d73538f9e9"],
  Cell[BoxData[
   RowBox[{
    TemplateBox[{
@@ -36,11 +36,34 @@ Cell[TextData[{
     BaseStyle->"InlineFormula"], "[", 
    StyleBox["expr", "TI"], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "94fe0978-3d4e-4ec6-a740-20a3397148ba"],
+  "fde9d668-4919-4a6f-af91-a131ba436b7d"],
  "\[LineSeparator]",
- "tests whether ",
+ "gives ",
+ Cell[BoxData["True"], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "326e8522-6915-4792-b4c4-a193052f6dd8"],
+ " if ",
  StyleBox["expr", "TI"],
- " is the algebra ",
+ " is a ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["PoincareDualityAlgebra"]], 
+    "paclet:ChernSimons/ref/PoincareDualityAlgebra", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "68c947d8-c010-4709-8e52-822dcab9f907"],
+ " object, and ",
+ Cell[BoxData["False"], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "1960fb2d-595e-4445-8293-266c32ca925a"],
+ " otherwise.",
+ "\n"
+}], "Usage",ExpressionUUID->"e0006cae-3260-4da8-9397-b48bdbfc1cdb"],
+
+Cell[TextData[{
+ "A PoincareDualityAlgebra object is the tagged object that ",
  Cell[BoxData[
   TemplateBox[{
     Cell[
@@ -49,23 +72,155 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "be4e9fd0-2d76-4510-b021-a52fe6b5d482"],
- " returns.",
- "\n"
-}], "Usage",ExpressionUUID->"0710042a-f834-4a13-82b1-3886eb71b340"],
+  "6ce8bb38-36e4-4503-abbd-61154979020b"],
+ " gives on a model and that ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["PoincareDualityAlgebra"]], 
+    "paclet:ChernSimons/ref/PoincareDualityAlgebra", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "d89b81d1-87c3-4684-9d74-66ab363792bf"],
+ " gives, a head wrapping an Association."
+}], "Notes",
+ CellFrameLabels->{{Inherited, Inherited}, {Inherited, 
+    Cell[
+     TextData[{
+      "26.09.30: Design review - the recognizer came with the tagged head, \
+when the eight-key result of NondegenerateQuotient became the \
+PoincareDualityAlgebra object (T0b, 2026-09-21), under the rule that every \
+object of the paclet is one head with a Q predicate; the object is what the \
+algebraic models hand to GradedPairing. Until R7 it tested the head and the \
+Association inside it only, so PoincareDualityAlgebra[<||>] was recognized; \
+since R7 (Pavel, 2026-10-01) it tests the keys of the data and their kinds, \
+and is True exactly on what PoincareDualityAlgebra[complex] and \
+NondegenerateQuotient build, so it is no stricter than GradedPairing[algebra] \
+and CochainComplexWithPairing[algebra], which take those objects. It does not \
+validate the mathematics, as PureMath's ChainComplexQ does; that is recorded \
+as open in the HodgeDecompositions hand-off. Prior art: the Wolfram Language \
+has no Poincar\[EAcute] duality algebras; the engine the verification suites \
+load keeps the quotient as a plain Association and has no recognizer.", 
+       "\n\n", 
+       Cell[
+        BoxData[
+         GridBox[{{
+            Cell[
+             BoxData[
+              ButtonBox[
+               DynamicBox[
+                FEPrivate`FrontEndResource[
+                "DocumentationToolsStrings", "Edit"]], BaseStyle -> 
+               "TextAnnotationButton"]]], 
+            StyleBox[
+             RowBox[{
+               DynamicBox[
+                FEPrivate`FrontEndResource[
+                "DocumentationToolsStrings", "LastAnnotator"]], "pavel"}], 
+             "TextAnnotator"], 
+            Cell[
+             BoxData[
+              ButtonBox[
+               DynamicBox[
+                FEPrivate`FrontEndResource[
+                "DocumentationToolsStrings", "Delete"]], BaseStyle -> 
+               "TextAnnotationRemoveButton"]]], ""}}, 
+          GridBoxAlignment -> {
+           "Columns" -> {Left, Left, Right, Right}, "Rows" -> {{Automatic}}}, 
+          GridBoxItemSize -> {"Columns" -> {
+              Scaled[0.15], 
+              Scaled[0.68], 
+              Scaled[0.15], 
+              Scaled[0.02]}}]]], "\n"}], "TextAnnotation", 
+     CellSize -> {590, Inherited}]}},
+ CellTags->"TextAnnotation",
+ CellID->388663906,ExpressionUUID->"36803340-2f75-40f8-98f8-96386f0b31e7"],
 
-Cell["\<\
-A structure of this paclet is a tagged object, not a bare Association, so \
-that it can be recognized, dispatched on and printed as itself. The predicate \
-answers the recognition question only: it does not check that the data inside \
-is consistent.\
-\>", "Notes",ExpressionUUID->"870f5b44-e4c0-4af2-8570-155d9e7bba11"],
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["PoincareDualityAlgebraQ"]], 
+    "paclet:ChernSimons/ref/PoincareDualityAlgebraQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "5d47cf6b-b301-4158-9af0-ab56befd03fa"],
+ " tests the form of ",
+ StyleBox["expr", "TI"],
+ ": an Association with the keys ",
+ Cell[BoxData["\"\<Degree\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "d63fd777-a81b-4e44-af8c-0ea87ecc8774"],
+ ", ",
+ Cell[BoxData["\"\<Basis\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "2bfc0375-655d-4839-aa6a-dfb0c0841306"],
+ ", ",
+ Cell[BoxData["\"\<Degrees\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "8cf1d3c9-7b5b-4513-ae2a-090daeda466e"],
+ ", ",
+ Cell[BoxData["\"\<Pairing\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "26eff999-a5b3-4aee-a93d-bf9daeddfc7a"],
+ ", ",
+ Cell[BoxData["\"\<DifferentialPairing\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "c73538b7-ffaa-4728-9520-ab395f1458d2"],
+ ", ",
+ Cell[BoxData["\"\<Differential\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "1865e1a7-7c4d-40a2-b3a8-9c2797006601"],
+ " and ",
+ Cell[BoxData["\"\<Triple\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "be7a1202-05ca-436b-8430-cf7e86fcbf8d"],
+ ", of the kinds the constructors give."
+}], "Notes",ExpressionUUID->"ad8e5950-80bf-4fa5-bf58-82e320383870"],
 
-Cell["\<\
-Every operation accepts the tagged object and unwraps it, so the predicate is \
-never needed to call anything. It is for the caller writing their own \
-definitions.\
-\>", "Notes",ExpressionUUID->"625dce7e-6d45-4d43-a2d1-1e4599448677"]
+Cell["It does not check that the data inside is consistent.", "Notes",ExpressionUUID->"9c3b0c66-dd57-4588-b578-0ce57d8307b7"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["PoincareDualityAlgebraQ"]], 
+    "paclet:ChernSimons/ref/PoincareDualityAlgebraQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "4baf2efe-c68b-4f90-a959-7c27fa20b287"],
+ " gives ",
+ Cell[BoxData["True"], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "23f54f42-22b9-4222-80e5-6f033ccd7a25"],
+ " or ",
+ Cell[BoxData["False"], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "cf61d567-210e-4f5f-827d-ab570ba7b332"],
+ " for every expression."
+}], "Notes",ExpressionUUID->"85506a41-7da5-4d16-90ee-2a8c9ea71496"],
+
+Cell[TextData[{
+ "Every function of the algebra takes the object itself, so ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["PoincareDualityAlgebraQ"]], 
+    "paclet:ChernSimons/ref/PoincareDualityAlgebraQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "a79c5dcf-5957-43a6-9144-1ecebb8407c7"],
+ " is needed only as a pattern test, as in ",
+ Cell[BoxData[
+  RowBox[{"_", "?", "PoincareDualityAlgebraQ"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "907ed868-6f67-45cc-889d-e50e27117b0a"],
+ "."
+}], "Notes",ExpressionUUID->"d6cbecaa-948f-43c9-8061-cd26844f11fa"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -94,7 +249,7 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "7dca8c81-f885-442d-83a8-47d3246404e2"],
+  "50fea1ee-26e6-4569-adda-cab6cd429466"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -104,7 +259,7 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "9f76be41-7b2a-44e2-a6bf-a2043c3e01b3"],
+  "41616dfd-147c-440f-b106-95dd41b37bbb"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -113,7 +268,7 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "30f5c19b-48d8-44bf-9f96-01d0bca7dddf"],
+  "de6fe5ec-2655-44ec-9fdc-cd56113f6f95"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -122,8 +277,8 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "da9e8ef0-054e-48d6-9734-fe4c11e8260d"]
-}], "SeeAlso",ExpressionUUID->"6e3353ce-3acd-4ab0-848b-a250f8c5714a"]
+  "59a9540d-e0ba-4ea1-ae9a-5f7e8cb9bc40"]
+}], "SeeAlso",ExpressionUUID->"c424902d-ab2d-45ae-a35b-55ed66367211"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -146,12 +301,12 @@ Cell["Related Guides", "MoreAboutSection",
  CellID->38303248,ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5"],
 
 Cell[TextData[Cell[BoxData[
- ButtonBox["ChernSimons",
+ ButtonBox["HodgeDecompositions",
   BaseStyle->"Link",
   ButtonData->
-   "paclet:ChernSimons/guide/ChernSimons"]], \
-"InlineFormula",ExpressionUUID->"b1fabddc-884f-45a2-acd5-a97ffc2099a6"]], \
-"MoreAbout",ExpressionUUID->"052cb30a-6b36-4ce2-9c55-f9c571b16716"]
+   "paclet:ChernSimons/guide/HodgeDecompositions"]], \
+"InlineFormula",ExpressionUUID->"e9ece8d5-52f4-4411-a485-7ffed9bc1ea7"]], \
+"MoreAbout",ExpressionUUID->"4ed64efc-92fd-4794-86f2-52d0a76a0800"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -209,7 +364,7 @@ Cell[BoxData[
   $Line = 0; Null]], "PrimaryExamplesSection",
  CellID->880084151,ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42"],
 
-Cell["The quotient of a model is recognized:", "ExampleText",ExpressionUUID->"d2e46f12-9688-4d7d-aa8e-98bb2315060e"],
+Cell["The nondegenerate quotient of a model is recognized:", "ExampleText",ExpressionUUID->"49e59919-8c7c-4601-b881-1ce5d81223a3"],
 
 Cell[CellGroupData[{
 
@@ -219,10 +374,10 @@ Cell[BoxData[
    RowBox[{"SullivanModel", "[", 
     RowBox[{"\"\<ComplexProjectiveSpace\>\"", "[", "2", "]"}], "]"}], "]"}], 
   "]"}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"8b3401a8-c2c7-415d-b483-6df57db780e0"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"73b78519-6c93-4335-8b86-c09b1419edbf"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"c6dc31ed-0bea-432a-9c8a-4cfaa66b1b94"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"e4369083-f514-46b1-a038-bccdf6af6290"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -230,11 +385,11 @@ Cell[CellGroupData[{
 Cell[BoxData[
  InterpretationBox[Cell[
   "\t", "ExampleDelimiter",ExpressionUUID->
-   "3a4ee29a-1b95-46e5-bbf5-1ac98683d8eb"],
-  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"5bfdb884-03c0-455a-\
-bbc3-89cb4280a202"],
+   "38b41575-5704-4ccb-a81c-aa7bb2317759"],
+  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"9474a317-a1b9-47f9-\
+84c9-1136d0ba953d"],
 
-Cell["The model it came from is not:", "ExampleText",ExpressionUUID->"71770049-896e-4b4a-9d64-5d7a82ae8bbd"],
+Cell["The model it came from is not:", "ExampleText",ExpressionUUID->"b30ed17c-b589-438a-a878-a43583165ec9"],
 
 Cell[CellGroupData[{
 
@@ -243,10 +398,10 @@ Cell[BoxData[
   RowBox[{"SullivanModel", "[", 
    RowBox[{"\"\<ComplexProjectiveSpace\>\"", "[", "2", "]"}], "]"}], 
   "]"}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"1602baf7-2960-41f9-a757-be430ceeab22"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"fdf5b14e-4ad2-40c3-875d-ed72a1819093"],
 
 Cell[BoxData["False"], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"bf73a318-c72a-47e4-835f-bac34ad8b710"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"60f7e405-62e0-4ead-b27e-31ec8632f3af"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -268,12 +423,125 @@ Cell[TextData[{
  CellTags->"ExtendedExamples",
  CellID->533848431,ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  InterpretationBox[Cell[
   "Scope", "ExampleSection",ExpressionUUID->
    "32e79d70-f7af-47ff-bb41-513374ef55db"],
   $Line = 0; Null]], "ExampleSection",
  CellID->1293636265,ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75"],
+
+Cell["\<\
+The algebra of a cochain complex with a product and a perfect pairing is \
+recognized:\
+\>", "ExampleText",ExpressionUUID->"9f900e3b-12d9-4b53-8d96-f72f9da1d4f4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PoincareDualityAlgebraQ", "[", 
+  RowBox[{"PoincareDualityAlgebra", "[", 
+   RowBox[{"CochainComplexWithPairing", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"1", " ", "->", " ", "0"}], ",", " ", 
+       RowBox[{"v", " ", "->", " ", "1"}]}], "|>"}], ",", " ", 
+     RowBox[{"<|", "|>"}], ",", " ", 
+     RowBox[{"<|", "|>"}], ",", " ", "v"}], "]"}], "]"}], "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"47d80b70-f3a0-4098-b1db-d74a8ce2e8ae"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"906012e6-547b-4440-a8a4-cba63dd5d34a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "4efbc8e0-0937-4cb6-96f9-f5e80683a6c6"],
+  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"b77648fc-2eba-4dd9-\
+ab24-68ffc6a30c53"],
+
+Cell["The complex itself is not:", "ExampleText",ExpressionUUID->"8f2309b7-d341-407d-90b9-6e0c2c6036bc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PoincareDualityAlgebraQ", "[", 
+  RowBox[{"CochainComplexWithPairing", "[", 
+   RowBox[{
+    RowBox[{"<|", 
+     RowBox[{
+      RowBox[{"1", " ", "->", " ", "0"}], ",", " ", 
+      RowBox[{"v", " ", "->", " ", "1"}]}], "|>"}], ",", " ", 
+    RowBox[{"<|", "|>"}], ",", " ", 
+    RowBox[{"<|", "|>"}], ",", " ", "v"}], "]"}], "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"93046ef7-67c0-4c47-8b5e-68ee57eb0435"],
+
+Cell[BoxData["False"], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"b0a7a676-a7d3-404f-a64c-eb0f85f4da16"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "13dc7eae-0c31-427d-8da7-6cd130f71fed"],
+  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"6a791edc-a1f6-47e6-\
+9730-7934a6d9bfef"],
+
+Cell["\<\
+The nondegenerate quotient of a complex is a complex again, not an algebra:\
+\>", "ExampleText",ExpressionUUID->"e940dfbd-dda2-4040-9670-69822ca72723"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PoincareDualityAlgebraQ", "[", 
+  RowBox[{"NondegenerateQuotient", "[", 
+   RowBox[{"CochainComplexWithPairing", "[", 
+    RowBox[{"SullivanModel", "[", 
+     RowBox[{"\"\<ComplexProjectiveSpace\>\"", "[", "2", "]"}], "]"}], "]"}], 
+   "]"}], "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"89622aa4-006c-49da-a99b-577bdceb445a"],
+
+Cell[BoxData["False"], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"29e2fb6a-ce6a-43ab-9369-d0cfd8662a63"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "1efccd2d-411f-46cd-8f0f-37ce739b7fef"],
+  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"0a076e9b-f148-4b68-\
+ba73-6d755ff66ec0"],
+
+Cell["\<\
+The head around an Association without the data of an algebra is not \
+recognized:\
+\>", "ExampleText",ExpressionUUID->"6862a558-db70-4101-996e-dcecd138e5cd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PoincareDualityAlgebraQ", "[", 
+  RowBox[{"PoincareDualityAlgebra", "[", 
+   RowBox[{"<|", "|>"}], "]"}], "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"8ba70740-a4eb-429e-b945-69d06aac45ff"],
+
+Cell[BoxData["False"], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"8d04ba75-5df3-4834-8a82-6709db73b704"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
 
 Cell[BoxData[
  InterpretationBox[Cell[
@@ -296,12 +564,42 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleSection",
  CellID->258228157,ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  InterpretationBox[Cell[
   "Properties & Relations", "ExampleSection",ExpressionUUID->
    "d18b1e1f-4c4c-49a5-bb54-1e5e145ddf4e"],
   $Line = 0; Null]], "ExampleSection",
  CellID->2123667759,ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GradedPairing"]], "paclet:ChernSimons/ref/GradedPairing", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "31b038d8-707d-4533-a408-ea3db055651e"],
+ " takes the algebra and gives the alphabet of the geometry, which is not an \
+algebra:"
+}], "ExampleText",ExpressionUUID->"754b33de-84d5-4791-b83a-fd2576984244"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PoincareDualityAlgebraQ", "[", 
+  RowBox[{"GradedPairing", "[", 
+   RowBox[{"NondegenerateQuotient", "[", 
+    RowBox[{"SullivanModel", "[", "\"\<Circle\>\"", "]"}], "]"}], "]"}], 
+  "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"cc8cb63c-7b78-47d8-a66b-aefee0e54f46"],
+
+Cell[BoxData["False"], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"ccc02068-dc49-416e-8daa-39368fa75932"]
+}, Open  ]]
+}, Open  ]],
 
 Cell[BoxData[
  InterpretationBox[Cell[
@@ -374,7 +672,7 @@ Cell["ChernSimons`", "Categorization",
  CellID->468444828,ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191"],
 
 Cell["ChernSimons/ref/PoincareDualityAlgebraQ", "Categorization",
- CellLabel->"URI",ExpressionUUID->"ed825441-8003-47cd-a31b-6b69cf4c7088"]
+ CellLabel->"URI",ExpressionUUID->"bba2a00e-089e-4f4f-9ef3-b0f3ab1dd6e6"]
 }, Closed]],
 
 Cell["Keywords", "KeywordsSection",
@@ -425,15 +723,20 @@ ExpressionUUID->"c207366e-060a-406b-a297-9e30e1628f43"
 (* Internal cache information *)
 (*CellTagsOutline
 CellTagsIndex->{
+ "TextAnnotation"->{
+  Cell[1923, 64, 3156, 73, 70, "Notes",ExpressionUUID->"36803340-2f75-40f8-98f8-96386f0b31e7",
+   CellTags->"TextAnnotation",
+   CellID->388663906]},
  "ExtendedExamples"->{
-  Cell[8018, 255, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+  Cell[13910, 410, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
    CellTags->"ExtendedExamples",
    CellID->533848431]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"ExtendedExamples", 13954, 427}
+ {"TextAnnotation", 24358, 725},
+ {"ExtendedExamples", 24531, 729}
  }
 *)
 (*NotebookFileOutline
@@ -441,96 +744,139 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 121, 1, 70, "ObjectName",ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec",
  CellID->1224892054],
-Cell[700, 25, 954, 29, 70, "Usage",ExpressionUUID->"0710042a-f834-4a13-82b1-3886eb71b340"],
-Cell[1657, 56, 330, 5, 70, "Notes",ExpressionUUID->"870f5b44-e4c0-4af2-8570-155d9e7bba11"],
-Cell[1990, 63, 244, 4, 70, "Notes",ExpressionUUID->"625dce7e-6d45-4d43-a2d1-1e4599448677"]
+Cell[700, 25, 1220, 37, 70, "Usage",ExpressionUUID->"e0006cae-3260-4da8-9397-b48bdbfc1cdb"],
+Cell[1923, 64, 3156, 73, 70, "Notes",ExpressionUUID->"36803340-2f75-40f8-98f8-96386f0b31e7",
+ CellTags->"TextAnnotation",
+ CellID->388663906],
+Cell[5082, 139, 1528, 41, 70, "Notes",ExpressionUUID->"ad8e5950-80bf-4fa5-bf58-82e320383870"],
+Cell[6613, 182, 125, 0, 70, "Notes",ExpressionUUID->"9c3b0c66-dd57-4588-b578-0ce57d8307b7"],
+Cell[6741, 184, 685, 19, 70, "Notes",ExpressionUUID->"85506a41-7da5-4d16-90ee-2a8c9ea71496"],
+Cell[7429, 205, 667, 17, 70, "Notes",ExpressionUUID->"d6cbecaa-948f-43c9-8061-cd26844f11fa"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2271, 72, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
+Cell[8133, 227, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
  CellID->1559318232],
-Cell[2733, 87, 1325, 38, 70, "SeeAlso",ExpressionUUID->"6e3353ce-3acd-4ab0-848b-a250f8c5714a"]
+Cell[8595, 242, 1325, 38, 70, "SeeAlso",ExpressionUUID->"c424902d-ab2d-45ae-a35b-55ed66367211"]
 }, Open  ]],
-Cell[4073, 128, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
+Cell[9935, 283, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
  CellID->792424486],
 Cell[CellGroupData[{
-Cell[4533, 144, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
+Cell[10395, 299, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
  CellID->38303248],
-Cell[4652, 147, 280, 6, 70, "MoreAbout",ExpressionUUID->"052cb30a-6b36-4ce2-9c55-f9c571b16716"]
+Cell[10514, 302, 296, 6, 70, "MoreAbout",ExpressionUUID->"4ed64efc-92fd-4794-86f2-52d0a76a0800"]
 }, Open  ]],
-Cell[4947, 156, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
+Cell[10825, 311, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
  CellID->47113304],
 Cell[CellGroupData[{
-Cell[5443, 173, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
+Cell[11321, 328, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
  CellID->1718580883],
-Cell[5977, 189, 171, 3, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
+Cell[11855, 344, 171, 3, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
  CellID->1969679695]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6185, 197, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
+Cell[12063, 352, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
  CellID->880084151],
-Cell[6630, 211, 116, 0, 70, "ExampleText",ExpressionUUID->"d2e46f12-9688-4d7d-aa8e-98bb2315060e"],
+Cell[12508, 366, 130, 0, 70, "ExampleText",ExpressionUUID->"49e59919-8c7c-4601-b881-1ce5d81223a3"],
 Cell[CellGroupData[{
-Cell[6771, 215, 306, 6, 70, "Input",ExpressionUUID->"8b3401a8-c2c7-415d-b483-6df57db780e0"],
-Cell[7080, 223, 110, 1, 70, "Output",ExpressionUUID->"c6dc31ed-0bea-432a-9c8a-4cfaa66b1b94"]
+Cell[12663, 370, 306, 6, 70, "Input",ExpressionUUID->"73b78519-6c93-4335-8b86-c09b1419edbf"],
+Cell[12972, 378, 110, 1, 70, "Output",ExpressionUUID->"e4369083-f514-46b1-a038-bccdf6af6290"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7227, 229, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"5bfdb884-03c0-455a-bbc3-89cb4280a202"],
-Cell[7454, 236, 108, 0, 70, "ExampleText",ExpressionUUID->"71770049-896e-4b4a-9d64-5d7a82ae8bbd"],
+Cell[13119, 384, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"9474a317-a1b9-47f9-84c9-1136d0ba953d"],
+Cell[13346, 391, 108, 0, 70, "ExampleText",ExpressionUUID->"b30ed17c-b589-438a-a878-a43583165ec9"],
 Cell[CellGroupData[{
-Cell[7587, 240, 256, 5, 70, "Input",ExpressionUUID->"1602baf7-2960-41f9-a757-be430ceeab22"],
-Cell[7846, 247, 111, 1, 70, "Output",ExpressionUUID->"bf73a318-c72a-47e4-835f-bac34ad8b710"]
+Cell[13479, 395, 256, 5, 70, "Input",ExpressionUUID->"fdf5b14e-4ad2-40c3-875d-ed72a1819093"],
+Cell[13738, 402, 111, 1, 70, "Output",ExpressionUUID->"60f7e405-62e0-4ead-b27e-31ec8632f3af"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8018, 255, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+Cell[13910, 410, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
  CellTags->"ExtendedExamples",
  CellID->533848431],
-Cell[8508, 270, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
+Cell[CellGroupData[{
+Cell[14422, 427, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
  CellID->1293636265],
-Cell[8753, 277, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
+Cell[14667, 434, 172, 3, 70, "ExampleText",ExpressionUUID->"9f900e3b-12d9-4b53-8d96-f72f9da1d4f4"],
+Cell[CellGroupData[{
+Cell[14864, 441, 501, 11, 70, "Input",ExpressionUUID->"47d80b70-f3a0-4098-b1db-d74a8ce2e8ae"],
+Cell[15368, 454, 110, 1, 70, "Output",ExpressionUUID->"906012e6-547b-4440-a8a4-cba63dd5d34a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15515, 460, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"b77648fc-2eba-4dd9-ab24-68ffc6a30c53"],
+Cell[15742, 467, 104, 0, 70, "ExampleText",ExpressionUUID->"8f2309b7-d341-407d-90b9-6e0c2c6036bc"],
+Cell[CellGroupData[{
+Cell[15871, 471, 444, 10, 70, "Input",ExpressionUUID->"93046ef7-67c0-4c47-8b5e-68ee57eb0435"],
+Cell[16318, 483, 111, 1, 70, "Output",ExpressionUUID->"b0a7a676-a7d3-404f-a64c-eb0f85f4da16"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16478, 490, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"6a791edc-a1f6-47e6-9730-7934a6d9bfef"],
+Cell[16705, 497, 161, 2, 70, "ExampleText",ExpressionUUID->"e940dfbd-dda2-4040-9670-69822ca72723"],
+Cell[CellGroupData[{
+Cell[16891, 503, 362, 7, 70, "Input",ExpressionUUID->"89622aa4-006c-49da-a99b-577bdceb445a"],
+Cell[17256, 512, 111, 1, 70, "Output",ExpressionUUID->"29e2fb6a-ce6a-43ab-9369-d0cfd8662a63"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17416, 519, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"0a076e9b-f148-4b68-ba73-6d755ff66ec0"],
+Cell[17643, 526, 168, 3, 70, "ExampleText",ExpressionUUID->"6862a558-db70-4101-996e-dcecd138e5cd"],
+Cell[CellGroupData[{
+Cell[17836, 533, 225, 4, 70, "Input",ExpressionUUID->"8ba70740-a4eb-429e-b945-69d06aac45ff"],
+Cell[18064, 539, 111, 1, 70, "Output",ExpressionUUID->"8d04ba75-5df3-4834-8a82-6709db73b704"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[18214, 545, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
  CellID->1020263627],
-Cell[9021, 284, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
+Cell[18482, 552, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
  CellID->2061341341],
-Cell[9268, 291, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
+Cell[18729, 559, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
  CellID->258228157],
-Cell[9519, 298, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
+Cell[CellGroupData[{
+Cell[19002, 568, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
  CellID->2123667759],
-Cell[9781, 305, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
+Cell[19264, 575, 455, 11, 70, "ExampleText",ExpressionUUID->"754b33de-84d5-4791-b83a-fd2576984244"],
+Cell[CellGroupData[{
+Cell[19744, 590, 302, 6, 70, "Input",ExpressionUUID->"cc8cb63c-7b78-47d8-a66b-aefee0e54f46"],
+Cell[20049, 598, 111, 1, 70, "Output",ExpressionUUID->"ccc02068-dc49-416e-8daa-39368fa75932"]
+}, Open  ]]
+}, Open  ]],
+Cell[20187, 603, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
  CellID->1305812373],
-Cell[10036, 312, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
+Cell[20442, 610, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
  CellID->1653164318],
-Cell[10296, 319, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
+Cell[20702, 617, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
  CellID->589267740]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10582, 329, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
+Cell[20988, 627, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
  CellID->311882160],
-Cell[10695, 332, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
+Cell[21101, 630, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
  CellID->341476719],
 Cell[CellGroupData[{
-Cell[11196, 348, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
+Cell[21602, 646, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
  CellID->1755438392],
-Cell[11684, 363, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
+Cell[22090, 661, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
  CellID->686433507],
-Cell[11821, 367, 139, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
+Cell[22227, 665, 139, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
  CellID->605800465],
-Cell[11963, 371, 136, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
+Cell[22369, 669, 136, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
  CellID->468444828],
-Cell[12102, 375, 139, 1, 70, "Categorization",ExpressionUUID->"ed825441-8003-47cd-a31b-6b69cf4c7088"]
+Cell[22508, 673, 139, 1, 70, "Categorization",ExpressionUUID->"bba2a00e-089e-4f4f-9ef3-b0f3ab1dd6e6"]
 }, Closed]],
-Cell[12256, 379, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
+Cell[22662, 677, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
  CellID->477174294],
 Cell[CellGroupData[{
-Cell[12391, 384, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
+Cell[22797, 682, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
  CellID->1872225408],
-Cell[12514, 387, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
+Cell[22920, 685, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
  CellID->1562036412],
-Cell[12666, 391, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
+Cell[23072, 689, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
  CellID->158391909],
-Cell[12806, 395, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
+Cell[23212, 693, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
  CellID->1360575930],
-Cell[12945, 399, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
+Cell[23351, 697, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
  CellID->793782254]
 }, Closed]]
 }, Open  ]]

@@ -8,7 +8,7 @@
    the example cells evaluate.
    Usage: BuildDocs.wls                 builds every page whose source is newer than its notebook
           BuildDocs.wls Pairing …       builds the named pages, in whichever kind they live
-          BuildDocs.wls --symbols       every symbol page; likewise --guides, --tutorials
+          BuildDocs.wls --symbols       every symbol page; likewise --guides, --tutorials, in any combination
           BuildDocs.wls --all           everything *)
 
 $pacletDirectory = DirectoryName[ $InputFileName ];
@@ -30,7 +30,7 @@ $kinds = <|
 BuildDocs[ arguments_List ] :=
   Module[ { requested },
     If[ ! FileExistsQ[ $converter ],
-      Print[ "Missing ", $converter, " — recover it per Wiki/Resources/MarkdownToNotebook.md" ]; Exit[ 1 ] ];
+      Print[ "Missing ", $converter, ": recover it per Wiki/Resources/MarkdownToNotebook.md" ]; Exit[ 1 ] ];
     PacletDirectoryLoad[ ParentDirectory[ $pacletDirectory ] ];
     Needs[ "ChernSimons`" ];
     Get[ $converter ];
@@ -43,13 +43,13 @@ BuildDocs[ arguments_List ] :=
   ]
 
 Requested[ arguments_List ] :=
-  Which[
-    MemberQ[ arguments, "--all" ], AllPages[ ],
-    MemberQ[ arguments, "--symbols" ], KindPages[ "Symbols" ],
-    MemberQ[ arguments, "--guides" ], KindPages[ "Guides" ],
-    MemberQ[ arguments, "--tutorials" ], KindPages[ "Tutorials" ],
-    arguments === { }, Select[ AllPages[ ], StaleQ ],
-    True, Select[ AllPages[ ], page |-> MemberQ[ arguments, Last[ page ] ] ]
+  With[ { kinds = Select[ Keys[ $kinds ], kind |-> MemberQ[ arguments, "--" <> ToLowerCase[ kind ] ] ] },
+    Which[
+      MemberQ[ arguments, "--all" ], AllPages[ ],
+      kinds =!= { }, Catenate[ Map[ KindPages, kinds ] ],
+      arguments === { }, Select[ AllPages[ ], StaleQ ],
+      True, Select[ AllPages[ ], page |-> MemberQ[ arguments, Last[ page ] ] ]
+    ]
   ]
 
 AllPages[ ] := Catenate[ Map[ KindPages, Keys[ $kinds ] ] ]

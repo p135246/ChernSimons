@@ -1,0 +1,630 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     24240,        621]
+NotebookOptionsPosition[     17189,        495]
+NotebookOutlinePosition[     18471,        528]
+CellTagsIndexPosition[     18428,        525]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Hodge Decompositions", "GuideTitle",
+ CellID->942062912,ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3"],
+
+Cell["\<\
+A Hodge decomposition of a cochain complex with a pairing splits it into a \
+harmonic subspace, the exact elements and a coexact part perpendicular to \
+itself and to the harmonic subspace, and a complex that admits one is of \
+Hodge type. Their study covers finite cochain complexes with a pairing and \
+their axioms; Hodge type, the degenerate subspace and the nondegenerate \
+quotient; harmonic subspaces, pre-Hodge and Hodge decompositions; and the \
+special propagators and extensions of Hodge type.\
+\>", "GuideAbstract",
+ CellID->2001916300,ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",
+ CellID->1866139230,ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774"],
+
+Cell[CellGroupData[{
+
+Cell["Cochain complexes with a pairing", "GuideFunctionsSubsection",ExpressionUUID->"7d5eb3cf-e3a8-4486-a505-c2e92fe694bb"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["CochainComplexWithPairing"]], 
+    "paclet:ChernSimons/ref/CochainComplexWithPairing", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "adc4bfe1-bd54-4e9a-91c4-1289032ed981"],
+ " \[LongDash] ",
+ "a finite cochain complex with a graded symmetric pairing, from its data, \
+from a product and an orientation, or from a model"
+}], "GuideText",ExpressionUUID->"7ef178b9-c759-4c22-84a6-096c5329215d"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["Relations"]], "paclet:ChernSimons/ref/Relations", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "78d63351-3c1f-4197-90e4-d85bb3e30c4d"],
+ " \[LongDash] ",
+ "the axioms of a complex, on its differential, its pairing and its product"
+}], "GuideText",ExpressionUUID->"866f390c-ca97-4488-89fd-d04fcc0a7eec"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["Obstruction"]], "paclet:ChernSimons/ref/Obstruction", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "e667f129-2355-44bb-93e9-be2523c0c681"],
+ " \[LongDash] ",
+ "the obstruction of an axiom on given elements, the difference of its two \
+sides"
+}], "GuideText",ExpressionUUID->"c11a035e-d0fa-46cb-ab5b-1e86cb9a65a3"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["RelationsQ"]], "paclet:ChernSimons/ref/RelationsQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "c6eb652b-a048-49c4-a381-4bd321fe7970"],
+ " \[LongDash] ",
+ "tests every axiom of a complex or of a decomposition"
+}], "GuideText",ExpressionUUID->"aaf48ab0-8f80-4e00-9cd0-deb08416e037"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Hodge type and the nondegenerate quotient", "GuideFunctionsSubsection",ExpressionUUID->"980627ae-4a45-456f-a26c-6164a6006dcb"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["DegenerateSubspace"]], 
+    "paclet:ChernSimons/ref/DegenerateSubspace", "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "413fd928-7dd1-4b31-9954-4c2bfbdb3976"],
+ " \[LongDash] ",
+ "the elements that pair to zero with everything"
+}], "GuideText",ExpressionUUID->"56dd354d-d47e-42e2-8221-b8dfbd6507e4"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData[
+      StyleBox["NullSpace", FontSlant -> "Italic"]]], "paclet:ref/NullSpace"},
+   
+   "RefLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "8a1aef31-14fb-4148-a49b-b64b907674d1"],
+ " (WL)",
+ " \[LongDash] ",
+ "a basis of the null space of a matrix"
+}], "GuideText",ExpressionUUID->"d4991650-f0f2-4591-9103-e7e9727cf8a9"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["HodgeTypeQ"]], "paclet:ChernSimons/ref/HodgeTypeQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "0dd9e34f-ab53-4b13-a292-8ec2dbd83838"],
+ " \[LongDash] ",
+ "tests whether a model or a complex is of Hodge type"
+}], "GuideText",ExpressionUUID->"447b2140-7200-49f1-ad14-8c7ae2e00864"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["HodgeTypeReport"]], "paclet:ChernSimons/ref/HodgeTypeReport", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "4935dcbf-abae-492f-a20e-7bb3cd8c4716"],
+ " \[LongDash] ",
+ "the dimensions of the space, its cohomology, the degenerate subspace and \
+the quotient in each degree"
+}], "GuideText",ExpressionUUID->"54f1e5d4-91b9-422e-ad10-14e976974900"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["NondegenerateQuotient"]], 
+    "paclet:ChernSimons/ref/NondegenerateQuotient", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "4eb338c6-ef5a-4be0-9a21-87a065cbe3cf"],
+ " \[LongDash] ",
+ "the quotient by the degenerate subspace, a Poincar\[EAcute] duality algebra \
+on chain level"
+}], "GuideText",ExpressionUUID->"118febd0-8d29-417c-9a2c-872e9f901c34"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["PoincareDualityAlgebra"]], 
+    "paclet:ChernSimons/ref/PoincareDualityAlgebra", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "0827694b-efd8-4637-8065-d5dfe1ef9d2b"],
+ " \[LongDash] ",
+ "a finite-dimensional Poincar\[EAcute] duality algebra, with its \
+differential and triple product"
+}], "GuideText",ExpressionUUID->"0df00bdb-91e6-4fa2-9eb7-1eef6db8876c"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["PoincareDualityAlgebraQ"]], 
+    "paclet:ChernSimons/ref/PoincareDualityAlgebraQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "ff3aa521-8bef-45fa-9996-fb021e374bd0"],
+ " \[LongDash] ",
+ "tests whether an expression is a Poincar\[EAcute] duality algebra"
+}], "GuideText",ExpressionUUID->"2139e545-1426-4fd7-b9a6-92452f38ccb5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Hodge decompositions", "GuideFunctionsSubsection",ExpressionUUID->"60225433-251b-4b47-b0a0-20ef6c1dfa34"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["FindHarmonicSubspace"]], 
+    "paclet:ChernSimons/ref/FindHarmonicSubspace", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "cea7d877-e681-4c70-82fd-819c2ba747d4"],
+ " \[LongDash] ",
+ "a harmonic subspace, a complement of the exact elements in the cocycles"
+}], "GuideText",ExpressionUUID->"3d10ddeb-03a0-4736-a58d-2ed65c77a027"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["FindPreHodgeDecomposition"]], 
+    "paclet:ChernSimons/ref/FindPreHodgeDecomposition", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "39fee851-0d53-4546-b473-0f5f63c9120b"],
+ " \[LongDash] ",
+ "a pre-Hodge decomposition, with the coexact part perpendicular to the \
+harmonic subspace"
+}], "GuideText",ExpressionUUID->"2c3ec1dd-b324-48cd-91c0-2e0718a4e458"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["FindHodgeDecomposition"]], 
+    "paclet:ChernSimons/ref/FindHodgeDecomposition", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "1c75fa03-04aa-4b65-b15a-1170c726256c"],
+ " \[LongDash] ",
+ "a Hodge decomposition, with the coexact part perpendicular to itself as well"
+}], "GuideText",ExpressionUUID->"bc98758c-1b60-4248-842d-406d276d9e77"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["PreHodgeDecomposition"]], 
+    "paclet:ChernSimons/ref/PreHodgeDecomposition", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "06e1e14c-2bac-4622-ba1c-03a71d64ace9"],
+ " \[LongDash] ",
+ "a pre-Hodge decomposition as an object, with its parts in every degree"
+}], "GuideText",ExpressionUUID->"61f5ed64-93eb-4a93-a300-3f5faa147754"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["HodgeDecomposition"]], 
+    "paclet:ChernSimons/ref/HodgeDecomposition", "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "2acbb2c2-293c-49a1-8adb-217cbcd9c57c"],
+ " \[LongDash] ",
+ "a Hodge decomposition as an object, with its parts in every degree"
+}], "GuideText",ExpressionUUID->"5d01de32-d611-40ec-99f1-7cd52bfe56a1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Special propagators and extensions", "GuideFunctionsSubsection",ExpressionUUID->"a7f31e75-8a7e-4eb5-9538-856395f263c0"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SpecialPropagator"]], 
+    "paclet:ChernSimons/ref/SpecialPropagator", "ChernSimons Package Symbol"},
+   
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "68852e6d-4313-4272-9330-04ca9999e765"],
+ " \[LongDash] ",
+ "the special propagator of a Hodge decomposition, minus the inverse of the \
+differential on the exact elements and zero on the harmonic subspace and the \
+coexact part"
+}], "GuideText",ExpressionUUID->"2c1fc91a-9ae7-4d16-ab94-07266b350dc0"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["HarmonicProjection"]], 
+    "paclet:ChernSimons/ref/HarmonicProjection", "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "4fa7b806-4db2-46ef-9818-00f91b997d21"],
+ " \[LongDash] ",
+ "the projection onto the harmonic subspace along the exact elements and the \
+coexact part, the identity plus dP + Pd"
+}], "GuideText",ExpressionUUID->"328cfff4-1472-45e5-b9fc-24bee283e059"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["FindHodgeDecomposition"]], 
+    "paclet:ChernSimons/ref/FindHodgeDecomposition", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "15b103bc-d389-463c-b527-71cfc2517885"],
+ " \[LongDash] ",
+ "the Hodge decomposition of a special propagator, the image of the harmonic \
+projection and the image of the propagator"
+}], "GuideText",ExpressionUUID->"2a7bbd74-6a38-4e0d-97b0-6509a5370618"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["HodgeExtension"]], "paclet:ChernSimons/ref/HodgeExtension", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "a83a8adf-e6f7-49fa-909b-a166c83f1fdd"],
+ " \[LongDash] ",
+ "the extension by acyclic pairs, one for each coexact basis element, that \
+makes a space of Hodge type and retracts onto it"
+}], "GuideText",ExpressionUUID->"b2fe84b9-b8c7-478d-89a1-28e8a325cda8"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["RelationsQ"]], "paclet:ChernSimons/ref/RelationsQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "3c8df117-26f0-49d0-a3a2-82fd6f3ae6dd"],
+ " \[LongDash] ",
+ "the four relations of a special propagator, with those of its \
+decomposition"
+}], "GuideText",ExpressionUUID->"66ba7768-881c-430f-84d7-216ec1f60b81"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tech Notes", "GuideTutorialsSection",
+ CellID->415694126,ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8"],
+
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{
+   Cell[
+    TextData["HodgeTypeAndTheNondegenerateQuotient"]], 
+   "paclet:ChernSimons/tutorial/HodgeTypeAndTheNondegenerateQuotient"},
+  "RefLinkPlain",
+  BaseStyle->{
+   "InlineFormula"}]], \
+"InlineFormula",ExpressionUUID->"fc92d90e-823b-424b-8af2-1bfbbb1ee7f4"]], \
+"GuideTutorial",
+ CellID->806871991,ExpressionUUID->"c8d52b1f-06c5-4db0-bd0a-f386b59efcef"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "GuideMoreAboutSection",
+ CellChangeTimes->{{3.8430423939366693`*^9, 3.843042395176153*^9}},
+ CellID->23220180,ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50"],
+
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{
+   Cell[
+    TextData["AlgebraicModels"]], "paclet:ChernSimons/guide/AlgebraicModels"},
+  
+  "RefLinkPlain",
+  BaseStyle->{
+   "InlineFormula"}]], \
+"InlineFormula",ExpressionUUID->"38086578-da14-4402-a1cd-8f45e351a8b5"]], \
+"GuideMoreAbout",
+ CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"]
+}, Open  ]],
+
+Cell["Related Links", "GuideRelatedLinksSection",
+ CellID->415694148,ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049"],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->311882160,ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"8042be5c-0c76-46b3-86b4-3979f9a7592e"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"33838997-9c86-4f7e-a86c-465a8baa0509"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "f4a6f470-53c8-4e44-a786-272e7e70dce6"]
+}], "History",
+ CellID->341476719,ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449,ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b"],
+
+Cell["Guide", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475"],
+
+Cell["ChernSimons", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c"],
+
+Cell["ChernSimons`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e"],
+
+Cell["ChernSimons/guide/HodgeDecompositions", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"0efbe4be-5c3f-4551-bdf9-474279ed9f67"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->1427428552,ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead"],
+
+Cell["Hodge decomposition", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["pre-Hodge decomposition", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["harmonic subspace", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["coexact subspace", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["Hodge type", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["degenerate subspace", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["nondegenerate quotient", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["cochain complex with pairing", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["Poincare duality algebra", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+TaggingRules->{
+ "Metadata" -> {
+   "title" -> "HodgeDecompositions", "context" -> "ChernSimons`", 
+    "keywords" -> {
+     "Hodge decomposition", "pre-Hodge decomposition", "harmonic subspace", 
+      "coexact subspace", "Hodge type", "degenerate subspace", 
+      "nondegenerate quotient", "cochain complex with pairing", 
+      "Poincare duality algebra"}, "summary" -> 
+    "Finite cochain complexes with a pairing and their axioms, Hodge type, \
+the degenerate subspace and the nondegenerate quotient, harmonic subspaces, \
+pre-Hodge and Hodge decompositions, and the special propagators and \
+extensions of Hodge type", "paclet" -> "ChernSimons", "uri" -> 
+    "ChernSimons/guide/HodgeDecompositions", "type" -> "Guide", "index" -> 
+    True, "language" -> "en"}},
+CreateCellID->True,
+CellContext->CellGroup,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (July 2, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"4f3dd705-9635-4464-b348-9b4dec79eac8"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 117, 1, 70, "GuideTitle",ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3",
+ CellID->942062912],
+Cell[696, 25, 613, 9, 70, "GuideAbstract",ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925",
+ CellID->2001916300]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1346, 39, 109, 1, 70, "GuideFunctionsSection",ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774",
+ CellID->1866139230],
+Cell[CellGroupData[{
+Cell[1480, 44, 123, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"7d5eb3cf-e3a8-4486-a505-c2e92fe694bb"],
+Cell[1606, 46, 590, 14, 70, "GuideText",ExpressionUUID->"7ef178b9-c759-4c22-84a6-096c5329215d"],
+Cell[2199, 62, 501, 12, 70, "GuideText",ExpressionUUID->"866f390c-ca97-4488-89fd-d04fcc0a7eec"],
+Cell[2703, 76, 512, 13, 70, "GuideText",ExpressionUUID->"c11a035e-d0fa-46cb-ab5b-1e86cb9a65a3"],
+Cell[3218, 91, 482, 12, 70, "GuideText",ExpressionUUID->"aaf48ab0-8f80-4e00-9cd0-deb08416e037"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3737, 108, 132, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"980627ae-4a45-456f-a26c-6164a6006dcb"],
+Cell[3872, 110, 492, 12, 70, "GuideText",ExpressionUUID->"56dd354d-d47e-42e2-8221-b8dfbd6507e4"],
+Cell[4367, 124, 468, 14, 70, "GuideText",ExpressionUUID->"d4991650-f0f2-4591-9103-e7e9727cf8a9"],
+Cell[4838, 140, 481, 12, 70, "GuideText",ExpressionUUID->"447b2140-7200-49f1-ad14-8c7ae2e00864"],
+Cell[5322, 154, 542, 13, 70, "GuideText",ExpressionUUID->"54f1e5d4-91b9-422e-ad10-14e976974900"],
+Cell[5867, 169, 549, 14, 70, "GuideText",ExpressionUUID->"118febd0-8d29-417c-9a2c-872e9f901c34"],
+Cell[6419, 185, 556, 14, 70, "GuideText",ExpressionUUID->"0df00bdb-91e6-4fa2-9eb7-1eef6db8876c"],
+Cell[6978, 201, 526, 13, 70, "GuideText",ExpressionUUID->"2139e545-1426-4fd7-b9a6-92452f38ccb5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7541, 219, 111, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"60225433-251b-4b47-b0a0-20ef6c1dfa34"],
+Cell[7655, 221, 526, 13, 70, "GuideText",ExpressionUUID->"3d10ddeb-03a0-4736-a58d-2ed65c77a027"],
+Cell[8184, 236, 554, 14, 70, "GuideText",ExpressionUUID->"2c3ec1dd-b324-48cd-91c0-2e0718a4e458"],
+Cell[8741, 252, 535, 13, 70, "GuideText",ExpressionUUID->"bc98758c-1b60-4248-842d-406d276d9e77"],
+Cell[9279, 267, 527, 13, 70, "GuideText",ExpressionUUID->"61f5ed64-93eb-4a93-a300-3f5faa147754"],
+Cell[9809, 282, 512, 12, 70, "GuideText",ExpressionUUID->"5d01de32-d611-40ec-99f1-7cd52bfe56a1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10358, 299, 125, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"a7f31e75-8a7e-4eb5-9538-856395f263c0"],
+Cell[10486, 301, 615, 15, 70, "GuideText",ExpressionUUID->"2c1fc91a-9ae7-4d16-ab94-07266b350dc0"],
+Cell[11104, 318, 562, 13, 70, "GuideText",ExpressionUUID->"328cfff4-1472-45e5-b9fc-24bee283e059"],
+Cell[11669, 333, 578, 14, 70, "GuideText",ExpressionUUID->"2a7bbd74-6a38-4e0d-97b0-6509a5370618"],
+Cell[12250, 349, 561, 13, 70, "GuideText",ExpressionUUID->"b2fe84b9-b8c7-478d-89a1-28e8a325cda8"],
+Cell[12814, 364, 507, 13, 70, "GuideText",ExpressionUUID->"66ba7768-881c-430f-84d7-216ec1f60b81"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13370, 383, 118, 1, 70, "GuideTutorialsSection",ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8",
+ CellID->415694126],
+Cell[13491, 386, 405, 10, 70, "GuideTutorial",ExpressionUUID->"c8d52b1f-06c5-4db0-bd0a-f386b59efcef",
+ CellID->806871991]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13933, 401, 189, 2, 70, "GuideMoreAboutSection",ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50",
+ CellID->23220180],
+Cell[14125, 405, 361, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+ CellID->1567025153]
+}, Open  ]],
+Cell[14501, 418, 124, 1, 70, "GuideRelatedLinksSection",ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049",
+ CellID->415694148],
+Cell[CellGroupData[{
+Cell[14650, 423, 110, 1, 70, "MetadataSection",ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2",
+ CellID->311882160],
+Cell[14763, 426, 476, 12, 70, "History",ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513",
+ CellID->341476719],
+Cell[CellGroupData[{
+Cell[15264, 442, 123, 1, 70, "CategorizationSection",ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b",
+ CellID->1122911449],
+Cell[15390, 445, 133, 2, 70, "Categorization",ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475",
+ CellID->686433507],
+Cell[15526, 449, 139, 2, 70, "Categorization",ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c",
+ CellID->605800465],
+Cell[15668, 453, 136, 2, 70, "Categorization",ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e",
+ CellID->468444828],
+Cell[15807, 457, 137, 1, 70, "Categorization",ExpressionUUID->"0efbe4be-5c3f-4551-bdf9-474279ed9f67"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[15981, 463, 111, 1, 70, "KeywordsSection",ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead",
+ CellID->1427428552],
+Cell[16095, 466, 115, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16213, 469, 119, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16335, 472, 113, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16451, 475, 112, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16566, 478, 106, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16675, 481, 115, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16793, 484, 118, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16914, 487, 124, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[17041, 490, 120, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,397 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     14922,        388]
+NotebookOptionsPosition[      9691,        285]
+NotebookOutlinePosition[     10881,        317]
+CellTagsIndexPosition[     10838,        314]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Homotopy Algebras", "GuideTitle",
+ CellID->942062912,ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3"],
+
+Cell["\<\
+Homotopy algebras are algebras whose relations hold up to coherent homotopy: \
+finite-dimensional A-infinity algebras, their operations and their morphisms; \
+and the relations of an algebraic structure, the obstruction of each and the \
+test of all of them, for string algebras, Maurer-Cartan elements, A-infinity \
+algebras and morphisms, and cochain complexes with a pairing and their \
+decompositions.\
+\>", "GuideAbstract",
+ CellID->2001916300,ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",
+ CellID->1866139230,ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774"],
+
+Cell[CellGroupData[{
+
+Cell["A-infinity algebras and morphisms", "GuideFunctionsSubsection",ExpressionUUID->"37f9d4c0-c234-4e6f-899f-d0139a960d07"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["AInfinityAlgebra"]], "paclet:ChernSimons/ref/AInfinityAlgebra",
+     "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "27f89f69-fa2c-40fe-8228-1bc43d7b81ec"],
+ " \[LongDash] ",
+ "a finite-dimensional A-infinity algebra, from the degrees of a basis and \
+the operations ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    StyleBox["m", "TI"], 
+    StyleBox["k", "TI"]], TraditionalForm]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "58dd2560-fc43-4da1-b660-2f0e956c8454"]
+}], "GuideText",ExpressionUUID->"b9c8b54e-9e99-4903-afcc-44b5370a352b"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["AInfinityOperation"]], 
+    "paclet:ChernSimons/ref/AInfinityOperation", "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "56a9bc24-6dbb-4e13-ad02-d3b427f213b1"],
+ " \[LongDash] ",
+ "the operation ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    StyleBox["m", "TI"], 
+    StyleBox["k", "TI"]], TraditionalForm]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "039e1533-2bc4-49d8-845e-b65034280a85"],
+ " applied to ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["k", "TI"], TraditionalForm]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "60e32883-e5c9-4fc7-8959-ba465558d736"],
+ " elements"
+}], "GuideText",ExpressionUUID->"c7ed73fd-d739-4263-9df3-afb6e420c7dc"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["AInfinityMorphism"]], 
+    "paclet:ChernSimons/ref/AInfinityMorphism", "ChernSimons Package Symbol"},
+   
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "3861d7fa-70d3-4e1f-b34c-6e744aa5899d"],
+ " \[LongDash] ",
+ "a morphism of A-infinity algebras, from its components ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    StyleBox["f", "TI"], 
+    StyleBox["k", "TI"]], TraditionalForm]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "584e206b-ab01-48ae-b065-854c6721ff23"]
+}], "GuideText",ExpressionUUID->"753a805f-4387-4c0b-943b-bb2d5ece39af"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["AInfinityAlgebraQ"]], 
+    "paclet:ChernSimons/ref/AInfinityAlgebraQ", "ChernSimons Package Symbol"},
+   
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "d168c265-b73f-4259-a8a2-b6044a4fafc5"],
+ " \[LongDash] ",
+ "tests whether an expression is an A-infinity algebra"
+}], "GuideText",ExpressionUUID->"1457a788-7452-422a-a1d6-c83d5e88c433"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Relations of a structure", "GuideFunctionsSubsection",ExpressionUUID->"cf60c5ef-a8f9-412f-875a-4802cc6de9c6"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["Relations"]], "paclet:ChernSimons/ref/Relations", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "9aa63c8c-e60a-4524-bea1-e914ed120dbe"],
+ " \[LongDash] ",
+ "the names and arities of the relations of a string algebra, an A-infinity \
+algebra or morphism, a complex with a pairing or a decomposition"
+}], "GuideText",ExpressionUUID->"cd73cdd8-d98b-49c8-8150-35d1fa12eede"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["Obstruction"]], "paclet:ChernSimons/ref/Obstruction", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "65ec9587-4454-47b4-836d-e63568e18408"],
+ " \[LongDash] ",
+ "the obstruction of a relation on given arguments, zero when it holds, and \
+of the Maurer-Cartan equation of an element"
+}], "GuideText",ExpressionUUID->"8a5a547b-a862-4de3-882c-e14e14124043"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["RelationsQ"]], "paclet:ChernSimons/ref/RelationsQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "24e51ec2-7285-4f2b-b5a6-53b6c0ebdfa0"],
+ " \[LongDash] ",
+ "tests every relation of a structure over a range of arguments, and the \
+Maurer-Cartan equation of an element"
+}], "GuideText",ExpressionUUID->"fa427ae6-d53a-4643-8fb4-262706fb6327"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["Tech Notes", "GuideTutorialsSection",
+ CellID->415694126,ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8"],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "GuideMoreAboutSection",
+ CellChangeTimes->{{3.8430423939366693`*^9, 3.843042395176153*^9}},
+ CellID->23220180,ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50"],
+
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{
+   Cell[
+    TextData["ChernSimons"]], "paclet:ChernSimons/guide/ChernSimons"},
+  "RefLinkPlain",
+  BaseStyle->{
+   "InlineFormula"}]], \
+"InlineFormula",ExpressionUUID->"01c65ee1-444a-466c-a0ea-b8d762504510"]], \
+"GuideMoreAbout",
+ CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"]
+}, Open  ]],
+
+Cell["Related Links", "GuideRelatedLinksSection",
+ CellID->415694148,ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049"],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->311882160,ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"8042be5c-0c76-46b3-86b4-3979f9a7592e"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"33838997-9c86-4f7e-a86c-465a8baa0509"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "f4a6f470-53c8-4e44-a786-272e7e70dce6"]
+}], "History",
+ CellID->341476719,ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449,ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b"],
+
+Cell["Guide", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475"],
+
+Cell["ChernSimons", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c"],
+
+Cell["ChernSimons`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e"],
+
+Cell["ChernSimons/guide/HomotopyAlgebras", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"fd09ce5f-c209-4464-9b8c-27ed91528171"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->1427428552,ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead"],
+
+Cell["homotopy algebra", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["A-infinity algebra", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["A-infinity morphism", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["A-infinity relations", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["relations", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["obstruction", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["string algebra", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["Maurer-Cartan equation", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["cochain complex with pairing", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["Hodge decomposition", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+TaggingRules->{
+ "Metadata" -> {
+   "title" -> "HomotopyAlgebras", "context" -> "ChernSimons`", 
+    "keywords" -> {
+     "homotopy algebra", "A-infinity algebra", "A-infinity morphism", 
+      "A-infinity relations", "relations", "obstruction", "string algebra", 
+      "Maurer-Cartan equation", "cochain complex with pairing", 
+      "Hodge decomposition"}, "summary" -> 
+    "Finite-dimensional A-infinity algebras, their operations and morphisms, \
+and the relations of the algebraic structures, with their obstructions and \
+tests", "paclet" -> "ChernSimons", "uri" -> 
+    "ChernSimons/guide/HomotopyAlgebras", "type" -> "Guide", "index" -> True, 
+    "language" -> "en"}},
+CreateCellID->True,
+CellContext->CellGroup,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (July 2, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"4f3dd705-9635-4464-b348-9b4dec79eac8"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 114, 1, 70, "GuideTitle",ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3",
+ CellID->942062912],
+Cell[693, 25, 514, 8, 70, "GuideAbstract",ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925",
+ CellID->2001916300]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1244, 38, 109, 1, 70, "GuideFunctionsSection",ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774",
+ CellID->1866139230],
+Cell[CellGroupData[{
+Cell[1378, 43, 124, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"37f9d4c0-c234-4e6f-899f-d0139a960d07"],
+Cell[1505, 45, 749, 20, 70, "GuideText",ExpressionUUID->"b9c8b54e-9e99-4903-afcc-44b5370a352b"],
+Cell[2257, 67, 880, 26, 70, "GuideText",ExpressionUUID->"c7ed73fd-d739-4263-9df3-afb6e420c7dc"],
+Cell[3140, 95, 720, 20, 70, "GuideText",ExpressionUUID->"753a805f-4387-4c0b-943b-bb2d5ece39af"],
+Cell[3863, 117, 500, 13, 70, "GuideText",ExpressionUUID->"1457a788-7452-422a-a1d6-c83d5e88c433"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4400, 135, 115, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"cf60c5ef-a8f9-412f-875a-4802cc6de9c6"],
+Cell[4518, 137, 568, 13, 70, "GuideText",ExpressionUUID->"cd73cdd8-d98b-49c8-8150-35d1fa12eede"],
+Cell[5089, 152, 551, 13, 70, "GuideText",ExpressionUUID->"8a5a547b-a862-4de3-882c-e14e14124043"],
+Cell[5643, 167, 539, 13, 70, "GuideText",ExpressionUUID->"fa427ae6-d53a-4643-8fb4-262706fb6327"]
+}, Open  ]]
+}, Open  ]],
+Cell[6209, 184, 118, 1, 70, "GuideTutorialsSection",ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8",
+ CellID->415694126],
+Cell[CellGroupData[{
+Cell[6352, 189, 189, 2, 70, "GuideMoreAboutSection",ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50",
+ CellID->23220180],
+Cell[6544, 193, 350, 9, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+ CellID->1567025153]
+}, Open  ]],
+Cell[6909, 205, 124, 1, 70, "GuideRelatedLinksSection",ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049",
+ CellID->415694148],
+Cell[CellGroupData[{
+Cell[7058, 210, 110, 1, 70, "MetadataSection",ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2",
+ CellID->311882160],
+Cell[7171, 213, 476, 12, 70, "History",ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513",
+ CellID->341476719],
+Cell[CellGroupData[{
+Cell[7672, 229, 123, 1, 70, "CategorizationSection",ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b",
+ CellID->1122911449],
+Cell[7798, 232, 133, 2, 70, "Categorization",ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475",
+ CellID->686433507],
+Cell[7934, 236, 139, 2, 70, "Categorization",ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c",
+ CellID->605800465],
+Cell[8076, 240, 136, 2, 70, "Categorization",ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e",
+ CellID->468444828],
+Cell[8215, 244, 134, 1, 70, "Categorization",ExpressionUUID->"fd09ce5f-c209-4464-9b8c-27ed91528171"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[8386, 250, 111, 1, 70, "KeywordsSection",ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead",
+ CellID->1427428552],
+Cell[8500, 253, 112, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[8615, 256, 114, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[8732, 259, 115, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[8850, 262, 116, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[8969, 265, 105, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[9077, 268, 107, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[9187, 271, 110, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[9300, 274, 118, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[9421, 277, 124, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[9548, 280, 115, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

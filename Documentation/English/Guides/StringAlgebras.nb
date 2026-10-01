@@ -1,0 +1,648 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     24704,        639]
+NotebookOptionsPosition[     17286,        507]
+NotebookOutlinePosition[     18562,        539]
+CellTagsIndexPosition[     18519,        536]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["String Algebras", "GuideTitle",
+ CellID->942062912,ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3"],
+
+Cell["\<\
+String algebras are the differential involutive bi-Lie algebras of cyclic \
+words over a graded alphabet with a pairing: the alphabet, its cyclic words \
+and their degrees; the exterior and symmetric products of cyclic words and \
+the degree shift between them; the string operations, a differential, a \
+bracket that joins two words and a co-bracket that cuts one; and the string \
+algebra they make, with its four relations.\
+\>", "GuideAbstract",
+ CellID->2001916300,ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",
+ CellID->1866139230,ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774"],
+
+Cell[CellGroupData[{
+
+Cell["Graded alphabets and cyclic words", "GuideFunctionsSubsection",ExpressionUUID->"971b5a2e-795c-4720-ab8a-e02ffb72be15"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GradedPairing"]], "paclet:ChernSimons/ref/GradedPairing", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "53cf9970-10ef-4ae8-86e5-4d58282c604a"],
+ " \[LongDash] ",
+ "a graded alphabet with a pairing, from degrees and pairing values or from a \
+Poincar\[EAcute] duality algebra"
+}], "GuideText",ExpressionUUID->"ac8ec28e-6aa3-4644-894d-74444b58f4b8"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["CyclicWord"]], "paclet:ChernSimons/ref/CyclicWord", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "252c0946-e9d4-445f-8b26-c0b9bfed52f2"],
+ " \[LongDash] ",
+ "a cyclic word of particles, and its canonical rotation with the Koszul \
+sign"
+}], "GuideText",ExpressionUUID->"12734470-3623-4c16-b140-ded0d7f391eb"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GenerateCyclicWords"]], 
+    "paclet:ChernSimons/ref/GenerateCyclicWords", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "60a5f06a-9b5e-4c88-8d58-716f5b52b720"],
+ " \[LongDash] ",
+ "the nonzero cyclic words of a given length"
+}], "GuideText",ExpressionUUID->"71ed3d44-8bcb-4a1e-95f4-a82438398c69"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["ElementDegree"]], "paclet:ChernSimons/ref/ElementDegree", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "cff50c24-bbd6-46df-9020-55c5e809305c"],
+ " \[LongDash] ",
+ "the bar, exterior or symmetric degree of a particle, a cyclic word or a \
+product"
+}], "GuideText",ExpressionUUID->"d6a80a04-b3f6-4c90-ba89-105ef5d49cc5"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["KoszulSign"]], "paclet:ChernSimons/ref/KoszulSign", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "2a7343a8-98fb-460b-bfb6-c8d9d247c786"],
+ " \[LongDash] ",
+ "the sign of a permutation of graded objects"
+}], "GuideText",ExpressionUUID->"99cbe862-8e07-4df2-9882-4eed087a6803"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData[
+      StyleBox["Signature", FontSlant -> "Italic"]]], "paclet:ref/Signature"},
+   
+   "RefLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "1217e5c5-6ee2-4404-af86-ed681a90acbc"],
+ " (WL)",
+ " \[LongDash] ",
+ "the sign of a permutation"
+}], "GuideText",ExpressionUUID->"86e6bd78-0598-49c2-a3ae-d801de05409b"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GradedPairingQ"]], "paclet:ChernSimons/ref/GradedPairingQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "d0cd6a14-4ea8-40bf-b0bf-0f1fa1bce3e6"],
+ " \[LongDash] ",
+ "tests whether an expression is a graded alphabet with a pairing"
+}], "GuideText",ExpressionUUID->"a1e39a25-59a2-44c7-a766-a5e57bea7f76"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Products and the degree shift", "GuideFunctionsSubsection",ExpressionUUID->"2397ac84-a463-41bc-b909-c971a5e9f6a3"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["ExteriorProduct"]], "paclet:ChernSimons/ref/ExteriorProduct", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "031b02ac-c68e-49f9-975a-c6cdff415c86"],
+ " \[LongDash] ",
+ "the graded exterior product of cyclic words, in the exterior degree"
+}], "GuideText",ExpressionUUID->"1d7210cb-1d7b-4698-880b-7a609e596010"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SymmetricProduct"]], "paclet:ChernSimons/ref/SymmetricProduct",
+     "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "bc3f0cd6-f7b6-43ce-9c31-205f9f88c48e"],
+ " \[LongDash] ",
+ "the graded symmetric product of cyclic words, in the symmetric degree"
+}], "GuideText",ExpressionUUID->"dc2c41b4-c6b9-49e3-8edb-a57cf7756fe4"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SymmetricToExterior"]], 
+    "paclet:ChernSimons/ref/SymmetricToExterior", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "8214a29a-ca95-4a20-89fc-3a102ff8dcf0"],
+ " \[LongDash] ",
+ "the degree shift from symmetric to exterior products, which intertwines the \
+string operations"
+}], "GuideText",ExpressionUUID->"821f6359-a4d2-4bb7-b898-d41c2c8348e2"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["ExteriorToSymmetric"]], 
+    "paclet:ChernSimons/ref/ExteriorToSymmetric", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "c8ac713c-055a-4203-a1a6-4e599efe4f86"],
+ " \[LongDash] ",
+ "the inverse of the degree shift"
+}], "GuideText",ExpressionUUID->"5e314b86-9923-47a8-8ffa-82f4c1428d0d"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["DualPairing"]], "paclet:ChernSimons/ref/DualPairing", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "fbbe2047-5e6b-4319-96b5-300dbe83638b"],
+ " \[LongDash] ",
+ "the value of cyclic words and their products on dual cyclic words and their \
+products"
+}], "GuideText",ExpressionUUID->"378e637e-ab7e-4782-bb3c-09df598ad208"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["String operations", "GuideFunctionsSubsection",ExpressionUUID->"37ed0a28-4ed3-4426-b09f-2b823e5cda78"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["CyclicHochschildDifferential"]], 
+    "paclet:ChernSimons/ref/CyclicHochschildDifferential", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "a70d7d39-158d-4d0c-a3fe-bb6cb1a6b919"],
+ " \[LongDash] ",
+ "the differential ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    StyleBox["q", "TI"], 
+    RowBox[{"1", ",", "1", ",", "0"}]], TraditionalForm]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "15a203fc-c2e7-40a1-94e1-4fdcba9aef6c"],
+ ", induced by the differential of the Poincar\[EAcute] duality algebra"
+}], "GuideText",ExpressionUUID->"58d73689-0e08-43a6-9c99-beb6555d3b33"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["StringBracket"]], "paclet:ChernSimons/ref/StringBracket", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "44a5a463-1c2a-488c-b313-5550ddcc983f"],
+ " \[LongDash] ",
+ "the bracket ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    StyleBox["q", "TI"], 
+    RowBox[{"2", ",", "1", ",", "0"}]], TraditionalForm]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "1ae04fc6-8e53-4d8e-b365-bf8e6663e66b"],
+ ", joining two cyclic words at a contracted pair of particles"
+}], "GuideText",ExpressionUUID->"448cedfd-0e79-4134-854c-6b17363486c0"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["StringCobracket"]], "paclet:ChernSimons/ref/StringCobracket", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "41f0f8e8-ebfb-46e9-8340-85f170517f6e"],
+ " \[LongDash] ",
+ "the co-bracket ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    StyleBox["q", "TI"], 
+    RowBox[{"1", ",", "2", ",", "0"}]], TraditionalForm]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "8387e16b-a649-4b22-ac93-9d1eb113c2ad"],
+ ", cutting a cyclic word in two at a contracted pair of particles"
+}], "GuideText",ExpressionUUID->"993f25b0-3501-4a26-a4a7-f09ad4e05e37"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["ChordContraction"]], "paclet:ChernSimons/ref/ChordContraction",
+     "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "82822999-18bc-4c5f-b90a-9e719f94d4e0"],
+ " \[LongDash] ",
+ "one term of the bracket or of the co-bracket, a single contracted pair of \
+particles"
+}], "GuideText",ExpressionUUID->"5d198afc-b6a8-4c5e-b937-b8645be8d5fa"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["String algebras and their relations", "GuideFunctionsSubsection",ExpressionUUID->"975d5e05-2c20-4aea-943e-61d2a2facf2f"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["StringAlgebra"]], "paclet:ChernSimons/ref/StringAlgebra", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "2024d1bd-9dbd-4804-8594-2cc1389aa4b5"],
+ " \[LongDash] ",
+ "the differential involutive bi-Lie algebra of the cyclic words of an \
+alphabet, with or without the empty word"
+}], "GuideText",ExpressionUUID->"1f493e9d-e49d-4dbc-9464-e97b9e01b27a"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["Relations"]], "paclet:ChernSimons/ref/Relations", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "41bec832-7111-4785-bfad-e014a4fb8caf"],
+ " \[LongDash] ",
+ "the Jacobi, co-Jacobi, Drinfeld and involutivity relations of a string \
+algebra"
+}], "GuideText",ExpressionUUID->"a20df0a5-a523-4631-8c88-1455471a2802"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["Obstruction"]], "paclet:ChernSimons/ref/Obstruction", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "6be8b00e-7672-4b7a-ad59-84f9092900d9"],
+ " \[LongDash] ",
+ "the obstruction of a relation of a string algebra on given cyclic words, \
+zero when it holds"
+}], "GuideText",ExpressionUUID->"e291547d-f261-432f-a020-d27f9b01d94b"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["RelationsQ"]], "paclet:ChernSimons/ref/RelationsQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "f4406d87-5647-4e7a-ade8-327ae92069dd"],
+ " \[LongDash] ",
+ "tests the relations of a string algebra on all cyclic words up to a given \
+length"
+}], "GuideText",ExpressionUUID->"bcd6d27f-4ad3-44f7-91e8-d81b2e7f0d0e"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tech Notes", "GuideTutorialsSection",
+ CellID->415694126,ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8"],
+
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{
+   Cell[
+    TextData["TheCanonicalIBLAlgebraOfTheCircle"]], 
+   "paclet:ChernSimons/tutorial/TheCanonicalIBLAlgebraOfTheCircle"},
+  "RefLinkPlain",
+  BaseStyle->{
+   "InlineFormula"}]], \
+"InlineFormula",ExpressionUUID->"8a489294-05c4-4ff8-82c6-39e513af09be"]], \
+"GuideTutorial",
+ CellID->806871991,ExpressionUUID->"c8d52b1f-06c5-4db0-bd0a-f386b59efcef"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "GuideMoreAboutSection",
+ CellChangeTimes->{{3.8430423939366693`*^9, 3.843042395176153*^9}},
+ CellID->23220180,ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50"],
+
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{
+   Cell[
+    TextData["ChernSimons"]], "paclet:ChernSimons/guide/ChernSimons"},
+  "RefLinkPlain",
+  BaseStyle->{
+   "InlineFormula"}]], \
+"InlineFormula",ExpressionUUID->"b31fc5b1-a825-453e-b323-be6bc175251c"]], \
+"GuideMoreAbout",
+ CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"]
+}, Open  ]],
+
+Cell["Related Links", "GuideRelatedLinksSection",
+ CellID->415694148,ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049"],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->311882160,ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"8042be5c-0c76-46b3-86b4-3979f9a7592e"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"33838997-9c86-4f7e-a86c-465a8baa0509"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "f4a6f470-53c8-4e44-a786-272e7e70dce6"]
+}], "History",
+ CellID->341476719,ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449,ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b"],
+
+Cell["Guide", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475"],
+
+Cell["ChernSimons", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c"],
+
+Cell["ChernSimons`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e"],
+
+Cell["ChernSimons/guide/StringAlgebras", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"65371f2c-da13-47f1-915d-562e07f2d3d2"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->1427428552,ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead"],
+
+Cell["string algebra", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["cyclic words", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["graded alphabet", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["pairing", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["Koszul sign", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["exterior product", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["symmetric product", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["degree shift", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["cyclic Hochschild differential", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["string bracket", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["string co-bracket", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["involutive bi-Lie algebra", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["dIBL algebra", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+TaggingRules->{
+ "Metadata" -> {
+   "title" -> "StringAlgebras", "context" -> "ChernSimons`", 
+    "keywords" -> {
+     "string algebra", "cyclic words", "graded alphabet", "pairing", 
+      "Koszul sign", "exterior product", "symmetric product", "degree shift", 
+      "cyclic Hochschild differential", "string bracket", "string co-bracket",
+       "involutive bi-Lie algebra", "dIBL algebra"}, "summary" -> 
+    "Graded alphabets with a pairing and their cyclic words, the exterior and \
+symmetric products and the degree shift, the differential, bracket and \
+co-bracket of cyclic words, and the string algebra they make", "paclet" -> 
+    "ChernSimons", "uri" -> "ChernSimons/guide/StringAlgebras", "type" -> 
+    "Guide", "index" -> True, "language" -> "en"}},
+CreateCellID->True,
+CellContext->CellGroup,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (July 2, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"4f3dd705-9635-4464-b348-9b4dec79eac8"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 112, 1, 70, "GuideTitle",ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3",
+ CellID->942062912],
+Cell[691, 25, 535, 8, 70, "GuideAbstract",ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925",
+ CellID->2001916300]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1263, 38, 109, 1, 70, "GuideFunctionsSection",ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774",
+ CellID->1866139230],
+Cell[CellGroupData[{
+Cell[1397, 43, 124, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"971b5a2e-795c-4720-ab8a-e02ffb72be15"],
+Cell[1524, 45, 546, 13, 70, "GuideText",ExpressionUUID->"ac8ec28e-6aa3-4644-894d-74444b58f4b8"],
+Cell[2073, 60, 507, 13, 70, "GuideText",ExpressionUUID->"12734470-3623-4c16-b140-ded0d7f391eb"],
+Cell[2583, 75, 495, 13, 70, "GuideText",ExpressionUUID->"71ed3d44-8bcb-4a1e-95f4-a82438398c69"],
+Cell[3081, 90, 517, 13, 70, "GuideText",ExpressionUUID->"d6a80a04-b3f6-4c90-ba89-105ef5d49cc5"],
+Cell[3601, 105, 473, 12, 70, "GuideText",ExpressionUUID->"99cbe862-8e07-4df2-9882-4eed087a6803"],
+Cell[4077, 119, 456, 14, 70, "GuideText",ExpressionUUID->"86e6bd78-0598-49c2-a3ae-d801de05409b"],
+Cell[4536, 135, 501, 12, 70, "GuideText",ExpressionUUID->"a1e39a25-59a2-44c7-a766-a5e57bea7f76"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5074, 152, 120, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"2397ac84-a463-41bc-b909-c971a5e9f6a3"],
+Cell[5197, 154, 507, 12, 70, "GuideText",ExpressionUUID->"1d7210cb-1d7b-4698-880b-7a609e596010"],
+Cell[5707, 168, 511, 12, 70, "GuideText",ExpressionUUID->"dc2c41b4-c6b9-49e3-8edb-a57cf7756fe4"],
+Cell[6221, 182, 548, 14, 70, "GuideText",ExpressionUUID->"821f6359-a4d2-4bb7-b898-d41c2c8348e2"],
+Cell[6772, 198, 484, 13, 70, "GuideText",ExpressionUUID->"5e314b86-9923-47a8-8ffa-82f4c1428d0d"],
+Cell[7259, 213, 518, 13, 70, "GuideText",ExpressionUUID->"378e637e-ab7e-4782-bb3c-09df598ad208"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7814, 231, 108, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"37ed0a28-4ed3-4426-b09f-2b823e5cda78"],
+Cell[7925, 233, 793, 21, 70, "GuideText",ExpressionUUID->"58d73689-0e08-43a6-9c99-beb6555d3b33"],
+Cell[8721, 256, 744, 20, 70, "GuideText",ExpressionUUID->"448cedfd-0e79-4134-854c-6b17363486c0"],
+Cell[9468, 278, 755, 20, 70, "GuideText",ExpressionUUID->"993f25b0-3501-4a26-a4a7-f09ad4e05e37"],
+Cell[10226, 300, 527, 13, 70, "GuideText",ExpressionUUID->"5d198afc-b6a8-4c5e-b937-b8645be8d5fa"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10790, 318, 126, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"975d5e05-2c20-4aea-943e-61d2a2facf2f"],
+Cell[10919, 320, 547, 13, 70, "GuideText",ExpressionUUID->"1f493e9d-e49d-4dbc-9464-e97b9e01b27a"],
+Cell[11469, 335, 508, 13, 70, "GuideText",ExpressionUUID->"a20df0a5-a523-4631-8c88-1455471a2802"],
+Cell[11980, 350, 525, 13, 70, "GuideText",ExpressionUUID->"e291547d-f261-432f-a020-d27f9b01d94b"],
+Cell[12508, 365, 512, 13, 70, "GuideText",ExpressionUUID->"bcd6d27f-4ad3-44f7-91e8-d81b2e7f0d0e"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13069, 384, 118, 1, 70, "GuideTutorialsSection",ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8",
+ CellID->415694126],
+Cell[13190, 387, 399, 10, 70, "GuideTutorial",ExpressionUUID->"c8d52b1f-06c5-4db0-bd0a-f386b59efcef",
+ CellID->806871991]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13626, 402, 189, 2, 70, "GuideMoreAboutSection",ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50",
+ CellID->23220180],
+Cell[13818, 406, 350, 9, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+ CellID->1567025153]
+}, Open  ]],
+Cell[14183, 418, 124, 1, 70, "GuideRelatedLinksSection",ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049",
+ CellID->415694148],
+Cell[CellGroupData[{
+Cell[14332, 423, 110, 1, 70, "MetadataSection",ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2",
+ CellID->311882160],
+Cell[14445, 426, 476, 12, 70, "History",ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513",
+ CellID->341476719],
+Cell[CellGroupData[{
+Cell[14946, 442, 123, 1, 70, "CategorizationSection",ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b",
+ CellID->1122911449],
+Cell[15072, 445, 133, 2, 70, "Categorization",ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475",
+ CellID->686433507],
+Cell[15208, 449, 139, 2, 70, "Categorization",ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c",
+ CellID->605800465],
+Cell[15350, 453, 136, 2, 70, "Categorization",ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e",
+ CellID->468444828],
+Cell[15489, 457, 132, 1, 70, "Categorization",ExpressionUUID->"65371f2c-da13-47f1-915d-562e07f2d3d2"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[15658, 463, 111, 1, 70, "KeywordsSection",ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead",
+ CellID->1427428552],
+Cell[15772, 466, 110, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[15885, 469, 108, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[15996, 472, 111, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16110, 475, 103, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16216, 478, 107, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16326, 481, 112, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16441, 484, 113, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16557, 487, 108, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16668, 490, 126, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16797, 493, 110, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[16910, 496, 113, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[17026, 499, 121, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[17150, 502, 108, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

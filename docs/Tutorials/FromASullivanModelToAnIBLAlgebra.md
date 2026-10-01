@@ -6,11 +6,11 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/tutorial/FromASullivanModelToAnIBLAlgebra
 Keywords: [Sullivan model, Poincare duality, Hodge type, nondegenerate quotient, Maurer-Cartan, IBL infinity, complex projective space]
-RelatedGuides: [ChernSimons]
+RelatedGuides: [ChernSimons, BeilinsonDrinfeldFormalism, AlgebraicModels]
 RelatedTutorials: [HodgeTypeAndTheNondegenerateQuotient, TheCanonicalIBLAlgebraOfTheCircle]
 ---
 
-The dIBL algebra of a closed oriented $n$-manifold $X$ lives on the cyclic words of a graded alphabet, and the alphabet is a basis of $H^*(X)$ shifted by one, with the pairing that Poincaré duality gives it. This tutorial builds that alphabet without ever mentioning $X$: it starts from a Sullivan minimal model, puts the natural volume form on it, checks that the resulting oriented PDGA is of Hodge type, passes to the nondegenerate quotient, and reads the canonical Maurer-Cartan element off the triple product of the quotient. The running example is $\mathbb{CP}^2$.
+The dIBL algebra of a closed oriented $n$-manifold $X$ lives on the cyclic words of a graded alphabet, and the alphabet is a basis of $H^*(X)$ shifted by one, with the pairing that Poincaré duality gives it. This tutorial builds that alphabet without ever mentioning $X$: it starts from a Sullivan minimal model, puts the natural orientation on it, checks that the resulting oriented PDGA is of Hodge type, passes to the nondegenerate quotient, and reads the canonical Maurer-Cartan element off the triple product of the quotient. The running example is $\mathbb{CP}^2$.
 
 Five steps, and each one is a single function.
 
@@ -41,17 +41,17 @@ Table[SullivanModelBasis[model, k], {k, 0, 8}]
 
 <!-- => {{1}, {}, {a}, {}, {a^2}, {b}, {a^3}, {a b}, {a^4}} -->
 
-## The volume form, and the pairing it defines
+## The orientation, and the pairing it defines
 
-The cohomology of this model is $\mathbb{R}[a]/(a^3)$, so the top class is $a^2$ in degree $4$. Take that monomial as the *volume form* and let the orientation $\mathcal{O}$ be the coefficient of it — the projection onto the volume form. That is what `model["Volume"]` records, as the list of the generators of the monomial.
+The cohomology of this model is $\mathbb{R}[a]/(a^3)$, so the top class is $a^2$ in degree $4$. Let the orientation $\mathcal{O}$ be the coefficient of that monomial: $1$ on $a^2$ and $0$ on everything else. That is what `model["Orientation"]` records, as its values on the monomials of degree $4$.
 
 ```wl
-{model["Volume"], model["Degree"]}
+{model["Orientation"], model["Degree"]}
 ```
 
-<!-- => {{a, a}, 4} -->
+<!-- => {<|a^2 -> 1|>, 4} -->
 
-[SullivanModelOrientation]() applies it. Everything outside degree $4$ is killed, and inside degree $4$ only the volume monomial survives:
+[SullivanModelOrientation]() applies it. Everything outside degree $4$ is killed, and inside degree $4$ only $a^2$ survives:
 
 ```wl
 {SullivanModelOrientation[a^2, model], SullivanModelOrientation[a^3, model], SullivanModelOrientation[b, model]}
@@ -59,7 +59,7 @@ The cohomology of this model is $\mathbb{R}[a]/(a^3)$, so the top class is $a^2$
 
 <!-- => {1, 0, 0} -->
 
-The pairing is $\langle v_1, v_2\rangle = \mathcal{O}(v_1 v_2)$ — the projection of the product onto the volume form. On $1, a, a^2$ it is the antidiagonal, which is Poincaré duality:
+The pairing is $\langle v_1, v_2\rangle = \mathcal{O}(v_1 v_2)$, the orientation of the product. On $1, a, a^2$ it is the antidiagonal, which is Poincaré duality:
 
 ```wl
 Table[SullivanModelPairing[a^i, a^j, model], {i, 0, 2}, {j, 0, 2}] // MatrixForm
@@ -77,7 +77,7 @@ The pairing is *not* perfect on chain level: the whole of $\Lambda U$ above degr
 
 <!-- => {{b}, {a^3}, {a b}} -->
 
-The oriented PDGA is *of Hodge type* when it admits a Hodge decomposition $V = \mathcal{H}\oplus\mathrm{im}\,\mathrm{d}\oplus C$ with $C\perp C\oplus\mathcal{H}$. Over a field of characteristic $\neq 2$ and for a quotient of finite type, that happens exactly when $V_{\mathrm{deg}}$ is acyclic — equivalently, exactly when the quotient map onto the nondegenerate quotient is a quasi-isomorphism. So the test is one cohomology computation.
+The oriented PDGA is *of Hodge type* when it admits a Hodge decomposition $V = \mathcal{H}\oplus\mathrm{im}\,\mathrm{d}\oplus C$ with $C\perp C\oplus\mathcal{H}$. Over a field of characteristic $\neq 2$ and for a quotient of finite type, that happens exactly when $V_{\mathrm{deg}}$ is acyclic, equivalently exactly when the quotient map onto the nondegenerate quotient is a quasi-isomorphism. So the test is one cohomology computation.
 
 ```wl
 HodgeTypeQ[model]
@@ -85,17 +85,17 @@ HodgeTypeQ[model]
 
 <!-- => True -->
 
-[HodgeTypeReport]() shows why, degree by degree. The fourth column is the cohomology of the degenerate subspace, and it vanishes throughout. Here the second and fifth columns agree as well, which says more: the quotient carries no differential, so it *is* the cohomology — $\mathbb{CP}^2$ is formal. A Hodge-type model whose quotient keeps a differential has `Cohomology` strictly below `Quotient`, and the next tutorial shows one.
+[HodgeTypeReport]() shows why, degree by degree. The fourth column is the cohomology of the degenerate subspace, and it vanishes throughout. Here the second and fifth columns agree as well, which says more: the quotient carries no differential, so it *is* the cohomology: $\mathbb{CP}^2$ is formal. A Hodge-type model whose quotient keeps a differential has `Cohomology` strictly below `Quotient`, and the next tutorial shows one.
 
 ```wl
 HodgeTypeReport[model]
 ```
 
-Here $V_{\mathrm{deg}}$ is spanned by $b, ab, a^2b, \dots$ together with $a^3, a^4, \dots$, and $\mathrm{d}(a^kb) = a^{k+3}$ matches them up in pairs — that is the acyclicity, in closed form.
+Here $V_{\mathrm{deg}}$ is spanned by $b, ab, a^2b, \dots$ together with $a^3, a^4, \dots$, and $\mathrm{d}(a^kb) = a^{k+3}$ matches them up in pairs. That is the acyclicity, in closed form.
 
 ## The nondegenerate quotient
 
-Dividing by $V_{\mathrm{deg}}$ leaves a finite-dimensional algebra on which the pairing is perfect: a Poincaré duality algebra, and — because the quotient map is a quasi-isomorphism — a differential Poincaré duality model of the original PDGA.
+Dividing by $V_{\mathrm{deg}}$ leaves a finite-dimensional algebra on which the pairing is perfect: a Poincaré duality algebra, and, because the quotient map is a quasi-isomorphism, a differential Poincaré duality model of the original PDGA.
 
 ```wl
 pd = NondegenerateQuotient[model];
@@ -104,7 +104,7 @@ pd = NondegenerateQuotient[model];
 
 <!-- => {{1, a, a^2}, {0, 2, 4}} -->
 
-For $\mathbb{CP}^2$ the quotient is the cohomology ring itself, with zero differential — as it must be, $\mathbb{CP}^2$ being formal. The pairing is stored as a matrix in that basis, and it is invertible:
+For $\mathbb{CP}^2$ the quotient is the cohomology ring itself, with zero differential, as it must be, $\mathbb{CP}^2$ being formal. The pairing is stored as a matrix in that basis, and it is invertible:
 
 ```wl
 pd["Pairing"] // MatrixForm
@@ -145,10 +145,10 @@ Normal[pairing["Degrees"]]
 Normal[pairing["Values"]]
 ```
 
-From here on this is an ordinary alphabet, and the whole IBL layer applies to it. The quotient itself rides along as the `"Algebra"` key of the pairing object, which is where [CyclicDifferential]() reads the chain-level differential from; for $\mathbb{CP}^2$ that differential is zero, the model being formal, and the next tutorial shows the alphabet where it is not. The cyclic words of length two, for instance — three of them, because $1\cdot 1$, $a\cdot a$ and $a^2\cdot a^2$ are cyclically antisymmetric and so vanish:
+From here on this is an ordinary alphabet, and the whole IBL layer applies to it. The quotient itself rides along as the `"Algebra"` key of the pairing object, which is where [CyclicHochschildDifferential]() reads the chain-level differential from; for $\mathbb{CP}^2$ that differential is zero, the model being formal, and the next tutorial shows the alphabet where it is not. There are three cyclic words of length two, for instance, because $1\cdot 1$, $a\cdot a$ and $a^2\cdot a^2$ are cyclically antisymmetric and so vanish:
 
 ```wl
-CyclicWords[2, pairing]
+GenerateCyclicWords[2, pairing]
 ```
 
 <!-- => {CyclicWord[{1, a}], CyclicWord[{1, a^2}], CyclicWord[{a^2, a}]} -->
@@ -156,14 +156,15 @@ CyclicWords[2, pairing]
 The bracket glues two words by pairing one letter of each:
 
 ```wl
-InvolutiveBracket[CyclicWord[{1, a}], CyclicWord[{a^2, a}], pairing]
+StringBracket[CyclicWord[{1, a}], CyclicWord[{a^2, a}], pairing]
 ```
 
-The four defining identities of an involutive bi-Lie algebra hold, as they must for any alphabet with a graded antisymmetric pairing:
+The four defining identities of an involutive bi-Lie algebra are the relations of the [StringAlgebra]() of the pairing, and they hold, as they must for any alphabet with a graded antisymmetric pairing:
 
 ```wl
-With[{u = CyclicWord[{1, a}], v = CyclicWord[{a^2, a}]},
- {JacobiObstruction[u, v, u, pairing], CoJacobiObstruction[u, pairing], DrinfeldObstruction[u, v, pairing], InvolutivityObstruction[u, pairing]}]
+With[{algebra = StringAlgebra[pairing], u = CyclicWord[{1, a}], v = CyclicWord[{a^2, a}]},
+ {Obstruction[algebra, "Jacobi", {u, v, u}], Obstruction[algebra, "CoJacobi", {u}],
+  Obstruction[algebra, "Drinfeld", {u, v}], Obstruction[algebra, "Involutivity", {u}]}]
 ```
 
 <!-- => {0, 0, 0, 0} -->
@@ -174,18 +175,19 @@ The triple product of the Poincaré duality algebra is a cyclic three-cochain, s
 
 $$\mathfrak{m}^{\mathrm{can}}_{1,0} = (-1)^{n-2}\frac{1}{3}\sum_{i,j,k} \pm\,(-1)^{\deg e_j}\,\mathcal{O}(e_i e_j e_k)\; e^ie^je^k,$$
 
-the $\pm$ being the reversal sign. [CanonicalMaurerCartan]() evaluates it.
+the $\pm$ being the reversal sign. [CanonicalMaurerCartan]() evaluates it, as the part $\mathfrak{m}_{1,0}$ of a [MaurerCartanElement]().
 
 ```wl
-m = CanonicalMaurerCartan[pairing]
+m = CanonicalMaurerCartan[pairing];
+m[{1, 0}]
 ```
 
 <!-- => -CyclicWord[{1, 1, a^2}] - CyclicWord[{1, a, a}] -->
 
-Its symmetric degree is $2(n-3)$, which is the degree of $\HBar$ and so of a BD action:
+Its symmetric degree is $2(n-3)$, which is the degree of $\hbar$ and so of a BD action:
 
 ```wl
-{WordDegree[CyclicWord[{1, 1, a^2}], pairing, "Symmetric"], PlanckDegree[pairing]}
+{ElementDegree[CyclicWord[{1, 1, a^2}], pairing, "Symmetric"], ElementDegree[HBar, pairing, "Symmetric"]}
 ```
 
 <!-- => {2, 2} -->
@@ -193,12 +195,12 @@ Its symmetric degree is $2(n-3)$, which is the degree of $\HBar$ and so of a BD 
 And it solves the Maurer-Cartan equation. That is not a formality: on a word of length three the equation reduces to $\mathfrak{q}_{2,1,0}(\mathfrak{m}\odot\mathfrak{m}) = 0$, which is associativity of the algebra written in these coordinates.
 
 ```wl
-MaurerCartanQ[m, pairing]
+RelationsQ[m]
 ```
 
 <!-- => True -->
 
-Twisting by it gives the dIBL algebra of $\mathbb{CP}^2$: the operations $\mathfrak{q}^{\mathfrak{m}}_{1,1,0}$, $\mathfrak{q}_{2,1,0}$, $\mathfrak{q}_{1,2,0}$, whose twisted homology is the cyclic cohomology of the Poincaré duality algebra. When the quotient keeps a differential, the chain-level operation $\mathfrak{q}_{1,1,0}$ — [CyclicDifferential]() — is nonzero before any twisting, and $\mathfrak{q}^{\mathfrak{m}}_{1,1,0}$ stacks the bracket with the element on top of it; $\mathbb{CP}^2$, being formal, has none.
+Twisting by it gives the dIBL algebra of $\mathbb{CP}^2$: the operations $\mathfrak{q}^{\mathfrak{m}}_{1,1,0}$, $\mathfrak{q}_{2,1,0}$, $\mathfrak{q}_{1,2,0}$, whose twisted homology is the cyclic cohomology of the Poincaré duality algebra. When the quotient keeps a differential, the chain-level operation $\mathfrak{q}_{1,1,0}$, [CyclicHochschildDifferential](), is nonzero before any twisting, and $\mathfrak{q}^{\mathfrak{m}}_{1,1,0}$ stacks the bracket with the element on top of it; $\mathbb{CP}^2$, being formal, has none.
 
 ## The whole catalogue
 
@@ -210,7 +212,7 @@ row[spec_] := With[{md = SullivanModel[spec]},
      With[{pr = GradedPairing[pq]},
        <|"Model" -> spec, "n" -> md["Degree"], "Hodge type" -> HodgeTypeQ[md],
          "dim Q" -> Length[pq["Basis"]],
-         "Maurer-Cartan" -> MaurerCartanQ[CanonicalMaurerCartan[pr], pr]|>]]];
+         "Maurer-Cartan" -> RelationsQ[CanonicalMaurerCartan[pr]]|>]]];
 Dataset[Map[row, {"Circle", "Sphere"[2], "Sphere"[3], "ComplexProjectiveSpace"[2],
    "ComplexProjectiveSpace"[3], "QuaternionicProjectiveSpace"[2], "Torus"[3],
    "SpecialUnitaryGroup"[3], "HeisenbergNilmanifold", "KodairaThurston",

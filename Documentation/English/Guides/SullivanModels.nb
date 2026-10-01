@@ -1,0 +1,447 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     16857,        438]
+NotebookOptionsPosition[     11215,        331]
+NotebookOutlinePosition[     12414,        363]
+CellTagsIndexPosition[     12371,        360]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Sullivan Models", "GuideTitle",
+ CellID->942062912,ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3"],
+
+Cell["\<\
+Sullivan models are free graded commutative algebras with a differential, the \
+algebraic models of rational homotopy theory: the models of a catalogue and \
+those given by generators, with their monomial bases, products and \
+differentials; and orientations, the pairings they define, and Poincar\
+\[EAcute] duality on cohomology and on chain level.\
+\>", "GuideAbstract",
+ CellID->2001916300,ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",
+ CellID->1866139230,ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774"],
+
+Cell[CellGroupData[{
+
+Cell["Models and the catalogue", "GuideFunctionsSubsection",ExpressionUUID->"99fb70d7-ac02-4fe0-929c-e296aa4aeb19"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SullivanModel"]], "paclet:ChernSimons/ref/SullivanModel", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "6ca910dd-1dbf-41a6-884f-ec6d9e6d204a"],
+ " \[LongDash] ",
+ "a Sullivan model with an orientation, from the catalogue, from its \
+generators or as a tensor product"
+}], "GuideText",ExpressionUUID->"41323bce-75d7-420c-ab5a-14614a636504"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["$SullivanModels"]], "paclet:ChernSimons/ref/$SullivanModels", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "b32530b1-cf25-4003-961e-5b64f23caeeb"],
+ " \[LongDash] ",
+ "the names of the models in the catalogue"
+}], "GuideText",ExpressionUUID->"91d47272-ed34-4951-8870-d576b0d186ac"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SullivanModelBasis"]], 
+    "paclet:ChernSimons/ref/SullivanModelBasis", "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "6b6f5320-4bdd-4ceb-be77-d7b81ab653e3"],
+ " \[LongDash] ",
+ "the monomials of one degree"
+}], "GuideText",ExpressionUUID->"b84ed99b-97dd-4ddb-8d86-c536fa9b993d"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SullivanModelProduct"]], 
+    "paclet:ChernSimons/ref/SullivanModelProduct", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "a4e0d4f3-a5ca-4f45-a37b-0700ed73562d"],
+ " \[LongDash] ",
+ "the graded commutative product of elements"
+}], "GuideText",ExpressionUUID->"2fa6918d-ca91-47b3-ace4-67daa59915ff"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SullivanModelDifferential"]], 
+    "paclet:ChernSimons/ref/SullivanModelDifferential", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "0362eee4-77d6-489d-a745-5d80f0cca39b"],
+ " \[LongDash] ",
+ "the differential of an element"
+}], "GuideText",ExpressionUUID->"a1f47c46-c12d-4f23-98e8-16f5a495f463"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SullivanModelQ"]], "paclet:ChernSimons/ref/SullivanModelQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "07050aae-79c9-4092-bffb-909241de5bf1"],
+ " \[LongDash] ",
+ "tests whether an expression is a Sullivan model"
+}], "GuideText",ExpressionUUID->"16144ede-d910-42cc-b077-e740758bd402"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Orientations and Poincar\[EAcute] duality", "GuideFunctionsSubsection",ExpressionUUID->"7e33b60a-7db5-49b7-be3b-03b2b7edbde0"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SullivanModelOrientation"]], 
+    "paclet:ChernSimons/ref/SullivanModelOrientation", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "0ea9a90c-b46a-4b25-8639-ec95d878a815"],
+ " \[LongDash] ",
+ "the orientation, a linear form on the elements of degree ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["n", "TI"], TraditionalForm]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "eba59974-62ae-4f53-aebf-ef9aa7911a4c"]
+}], "GuideText",ExpressionUUID->"a8fa716d-22cd-4d68-a2d3-88ca3799885c"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SullivanModelPairing"]], 
+    "paclet:ChernSimons/ref/SullivanModelPairing", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "1c900aa8-ab20-4936-a43c-3699fcdd6af5"],
+ " \[LongDash] ",
+ "the pairing ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[LeftAngleBracket]", 
+     RowBox[{
+      StyleBox["x", "TI"], ",", 
+      StyleBox["y", "TI"]}], "\[RightAngleBracket]"}], "\[LongEqual]", 
+    StyleBox["O", "TI"], 
+    RowBox[{"(", 
+     StyleBox[
+      RowBox[{"x", "y"}], "TI"], ")"}]}], TraditionalForm]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "a1542f04-2ed3-4a44-93c1-36cfce0494af"],
+ " that the orientation defines"
+}], "GuideText",ExpressionUUID->"2f10b308-77e9-4049-a357-10d77a43fc8d"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["OrientationQ"]], "paclet:ChernSimons/ref/OrientationQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "bb10f353-2a80-450d-be6e-3861091936ed"],
+ " \[LongDash] ",
+ "tests whether values on the elements of one degree define an orientation"
+}], "GuideText",ExpressionUUID->"31abb77a-a324-4d0a-9d78-862ea97da074"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["PoincareDualityQ"]], "paclet:ChernSimons/ref/PoincareDualityQ",
+     "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "d2c234a0-9f25-411b-8f0c-b3060417becc"],
+ " \[LongDash] ",
+ "tests whether the pairing is perfect on cohomology"
+}], "GuideText",ExpressionUUID->"38e1643b-ff87-4660-a843-c27de9381f12"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["PerfectPairingQ"]], "paclet:ChernSimons/ref/PerfectPairingQ", 
+    "ChernSimons Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "3f89605b-6659-4b27-b60e-9b099eb06be1"],
+ " \[LongDash] ",
+ "tests whether the pairing is perfect on chain level"
+}], "GuideText",ExpressionUUID->"ab6d8a82-0674-4dd6-b036-4a09122693b6"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["Tech Notes", "GuideTutorialsSection",
+ CellID->415694126,ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8"],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "GuideMoreAboutSection",
+ CellChangeTimes->{{3.8430423939366693`*^9, 3.843042395176153*^9}},
+ CellID->23220180,ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50"],
+
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{
+   Cell[
+    TextData["AlgebraicModels"]], "paclet:ChernSimons/guide/AlgebraicModels"},
+  
+  "RefLinkPlain",
+  BaseStyle->{
+   "InlineFormula"}]], \
+"InlineFormula",ExpressionUUID->"7f5ca107-3086-4dea-b00c-5a9fea8be819"]], \
+"GuideMoreAbout",
+ CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"]
+}, Open  ]],
+
+Cell["Related Links", "GuideRelatedLinksSection",
+ CellID->415694148,ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049"],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->311882160,ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"8042be5c-0c76-46b3-86b4-3979f9a7592e"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"33838997-9c86-4f7e-a86c-465a8baa0509"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "f4a6f470-53c8-4e44-a786-272e7e70dce6"]
+}], "History",
+ CellID->341476719,ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449,ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b"],
+
+Cell["Guide", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475"],
+
+Cell["ChernSimons", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c"],
+
+Cell["ChernSimons`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e"],
+
+Cell["ChernSimons/guide/SullivanModels", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"b685ff3a-bcf6-4b9e-90a2-1904b3329f96"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->1427428552,ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead"],
+
+Cell["Sullivan model", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["minimal model", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["rational homotopy theory", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["commutative differential graded algebra", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["catalogue", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["monomial basis", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["tensor product", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["orientation", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["Poincare duality", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["perfect pairing", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+TaggingRules->{
+ "Metadata" -> {
+   "title" -> "SullivanModels", "context" -> "ChernSimons`", 
+    "keywords" -> {
+     "Sullivan model", "minimal model", "rational homotopy theory", 
+      "commutative differential graded algebra", "catalogue", 
+      "monomial basis", "tensor product", "orientation", "Poincare duality", 
+      "perfect pairing"}, "summary" -> 
+    "Sullivan models from a catalogue or from generators, their bases, \
+products and differentials, and orientations and Poincar\[EAcute] duality on \
+cohomology and on chain level", "paclet" -> "ChernSimons", "uri" -> 
+    "ChernSimons/guide/SullivanModels", "type" -> "Guide", "index" -> True, 
+    "language" -> "en"}},
+CreateCellID->True,
+CellContext->CellGroup,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (July 2, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"4f3dd705-9635-4464-b348-9b4dec79eac8"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 112, 1, 70, "GuideTitle",ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3",
+ CellID->942062912],
+Cell[691, 25, 459, 7, 70, "GuideAbstract",ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925",
+ CellID->2001916300]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1187, 37, 109, 1, 70, "GuideFunctionsSection",ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774",
+ CellID->1866139230],
+Cell[CellGroupData[{
+Cell[1321, 42, 115, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"99fb70d7-ac02-4fe0-929c-e296aa4aeb19"],
+Cell[1439, 44, 538, 13, 70, "GuideText",ExpressionUUID->"41323bce-75d7-420c-ab5a-14614a636504"],
+Cell[1980, 59, 480, 12, 70, "GuideText",ExpressionUUID->"91d47272-ed34-4951-8870-d576b0d186ac"],
+Cell[2463, 73, 473, 12, 70, "GuideText",ExpressionUUID->"b84ed99b-97dd-4ddb-8d86-c536fa9b993d"],
+Cell[2939, 87, 497, 13, 70, "GuideText",ExpressionUUID->"2fa6918d-ca91-47b3-ace4-67daa59915ff"],
+Cell[3439, 102, 495, 13, 70, "GuideText",ExpressionUUID->"a1f47c46-c12d-4f23-98e8-16f5a495f463"],
+Cell[3937, 117, 485, 12, 70, "GuideText",ExpressionUUID->"16144ede-d910-42cc-b077-e740758bd402"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4459, 134, 132, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"7e33b60a-7db5-49b7-be3b-03b2b7edbde0"],
+Cell[4594, 136, 692, 18, 70, "GuideText",ExpressionUUID->"a8fa716d-22cd-4d68-a2d3-88ca3799885c"],
+Cell[5289, 156, 917, 27, 70, "GuideText",ExpressionUUID->"2f10b308-77e9-4049-a357-10d77a43fc8d"],
+Cell[6209, 185, 506, 12, 70, "GuideText",ExpressionUUID->"31abb77a-a324-4d0a-9d78-862ea97da074"],
+Cell[6718, 199, 492, 12, 70, "GuideText",ExpressionUUID->"38e1643b-ff87-4660-a843-c27de9381f12"],
+Cell[7213, 213, 491, 12, 70, "GuideText",ExpressionUUID->"ab6d8a82-0674-4dd6-b036-4a09122693b6"]
+}, Open  ]]
+}, Open  ]],
+Cell[7731, 229, 118, 1, 70, "GuideTutorialsSection",ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8",
+ CellID->415694126],
+Cell[CellGroupData[{
+Cell[7874, 234, 189, 2, 70, "GuideMoreAboutSection",ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50",
+ CellID->23220180],
+Cell[8066, 238, 361, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+ CellID->1567025153]
+}, Open  ]],
+Cell[8442, 251, 124, 1, 70, "GuideRelatedLinksSection",ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049",
+ CellID->415694148],
+Cell[CellGroupData[{
+Cell[8591, 256, 110, 1, 70, "MetadataSection",ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2",
+ CellID->311882160],
+Cell[8704, 259, 476, 12, 70, "History",ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513",
+ CellID->341476719],
+Cell[CellGroupData[{
+Cell[9205, 275, 123, 1, 70, "CategorizationSection",ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b",
+ CellID->1122911449],
+Cell[9331, 278, 133, 2, 70, "Categorization",ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475",
+ CellID->686433507],
+Cell[9467, 282, 139, 2, 70, "Categorization",ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c",
+ CellID->605800465],
+Cell[9609, 286, 136, 2, 70, "Categorization",ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e",
+ CellID->468444828],
+Cell[9748, 290, 132, 1, 70, "Categorization",ExpressionUUID->"b685ff3a-bcf6-4b9e-90a2-1904b3329f96"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[9917, 296, 111, 1, 70, "KeywordsSection",ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead",
+ CellID->1427428552],
+Cell[10031, 299, 110, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[10144, 302, 109, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[10256, 305, 120, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[10379, 308, 135, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[10517, 311, 105, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[10625, 314, 110, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[10738, 317, 110, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[10851, 320, 107, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[10961, 323, 112, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[11076, 326, 111, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

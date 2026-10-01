@@ -1,81 +1,60 @@
 ---
 Template: Guide
 Name: ChernSimons
-Title: Chern-Simons IBL Algebras
+Title: Chern-Simons Theory
+Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/guide/ChernSimons
-Keywords: [IBL infinity, involutive bi-Lie, cyclic words, Maurer-Cartan, Poincare duality, Sullivan model, Hodge decomposition, Chern-Simons]
+Description: The large n limit of Chern-Simons theory: string algebras of cyclic words, the Beilinson-Drinfeld formalism and its Maurer-Cartan elements, algebraic models, and homotopy algebras
+Keywords: [Chern-Simons theory, large n limit, cyclic words, IBL infinity, involutive bi-Lie algebra, Beilinson-Drinfeld algebra, Maurer-Cartan element, string topology, symplectic field theory, Sullivan model, Hodge decomposition, A-infinity algebra]
+RelatedGuides: [StringAlgebras, BeilinsonDrinfeldFormalism, AlgebraicModels, HomotopyAlgebras]
 RelatedTutorials: [FromASullivanModelToAnIBLAlgebra, HodgeTypeAndTheNondegenerateQuotient, TheCanonicalIBLAlgebraOfTheCircle]
-Links: ["arXiv:2004.07362 Hodge decompositions and Poincare duality models" -> "https://arxiv.org/abs/2004.07362"]
+Links: ["[Cieliebak, Fukaya, Latschev: Homological algebra related to surfaces with boundary (2015)](https://arxiv.org/abs/1508.02741)",
+  "[Hájek: Twisted IBL-infinity-algebra and string topology: first look and examples (2018)](https://arxiv.org/abs/1811.05281)",
+  "[Hájek: IBL-infinity model of string topology from perturbative Chern-Simons theory (2020)](https://arxiv.org/abs/2003.07933)",
+  "[Cieliebak, Hájek, Volkov: Chain-level equivariant string topology: algebra versus analysis (2022)](https://arxiv.org/abs/2202.06837)",
+  "[Cieliebak, Volkov: Chern-Simons theory and string topology (2023)](https://arxiv.org/abs/2312.05922)",
+  "[Cieliebak, Volkov: String topology operations under Chen's iterated integrals and homotopy transfer (2026)](https://arxiv.org/abs/2607.03782)",
+  "[Algebraic Model of String Operations, Wolfram Notebook Archive (2024)](https://notebookarchive.org/2024-07-6ij9go2)"]
 ---
 
 ## Abstract
 
-An involutive bi-Lie infinity structure on the cyclic words of a graded alphabet with a pairing, in both the graded exterior and the graded symmetric convention. The alphabet is data, not global state: a pairing object carries the degrees of the particles and the values of the pairing, and every operation takes it as its last argument. The pairing that matters geometrically comes from Poincare duality, so the paclet also builds it — from a Sullivan minimal model with a volume form, through the test for Hodge type and the nondegenerate quotient, to the finite-dimensional Poincare duality algebra and the canonical Maurer-Cartan element its triple product carries. When the model is not formal that algebra carries a differential too, and the alphabet carries it into the operation q(1,1,0), the first summand of the Beilinson-Drinfeld operator and of the twisted differential.
+The theory is the large-$n$ limit of $U(n)$ Chern-Simons theory on a closed oriented manifold.
+Its action is a Beilinson-Drinfeld action on the cyclic words of the de Rham cohomology, equivalently a Maurer-Cartan element of an IBL-infinity algebra.
+It is related to string topology: the bracket and the co-bracket of cyclic words model the string topology operations on the free loop space of the manifold.
+It is related to symplectic field theory, whose algebraic structure is an IBL-infinity algebra as well.
+One can imagine it as the open part of an open-closed string field theory of holomorphic curves in the cotangent bundle, the closed part being the symplectic field theory of the unit cotangent bundle.
+Its areas are the string algebras of cyclic words, the Beilinson-Drinfeld formalism with its Maurer-Cartan elements, the algebraic models from which the graded alphabet of the cyclic words is read, and the homotopy algebras.
+Each area has its own guide.
 
 ## Functions
 
-### From a space to an alphabet
+### [String Algebras](paclet:ChernSimons/guide/StringAlgebras)
 
-- `SullivanModel` a Sullivan minimal model with a volume form, from a catalogue or from generators, degrees and a differential
-- `$SullivanModels` the catalogue names
-- `SullivanModelBasis` the monomials of one degree
-- `SullivanModelProduct`, `SullivanModelDifferential` the graded commutative product and the differential of the model
-- `SullivanModelOrientation`, `SullivanModelPairing` the coefficient of the volume monomial, and the chain-level pairing it defines
-- `DegenerateSubspace` the elements paired to zero with everything
-- `HodgeTypeQ`, `HodgeTypeReport` whether the degenerate subspace is acyclic — equivalently, whether the quotient map is a quasi-isomorphism
-- `NondegenerateQuotient` the finite-dimensional Poincare duality algebra the model retracts onto
-- `PoincareDualityAlgebra` that algebra as an object, and what the rational homotopy layer hands to the dIBL layer
-- `SullivanModelQ`, `PoincareDualityAlgebraQ` recognizers for the two
-- `CanonicalMaurerCartan` the Maurer-Cartan element carrying the triple product of that algebra
+- `GradedPairing` the graded alphabet with a pairing that the cyclic words are written in
+- `CyclicWord` a cyclic word of particles
+- `StringBracket` the bracket of two cyclic words
+- `StringCobracket` the co-bracket of a cyclic word
+- `StringAlgebra` the differential involutive bi-Lie algebra of the cyclic words of an alphabet
 
-### The graded alphabet
+### [Beilinson-Drinfeld Formalism](paclet:ChernSimons/guide/BeilinsonDrinfeldFormalism)
 
-- `GradedPairing` the pairing object every operation takes as its last argument, built from degrees and values or from a Poincare duality algebra
-- `GradedPairingQ` its recognizer
-- `CyclicWord`, `CyclicWords` a cyclic word in its canonical rotation, and the enumeration of them
-- `WordDegree` the degree of a cyclic word, in either grading
-- `KoszulSign` the sign of a permutation of graded objects
+- `StringBeilinsonDrinfeldOperator` the Beilinson-Drinfeld operator on the symmetric powers of cyclic words
+- `HBar` the formal variable $\hbar$
+- `MaurerCartanElement` an element given by its parts or by its action, the unknown of the master equation
+- `CanonicalMaurerCartan` the canonical Maurer-Cartan element of a Poincaré duality algebra, made from its triple product
+- `TwistedDifferential` the differential twisted by a Maurer-Cartan element
 
-### The two products
+### [Algebraic Models](paclet:ChernSimons/guide/AlgebraicModels)
 
-- `ExteriorProduct`, `SymmetricProduct` the graded exterior and graded symmetric products of cyclic words
-- `ShiftIsomorphism` the map between the two pictures that intertwines the operations
+- `SullivanModel` a Sullivan model with an orientation
+- `HodgeTypeQ` tests whether a model is of Hodge type
+- `NondegenerateQuotient` the Poincaré duality algebra of a model, its quotient by the degenerate subspace
+- `FindHodgeDecomposition` a Hodge decomposition of a model
 
-### The operations
+### [Homotopy Algebras](paclet:ChernSimons/guide/HomotopyAlgebras)
 
-- `CyclicDifferential` the differential q(1,1,0), zero unless the model is non-formal, and its extension as a derivation
-- `ChordContraction` one term of the bracket or of the co-bracket: two particles contracted along a chord, joining two words or cutting one
-- `InvolutiveBracket` the bracket q(2,1,0), and its extension as a derivation
-- `InvolutiveCobracket` the co-bracket q(1,2,0), and its extension as a co-derivation
-- `DualPairing`, `ProductPairing` the evaluation of words on dual words, and its extension to products
-
-### The defining identities
-
-- `JacobiObstruction`, `CoJacobiObstruction`, `DrinfeldObstruction`, `InvolutivityObstruction` the four obstructions; zero means the identity holds
-- `$DefiningIdentities` the four collected, with their arities
-
-### The Beilinson-Drinfeld algebra
-
-- `BeilinsonDrinfeldOperator` the operator q(1,1,0) + q(1,2,0) + HBar q(2,1,0) on symmetric powers
-- `BeilinsonDrinfeldBracket` the bracket of the BD axiom, carrying no HBar
-- `BeilinsonDrinfeldMasterEquation`, `BeilinsonDrinfeldMasterQ` the master equation over R[[HBar]], and its test
-- `PlanckDegree` the symmetric degree of HBar, and so of a BD action
-- `HBar` the formal variable
-
-### Maurer-Cartan elements
-
-- `MaurerCartanEquation`, `MaurerCartanQ` the equation on an element, and its test
-- `MaurerCartanBasis`, `MaurerCartanAnsatz` the genus-zero monomials, and the general element over them
-- `TwistedDifferential`, `TwistedCobracket` the operations twisted by an element
-
-### Gauge equivalence
-
-- `GaugeFlow` the BD homotopy flow, over any alphabet
-
-### A-infinity algebras
-
-- `AInfinityAlgebraQ` its recognizer
-- `AInfinityAlgebra`, `AInfinityOperation` a finite-dimensional A-infinity algebra, and its operations
-- `AInfinityObstruction`, `AInfinityQ` the relations, and their test
-- `AInfinityMorphismObstruction`, `AInfinityMorphismQ` the morphism relations, and their test
+- `AInfinityAlgebra` a finite-dimensional A-infinity algebra
+- `AInfinityMorphism` a morphism of A-infinity algebras
+- `RelationsQ` tests the relations of a structure
