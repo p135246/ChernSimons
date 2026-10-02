@@ -1,5 +1,7 @@
 # 🌀 Chern-Simons Theory
 
+📖 **Documentation: [ChernSimons on the Wolfram Cloud](https://www.wolframcloud.com/obj/hajek_pavel/DeployedResources/Paclet/ChernSimons)**, the landing page with the install command, the [Chern-Simons Theory guide](https://www.wolframcloud.com/obj/hajek_pavel/DeployedResources/Paclet/ChernSimons/Documentation/ChernSimons/guide/ChernSimons.html) and a reference page with examples for every function. Start there.
+
 This Wolfram Language paclet makes parts of the Chern-Simons theory studied in the following papers computable.
 
 - Cieliebak, Fukaya, Latschev, *Homological algebra related to surfaces with boundary*, [arXiv:1508.02741](https://arxiv.org/abs/1508.02741), 2015

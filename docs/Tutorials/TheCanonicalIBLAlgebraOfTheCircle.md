@@ -108,6 +108,10 @@ The Hochschild differential. Twisting $\mathfrak{q}_{2,1,0}$ by $\mathfrak{m}^{\
 
 <!-- => {0, 0} -->
 
+The bracket and the co-bracket as surfaces, the strings propagating from the top to the bottom: each red curve is a pairing that annihilates two particles and produces a scalar, and there is exactly one interacting pair in each operation.
+
+![The bracket and the co-bracket of cyclic words as surfaces](../images/StringOperations.png "ExampleImage")
+
 The bracket. $\mathfrak{q}_{2,1,0}(x^a\odot y^b) = -ab\,x^{a-1}y^{b-1}$, the deleted pair always being one $x$ and one $y$:
 
 ```wl

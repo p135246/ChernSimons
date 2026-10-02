@@ -37,6 +37,10 @@ RelatedGuides: [StringAlgebras]
 
 ## Basic Examples
 
+The bracket, on the left, joins two strings into one; the strings propagate from the top to the bottom, and the red curve is the pairing that annihilates one particle of each word:
+
+![The bracket and the co-bracket of cyclic words as surfaces](../images/StringOperations.png "ExampleImage")
+
 The bracket of two words of the circle:
 
 ```wl

@@ -25,3 +25,11 @@ The theory is the large-$n$ limit of $U(n)$ Chern-Simons theory on a closed orie
 - Every export computes on an arbitrary graded alphabet; the circle is the running example of the documentation, and the tutorial [TheCanonicalIBLAlgebraOfTheCircle]() builds its canonical IBL-infinity algebra from the minimal model in a few lines.
 - The Chern-Simons Theory guide, [ChernSimons](), is the landing page; every symbol it lists has a reference page.
 - The paclet accompanies the paper of Cieliebak and Hájek on the Chern-Simons IBL-infinity algebra of the circle; the formulas it computes are the ones the paper states.
+
+## Hero Image
+
+The bracket and the co-bracket of cyclic words as surfaces: strings propagate from the top to the bottom, and each red curve is a pairing that annihilates two particles. From Algebraic Model of String Operations, Wolfram Notebook Archive 2024.
+
+```wl
+Import[PacletObject["ChernSimons"]["AssetLocation", "HeroImage"]]
+```

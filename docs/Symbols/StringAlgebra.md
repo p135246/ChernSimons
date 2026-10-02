@@ -40,6 +40,10 @@ RelatedGuides: [StringAlgebras]
 
 ## Basic Examples
 
+A glued surface is a composition of the operations, the cylinder being the identity; summing over all insertions of the incoming strings and all compositions gives the relations, here the involutivity relation, the bracket of the two halves of a cut string vanishing:
+
+![The involutivity relation as glued surfaces](../images/Involutivity.png "ExampleImage")
+
 The string algebra of the circle:
 
 ```wl

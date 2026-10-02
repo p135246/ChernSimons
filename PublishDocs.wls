@@ -15,9 +15,15 @@
       elsewhere;
    4. headless scrape of the definition notebook and CloudDeploy with Permissions -> "Public",
       what the definition notebook's "Deploy -> Publicly in the cloud" button does;
-   5. HTTP check: the resource root and every page of the built tree must answer 200.
-   Usage: PublishDocs.wls          deploy, then check
-          PublishDocs.wls check    only the HTTP check against the target
+   5. relink: the deploy rewrites every paclet: link inside the pages to <target>/Documentation/<kind>/
+      <Name>.html but copies the pages to <target>/Documentation/ChernSimons/<kind>/<Name>.html, so the
+      deployed notebooks are read back, the links pointed at the folder the pages are in, and written
+      back public; idempotent;
+   6. check: the resource root and every page must answer 200, and so must every link target inside
+      the deployed pages that points back into the resource.
+   Usage: PublishDocs.wls          deploy, relink, then check
+          PublishDocs.wls relink   only the relink and the check, on what is deployed
+          PublishDocs.wls check    only the check against the target
    Exit 1 on any failed stage. The archive at obj/hajek_pavel/s1paper/ChernSimons.paclet is
    Publish.wls's business and is never touched here; no version is bumped. *)
 
@@ -46,11 +52,35 @@ $kinds = { { { "Guides" }, "guide" }, { { "Tutorials" }, "tutorial" }, { { "Refe
 PublishDocs[ { "check" } ] :=
   (
     If[ ! DirectoryQ[ DocumentationRoot[ ] ], FailStage[ "no built paclet at ", $built, ": run PackageDocs.wls first" ] ];
-    Exit[ Boole[ ! HTTPCheck[ ] ] ]
+    ConnectCloud[ ];
+    Exit[ Boole[ ! And[ HTTPCheck[ ], LinkCheck[ ] ] ] ]
   )
 
+PublishDocs[ { "relink" } ] :=
+  (
+    If[ ! DirectoryQ[ DocumentationRoot[ ] ], FailStage[ "no built paclet at ", $built, ": run PackageDocs.wls first" ] ];
+    ConnectCloud[ ];
+    Relink[ ];
+    Exit[ Boole[ ! And[ HTTPCheck[ ], LinkCheck[ ] ] ] ]
+  )
+
+PublishDocs[ { "scrape" } ] :=
+  Block[ { $scrapeOnly = True },
+    ScrapeAndDeploy[ Prepare[ ] ]
+  ]
+
 PublishDocs[ { } ] :=
-  Module[ { symbols, location, url },
+  Module[ { location, url },
+    location = Prepare[ ];
+    url = ScrapeAndDeploy[ location ];
+    Print[ "" ];
+    Relink[ ];
+    Print[ "" ];
+    Exit[ Boole[ ! And[ HTTPCheck[ ], LinkCheck[ ] ] ] ]
+  ]
+
+Prepare[ ] :=
+  Module[ { symbols, location },
     Print[ "built: ", $built ];
     Print[ "target: ", $target ];
     If[ ! ( DirectoryQ[ $built ] && FileExistsQ[ FileNameJoin[ { $built, "PacletInfo.wl" } ] ] && Pages[ ] =!= { } ),
@@ -71,9 +101,49 @@ PublishDocs[ { } ] :=
     If[ ! FileExistsQ[ $definition ], FailStage[ "MarkdownToNotebook wrote no definition notebook" ] ];
     location = ConnectAndLocate[ ];
     PatchVendor[ symbols ];
-    url = ScrapeAndDeploy[ location ];
-    Print[ "" ];
-    Exit[ Boole[ ! HTTPCheck[ ] ] ]
+    InjectHero[ ];
+    InjectWebContent[ ];
+    location
+  ]
+
+(* the headless scrape returns the metadata sections of the definition notebook and never its Web
+   Content, so the landing page would show neither the Basic Description nor the hero; the cells of
+   the two sections are read from the definition notebook and joined into the information the
+   landing page is built from, together with the URL the hero is deployed at *)
+InjectWebContent[ ] :=
+  Module[ { cells, section, long, details },
+    cells = Select[ Cases[ Import[ $definition ], Cell[ _, _String, ___ ], Infinity ], MatchQ[ #[[ 2 ]], "Subsection" | "Text" | "Notes" ] & ];
+    section[ tag_String, style_String ] :=
+      With[ { start = FirstPosition[ cells, Cell[ _, "Subsection", ___, CellTags -> { ___, tag, ___ }, ___ ], { 0 }, { 1 } ][[ 1 ]] },
+        If[ start === 0, { },
+          TakeWhile[ Drop[ cells, start ], #[[ 2 ]] =!= "Subsection" & ] // Select[ #[[ 2 ]] === style & ] ] ];
+    long = section[ "LongDescription", "Text" ];
+    details = section[ "Details", "Notes" ];
+    Print[ "web content: ", Length[ long ], " description cells, ", Length[ details ], " details cells" ];
+    Quiet @ Unprotect[ PacletResource`Private`prepareShingleInfo ];
+    PrependTo[ DownValues[ PacletResource`Private`prepareShingleInfo ],
+      HoldPattern[ PacletResource`Private`prepareShingleInfo[ info_Association ? ( ! KeyExistsQ[ #, "WebContentInjected" ] & ), opts___ ] ] :>
+        ( PacletResource`Private`prepareShingleInfo[
+            Join[ info, DeleteCases[ <|
+              "LongDescription" -> long,
+              "Details" -> details,
+              "HeroImage" -> Lookup[ info, "HeroImage", $target <> "/HeroImage.png" ],
+              "WebContentInjected" -> True |>, { } ] ],
+            opts ] ) ];
+    Quiet @ Unprotect[ PacletResource`Private`deployDelayedEmbedTemplate ];
+    PrependTo[ DownValues[ PacletResource`Private`deployDelayedEmbedTemplate ],
+      HoldPattern[ PacletResource`Private`deployDelayedEmbedTemplate[ tgt_, template_String, params_, urls_, opts_ ] ] /; ! TrueQ[ $embedPrinted ] :>
+        Block[ { $embedPrinted = True },
+          Print[ "landing page: ", StringLength[ template ], " chars, hero ", StringCount[ template, "class=\"hero-image\"" ],
+            ", description ", StringCount[ template, "<div class=\"more-description\">" ] ];
+          With[ { deployed = PacletResource`Private`deployDelayedEmbedTemplate[ tgt, template, params, urls, opts ] },
+            (* the vendor deploys the page as a Delayed object that the cloud keeps serving in an
+               older static form; when the page has no static slots left to fill, the rendered
+               HTML is written over it as a plain file, which is what the cloud serves *)
+            If[ urls === <| |> || urls === { },
+              Print[ "landing page: written as static HTML: ",
+                Head @ CloudExport[ template, { "String", "text/html" }, CloudObject[ tgt ], Permissions -> "Public" ] ] ];
+            deployed ] ] ];
   ]
 
 DocumentationRoot[ ] := FileNameJoin[ { $built, "Documentation", "English" } ]
@@ -93,6 +163,49 @@ HTTPCheck[ ] :=
     bad = Select[ Map[ url |-> { url, status[ url ] }, Prepend[ PageURL /@ Pages[ ], $target ] ], Last[ # ] =!= 200 & ];
     Print[ "  ", Length @ Pages[ ] + 1 - Length[ bad ], " ok, ", Length[ bad ], " failed, ", Round[ AbsoluteTime[ ] - start ], " s" ];
     Scan[ entry |-> Print[ "  !! ", Last @ entry, "  ", First @ entry ], bad ];
+    Print[ If[ bad === { }, "ok", "FAILED" ] ];
+    bad === { }
+  ]
+
+ConnectCloud[ ] :=
+  (
+    If[ ! $CloudConnected, CloudConnect[ ] ];
+    If[ ! $CloudConnected, FailStage[ "no Wolfram Cloud connection" ] ];
+  )
+
+DeployedNotebooks[ ] :=
+  Join @@ Map[ kind |-> Select[ CloudObjects[ CloudObject[ $target <> "/Documentation/" <> $name <> "/" <> Last @ kind ] ],
+    object |-> StringEndsQ[ First @ object, ".nb" ] ], $kinds ]
+
+$relinkRules := $relinkRules = Map[ kind |->
+  $target <> "/Documentation/" <> Last @ kind <> "/" -> $target <> "/Documentation/" <> $name <> "/" <> Last @ kind <> "/", $kinds ]
+
+Relink[ ] :=
+  Module[ { start = AbsoluteTime[ ], notebooks, scratch, changed },
+    notebooks = DeployedNotebooks[ ];
+    Print[ "relink: ", Length[ notebooks ], " deployed notebooks" ];
+    scratch = FileNameJoin[ { $TemporaryDirectory, $name <> "-relink.nb" } ];
+    changed = Select[ notebooks, object |->
+      With[ { notebook = CloudGet[ object ] },
+        With[ { relinked = notebook /. s_String :> RuleCondition[ StringReplace[ s, $relinkRules ] ] },
+          If[ relinked === notebook, False,
+            Export[ scratch, relinked, "NB" ];
+            CopyFile[ scratch, object, OverwriteTarget -> True ];
+            SetOptions[ object, Permissions -> "Public" ];
+            True ] ] ] ];
+    Print[ "  ", Length[ changed ], " relinked, ", Round[ AbsoluteTime[ ] - start ], " s" ];
+  ]
+
+LinkCheck[ ] :=
+  Module[ { start = AbsoluteTime[ ], notebooks, targets, status, bad },
+    notebooks = DeployedNotebooks[ ];
+    targets = DeleteDuplicates[ Join @@ Map[ object |->
+      Cases[ CloudGet[ object ], s_String /; StringStartsQ[ s, $target <> "/" ] :> s, Infinity ], notebooks ] ];
+    Print[ "link check: ", Length[ targets ], " distinct link targets inside ", Length[ notebooks ], " deployed notebooks" ];
+    status[ url_String ] := Replace[ Quiet @ TimeConstrained[ URLRead[ url, "StatusCode" ], 60, $TimedOut ], Except[ _Integer ] -> 0 ];
+    bad = Select[ Map[ url |-> { url, status[ url ] }, targets ], Last[ # ] =!= 200 & ];
+    Print[ "  ", Length[ targets ] - Length[ bad ], " ok, ", Length[ bad ], " failed, ", Round[ AbsoluteTime[ ] - start ], " s" ];
+    Scan[ entry |-> Print[ "  !! ", Last @ entry, "  ", First @ entry ], Take[ bad, UpTo[ 20 ] ] ];
     Print[ If[ bad === { }, "ok", "FAILED" ] ];
     bad === { }
   ]
@@ -167,6 +280,20 @@ PatchVendor[ symbols_List ] :=
         HoldPattern[ PacletResource`Private`pacletDeclaredSymbols[ KeyValuePattern[ "Name" -> $name ] ] ] :> symbols ] ];
   )
 
+(* the headless scrape does not capture the definition notebook's hero image, so the image of the
+   paclet's "HeroImage" asset is handed to deployExtraPacletWebFiles as an Image expression, which
+   deploys it as <target>/HeroImage.png and puts it on the landing page; PureMath's publish.wls does
+   the same *)
+InjectHero[ ] :=
+  With[ { image = Quiet @ Import[ FileNameJoin[ { $built, "Assets", "StringOperations.png" } ] ] },
+    If[ ! ImageQ[ image ], Print[ "  !! no hero image in the built paclet; the landing page gets none" ],
+      Quiet @ Unprotect[ PacletResource`Private`deployExtraPacletWebFiles ];
+      PrependTo[ DownValues[ PacletResource`Private`deployExtraPacletWebFiles ],
+        HoldPattern[ PacletResource`Private`deployExtraPacletWebFiles[ id_,
+            data_?( AssociationQ[ # ] && KeyExistsQ[ #, "PacletFile" ] && ! KeyExistsQ[ #, "HeroImage" ] & ), root_, opts___ ] ] :>
+          PacletResource`Private`deployExtraPacletWebFiles[ id, Append[ data, "HeroImage" -> image ], root, opts ] ];
+      Print[ "hero: ", ImageDimensions[ image ] ] ] ]
+
 ReportBlockers[ notebook_NotebookObject ][ result_ ] :=
   (
     If[ ! MatchQ[ result, _ResourceObject ],
@@ -193,6 +320,12 @@ ScrapeAndDeploy[ location_CloudObject ] :=
               ReportBlockers[ notebook ] @ DefinitionNotebookClient`ScrapeResource[ "Paclet", notebook, Interactive -> False, "FailureCondition" -> "Error" ],
               _ResourceObject, "scraping the resource from the definition notebook failed" ];
             Print[ "deploy: scraped ", resource[ "Name" ], " in ", Round[ AbsoluteTime[ ] - start ], " s" ];
+            If[ TrueQ[ $scrapeOnly ],
+              Print[ "scraped keys: ", Keys[ First[ resource ] ] ];
+              Scan[ key |-> Print[ "  ", key, ": ", Short[ Lookup[ First[ resource ], key, Missing[ ] ], 2 ] ],
+                { "LongDescription", "Details", "HeroImage", "MainGuidePage", "ExampleNotebook" } ];
+              NotebookClose[ notebook ];
+              Exit[ 0 ] ];
             With[ { object = CloudDeploy[ resource, location, Permissions -> "Public" ] },
               ResourceRegister[ resource, "Cloud", "StoreContent" -> False ];
               object ] ],

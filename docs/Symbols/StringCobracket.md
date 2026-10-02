@@ -39,6 +39,10 @@ RelatedGuides: [StringAlgebras]
 
 ## Basic Examples
 
+The co-bracket, on the right, cuts one string into two; the strings propagate from the top to the bottom, and the red curve is the pairing that annihilates two particles of the word:
+
+![The bracket and the co-bracket of cyclic words as surfaces](../images/StringOperations.png "ExampleImage")
+
 The first nonzero co-bracket over the alphabet of the circle:
 
 ```wl
