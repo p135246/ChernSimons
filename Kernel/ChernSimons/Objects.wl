@@ -15,7 +15,7 @@ GradedPairing /: KeyTake[GradedPairing[data_Association], keys_] := GradedPairin
 GradedPairingQ[GradedPairing[KeyValuePattern[{"Degrees" -> _Association, "Values" -> _Association, "Degree" -> _, "Convention" -> "Symmetric" | "Exterior"}]?AssociationQ]] := True
 GradedPairingQ[_] := False
 
-StringAlgebra[data : KeyValuePattern[{"Pairing" -> _GradedPairing, "EmptyWord" -> True | False}]?AssociationQ][key_String] := data[key]
+CanonicalLieBialgebra[data : KeyValuePattern[{"Pairing" -> _GradedPairing, "EmptyWord" -> True | False}]?AssociationQ][key_String] := data[key]
 
 MaurerCartanElement[data_Association][{l_Integer, g_Integer}] := Lookup[data["Parts"], Key[{l, g}], 0]
 

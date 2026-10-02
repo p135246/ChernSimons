@@ -1,6 +1,6 @@
 PackageExported[ChordContraction]
-PackageExported[StringBracket]
-PackageExported[StringCobracket]
+PackageExported[CanonicalLieBracket]
+PackageExported[CanonicalLieCobracket]
 PackageExported[CyclicHochschildDifferential]
 PackageExported[SymmetricToExterior]
 PackageExported[ExteriorToSymmetric]
@@ -8,9 +8,9 @@ PackageExported[DualPairing]
 
 ChordContraction::usage = "ChordContraction[u, v, {i, j}, pairing] gives the term of the bracket of the cyclic words u and v in which particle i of u is contracted against particle j of v.\nChordContraction[w, {i, j}, pairing] gives the term of the co-bracket of the cyclic word w in which particles i and j are contracted and w is cut into two arcs.\nThe option \"EmptyWord\" -> True keeps an empty remainder or an empty arc as the empty word rather than giving 0.";
 
-StringBracket::usage = "StringBracket[u, v, pairing] gives the bracket q(2,1,0) of the cyclic words u and v, in the convention of pairing.\nStringBracket[p, pairing] gives the extension of the bracket as a derivation, applied to a product p of cyclic words.\nThe option \"EmptyWord\" -> True gives the bracket of the extension by the empty word, in which the bracket of two one-particle words is the empty word rather than 0.";
+CanonicalLieBracket::usage = "CanonicalLieBracket[u, v, pairing] gives the bracket q(2,1,0) of the cyclic words u and v, in the convention of pairing.\nCanonicalLieBracket[p, pairing] gives the extension of the bracket as a derivation, applied to a product p of cyclic words.\nThe option \"EmptyWord\" -> True gives the bracket of the extension by the empty word, in which the bracket of two one-particle words is the empty word rather than 0.";
 
-StringCobracket::usage = "StringCobracket[w, pairing] gives the co-bracket q(1,2,0) of the cyclic word w, a product of two cyclic words, in the convention of pairing.\nStringCobracket[p, pairing] gives the extension of the co-bracket as a co-derivation, applied to a product p of cyclic words.\nThe option \"EmptyWord\" -> True gives the co-bracket of the extension by the empty word, in which a cut next to a contracted particle is kept with the empty word as its empty arc.";
+CanonicalLieCobracket::usage = "CanonicalLieCobracket[w, pairing] gives the co-bracket q(1,2,0) of the cyclic word w, a product of two cyclic words, in the convention of pairing.\nCanonicalLieCobracket[p, pairing] gives the extension of the co-bracket as a co-derivation, applied to a product p of cyclic words.\nThe option \"EmptyWord\" -> True gives the co-bracket of the extension by the empty word, in which a cut next to a contracted particle is kept with the empty word as its empty arc.";
 
 CyclicHochschildDifferential::usage = "CyclicHochschildDifferential[w, pairing] gives the differential q(1,1,0) of the cyclic word w, induced particle by particle by the differential of the Poincare duality algebra that pairing carries.\nCyclicHochschildDifferential[p, pairing] gives the extension of the differential as a derivation, applied to a product p of cyclic words.";
 
@@ -22,9 +22,9 @@ DualPairing::usage = "DualPairing[u, v, pairing] gives the value of the cyclic w
 
 Options[ChordContraction] = {"EmptyWord" -> False}
 
-Options[StringBracket] = {"EmptyWord" -> False}
+Options[CanonicalLieBracket] = {"EmptyWord" -> False}
 
-Options[StringCobracket] = {"EmptyWord" -> False}
+Options[CanonicalLieCobracket] = {"EmptyWord" -> False}
 
 Options[SymmetricToExterior] = {"Rule" -> "Reversal"}
 
@@ -61,71 +61,71 @@ ChordContraction[CyclicWord[w_List], {i_Integer, j_Integer}, pairing_GradedPairi
 			CyclicWord[first, pairing, opts]],
 		CyclicWord[second, pairing, opts], pairing]]
 
-StringBracket[before___, 0, after___, pairing_GradedPairing, OptionsPattern[]] := 0
+CanonicalLieBracket[before___, 0, after___, pairing_GradedPairing, OptionsPattern[]] := 0
 
-StringBracket[before___, sum_Plus, after___, pairing_GradedPairing, opts : OptionsPattern[]] :=
-	Map[term |-> StringBracket[before, term, after, pairing, opts], sum]
+CanonicalLieBracket[before___, sum_Plus, after___, pairing_GradedPairing, opts : OptionsPattern[]] :=
+	Map[term |-> CanonicalLieBracket[before, term, after, pairing, opts], sum]
 
-StringBracket[before___, Times[scalar_, e_], after___, pairing_GradedPairing, opts : OptionsPattern[]] /;
+CanonicalLieBracket[before___, Times[scalar_, e_], after___, pairing_GradedPairing, opts : OptionsPattern[]] /;
 	FreeQ[scalar, CyclicWord | ExteriorProduct | SymmetricProduct] :=
-	scalar StringBracket[before, e, after, pairing, opts]
+	scalar CanonicalLieBracket[before, e, after, pairing, opts]
 
-StringBracket[before___, w_List, after___, pairing_GradedPairing, opts : OptionsPattern[]] :=
-	StringBracket[before, CyclicWord[w], after, pairing, opts]
+CanonicalLieBracket[before___, w_List, after___, pairing_GradedPairing, opts : OptionsPattern[]] :=
+	CanonicalLieBracket[before, CyclicWord[w], after, pairing, opts]
 
-StringBracket[CyclicWord[u_List], CyclicWord[v_List], pairing_GradedPairing, opts : OptionsPattern[]] :=
+CanonicalLieBracket[CyclicWord[u_List], CyclicWord[v_List], pairing_GradedPairing, opts : OptionsPattern[]] :=
 	Total[Table[ChordContraction[CyclicWord[u], CyclicWord[v], {i, j}, pairing, opts], {i, Length[u]}, {j, Length[v]}], 2]
 
-StringBracket[CyclicWord[_List], pairing_GradedPairing, OptionsPattern[]] := 0
+CanonicalLieBracket[CyclicWord[_List], pairing_GradedPairing, OptionsPattern[]] := 0
 
-StringBracket[SymmetricProduct[factors__CyclicWord], pairing_GradedPairing, opts : OptionsPattern[]] /;
+CanonicalLieBracket[SymmetricProduct[factors__CyclicWord], pairing_GradedPairing, opts : OptionsPattern[]] /;
 	pairing["Convention"] =!= "Exterior" := Expand[Total[Map[
 	pair |-> Times[
 		KoszulSign[Join[pair, Complement[Range[Length[{factors}]], pair]],
 			Map[f |-> ElementDegree[f, pairing, "Symmetric"], {factors}], 0],
-		SymmetricProduct[StringBracket[{factors}[[First[pair]]], {factors}[[Last[pair]]], pairing, opts],
+		SymmetricProduct[CanonicalLieBracket[{factors}[[First[pair]]], {factors}[[Last[pair]]], pairing, opts],
 			Sequence @@ Delete[{factors}, List /@ pair], pairing]],
 	Subsets[Range[Length[{factors}]], {2}]]]]
 
-StringBracket[ExteriorProduct[factors__CyclicWord], pairing_GradedPairing, opts : OptionsPattern[]] /;
+CanonicalLieBracket[ExteriorProduct[factors__CyclicWord], pairing_GradedPairing, opts : OptionsPattern[]] /;
 	pairing["Convention"] === "Exterior" := Expand[Total[Map[
 	pair |-> Times[
 		KoszulSign[Join[pair, Complement[Range[Length[{factors}]], pair]],
 			Map[f |-> ElementDegree[f, pairing, "Exterior"], {factors}], 1],
-		ExteriorProduct[StringBracket[{factors}[[First[pair]]], {factors}[[Last[pair]]], pairing, opts],
+		ExteriorProduct[CanonicalLieBracket[{factors}[[First[pair]]], {factors}[[Last[pair]]], pairing, opts],
 			Sequence @@ Delete[{factors}, List /@ pair], pairing]],
 	Subsets[Range[Length[{factors}]], {2}]]]]
 
-StringCobracket[0, pairing_GradedPairing, OptionsPattern[]] := 0
+CanonicalLieCobracket[0, pairing_GradedPairing, OptionsPattern[]] := 0
 
-StringCobracket[sum_Plus, pairing_GradedPairing, opts : OptionsPattern[]] :=
-	Map[term |-> StringCobracket[term, pairing, opts], sum]
+CanonicalLieCobracket[sum_Plus, pairing_GradedPairing, opts : OptionsPattern[]] :=
+	Map[term |-> CanonicalLieCobracket[term, pairing, opts], sum]
 
-StringCobracket[Times[scalar_, e_], pairing_GradedPairing, opts : OptionsPattern[]] /;
+CanonicalLieCobracket[Times[scalar_, e_], pairing_GradedPairing, opts : OptionsPattern[]] /;
 	FreeQ[scalar, CyclicWord | ExteriorProduct | SymmetricProduct] :=
-	scalar StringCobracket[e, pairing, opts]
+	scalar CanonicalLieCobracket[e, pairing, opts]
 
-StringCobracket[w_List, pairing_GradedPairing, opts : OptionsPattern[]] :=
-	StringCobracket[CyclicWord[w], pairing, opts]
+CanonicalLieCobracket[w_List, pairing_GradedPairing, opts : OptionsPattern[]] :=
+	CanonicalLieCobracket[CyclicWord[w], pairing, opts]
 
-StringCobracket[CyclicWord[w_List], pairing_GradedPairing, opts : OptionsPattern[]] := Expand[Total[Map[
+CanonicalLieCobracket[CyclicWord[w_List], pairing_GradedPairing, opts : OptionsPattern[]] := Expand[Total[Map[
 	pair |-> ChordContraction[CyclicWord[w], pair, pairing, opts]/2,
 	Select[Tuples[Range[Length[w]], 2], pair |-> First[pair] =!= Last[pair]]]]]
 
-StringCobracket[SymmetricProduct[factors__CyclicWord], pairing_GradedPairing, opts : OptionsPattern[]] /;
+CanonicalLieCobracket[SymmetricProduct[factors__CyclicWord], pairing_GradedPairing, opts : OptionsPattern[]] /;
 	pairing["Convention"] =!= "Exterior" := Expand[Total[Map[
 	i |-> Times[
 		KoszulSign[Prepend[Delete[Range[Length[{factors}]], i], i],
 			Map[f |-> ElementDegree[f, pairing, "Symmetric"], {factors}], 0],
-		SymmetricProduct[StringCobracket[{factors}[[i]], pairing, opts], Sequence @@ Delete[{factors}, i], pairing]],
+		SymmetricProduct[CanonicalLieCobracket[{factors}[[i]], pairing, opts], Sequence @@ Delete[{factors}, i], pairing]],
 	Range[Length[{factors}]]]]]
 
-StringCobracket[ExteriorProduct[factors__CyclicWord], pairing_GradedPairing, opts : OptionsPattern[]] /;
+CanonicalLieCobracket[ExteriorProduct[factors__CyclicWord], pairing_GradedPairing, opts : OptionsPattern[]] /;
 	pairing["Convention"] === "Exterior" := Expand[Total[Map[
 	i |-> Times[
 		KoszulSign[Prepend[Delete[Range[Length[{factors}]], i], i],
 			Map[f |-> ElementDegree[f, pairing, "Exterior"], {factors}], 1],
-		ExteriorProduct[StringCobracket[{factors}[[i]], pairing, opts], Sequence @@ Delete[{factors}, i], pairing]],
+		ExteriorProduct[CanonicalLieCobracket[{factors}[[i]], pairing, opts], Sequence @@ Delete[{factors}, i], pairing]],
 	Range[Length[{factors}]]]]]
 
 CyclicHochschildDifferential[0, pairing_GradedPairing] := 0

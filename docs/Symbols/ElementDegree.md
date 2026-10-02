@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/ElementDegree
 Keywords: [degree, grading, bar degree, exterior degree, symmetric degree, HBar, Planck degree, BD action, cyclic word]
 SeeAlso: [CyclicWord, GradedPairing, ExteriorProduct, SymmetricProduct, HBar, KoszulSign, MaurerCartanBasis]
-RelatedGuides: [StringAlgebras]
+RelatedGuides: [CanonicalLieBialgebras]
 ---
 
 ## Usage
@@ -229,10 +229,10 @@ ElementDegree[p, pairing, "Symmetric"]
 
 <!-- => -6 -->
 
-The operator [StringBeilinsonDrinfeldOperator]() on it, with a term in [HBar]():
+The operator [CanonicalBeilinsonDrinfeldOperator]() on it, with a term in [HBar]():
 
 ```wl
-StringBeilinsonDrinfeldOperator[p, pairing]
+CanonicalBeilinsonDrinfeldOperator[p, pairing]
 ```
 
 <!-- => 2*HBar*CyclicWord[{x, y, y, y}] - SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}], CyclicWord[{x, y}]] -->
@@ -240,7 +240,7 @@ StringBeilinsonDrinfeldOperator[p, pairing]
 The operator lowers the symmetric degree by $1$, its term in [HBar]() included:
 
 ```wl
-ElementDegree[StringBeilinsonDrinfeldOperator[p, pairing], pairing, "Symmetric"]
+ElementDegree[CanonicalBeilinsonDrinfeldOperator[p, pairing], pairing, "Symmetric"]
 ```
 
 <!-- => -7 -->

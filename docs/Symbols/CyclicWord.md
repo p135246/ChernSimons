@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/CyclicWord
 Keywords: [cyclic word, canonical rotation, Koszul sign, graded alphabet]
 SeeAlso: [GenerateCyclicWords, ElementDegree, GradedPairing, ExteriorProduct, SymmetricProduct]
-RelatedGuides: [StringAlgebras]
+RelatedGuides: [CanonicalLieBialgebras]
 ---
 
 ## Usage

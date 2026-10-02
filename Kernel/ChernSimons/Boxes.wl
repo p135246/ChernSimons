@@ -27,10 +27,10 @@ GradedPairing /: MakeBoxes[object : GradedPairing[data_Association], form : Stan
 				BoxForm`SummaryItem[{"algebra: ", If[algebra === None, None, PoincareDualityAlgebra[algebra]]}]},
 			form]]
 
-StringAlgebra /: MakeBoxes[object : StringAlgebra[data : KeyValuePattern[{"Pairing" -> _GradedPairing, "EmptyWord" -> True | False}]?AssociationQ],
+CanonicalLieBialgebra /: MakeBoxes[object : CanonicalLieBialgebra[data : KeyValuePattern[{"Pairing" -> _GradedPairing, "EmptyWord" -> True | False}]?AssociationQ],
 	form : StandardForm | TraditionalForm] :=
 	With[{pairing = data["Pairing"]},
-		BoxForm`ArrangeSummaryBox[StringAlgebra, object, $algebraIcon,
+		BoxForm`ArrangeSummaryBox[CanonicalLieBialgebra, object, $algebraIcon,
 			{BoxForm`SummaryItem[{"alphabet: ", Row[Keys[pairing["Degrees"]], ", "]}],
 				BoxForm`SummaryItem[{"empty word: ", data["EmptyWord"]}]},
 			{BoxForm`SummaryItem[{"convention: ", pairing["Convention"]}],

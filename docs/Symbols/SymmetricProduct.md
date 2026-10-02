@@ -5,8 +5,8 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/ref/SymmetricProduct
 Keywords: [symmetric product, odot, Koszul sign, shifted grading]
-SeeAlso: [ExteriorProduct, SymmetricToExterior, ExteriorToSymmetric, ElementDegree, StringBracket, StringCobracket, GradedPairing]
-RelatedGuides: [StringAlgebras, BeilinsonDrinfeldFormalism]
+SeeAlso: [ExteriorProduct, SymmetricToExterior, ExteriorToSymmetric, ElementDegree, CanonicalLieBracket, CanonicalLieCobracket, GradedPairing]
+RelatedGuides: [CanonicalLieBialgebras, BeilinsonDrinfeldFormalism]
 ---
 
 ## Usage
@@ -158,10 +158,10 @@ ExteriorToSymmetric[SymmetricToExterior[e, pairing], pairing] === e
 
 <!-- => True -->
 
-[StringCobracket]() of a word gives a two-factor symmetric product:
+[CanonicalLieCobracket]() of a word gives a two-factor symmetric product:
 
 ```wl
-StringCobracket[CyclicWord[{x, y, y, y}], pairing]
+CanonicalLieCobracket[CyclicWord[{x, y, y, y}], pairing]
 ```
 
 <!-- => -SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}]] -->

@@ -3,7 +3,7 @@ PackageExported[MaurerCartanBasis]
 PackageExported[MaurerCartanAnsatz]
 PackageExported[TwistedDifferential]
 PackageExported[TwistedCobracket]
-PackageExported[StringBeilinsonDrinfeldHomotopy]
+PackageExported[CanonicalBeilinsonDrinfeldHomotopy]
 PackageExported[CanonicalMaurerCartan]
 
 MaurerCartanElement::usage = "MaurerCartanElement[parts, pairing] is the element of the dIBL algebra of pairing with the given parts, an Association from {l, g} to the part m_{l,g}, a sum of products of l cyclic words.\nMaurerCartanElement[s, pairing] gives the element whose BD action is s = Sum HBar^g m_{l,g}.";
@@ -16,7 +16,7 @@ TwistedDifferential::usage = "TwistedDifferential[m, w] gives the differential q
 
 TwistedCobracket::usage = "TwistedCobracket[m, w] gives the co-bracket q(1,2,0) twisted by the MaurerCartanElement m, applied to the cyclic word w.\nTwistedCobracket[m, p] gives the extension of the twisted co-bracket as a co-derivation, applied to a product p of cyclic words.\nThe option \"EmptyWord\" -> True gives the co-bracket and the bracket of the empty-word extension.";
 
-StringBeilinsonDrinfeldHomotopy::usage = "StringBeilinsonDrinfeldHomotopy[a, b, pairing, n, t, order] gives the solution a(t) of the BD homotopy equation \[CapitalDelta]b + {a(t), b} = -a'(t) with a(0) = a, by Picard iteration, as a polynomial in t of degree at most order truncated to total word length at most n.\nThe option \"EmptyWord\" -> True gives the flow in the empty-word extension.";
+CanonicalBeilinsonDrinfeldHomotopy::usage = "CanonicalBeilinsonDrinfeldHomotopy[a, b, pairing, n, t, order] gives the solution a(t) of the BD homotopy equation \[CapitalDelta]b + {a(t), b} = -a'(t) with a(0) = a, by Picard iteration, as a polynomial in t of degree at most order truncated to total word length at most n.\nThe option \"EmptyWord\" -> True gives the flow in the empty-word extension.";
 
 CanonicalMaurerCartan::usage = "CanonicalMaurerCartan[pairing] gives the canonical Maurer-Cartan element of the Poincare duality algebra that pairing carries, a MaurerCartanElement with the one part m_{1,0} made from the triple product.";
 
@@ -28,7 +28,7 @@ Options[TwistedDifferential] = {"EmptyWord" -> False}
 
 Options[TwistedCobracket] = {"EmptyWord" -> False}
 
-Options[StringBeilinsonDrinfeldHomotopy] = {"EmptyWord" -> False}
+Options[CanonicalBeilinsonDrinfeldHomotopy] = {"EmptyWord" -> False}
 
 MaurerCartanElement[parts_Association, pairing_GradedPairing] /;
 	AllTrue[Keys[parts], key |-> MatchQ[key, {_Integer?Positive, _Integer?NonNegative}]] := With[
@@ -56,7 +56,7 @@ MaurerCartanElement[s_, pairing_GradedPairing] /; ! AssociationQ[s] && ! ListQ[s
 
 Obstruction[m : MaurerCartanElement[_Association], opts : OptionsPattern[]] /;
 	m["Pairing"]["Convention"] =!= "Exterior" := With[{s = m["BDAction"], pairing = m["Pairing"]},
-	Expand[StringBeilinsonDrinfeldOperator[s, pairing, opts] + StringBeilinsonDrinfeldBracket[s, s, pairing, opts]/2]]
+	Expand[CanonicalBeilinsonDrinfeldOperator[s, pairing, opts] + CanonicalBeilinsonDrinfeldBracket[s, s, pairing, opts]/2]]
 
 Obstruction[m : MaurerCartanElement[_Association], "Equations", opts : OptionsPattern[]] /;
 	m["Pairing"]["Convention"] =!= "Exterior" := With[
@@ -110,7 +110,7 @@ TwistedDifferential[m : MaurerCartanElement[_Association], w_List, opts : Option
 
 TwistedDifferential[m : MaurerCartanElement[_Association], CyclicWord[w_List], opts : OptionsPattern[]] := Expand[
 	CyclicHochschildDifferential[CyclicWord[w], m["Pairing"]] +
-		StringBracket[m[{1, 0}], CyclicWord[w], Append[m["Pairing"], "Convention" -> "Symmetric"], opts]]
+		CanonicalLieBracket[m[{1, 0}], CyclicWord[w], Append[m["Pairing"], "Convention" -> "Symmetric"], opts]]
 
 TwistedDifferential[m : MaurerCartanElement[_Association], SymmetricProduct[factors__CyclicWord], opts : OptionsPattern[]] /;
 	m["Pairing"]["Convention"] =!= "Exterior" := With[{pairing = m["Pairing"]}, Expand[Total[Map[
@@ -144,13 +144,13 @@ TwistedCobracket[m : MaurerCartanElement[_Association], CyclicWord[w_List], opts
 	{exterior = pairing["Convention"] === "Exterior"},
 	{product = If[exterior, ExteriorProduct, SymmetricProduct], grading = If[exterior, "Exterior", "Symmetric"],
 		parity = If[exterior, 1, 0]},
-	Expand[StringCobracket[CyclicWord[w], pairing, opts] + Total[Cases[
+	Expand[CanonicalLieCobracket[CyclicWord[w], pairing, opts] + Total[Cases[
 		If[Head[terms] === Plus, List @@ terms, {terms}],
 		Times[c_., product[f_CyclicWord, g_CyclicWord]] :> With[
 			{degrees = Map[u |-> ElementDegree[u, pairing, grading], {f, g, CyclicWord[w]}]},
 			Times[c, (-1)^(parity (degrees[[1]] + degrees[[2]])), Plus[
-				KoszulSign[{1, 3, 2}, degrees, parity] product[StringBracket[f, CyclicWord[w], pairing, opts], g, pairing],
-				KoszulSign[{2, 3, 1}, degrees, parity] product[StringBracket[g, CyclicWord[w], pairing, opts], f, pairing]]]]]]]]
+				KoszulSign[{1, 3, 2}, degrees, parity] product[CanonicalLieBracket[f, CyclicWord[w], pairing, opts], g, pairing],
+				KoszulSign[{2, 3, 1}, degrees, parity] product[CanonicalLieBracket[g, CyclicWord[w], pairing, opts], f, pairing]]]]]]]]
 
 TwistedCobracket[m : MaurerCartanElement[_Association], SymmetricProduct[factors__CyclicWord], opts : OptionsPattern[]] /;
 	m["Pairing"]["Convention"] =!= "Exterior" := With[{pairing = m["Pairing"]}, Expand[Total[Map[
@@ -168,11 +168,11 @@ TwistedCobracket[m : MaurerCartanElement[_Association], ExteriorProduct[factors_
 		ExteriorProduct[TwistedCobracket[m, {factors}[[i]], opts], Sequence @@ Delete[{factors}, i], pairing]],
 	Range[Length[{factors}]]]]]]
 
-StringBeilinsonDrinfeldHomotopy[a0_, b_, pairing_GradedPairing, n_Integer, t_, order_Integer, opts : OptionsPattern[]] /;
+CanonicalBeilinsonDrinfeldHomotopy[a0_, b_, pairing_GradedPairing, n_Integer, t_, order_Integer, opts : OptionsPattern[]] /;
 	pairing["Convention"] =!= "Exterior" := With[
-	{source = StringBeilinsonDrinfeldOperator[b, pairing, opts]},
+	{source = CanonicalBeilinsonDrinfeldOperator[b, pairing, opts]},
 	Nest[
-		a |-> With[{integrand = Expand[source + StringBeilinsonDrinfeldBracket[a, b, pairing, opts]]},
+		a |-> With[{integrand = Expand[source + CanonicalBeilinsonDrinfeldBracket[a, b, pairing, opts]]},
 			Expand[a0 - Sum[Coefficient[integrand, t, k] t^(k + 1)/(k + 1), {k, 0, order - 1}]] /. {
 				CyclicWord[w_List] /; Length[w] > n :> 0,
 				SymmetricProduct[fs__CyclicWord] /; Total[Map[f |-> Length[First[f]], {fs}]] > n :> 0}],

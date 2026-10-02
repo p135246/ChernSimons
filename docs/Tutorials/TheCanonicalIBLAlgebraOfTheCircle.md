@@ -6,7 +6,7 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/tutorial/TheCanonicalIBLAlgebraOfTheCircle
 Keywords: [circle, canonical Maurer-Cartan element, Hochschild differential, cyclic words, alphabet, x squared y]
-RelatedGuides: [ChernSimons, StringAlgebras, BeilinsonDrinfeldFormalism]
+RelatedGuides: [ChernSimons, CanonicalLieBialgebras, BeilinsonDrinfeldFormalism]
 RelatedTutorials: [FromASullivanModelToAnIBLAlgebra, HodgeTypeAndTheNondegenerateQuotient]
 ---
 
@@ -115,7 +115,7 @@ The bracket and the co-bracket as surfaces, the strings propagating from the top
 The bracket. $\mathfrak{q}_{2,1,0}(x^a\odot y^b) = -ab\,x^{a-1}y^{b-1}$, the deleted pair always being one $x$ and one $y$:
 
 ```wl
-StringBracket[CyclicWord[{x, x, x}], CyclicWord[{y, y}], pairing]
+CanonicalLieBracket[CyclicWord[{x, x, x}], CyclicWord[{y, y}], pairing]
 ```
 
 <!-- => -6 CyclicWord[{x, x, y}] -->
@@ -123,7 +123,7 @@ StringBracket[CyclicWord[{x, x, x}], CyclicWord[{y, y}], pairing]
 The co-bracket. $\mathfrak{q}_{1,2,0}(xy^k) = -\sum_{i+j=k-1,\ i,j\ge 1} y^i\odot y^j$, so on $xy^4$ the two ordered pairs $(1,2)$ and $(2,1)$ give the same symmetric monomial twice:
 
 ```wl
-StringCobracket[CyclicWord[{x, y, y, y, y}], pairing]
+CanonicalLieCobracket[CyclicWord[{x, y, y, y, y}], pairing]
 ```
 
 <!-- => -2 SymmetricProduct[CyclicWord[{y}], CyclicWord[{y, y}]] -->

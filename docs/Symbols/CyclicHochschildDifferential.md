@@ -5,8 +5,8 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/ref/CyclicHochschildDifferential
 Keywords: [differential, cyclic cochain complex, non-formal, nilmanifold, involutive bi-Lie algebra]
-SeeAlso: [StringBracket, StringCobracket, TwistedDifferential, StringBeilinsonDrinfeldOperator, NondegenerateQuotient, GradedPairing, CanonicalMaurerCartan]
-RelatedGuides: [StringAlgebras]
+SeeAlso: [CanonicalLieBracket, CanonicalLieCobracket, TwistedDifferential, CanonicalBeilinsonDrinfeldOperator, NondegenerateQuotient, GradedPairing, CanonicalMaurerCartan]
+RelatedGuides: [CanonicalLieBialgebras]
 ---
 
 ## Usage
@@ -30,7 +30,7 @@ RelatedGuides: [StringAlgebras]
 - Both forms are linear: they distribute over sums and pull out scalars.
 - A word may be given as the list of its particles.
 - A product whose head disagrees with the convention of *pairing* returns unevaluated.
-- The differential is the first summand of [StringBeilinsonDrinfeldOperator]() and of [TwistedDifferential]().
+- The differential is the first summand of [CanonicalBeilinsonDrinfeldOperator]() and of [TwistedDifferential]().
 
 ## Basic Examples
 
@@ -153,7 +153,7 @@ pairing = GradedPairing[NondegenerateQuotient[SullivanModel["HeisenbergNilmanifo
 The differential after the co-bracket:
 
 ```wl
-CyclicHochschildDifferential[StringCobracket[CyclicWord[{1, y, x*y*z, x*y}], pairing], pairing]
+CyclicHochschildDifferential[CanonicalLieCobracket[CyclicWord[{1, y, x*y*z, x*y}], pairing], pairing]
 ```
 
 <!-- => SymmetricProduct[CyclicWord[{y}], CyclicWord[{z}]] -->
@@ -161,7 +161,7 @@ CyclicHochschildDifferential[StringCobracket[CyclicWord[{1, y, x*y*z, x*y}], pai
 The co-bracket after the differential is its negative, so the two anticommute:
 
 ```wl
-StringCobracket[CyclicHochschildDifferential[CyclicWord[{1, y, x*y*z, x*y}], pairing], pairing]
+CanonicalLieCobracket[CyclicHochschildDifferential[CyclicWord[{1, y, x*y*z, x*y}], pairing], pairing]
 ```
 
 <!-- => -SymmetricProduct[CyclicWord[{y}], CyclicWord[{z}]] -->
@@ -202,10 +202,10 @@ pairing = GradedPairing[NondegenerateQuotient[SullivanModel["HeisenbergNilmanifo
 
 <!-- => a GradedPairing object with eight particles, carrying the Poincare duality algebra of the Heisenberg nilmanifold -->
 
-[StringBeilinsonDrinfeldOperator]() carries the differential as its first summand:
+[CanonicalBeilinsonDrinfeldOperator]() carries the differential as its first summand:
 
 ```wl
-StringBeilinsonDrinfeldOperator[CyclicWord[{x*y}], pairing]
+CanonicalBeilinsonDrinfeldOperator[CyclicWord[{x*y}], pairing]
 ```
 
 <!-- => CyclicWord[{z}] -->
@@ -213,7 +213,7 @@ StringBeilinsonDrinfeldOperator[CyclicWord[{x*y}], pairing]
 Its square $\Delta^2$ is $0$ on every word of length at most $3$:
 
 ```wl
-Union[(StringBeilinsonDrinfeldOperator[StringBeilinsonDrinfeldOperator[#, pairing], pairing] &) /@ GenerateCyclicWords[3, pairing, "UpTo" -> True]]
+Union[(CanonicalBeilinsonDrinfeldOperator[CanonicalBeilinsonDrinfeldOperator[#, pairing], pairing] &) /@ GenerateCyclicWords[3, pairing, "UpTo" -> True]]
 ```
 
 <!-- => {0} -->

@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/DualPairing
 Keywords: [dual pairing, evaluation, dual alphabet, cyclic word, product pairing, matchings, factorial weight]
 SeeAlso: [GradedPairing, CyclicWord, SymmetricProduct, ExteriorProduct, KoszulSign]
-RelatedGuides: [StringAlgebras]
+RelatedGuides: [CanonicalLieBialgebras]
 ---
 
 ## Usage

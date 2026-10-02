@@ -52,7 +52,7 @@ circle = SullivanModel["Circle"];
 HodgeTypeQ[circle]
 pairing = GradedPairing[NondegenerateQuotient[circle], {x, y}];
 CanonicalMaurerCartan[pairing]
-StringBracket[CyclicWord[{x, x, x}], CyclicWord[{y, y}], pairing]
+CanonicalLieBracket[CyclicWord[{x, x, x}], CyclicWord[{y, y}], pairing]
 ```
 
 ## 📜 Licence
@@ -69,6 +69,8 @@ wolframscript -file Paclet/ChernSimons/PackageDocs.wls        # build the paclet
 wolframscript -file Paclet/ChernSimons/PublishDocs.wls        # deploy the built paclet as the public resource; ends with an HTTP check of every page
 wolframscript -file Paclet/ChernSimons/Publish.wls            # upload the same archive to obj/hajek_pavel/s1paper/ChernSimons.paclet
 wolframscript -file Paclet/ChernSimons/PublishDocs.wls check  # the HTTP check alone, any time
+wolframscript -file Paclet/ChernSimons/PublishDocs.wls audit  # every link of the site with its status, to Research/Artifacts/PacletLinks_<date>.md
+sh Paclet/ChernSimons/Release.sh                              # the GitHub release of the deployed archive on the mirror p135246/ChernSimons
 ```
 
 The kernel must be cloud-connected as `hajek_pavel`; `PublishDocs.wls` refuses any other account. Nothing is bumped on a commit that is not deployed.

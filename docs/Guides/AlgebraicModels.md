@@ -14,7 +14,7 @@ RelatedTutorials: [FromASullivanModelToAnIBLAlgebra]
 ## Abstract
 
 The Sullivan model of a closed oriented manifold, with the orientation of the manifold, satisfies Poincaré duality on cohomology.
-Its nondegenerate quotient is a Poincaré duality algebra on chain level, with the same cohomology when the model is of Hodge type, and the string algebras are built on the cyclic words of its basis.
+Its nondegenerate quotient is a Poincaré duality algebra on chain level, with the same cohomology when the model is of Hodge type, and the canonical Lie bialgebras are built on the cyclic words of its basis.
 Algebraic models span Sullivan models with their orientations, and the Hodge decompositions that decide Hodge type, with the nondegenerate quotient.
 Each area has its own guide.
 
@@ -31,4 +31,4 @@ Each area has its own guide.
 - `CochainComplexWithPairing` the finite cochain complex with a pairing that agrees with a model up to degree $n+1$
 - `HodgeTypeQ` tests whether a model is of Hodge type
 - `FindHodgeDecomposition` a Hodge decomposition of a model
-- `NondegenerateQuotient` the Poincaré duality algebra of a model, on which the string algebras are built
+- `NondegenerateQuotient` the Poincaré duality algebra of a model, on which the canonical Lie bialgebras are built

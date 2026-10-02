@@ -5,8 +5,8 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/ref/ExteriorProduct
 Keywords: [exterior product, wedge, Koszul sign, graded commutative]
-SeeAlso: [SymmetricProduct, SymmetricToExterior, ExteriorToSymmetric, ElementDegree, StringBracket, StringCobracket, GradedPairing]
-RelatedGuides: [StringAlgebras]
+SeeAlso: [SymmetricProduct, SymmetricToExterior, ExteriorToSymmetric, ElementDegree, CanonicalLieBracket, CanonicalLieCobracket, GradedPairing]
+RelatedGuides: [CanonicalLieBialgebras]
 ---
 
 ## Usage
@@ -25,7 +25,7 @@ RelatedGuides: [StringAlgebras]
 - The product is linear in every factor, and a nested product is flattened.
 - A factor given as the empty list is the empty word.
 - The operations of a pairing object in the exterior convention give their products as [ExteriorProduct](); the symmetric picture is [SymmetricProduct]().
-- The arities of [StringBracket]() and [StringCobracket]() as a derivation and a co-derivation are counted in factors, a single word counting as one.
+- The arities of [CanonicalLieBracket]() and [CanonicalLieCobracket]() as a derivation and a co-derivation are counted in factors, a single word counting as one.
 - A sorted product displays as its factors joined by $\wedge$, each word in its own parentheses.
 
 ## Basic Examples
@@ -152,10 +152,10 @@ exterior = Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Conventi
 
 <!-- => a GradedPairing object with particles x and y, of pairing degree -1, in the exterior convention -->
 
-[StringCobracket]() of a word gives a two-factor exterior product:
+[CanonicalLieCobracket]() of a word gives a two-factor exterior product:
 
 ```wl
-StringCobracket[CyclicWord[{x, y, y, y}], exterior]
+CanonicalLieCobracket[CyclicWord[{x, y, y, y}], exterior]
 ```
 
 <!-- => ExteriorProduct[CyclicWord[{y}], CyclicWord[{y}]] -->

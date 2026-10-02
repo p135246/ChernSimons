@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/GradedPairingQ
 Keywords: [pairing, predicate, graded alphabet, recognizer]
 SeeAlso: [GradedPairing, SullivanModelQ, PoincareDualityAlgebraQ, AInfinityAlgebraQ]
-RelatedGuides: [StringAlgebras]
+RelatedGuides: [CanonicalLieBialgebras]
 ---
 
 ## Usage

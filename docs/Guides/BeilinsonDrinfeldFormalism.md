@@ -19,8 +19,8 @@ The Beilinson-Drinfeld formalism encodes the differential involutive bi-Lie alge
 
 ### Beilinson-Drinfeld operator and bracket
 
-- `StringBeilinsonDrinfeldOperator` the operator $\Delta = \widehat{q}_{1,1,0} + \widehat{q}_{1,2,0} + \hbar\,\widehat{q}_{2,1,0}$ on the symmetric powers of cyclic words
-- `StringBeilinsonDrinfeldBracket` the bracket of the Beilinson-Drinfeld axiom, the bracket of cyclic words extended to products
+- `CanonicalBeilinsonDrinfeldOperator` the operator $\Delta = \widehat{q}_{1,1,0} + \widehat{q}_{1,2,0} + \hbar\,\widehat{q}_{2,1,0}$ on the symmetric powers of cyclic words
+- `CanonicalBeilinsonDrinfeldBracket` the bracket of the Beilinson-Drinfeld axiom, the bracket of cyclic words extended to products
 - `HBar` the formal variable $\hbar$
 - `SymmetricProduct` the product of the symmetric powers that the operator acts on
 
@@ -43,4 +43,4 @@ The Beilinson-Drinfeld formalism encodes the differential involutive bi-Lie alge
 
 - `TwistedDifferential` the differential $q^{\mathfrak{m}}_{1,1,0}$ twisted by a Maurer-Cartan element
 - `TwistedCobracket` the co-bracket $q^{\mathfrak{m}}_{1,2,0}$ twisted by a Maurer-Cartan element
-- `StringBeilinsonDrinfeldHomotopy` the Beilinson-Drinfeld homotopy flow of an action, which connects gauge equivalent Maurer-Cartan elements
+- `CanonicalBeilinsonDrinfeldHomotopy` the Beilinson-Drinfeld homotopy flow of an action, which connects gauge equivalent Maurer-Cartan elements

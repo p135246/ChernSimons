@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/GradedPairing
 Keywords: [pairing, graded alphabet, cyclic words, involutive bi-Lie algebra]
 SeeAlso: [CyclicWord, GenerateCyclicWords, ElementDegree, DualPairing, NondegenerateQuotient, CanonicalMaurerCartan]
-RelatedGuides: [StringAlgebras, BeilinsonDrinfeldFormalism]
+RelatedGuides: [CanonicalLieBialgebras, BeilinsonDrinfeldFormalism]
 ---
 
 ## Usage

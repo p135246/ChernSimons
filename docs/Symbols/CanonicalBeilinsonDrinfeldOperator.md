@@ -1,33 +1,33 @@
 ---
 Template: Symbol
-Name: StringBeilinsonDrinfeldOperator
+Name: CanonicalBeilinsonDrinfeldOperator
 Context: ChernSimons`
 Paclet: ChernSimons
-URI: ChernSimons/ref/StringBeilinsonDrinfeldOperator
+URI: ChernSimons/ref/CanonicalBeilinsonDrinfeldOperator
 Keywords: [BD algebra, Beilinson-Drinfeld, BV operator, Delta, cobracket, bracket]
-SeeAlso: [StringBeilinsonDrinfeldBracket, MaurerCartanElement, Obstruction, ElementDegree, HBar]
+SeeAlso: [CanonicalBeilinsonDrinfeldBracket, MaurerCartanElement, Obstruction, ElementDegree, HBar]
 RelatedGuides: [BeilinsonDrinfeldFormalism]
 ---
 
 ## Usage
 
-<code>[StringBeilinsonDrinfeldOperator]()[*e*, *pairing*]</code> gives the operator $\Delta = \widehat{q}_{1,1,0} + \widehat{q}_{1,2,0} + \hbar\,\widehat{q}_{2,1,0}$ of the Beilinson-Drinfeld algebra, applied to *e*.
+<code>[CanonicalBeilinsonDrinfeldOperator]()[*e*, *pairing*]</code> gives the operator $\Delta = \widehat{q}_{1,1,0} + \widehat{q}_{1,2,0} + \hbar\,\widehat{q}_{2,1,0}$ of the Beilinson-Drinfeld algebra, applied to *e*.
 
-<!-- #| annotation: 26.09.30: Design review - the operator is the sum of three exported extensions, CyclicHochschildDifferential + StringCobracket + HBar StringBracket, all in the symmetric convention, and carries its own linearity rules; HBar is a scalar to every linearity rule and has even degree, so it never contributes a sign. A pairing in the exterior convention returns unevaluated, since the BD algebra is the symmetric algebra and computing in the symmetric product under an exterior key would ignore the one switch between the pictures; the decision of R2 was kept by Pavel, who wants the conversion between the pictures available, as SymmetricToExterior and ExteriorToSymmetric. The option "EmptyWord" is passed to the bracket and the co-bracket, where the empty word enters. Alternative name considered: BeilinsonDrinfeldOperator, the name until 2026-09-30. Prior art: the Wolfram Language has no BV or BD operators. T12/paclet-bd-operator-and-bracket pins the operator against the bdOperator of the engine the verification suites load on every word to length 5 and on the two-factor products of words to length 4, and T12/paclet-bd-operator-squares-to-zero pins that it squares to zero there. -->
+<!-- #| annotation: 26.09.30: Design review - the operator is the sum of three exported extensions, CyclicHochschildDifferential + CanonicalLieCobracket + HBar CanonicalLieBracket, all in the symmetric convention, and carries its own linearity rules; HBar is a scalar to every linearity rule and has even degree, so it never contributes a sign. A pairing in the exterior convention returns unevaluated, since the BD algebra is the symmetric algebra and computing in the symmetric product under an exterior key would ignore the one switch between the pictures; the decision of R2 was kept by Pavel, who wants the conversion between the pictures available, as SymmetricToExterior and ExteriorToSymmetric. The option "EmptyWord" is passed to the bracket and the co-bracket, where the empty word enters. Alternative name considered: BeilinsonDrinfeldOperator, the name until 2026-09-30. Prior art: the Wolfram Language has no BV or BD operators. T12/paclet-bd-operator-and-bracket pins the operator against the bdOperator of the engine the verification suites load on every word to length 5 and on the two-factor products of words to length 4, and T12/paclet-bd-operator-squares-to-zero pins that it squares to zero there. -->
 
 ## Details & Options
 
 - $\Delta$ acts on the symmetric powers of cyclic words, completed over $\mathbb{R}[[\hbar]]$. It is a derivative of order at most $2$ and of symmetric degree $-1$, and it squares to zero exactly when the underlying structure is a dIBL algebra.
 - The first summand is [CyclicHochschildDifferential]() extended as a derivation. It is $0$ unless the pairing carries a Poincaré duality algebra with a differential, so on a formal alphabet $\Delta$ is $\widehat{q}_{1,2,0} + \hbar\,\widehat{q}_{2,1,0}$.
-- The second summand is [StringCobracket]() extended as a co-derivation, and the third is [StringBracket]() extended as a derivation and weighted by [HBar]().
+- The second summand is [CanonicalLieCobracket]() extended as a co-derivation, and the third is [CanonicalLieBracket]() extended as a derivation and weighted by [HBar]().
 - Only the third summand carries $\hbar$, so $\Delta$ is not divisible by $\hbar$.
 - $\Delta$ obeys the BD axiom
 $$\Delta(f f') = \Delta(f) f' + (-1)^{|f|} f \Delta(f') + (-1)^{|f|}\hbar\,\{f, f'\},$$
-with $|f|$ the symmetric degree of $f$, whose bracket is [StringBeilinsonDrinfeldBracket]() and carries no $\hbar$ of its own.
+with $|f|$ the symmetric degree of $f$, whose bracket is [CanonicalBeilinsonDrinfeldBracket]() and carries no $\hbar$ of its own.
 - *e* is a [CyclicWord](), a [SymmetricProduct]() of cyclic words, a list of particles, or a linear combination of these.
 - The operator is linear, and [HBar]() is a scalar to it.
 - A pairing object in the exterior convention, or an [ExteriorProduct](), returns unevaluated.
-- [StringBeilinsonDrinfeldOperator]() has the following option:
+- [CanonicalBeilinsonDrinfeldOperator]() has the following option:
 
 | Option | Default | Description |
 |---|---|---|
@@ -38,7 +38,7 @@ with $|f|$ the symmetric degree of $f$, whose bracket is [StringBeilinsonDrinfel
 The operator on a word of the circle:
 
 ```wl
-StringBeilinsonDrinfeldOperator[CyclicWord[{x, y, y, y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+CanonicalBeilinsonDrinfeldOperator[CyclicWord[{x, y, y, y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => -SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}]] -->
@@ -64,7 +64,7 @@ p = SymmetricProduct[CyclicWord[{x, y, y, y}], CyclicWord[{x, y}], pairing]
 The operator on it has a term in [HBar]():
 
 ```wl
-StringBeilinsonDrinfeldOperator[p, pairing]
+CanonicalBeilinsonDrinfeldOperator[p, pairing]
 ```
 
 <!-- => 2*HBar*CyclicWord[{x, y, y, y}] - SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}], CyclicWord[{x, y}]] -->
@@ -72,7 +72,7 @@ StringBeilinsonDrinfeldOperator[p, pairing]
 It squares to zero:
 
 ```wl
-StringBeilinsonDrinfeldOperator[StringBeilinsonDrinfeldOperator[p, pairing], pairing]
+CanonicalBeilinsonDrinfeldOperator[CanonicalBeilinsonDrinfeldOperator[p, pairing], pairing]
 ```
 
 <!-- => 0 -->
@@ -82,7 +82,7 @@ StringBeilinsonDrinfeldOperator[StringBeilinsonDrinfeldOperator[p, pairing], pai
 A word may be given as the list of its particles:
 
 ```wl
-StringBeilinsonDrinfeldOperator[{x, y, y, y}, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+CanonicalBeilinsonDrinfeldOperator[{x, y, y, y}, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => -SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}]] -->
@@ -92,7 +92,7 @@ StringBeilinsonDrinfeldOperator[{x, y, y, y}, GradedPairing[<|x -> -1, y -> 0|>,
 The operator is linear, with [HBar]() a scalar:
 
 ```wl
-StringBeilinsonDrinfeldOperator[3 HBar CyclicWord[{x, y, y, y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+CanonicalBeilinsonDrinfeldOperator[3 HBar CyclicWord[{x, y, y, y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => -3 HBar SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}]] -->
@@ -102,7 +102,7 @@ StringBeilinsonDrinfeldOperator[3 HBar CyclicWord[{x, y, y, y}], GradedPairing[<
 A product of three words:
 
 ```wl
-StringBeilinsonDrinfeldOperator[SymmetricProduct[CyclicWord[{x}], CyclicWord[{x, y}], CyclicWord[{y, y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+CanonicalBeilinsonDrinfeldOperator[SymmetricProduct[CyclicWord[{x}], CyclicWord[{x, y}], CyclicWord[{y, y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => HBar SymmetricProduct[CyclicWord[{x}], CyclicWord[{y, y}]] - 2 HBar SymmetricProduct[CyclicWord[{y}], CyclicWord[{x, y}]] -->
@@ -122,7 +122,7 @@ pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 On a product of two one-particle words the operator is $0$ in the positive-length convention:
 
 ```wl
-StringBeilinsonDrinfeldOperator[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], pairing], pairing]
+CanonicalBeilinsonDrinfeldOperator[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], pairing], pairing]
 ```
 
 <!-- => 0 -->
@@ -130,7 +130,7 @@ StringBeilinsonDrinfeldOperator[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}
 With `"EmptyWord" -> True` the bracket of the two words is the empty word:
 
 ```wl
-StringBeilinsonDrinfeldOperator[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], pairing], pairing, "EmptyWord" -> True]
+CanonicalBeilinsonDrinfeldOperator[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], pairing], pairing, "EmptyWord" -> True]
 ```
 
 <!-- => -(HBar*CyclicWord[{}]) -->
@@ -156,7 +156,7 @@ p = SymmetricProduct[CyclicWord[{x, y, y, y}], CyclicWord[{x, y}], pairing]
 The operator is the sum of the three extensions:
 
 ```wl
-StringBeilinsonDrinfeldOperator[p, pairing] === Expand[CyclicHochschildDifferential[p, pairing] + StringCobracket[p, pairing] + HBar StringBracket[p, pairing]]
+CanonicalBeilinsonDrinfeldOperator[p, pairing] === Expand[CyclicHochschildDifferential[p, pairing] + CanonicalLieCobracket[p, pairing] + HBar CanonicalLieBracket[p, pairing]]
 ```
 
 <!-- => True -->
@@ -164,7 +164,7 @@ StringBeilinsonDrinfeldOperator[p, pairing] === Expand[CyclicHochschildDifferent
 The classical limit, at $\hbar = 0$, is the co-bracket alone:
 
 ```wl
-StringBeilinsonDrinfeldOperator[p, pairing] /. HBar -> 0
+CanonicalBeilinsonDrinfeldOperator[p, pairing] /. HBar -> 0
 ```
 
 <!-- => -SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}], CyclicWord[{x, y}]] -->
@@ -172,7 +172,7 @@ StringBeilinsonDrinfeldOperator[p, pairing] /. HBar -> 0
 The coefficient of $\hbar$ is the bracket term:
 
 ```wl
-Coefficient[StringBeilinsonDrinfeldOperator[p, pairing], HBar]
+Coefficient[CanonicalBeilinsonDrinfeldOperator[p, pairing], HBar]
 ```
 
 <!-- => 2*CyclicWord[{x, y, y, y}] -->
@@ -180,7 +180,7 @@ Coefficient[StringBeilinsonDrinfeldOperator[p, pairing], HBar]
 The operator lowers the symmetric degree by $1$:
 
 ```wl
-ElementDegree[StringBeilinsonDrinfeldOperator[p, pairing], pairing, "Symmetric"] - ElementDegree[p, pairing, "Symmetric"]
+ElementDegree[CanonicalBeilinsonDrinfeldOperator[p, pairing], pairing, "Symmetric"] - ElementDegree[p, pairing, "Symmetric"]
 ```
 
 <!-- => -1 -->
@@ -198,7 +198,7 @@ exterior = Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Conventi
 The Beilinson-Drinfeld algebra lives in the symmetric picture, so an exterior pairing returns unevaluated:
 
 ```wl
-StringBeilinsonDrinfeldOperator[CyclicWord[{x, y, y, y}], exterior]
+CanonicalBeilinsonDrinfeldOperator[CyclicWord[{x, y, y, y}], exterior]
 ```
 
 <!-- => the input with exterior in place, unevaluated -->

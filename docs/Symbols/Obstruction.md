@@ -5,8 +5,8 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/ref/Obstruction
 Keywords: [obstruction, relation, Jacobi identity, co-Jacobi identity, Drinfeld compatibility, involutivity, Maurer-Cartan equation, BD master equation, A-infinity relation, A-infinity morphism, cochain complex, Hodge decomposition]
-SeeAlso: [Relations, RelationsQ, StringAlgebra, MaurerCartanElement, AInfinityAlgebra, AInfinityMorphism, CochainComplexWithPairing, HodgeDecomposition]
-RelatedGuides: [HomotopyAlgebras, StringAlgebras, BeilinsonDrinfeldFormalism, HodgeDecompositions]
+SeeAlso: [Relations, RelationsQ, CanonicalLieBialgebra, MaurerCartanElement, AInfinityAlgebra, AInfinityMorphism, CochainComplexWithPairing, HodgeDecomposition]
+RelatedGuides: [HomotopyAlgebras, CanonicalLieBialgebras, BeilinsonDrinfeldFormalism, HodgeDecompositions]
 ---
 
 ## Usage
@@ -28,10 +28,10 @@ RelatedGuides: [HomotopyAlgebras, StringAlgebras, BeilinsonDrinfeldFormalism, Ho
 
 | Structure | Relation | Arguments | Obstruction |
 |---|---|---|---|
-| [StringAlgebra]()[*pairing*] | `"Jacobi"` | three cyclic words $u, v, w$ | $\hat q_{2,1,0}\hat q_{2,1,0}(u\odot v\odot w)$ |
-| [StringAlgebra]()[*pairing*] | `"CoJacobi"` | one cyclic word $w$ | $\hat q_{1,2,0}\hat q_{1,2,0}(w)$ |
-| [StringAlgebra]()[*pairing*] | `"Drinfeld"` | two cyclic words $u, v$ | $(\hat q_{1,2,0}\hat q_{2,1,0} + \hat q_{2,1,0}\hat q_{1,2,0})(u\odot v)$ |
-| [StringAlgebra]()[*pairing*] | `"Involutivity"` | one cyclic word $w$ | $\hat q_{2,1,0}\hat q_{1,2,0}(w)$ |
+| [CanonicalLieBialgebra]()[*pairing*] | `"Jacobi"` | three cyclic words $u, v, w$ | $\hat q_{2,1,0}\hat q_{2,1,0}(u\odot v\odot w)$ |
+| [CanonicalLieBialgebra]()[*pairing*] | `"CoJacobi"` | one cyclic word $w$ | $\hat q_{1,2,0}\hat q_{1,2,0}(w)$ |
+| [CanonicalLieBialgebra]()[*pairing*] | `"Drinfeld"` | two cyclic words $u, v$ | $(\hat q_{1,2,0}\hat q_{2,1,0} + \hat q_{2,1,0}\hat q_{1,2,0})(u\odot v)$ |
+| [CanonicalLieBialgebra]()[*pairing*] | `"Involutivity"` | one cyclic word $w$ | $\hat q_{2,1,0}\hat q_{1,2,0}(w)$ |
 | [AInfinityAlgebra]() | `"AInfinity"` | any number of elements | the A-infinity relation |
 | [AInfinityMorphism]() | `"AInfinityMorphism"` | any number of elements of the source | the morphism relation |
 | [CochainComplexWithPairing]() | `"DifferentialSquare"` | one element $x$ | $\mathrm{d}\mathrm{d}x$ |
@@ -41,14 +41,14 @@ RelatedGuides: [HomotopyAlgebras, StringAlgebras, BeilinsonDrinfeldFormalism, Ho
 | [PreHodgeDecomposition](), [HodgeDecomposition]() | `"Harmonic"`, `"Coexact"`, `"Perpendicular"`, `"Isotropic"` | none | the degrees where the axiom fails |
 | [SpecialPropagator]() | `"Chain"`, `"Projector"`, `"Square"`, `"Symmetry"` | none | the degrees where the relation fails |
 
-- On a string algebra the operations are [StringBracket]() and [StringCobracket]() with their extensions to products, in the convention of the pairing, and with the empty word when the algebra has it.
+- On a canonical Lie bialgebra the operations are [CanonicalLieBracket]() and [CanonicalLieCobracket]() with their extensions to products, in the convention of the pairing, and with the empty word when the algebra has it.
 - In the exterior convention the products in the string relations are exterior products.
 - A cyclic word may be given as the list of its particles.
-- On a string algebra a nonzero value is a counterexample to the identity for that pairing.
+- On a canonical Lie bialgebra a nonzero value is a counterexample to the identity for that pairing.
 - On an A-infinity algebra the convention is the shifted one: the term whose inner operation takes the arguments $r+1$ through $r+s$ carries the sign of the sum of the shifted degrees of the first $r$ arguments, and the relation on $e_1, \dots, e_n$ is $\sum_{r+s+t=n} (-1)^{|e_1|+\cdots+|e_r|}\, m_{r+1+t}(e_1,\dots,e_r, m_s(e_{r+1},\dots,e_{r+s}), \dots, e_n) = 0$.
 - On an A-infinity morphism the left-hand side carries the same signs with the components $f_k$ outside, and the right-hand side sums over all compositions of the arguments into blocks, so a target with operations beyond $m_2$ is handled.
 - The two A-infinity obstructions are multilinear in the elements, each a linear combination of basis elements, and an argument outside the span of the basis returns unevaluated.
-- On a Maurer-Cartan element the equation is the BD master equation over $\mathbb{R}[[\hbar]]$, without inverting $\hbar$. The bracket is [StringBeilinsonDrinfeldBracket](), so no negative power of $\hbar$ appears.
+- On a Maurer-Cartan element the equation is the BD master equation over $\mathbb{R}[[\hbar]]$, without inverting $\hbar$. The bracket is [CanonicalBeilinsonDrinfeldBracket](), so no negative power of $\hbar$ appears.
 - The coefficient of the obstruction in $\mathrm{S}_\ell(C[1])\hbar^g$ is the $(\ell, g)$ Maurer-Cartan equation.
 - In the `"Equations"` form the keys are the monomials, a power of $\hbar$ times a product of cyclic words, and the values the scalar coefficients, each of which must vanish. It is the form to give to <code>[Solve]()</code>.
 - An element that solves the equation gives the empty Association in the `"Equations"` form.
@@ -64,28 +64,28 @@ RelatedGuides: [HomotopyAlgebras, StringAlgebras, BeilinsonDrinfeldFormalism, Ho
 |---|---|---|
 | <code>"EmptyWord"</code> | <code>False</code> | whether the operator and the bracket of the Maurer-Cartan equation of an element include the empty word |
 
-- The option applies to a Maurer-Cartan element and is given to [StringBeilinsonDrinfeldOperator]() and [StringBeilinsonDrinfeldBracket]().
-- A string algebra carries its own empty-word setting, and the option given with a string algebra returns unevaluated.
+- The option applies to a Maurer-Cartan element and is given to [CanonicalBeilinsonDrinfeldOperator]() and [CanonicalBeilinsonDrinfeldBracket]().
+- A canonical Lie bialgebra carries its own empty-word setting, and the option given with a canonical Lie bialgebra returns unevaluated.
 
 ## Basic Examples
 
 The Jacobi identity holds on a triple of words of the circle:
 
 ```wl
-Obstruction[StringAlgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], "Jacobi", {CyclicWord[{x}], CyclicWord[{x, y}], CyclicWord[{y, y}]}]
+Obstruction[CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], "Jacobi", {CyclicWord[{x}], CyclicWord[{x, y}], CyclicWord[{y, y}]}]
 ```
 
 <!-- => 0 -->
 
 ---
 
-The string algebra of the circle:
+The canonical Lie bialgebra of the circle:
 
 ```wl
-algebra = StringAlgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+algebra = CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
-<!-- => a StringAlgebra object over the particles x and y -->
+<!-- => a CanonicalLieBialgebra object over the particles x and y -->
 
 Its words of length at most $3$:
 
@@ -149,7 +149,7 @@ Obstruction[bad, {u, u, v}]
 
 ## Scope
 
-### String Algebras
+### Canonical Lie Bialgebras
 
 The alphabet of the circle in the exterior convention:
 
@@ -159,13 +159,13 @@ exterior = Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Conventi
 
 <!-- => a GradedPairing object with particles x and y, of pairing degree -1, in the exterior convention -->
 
-Its string algebra with the empty word:
+Its canonical Lie bialgebra with the empty word:
 
 ```wl
-algebra = StringAlgebra[exterior, "EmptyWord" -> True]
+algebra = CanonicalLieBialgebra[exterior, "EmptyWord" -> True]
 ```
 
-<!-- => a StringAlgebra object over the particles x and y, in the exterior convention, with the empty word -->
+<!-- => a CanonicalLieBialgebra object over the particles x and y, in the exterior convention, with the empty word -->
 
 The co-Jacobi identity holds on every word of length at most $6$, the empty word among them:
 
@@ -180,7 +180,7 @@ Union[(w |-> Obstruction[algebra, "CoJacobi", {w}]) /@ GenerateCyclicWords[6, ex
 A word may be given as the list of its particles:
 
 ```wl
-Obstruction[StringAlgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], "Drinfeld", {{x, y}, {x, y, y}}]
+Obstruction[CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], "Drinfeld", {{x, y}, {x, y, y}}]
 ```
 
 <!-- => 0 -->
@@ -388,7 +388,7 @@ pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 The Jacobi obstruction is the composite of the extensions of the bracket:
 
 ```wl
-Obstruction[StringAlgebra[pairing], "Jacobi", {CyclicWord[{x}], CyclicWord[{x, y}], CyclicWord[{x, y, y}]}] === Expand[StringBracket[StringBracket[SymmetricProduct[CyclicWord[{x}], CyclicWord[{x, y}], CyclicWord[{x, y, y}], pairing], pairing], pairing]]
+Obstruction[CanonicalLieBialgebra[pairing], "Jacobi", {CyclicWord[{x}], CyclicWord[{x, y}], CyclicWord[{x, y, y}]}] === Expand[CanonicalLieBracket[CanonicalLieBracket[SymmetricProduct[CyclicWord[{x}], CyclicWord[{x, y}], CyclicWord[{x, y, y}], pairing], pairing], pairing]]
 ```
 
 <!-- => True -->
@@ -414,7 +414,7 @@ s = CyclicWord[{x, x, y, y}] + lambda HBar CyclicWord[{x, x, y}]
 The Maurer-Cartan obstruction is $\Delta s + \tfrac12\{s, s\}$:
 
 ```wl
-Obstruction[MaurerCartanElement[s, pairing]] === Expand[StringBeilinsonDrinfeldOperator[s, pairing] + StringBeilinsonDrinfeldBracket[s, s, pairing]/2]
+Obstruction[MaurerCartanElement[s, pairing]] === Expand[CanonicalBeilinsonDrinfeldOperator[s, pairing] + CanonicalBeilinsonDrinfeldBracket[s, s, pairing]/2]
 ```
 
 <!-- => True -->
@@ -473,15 +473,15 @@ Obstruction[MaurerCartanElement[CyclicWord[{p, q, q}], three]]
 
 ## Possible Issues
 
-The string algebra of the circle:
+The canonical Lie bialgebra of the circle:
 
 ```wl
-algebra = StringAlgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+algebra = CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
-<!-- => a StringAlgebra object over the particles x and y -->
+<!-- => a CanonicalLieBialgebra object over the particles x and y -->
 
-A string algebra has four relations, so its relation cannot be omitted, and the expression returns unevaluated:
+A canonical Lie bialgebra has four relations, so its relation cannot be omitted, and the expression returns unevaluated:
 
 ```wl
 Obstruction[algebra, {CyclicWord[{x, y}]}]
@@ -515,10 +515,10 @@ pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 
 <!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
 
-The empty word belongs to the algebra, so the option given with a string algebra returns unevaluated:
+The empty word belongs to the algebra, so the option given with a canonical Lie bialgebra returns unevaluated:
 
 ```wl
-Obstruction[StringAlgebra[pairing], "Involutivity", {{x, x, y, y}}, "EmptyWord" -> True]
+Obstruction[CanonicalLieBialgebra[pairing], "Involutivity", {{x, x, y, y}}, "EmptyWord" -> True]
 ```
 
 <!-- => the input, unevaluated -->
@@ -526,7 +526,7 @@ Obstruction[StringAlgebra[pairing], "Involutivity", {{x, x, y, y}}, "EmptyWord" 
 The empty word is set on the algebra instead:
 
 ```wl
-Obstruction[StringAlgebra[pairing, "EmptyWord" -> True], "Involutivity", {{x, x, y, y}}]
+Obstruction[CanonicalLieBialgebra[pairing, "EmptyWord" -> True], "Involutivity", {{x, x, y, y}}]
 ```
 
 <!-- => 0 -->

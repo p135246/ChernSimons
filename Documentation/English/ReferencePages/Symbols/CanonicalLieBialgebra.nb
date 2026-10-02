@@ -10,58 +10,61 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    318147,       6141]
-NotebookOptionsPosition[    304287,       5894]
-NotebookOutlinePosition[    305629,       5933]
-CellTagsIndexPosition[    305513,       5927]
+NotebookDataLength[    318568,       6150]
+NotebookOptionsPosition[    304660,       5902]
+NotebookOutlinePosition[    306050,       5942]
+CellTagsIndexPosition[    305934,       5936]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["StringAlgebra", "ObjectName",
+Cell["CanonicalLieBialgebra", "ObjectName",
  CellID->1224892054,ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec"],
 
 Cell[TextData[{
- Cell["   ", "ModInfo",ExpressionUUID->"fc80d540-884e-4bab-aa55-00017f96bf6d"],
+ Cell["   ", "ModInfo",ExpressionUUID->"f7c47ae5-c6e2-433c-8ef7-ddbabce82de6"],
  Cell[BoxData[
   RowBox[{
    TemplateBox[{
      Cell[
-      TextData["StringAlgebra"]], "paclet:ChernSimons/ref/StringAlgebra", 
+      TextData["CanonicalLieBialgebra"]], 
+     "paclet:ChernSimons/ref/CanonicalLieBialgebra", 
      "ChernSimons Package Symbol"},
     "PackageLink",
     BaseStyle->"InlineFormula"], "[", 
    StyleBox["pairing", "TI"], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "ff1bda5f-3343-493e-9806-6843b4ac486b"],
+  "5e2783dd-9ff0-40c9-b37b-d8d1be326455"],
  "\[LineSeparator]",
  "is the dIBL algebra of cyclic words over the alphabet of ",
  StyleBox["pairing", "TI"],
  ".",
  "\n"
-}], "Usage",ExpressionUUID->"8f96cfaa-b3c0-41f8-87a7-4ce82e14d153"],
+}], "Usage",ExpressionUUID->"866e499d-5dbf-43cd-a92c-431154e9e867"],
 
 Cell[TextData[{
  "The operations of the algebra are ",
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["StringBracket"]], "paclet:ChernSimons/ref/StringBracket", 
+     TextData["CanonicalLieBracket"]], 
+    "paclet:ChernSimons/ref/CanonicalLieBracket", 
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "1678609a-3fc2-42ea-b9d7-e38c44b7305e"],
+  "06ab9d65-57f7-4caa-8fd2-211c0138ff0d"],
  ", ",
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["StringCobracket"]], "paclet:ChernSimons/ref/StringCobracket", 
+     TextData["CanonicalLieCobracket"]], 
+    "paclet:ChernSimons/ref/CanonicalLieCobracket", 
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "6469d680-f141-4061-9566-d09def03a7a9"],
+  "83b8f86f-805c-4baa-8faa-7ed41410d3c1"],
  " and ",
  Cell[BoxData[
   TemplateBox[{
@@ -71,7 +74,7 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "c93b877b-3d99-4518-ae68-ad831094ac06"],
+  "d1ba50f6-cac3-4bcd-a0c1-245cff59b086"],
  ", in the convention of ",
  StyleBox["pairing", "TI"],
  "."
@@ -79,26 +82,27 @@ Cell[TextData[{
  CellFrameLabels->{{Inherited, Inherited}, {Inherited, 
     Cell[
      TextData[{
-      "26.09.30: Design review - StringAlgebra is an inert object around one \
-Association, StringAlgebra[<|\"Pairing\" -> pairing, \"EmptyWord\" -> b|>], \
-and it has no recognizer (decision of R5e, 2026-09-30). The constructor \
-returns unevaluated unless it is given a GradedPairing object and a Boolean \
-empty-word option, so that a constructor that built nothing does not look \
-like an object, and the summary box attaches only to the built one. Since R7 \
-(Pavel, 2026-10-01) the built object is recognized by its data, an \
-Association with a \"Pairing\" holding a GradedPairing and an \"EmptyWord\" \
-holding True or False, in every rule that takes it, and not by its head \
-alone: StringAlgebra[Normal[pairing]] matched StringAlgebra[_Association] \
-before, and Relations answered on it. The empty word is set once, on the \
-algebra, and the Obstruction forms on it take no option. The algebra is the \
-structure that Obstruction, Relations and RelationsQ take; those three are \
-declared in HomotopyAlgebras with their A-infinity rules, and ChernSimons \
-adds the rules of the string algebra, so the dependency between the parts \
-runs one way. Together they replaced thirteen exports, every obstruction \
-identical by value to the one it replaced on 95 cases. Prior art: the Wolfram \
-Language has no dIBL or involutive bi-Lie structures; the verification suites \
-test the relations on the circle in both conventions and with the empty word, \
-on the two nilmanifold alphabets and on a derived alphabet.", "\n\n", 
+      "26.09.30: Design review - CanonicalLieBialgebra is an inert object \
+around one Association, CanonicalLieBialgebra[<|\"Pairing\" -> pairing, \
+\"EmptyWord\" -> b|>], and it has no recognizer (decision of R5e, \
+2026-09-30). The constructor returns unevaluated unless it is given a \
+GradedPairing object and a Boolean empty-word option, so that a constructor \
+that built nothing does not look like an object, and the summary box attaches \
+only to the built one. Since R7 (Pavel, 2026-10-01) the built object is \
+recognized by its data, an Association with a \"Pairing\" holding a \
+GradedPairing and an \"EmptyWord\" holding True or False, in every rule that \
+takes it, and not by its head alone: CanonicalLieBialgebra[Normal[pairing]] \
+matched CanonicalLieBialgebra[_Association] before, and Relations answered on \
+it. The empty word is set once, on the algebra, and the Obstruction forms on \
+it take no option. The algebra is the structure that Obstruction, Relations \
+and RelationsQ take; those three are declared in HomotopyAlgebras with their \
+A-infinity rules, and ChernSimons adds the rules of the string algebra, so \
+the dependency between the parts runs one way. Together they replaced \
+thirteen exports, every obstruction identical by value to the one it replaced \
+on 95 cases. Prior art: the Wolfram Language has no dIBL or involutive bi-Lie \
+structures; the verification suites test the relations on the circle in both \
+conventions and with the empty word, on the two nilmanifold alphabets and on \
+a derived alphabet.", "\n\n", 
        Cell[
         BoxData[
          GridBox[{{
@@ -131,7 +135,7 @@ on the two nilmanifold alphabets and on a derived alphabet.", "\n\n",
               Scaled[0.02]}}]]], "\n"}], "TextAnnotation", 
      CellSize -> {590, Inherited}]}},
  CellTags->"TextAnnotation",
- CellID->216317864,ExpressionUUID->"4a9fc942-999a-4dee-867d-8b74a3e7aa2b"],
+ CellID->767510647,ExpressionUUID->"e5d3646c-70ca-4839-a1f7-da50d2c65248"],
 
 Cell[TextData[{
  "The algebra is the structure that ",
@@ -142,7 +146,7 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "3bdc3cc1-4bb8-4840-b2ee-a195386b6a7e"],
+  "afbd261a-db77-42d0-87d3-1e44086190da"],
  ", ",
  Cell[BoxData[
   TemplateBox[{
@@ -151,7 +155,7 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "62cbbb16-9b7d-441b-a6f2-7e5a81fa7c70"],
+  "6d047ca9-5cd4-4ee2-9933-212a9d970073"],
  " and ",
  Cell[BoxData[
   TemplateBox[{
@@ -160,30 +164,30 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "30536649-477a-4341-8f75-8a102e9bf66d"],
+  "6c4aae4e-7305-4a06-9891-b56238c53669"],
  " take."
-}], "Notes",ExpressionUUID->"778803bb-ef36-40bc-bd9e-fefd03a97fae"],
+}], "Notes",ExpressionUUID->"a0c6f3d9-c013-412a-a7d9-cf2ad5feac70"],
 
 Cell[TextData[{
  "Its relations are ",
  Cell[BoxData["\"\<Jacobi\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "c070e7bd-56e5-47cc-a857-48d18279931b"],
+  "e8fb200b-301d-45a2-b2b8-eb7f38d822ab"],
  " on three words, ",
  Cell[BoxData["\"\<CoJacobi\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "07787838-aa4b-4a54-8cc0-8ce033a90bb1"],
+  "0e41420a-ef56-4399-9c62-dbd6a7e25eeb"],
  " on one, ",
  Cell[BoxData["\"\<Drinfeld\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "8702ff24-4ffb-45b6-b67c-586cff57548a"],
+  "8fb4570b-7de9-4317-bb65-e34840ba0b47"],
  " on two and ",
  Cell[BoxData["\"\<Involutivity\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "eb0525ea-3bc5-489a-81f5-646f20aae2d3"],
+  "939ba8b7-549f-4688-b86b-69a51765fca3"],
  " on one, the defining identities of an involutive bi-Lie algebra. They \
 involve the bracket and the co-bracket."
-}], "Notes",ExpressionUUID->"3aa5d265-f0c1-4c8c-95cc-cf167b62b1bb"],
+}], "Notes",ExpressionUUID->"2d8aec98-61b9-4681-bd43-d0e8701af4af"],
 
 Cell[TextData[{
  "The result is an object ",
@@ -191,60 +195,61 @@ Cell[TextData[{
   RowBox[{
    TemplateBox[{
      Cell[
-      TextData["StringAlgebra"]], "paclet:ChernSimons/ref/StringAlgebra", 
+      TextData["CanonicalLieBialgebra"]], 
+     "paclet:ChernSimons/ref/CanonicalLieBialgebra", 
      "ChernSimons Package Symbol"},
     "PackageLink",
     BaseStyle->"InlineFormula"], "[", 
    StyleBox["assoc", "TI"], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "99b67186-de60-4304-8a1a-8e0adbb94f80"],
+  "57f43c6a-e16d-4bba-ba30-ff731a24993c"],
  ", with the keys ",
  Cell[BoxData["\"\<Pairing\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "ab201aa2-716c-4f77-ad24-3a7561e5df4d"],
+  "3e55e106-7042-4e83-a148-fee603ae5e15"],
  " and ",
  Cell[BoxData["\"\<EmptyWord\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "5249fcd0-ebb5-4ef5-8a3a-86d07962a437"],
+  "fb3ab5dc-2798-45b9-b6f2-dc6d3d26c65a"],
  " in ",
  StyleBox["assoc", "TI"],
  ". For such an algebra ",
  StyleBox["a", "TI"],
  ":"
-}], "Notes",ExpressionUUID->"9a24206e-31e9-4925-8021-b53c0e3e65ac"],
+}], "Notes",ExpressionUUID->"93e289ee-c9ec-435b-84d1-0a30cb44f013"],
 
 Cell[BoxData[GridBox[{
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "9007d3ea-f68c-4229-900a-7cc405c6ca98"], Cell["Form", "TableText",
-     FontWeight->Bold,ExpressionUUID->"a149c9db-6648-4902-8c9d-1070776a2376"],
+     "a9b32345-001e-45c4-b7ca-bad26c7b287f"], Cell["Form", "TableText",
+     FontWeight->Bold,ExpressionUUID->"067d7b07-525e-4598-ba11-88b3089aae1d"],
      Cell["Value", "TableText",
-     FontWeight->Bold,ExpressionUUID->"aad31d16-be01-4599-994b-ca8077102377"]},
+     FontWeight->Bold,ExpressionUUID->"fa6fe577-e3f4-4834-8eb3-7918542ff7b5"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "2a1cbafc-722a-483c-82d3-a5b516840fee"], Cell[TextData[Cell[BoxData[
+     "af160187-4a7e-40f8-b7a6-18ec7b7255c7"], Cell[TextData[Cell[BoxData[
      RowBox[{
       StyleBox["a", "TI"], "[", "\"\<Pairing\>\"", "]"}]], "InlineFormula",
      FontSize->0.9 Inherited,ExpressionUUID->
-     "131a909f-6f1a-4456-9f2e-2cb5bfccd5f0"]], "TableText",ExpressionUUID->
-     "6c7ad695-9483-4fe7-8a95-bb6e2f14ef95"], Cell[
+     "b3ef3378-0dc8-4a90-bceb-ff49225561eb"]], "TableText",ExpressionUUID->
+     "a199af94-ca70-4ade-817e-bfabffd29d66"], Cell[
     "the pairing", "TableText",ExpressionUUID->
-     "75e92293-2d7d-4310-b69d-a6194f29fccf"]},
+     "4aa748a0-6789-4caf-92a8-a30ff3e91a03"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "951ddad9-2a81-45eb-83fd-95feb42b89bd"], Cell[TextData[Cell[BoxData[
+     "b6e188c3-0f1b-4a77-991b-aabfe41122cd"], Cell[TextData[Cell[BoxData[
      RowBox[{
       StyleBox["a", "TI"], "[", "\"\<EmptyWord\>\"", "]"}]], "InlineFormula",
      FontSize->0.9 Inherited,ExpressionUUID->
-     "b20a2b2a-879c-49ac-8b15-ce66a45e770a"]], "TableText",ExpressionUUID->
-     "02b227a8-9fe9-4ec9-9dac-ca21a13d17b4"], Cell[TextData[{
+     "060cd179-5673-4816-b145-5d89bd901ae5"]], "TableText",ExpressionUUID->
+     "1a47fc50-e8dd-4cab-ba83-9df94c472f13"], Cell[TextData[{
      Cell[BoxData["True"], "InlineFormula",
       FontSize->0.9 Inherited,ExpressionUUID->
-      "bfc266f8-b71a-4277-b194-0936832c794c"],
+      "86cdf7fc-320e-4179-b650-c8ee163932a2"],
      " or ",
      Cell[BoxData["False"], "InlineFormula",
       FontSize->0.9 Inherited,ExpressionUUID->
-      "7472deea-1038-42c7-9823-92e9346a514a"]
-    }], "TableText",ExpressionUUID->"8cb0f4bc-ca78-4bff-93e6-d6d187a38728"]}
-  }]], "2ColumnTableMod",ExpressionUUID->"a2bdb55a-dfcf-47a1-8256-\
-86836dc8f44d"],
+      "6ad9e77b-3c35-4038-9eba-f3b399669f52"]
+    }], "TableText",ExpressionUUID->"b6bbfba2-dd2d-450d-9181-88df947450d8"]}
+  }]], "2ColumnTableMod",ExpressionUUID->"2908430d-c006-44e8-b7d8-\
+8a45f50ca014"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -254,7 +259,7 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "3b85a0aa-e5b8-4997-b43e-0dbb151d99c3"],
+  "41f43f08-29df-401d-b9a9-e74432d4cda0"],
  ", ",
  Cell[BoxData[
   TemplateBox[{
@@ -263,7 +268,7 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "6a7265df-4541-4de2-814c-c218ecedf1cb"],
+  "27f4a35a-1457-459d-9f34-d9fed75ae6ad"],
  ", ",
  Cell[BoxData[
   TemplateBox[{
@@ -272,13 +277,13 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "a2390044-2d7e-4c9c-bbcb-106b61e7cfdb"],
+  "eed5cbc1-2f6c-4efe-9969-5b046807ea7e"],
  ", the accessors and the summary box answer only when ",
  StyleBox["assoc", "TI"],
  " has a ",
  Cell[BoxData["\"\<Pairing\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "703170c1-3440-46fc-b189-0f530381c213"],
+  "b6904452-6a4f-46fc-b5da-10a1b8c3a3e6"],
  " holding a ",
  Cell[BoxData[
   TemplateBox[{
@@ -287,75 +292,76 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "9f6ad750-8747-491e-8494-71e9d1688a57"],
+  "2354e5af-772b-4957-81b5-c160143a9179"],
  " object and an ",
  Cell[BoxData["\"\<EmptyWord\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "f329e92f-644a-4210-8163-3b4be4af5685"],
+  "db9322fd-fa7c-45d1-8b9d-b9ff03e576ed"],
  " holding ",
  Cell[BoxData["True"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "cb93d665-bfbe-496e-b141-75f5f5b4153e"],
+  "30f31421-3bf2-40ff-ba69-46715a129dac"],
  " or ",
  Cell[BoxData["False"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "3b67a257-cfdf-4e99-afd0-8b234f5a44ba"],
+  "c3062b54-356c-4852-973a-3074a42ef120"],
  "."
-}], "Notes",ExpressionUUID->"cef7ddaa-fb83-439f-a38c-44dbf44b5f02"],
+}], "Notes",ExpressionUUID->"00ef9693-13e4-436d-b2f2-abc0ba8a93fe"],
 
 Cell["\<\
 The algebra displays as a summary box: the alphabet and whether the empty \
 word is in, with the convention, the degree and the degrees of the particles \
 under the opener.\
-\>", "Notes",ExpressionUUID->"442831d8-b40b-45fc-9be6-6d8a8d844c76"],
+\>", "Notes",ExpressionUUID->"39108809-b3a4-462c-9e51-8318c00f41eb"],
 
 Cell[TextData[{
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["StringAlgebra"]], "paclet:ChernSimons/ref/StringAlgebra", 
+     TextData["CanonicalLieBialgebra"]], 
+    "paclet:ChernSimons/ref/CanonicalLieBialgebra", 
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "f1425a1b-aa7e-454b-a610-1ca7d0bfe3e7"],
+  "304f57a5-5d0e-4481-952f-3b42239c5c78"],
  " has the following option:"
-}], "Notes",ExpressionUUID->"ce31391b-0287-4f11-a20a-567a043fe9a2"],
+}], "Notes",ExpressionUUID->"040d8762-98ee-4dcc-94df-162b4e276c90"],
 
 Cell[BoxData[GridBox[{
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "e072dd6e-f5e8-4d3e-954c-0ebb0862a7b1"], Cell["Option", "TableText",
-     FontWeight->Bold,ExpressionUUID->"edf3957c-f354-4b0e-a811-68e0fb34efcb"],
+     "7eca9ecd-709e-48f6-92ec-1e559cf32f44"], Cell["Option", "TableText",
+     FontWeight->Bold,ExpressionUUID->"5bb737bb-ff95-42df-be6e-8f60b0b80716"],
      Cell["Default", "TableText",
-     FontWeight->Bold,ExpressionUUID->"fb18be9f-1062-4017-963f-b82a03e0a371"],
+     FontWeight->Bold,ExpressionUUID->"40655e20-91f1-4a90-825b-105d84ab416b"],
      Cell["Description", "TableText",
-     FontWeight->Bold,ExpressionUUID->"360a75f3-a9cc-46a4-a7d2-91eb91b6fde2"]},
+     FontWeight->Bold,ExpressionUUID->"7e832316-e433-4d1b-96f6-b50c9683a5c8"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "21776a5d-deab-45b4-aad7-0fa0e17935d1"], Cell[TextData[Cell[
+     "0efdcef7-e0fb-46a9-931f-007efc92ac6d"], Cell[TextData[Cell[
     BoxData["\"\<EmptyWord\>\""], "InlineFormula",
      FontSize->0.9 Inherited,ExpressionUUID->
-     "61164932-ba26-420a-b14e-ebe45767c0fc"]], "TableText",ExpressionUUID->
-     "42c9e27f-33c4-44e8-91fe-9cda4fbbcae2"], Cell[TextData[Cell[BoxData[
+     "064efc75-d639-4925-b1a0-5fbbcc778920"]], "TableText",ExpressionUUID->
+     "cf0f0a5f-a796-4aca-b618-779316a4efb2"], Cell[TextData[Cell[BoxData[
      TemplateBox[{
        Cell[
         TextData["False"]], "paclet:ref/False"},
       "RefLink",
       BaseStyle->"InlineFormula"]], "InlineFormula",
      FontSize->0.9 Inherited,ExpressionUUID->
-     "72606aac-c4f2-4ad5-acd1-05fc72fe2d84"]], "TableText",ExpressionUUID->
-     "c47f651b-73a0-45d4-be8b-e637aad4a9ff"], Cell[
+     "0f580f17-f82c-48c1-abbf-dd1127407cb1"]], "TableText",ExpressionUUID->
+     "0d151c67-44d4-4147-857a-881124cfb321"], Cell[
     "whether the algebra is extended by the empty word", "TableText",
-     ExpressionUUID->"b54277e0-7f2c-4efc-91a9-9e8ef480e9ca"]}
-  }]], "3ColumnTableMod",ExpressionUUID->"3e47a105-fb44-4c6f-931e-\
-071a5c414fbe"],
+     ExpressionUUID->"e23950a6-0541-4a5e-9408-f58ee02ac985"]}
+  }]], "3ColumnTableMod",ExpressionUUID->"eed2e77d-d1e8-4dcc-8e61-\
+c6e7c51f5949"],
 
 Cell[TextData[{
  "With ",
  Cell[BoxData[
   RowBox[{"\"\<EmptyWord\>\"", " ", "->", " ", "True"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "89a35942-6336-4671-bfd5-733fd2497ab0"],
+  "54406b3b-a793-4b94-af4b-2c3ee2f4b3cd"],
  " every operation the relations are built from computes with that option."
-}], "Notes",ExpressionUUID->"5ce26dbd-c2c8-465d-a4b0-ad4a43a3f297"],
+}], "Notes",ExpressionUUID->"6c9b89cf-390d-4ba8-9c5c-baf8454220b1"],
 
 Cell[TextData[{
  "A pairing that is not a ",
@@ -366,17 +372,17 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "2fad2a76-e79b-4623-8da7-5cb488d5b53b"],
+  "f30fca9b-0960-4307-a883-596026ac5da7"],
  " object, or an option value that is not ",
  Cell[BoxData["True"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "f4a787c8-b1d0-49c1-95e0-5a874201c937"],
+  "d36a2755-43ec-44af-bf77-d96c4ba47288"],
  " or ",
  Cell[BoxData["False"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "a8578fcd-6acb-4f46-9e31-db457a87d653"],
+  "1fbe66e5-a49c-478c-803f-680ec5a32a0e"],
  ", returns unevaluated."
-}], "Notes",ExpressionUUID->"4a36549f-e43b-47b2-97ac-2165fbdcfe56"]
+}], "Notes",ExpressionUUID->"8ffe4eba-f5af-49b5-9535-de0b865c67aa"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -404,7 +410,7 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "9c33e2bc-c120-48e6-993a-d72665f27382"],
+  "842dc031-6ad9-4bbf-b4cd-d7482a03d7b6"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -413,7 +419,7 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "f05737f4-24fc-413c-8927-669616553372"],
+  "61817018-de30-4aa4-9717-0fc3176e5ce2"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -422,7 +428,7 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "bc380938-89ce-4c98-822a-c8e4bd79cb7f"],
+  "708bbb00-526c-41f1-ad90-b4d1cabf74ee"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -431,25 +437,27 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "dc327ad0-78ae-4dd5-9de0-6a6fd27e70b2"],
+  "d636a33d-eb60-42a8-b7f0-f959e93ea868"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["StringBracket"]], "paclet:ChernSimons/ref/StringBracket", 
+     TextData["CanonicalLieBracket"]], 
+    "paclet:ChernSimons/ref/CanonicalLieBracket", 
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "e5e8ce19-93a1-46f6-93c9-8bd17f708311"],
+  "ad8f2700-8efb-46e9-9ed3-e2217649438f"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["StringCobracket"]], "paclet:ChernSimons/ref/StringCobracket", 
+     TextData["CanonicalLieCobracket"]], 
+    "paclet:ChernSimons/ref/CanonicalLieCobracket", 
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "18e061dd-01c5-4d90-8f1c-cff6c62c7a74"],
+  "0baf0f5e-8cbf-48f4-85c0-aa176606a6e3"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -459,8 +467,8 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "1730226f-203e-410a-a41f-6ab4254e582e"]
-}], "SeeAlso",ExpressionUUID->"a61e8f07-b141-4a76-946c-f797cd0c0c54"]
+  "b9af1010-cc97-4b22-a94c-49189044aeb3"]
+}], "SeeAlso",ExpressionUUID->"7400307f-5482-4609-8f1b-a5004afffe91"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -483,12 +491,12 @@ Cell["Related Guides", "MoreAboutSection",
  CellID->38303248,ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5"],
 
 Cell[TextData[Cell[BoxData[
- ButtonBox["StringAlgebras",
+ ButtonBox["CanonicalLieBialgebras",
   BaseStyle->"Link",
   ButtonData->
-   "paclet:ChernSimons/guide/StringAlgebras"]], \
-"InlineFormula",ExpressionUUID->"e7b423bb-5deb-476c-90a2-297f0f69982e"]], \
-"MoreAbout",ExpressionUUID->"6d8ae0a5-2244-4071-965c-e5cd716de6a8"]
+   "paclet:ChernSimons/guide/CanonicalLieBialgebras"]], \
+"InlineFormula",ExpressionUUID->"0d212bf1-1edd-49e9-8fdb-7f77883471bf"]], \
+"MoreAbout",ExpressionUUID->"2cd23ae1-ad43-4ed2-b69b-571b38e28f6f"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -551,7 +559,7 @@ A glued surface is a composition of the operations, the cylinder being the \
 identity; summing over all insertions of the incoming strings and all \
 compositions gives the relations, here the involutivity relation, the bracket \
 of the two halves of a cut string vanishing:\
-\>", "ExampleText",ExpressionUUID->"c043c65e-5dc1-41ca-bcb5-7565245974d8"],
+\>", "ExampleText",ExpressionUUID->"1c32d379-7c22-4912-8894-eace06ebd236"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -3742,14 +3750,14 @@ u19cfumbjpoeeyF8Mfdr6Uull4deWb/qngmaefQ6/fXsm+K3Sm8Pv2O9630f
   DefaultBaseStyle->"ImageGraphics",
   ImageSizeRaw->{1899., 275.},
   PlotRange->{{0, 1899.}, {0, 275.}}]], "ExampleImage",ExpressionUUID->\
-"ee41fbab-df86-42fd-b550-9b825c1bb016"],
+"81a164e0-4d8d-417c-87b6-c278a6d7bb0b"],
 
-Cell["The string algebra of the circle:", "ExampleText",ExpressionUUID->"5846f60a-0051-48dd-a284-aaa75d14fad6"],
+Cell["The canonical Lie bialgebra of the circle:", "ExampleText",ExpressionUUID->"55335ceb-fe47-438b-a261-a38019d2b5c0"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"StringAlgebra", "[", 
+ RowBox[{"CanonicalLieBialgebra", "[", 
   RowBox[{"GradedPairing", "[", 
    RowBox[{
     RowBox[{"<|", 
@@ -3762,12 +3770,12 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
    "]"}], "]"}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"38bf42df-2270-4cdb-9da1-5ef1b1e57630"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"7be186eb-53c5-48ae-b4e7-721ba80f43f5"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{
-   TagBox["StringAlgebra",
+   TagBox["CanonicalLieBialgebra",
     "SummaryHead"], "[", 
    DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
     
@@ -3882,19 +3890,19 @@ Cell[BoxData[
        Dynamic[Typeset`open$$], ImageSize -> Automatic]},
      "SummaryPanel"],
     DynamicModuleValues:>{}], "]"}],
-  ChernSimons`StringAlgebra[<|
+  ChernSimons`CanonicalLieBialgebra[<|
    "Pairing" -> 
     ChernSimons`GradedPairing[<|
-      "Degrees" -> <|MTNB$1gdpdg5kzn39q`x -> -1, MTNB$1gdpdg5kzn39q`y -> 0|>, 
-       "Values" -> <|{MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`x} -> 
-         0, {MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`y} -> 
-         1, {MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`x} -> -1, {
-          MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`y} -> 0|>, "Degree" -> -1, 
+      "Degrees" -> <|MTNB$1biweqcgln6jf`x -> -1, MTNB$1biweqcgln6jf`y -> 0|>, 
+       "Values" -> <|{MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`x} -> 
+         0, {MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`y} -> 
+         1, {MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`x} -> -1, {
+          MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`y} -> 0|>, "Degree" -> -1, 
        "Convention" -> "Symmetric"|>], "EmptyWord" -> False|>],
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"dc532292-aeff-4ed9-bd97-b4013272c689"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"038f1ba4-4525-41f8-875d-309edbda63b1"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3902,17 +3910,17 @@ Cell[CellGroupData[{
 Cell[BoxData[
  InterpretationBox[Cell[
   "\t", "ExampleDelimiter",ExpressionUUID->
-   "30c4f695-6443-4f1c-b388-0402aa5e8490"],
-  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"b74c5c58-6da8-4811-\
-906b-417ff4fcca62"],
+   "42910ba3-0652-4b5f-9a5e-389d8352ce40"],
+  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"208ed28f-1a1a-4752-\
+9a53-367c3311ea02"],
 
-Cell["The string algebra of the circle:", "ExampleText",ExpressionUUID->"fa4ba0b6-6229-4dfd-83bb-2a33b999a34b"],
+Cell["The canonical Lie bialgebra of the circle:", "ExampleText",ExpressionUUID->"058619b1-4ff9-454f-95ef-bd5a55023581"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"algebra", " ", "=", " ", 
-  RowBox[{"StringAlgebra", "[", 
+  RowBox[{"CanonicalLieBialgebra", "[", 
    RowBox[{"GradedPairing", "[", 
     RowBox[{
      RowBox[{"<|", 
@@ -3925,12 +3933,12 @@ Cell[BoxData[
        RowBox[{"{", 
         RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
     "]"}], "]"}]}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"850e428b-c94b-4be2-9534-ecebf234eb96"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"861ec6e6-ef89-4ef9-a981-42f793799873"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{
-   TagBox["StringAlgebra",
+   TagBox["CanonicalLieBialgebra",
     "SummaryHead"], "[", 
    DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
     
@@ -4045,28 +4053,28 @@ Cell[BoxData[
        Dynamic[Typeset`open$$], ImageSize -> Automatic]},
      "SummaryPanel"],
     DynamicModuleValues:>{}], "]"}],
-  ChernSimons`StringAlgebra[<|
+  ChernSimons`CanonicalLieBialgebra[<|
    "Pairing" -> 
     ChernSimons`GradedPairing[<|
-      "Degrees" -> <|MTNB$1gdpdg5kzn39q`x -> -1, MTNB$1gdpdg5kzn39q`y -> 0|>, 
-       "Values" -> <|{MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`x} -> 
-         0, {MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`y} -> 
-         1, {MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`x} -> -1, {
-          MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`y} -> 0|>, "Degree" -> -1, 
+      "Degrees" -> <|MTNB$1biweqcgln6jf`x -> -1, MTNB$1biweqcgln6jf`y -> 0|>, 
+       "Values" -> <|{MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`x} -> 
+         0, {MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`y} -> 
+         1, {MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`x} -> -1, {
+          MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`y} -> 0|>, "Degree" -> -1, 
        "Convention" -> "Symmetric"|>], "EmptyWord" -> False|>],
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"fe4475bf-0700-4f14-a25b-de3900b1e837"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"3b8d29d1-b872-45ba-96db-edf167f0b97a"]
 }, Open  ]],
 
-Cell["Its relations and their arities:", "ExampleText",ExpressionUUID->"c485080a-3576-4f2d-9446-d4ce861726d8"],
+Cell["Its relations and their arities:", "ExampleText",ExpressionUUID->"e88eb556-e644-46a1-8e23-efd48f7f7329"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Relations", "[", "algebra", "]"}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"e0dd3cfd-235b-447f-8670-eda480dbe882"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"eb3a5e17-f6a0-4f9b-a996-c34365ab802f"],
 
 Cell[BoxData[
  RowBox[{"\[LeftAssociation]", 
@@ -4076,7 +4084,7 @@ Cell[BoxData[
    RowBox[{"\<\"Drinfeld\"\>", "\[Rule]", "2"}], ",", 
    RowBox[{"\<\"Involutivity\"\>", "\[Rule]", "1"}]}], 
   "\[RightAssociation]"}]], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"5d8f914e-ce80-402a-8004-857a26c53f1e"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"d3f6c186-5255-43aa-a530-defc5102f184"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -4084,19 +4092,19 @@ Cell[TextData[{
  Cell[BoxData[
   FormBox["3", TraditionalForm]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "e4ebea74-6baf-47e6-badd-dd0af216d19f"],
+  "f533a202-5d85-4b0f-84b1-0d9f6a9d903c"],
  ":"
-}], "ExampleText",ExpressionUUID->"feeec88e-4904-4f5f-9896-cb8153f4e145"],
+}], "ExampleText",ExpressionUUID->"7e486008-eb79-4448-9143-2fe2bd164f74"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"RelationsQ", "[", 
   RowBox[{"algebra", ",", " ", "3"}], "]"}]], "Input",
- CellLabel->"In[3]:= ",ExpressionUUID->"762a4ea9-1a32-4661-807e-bafcc916498f"],
+ CellLabel->"In[3]:= ",ExpressionUUID->"20ab8682-bb47-40bf-bb0e-d3cf568c5ee5"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[3]= ",ExpressionUUID->"f2128081-5717-4b12-bc13-f04451e5ad7c"]
+ CellLabel->"Out[3]= ",ExpressionUUID->"5df5504c-ed5e-442f-96f1-319ef4a11497"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -4127,7 +4135,7 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleSection",
  CellID->1293636265,ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75"],
 
-Cell["The alphabet of the circle in the exterior picture:", "ExampleText",ExpressionUUID->"8866e932-917f-4dba-9ecd-9853d1edeb79"],
+Cell["The alphabet of the circle in the exterior picture:", "ExampleText",ExpressionUUID->"5156ae47-c10f-4bc7-98d7-805a2cd2ca69"],
 
 Cell[CellGroupData[{
 
@@ -4149,7 +4157,7 @@ Cell[BoxData[
       "]"}], ",", " ", 
     RowBox[{"\"\<Convention\>\"", " ", "->", " ", "\"\<Exterior\>\""}]}], 
    "]"}]}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"b1bd1605-96e4-491d-b4ac-3ae53fcc3750"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"3a2361d2-a7c3-4155-b39f-3b71eba566b7"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -4293,30 +4301,30 @@ Cell[BoxData[
      "SummaryPanel"],
     DynamicModuleValues:>{}], "]"}],
   ChernSimons`GradedPairing[<|
-   "Degrees" -> <|MTNB$1gdpdg5kzn39q`x -> -1, MTNB$1gdpdg5kzn39q`y -> 0|>, 
-    "Values" -> <|{MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`x} -> 
-      0, {MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`y} -> 
-      1, {MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`x} -> -1, {
-       MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`y} -> 0|>, "Degree" -> -1, 
+   "Degrees" -> <|MTNB$1biweqcgln6jf`x -> -1, MTNB$1biweqcgln6jf`y -> 0|>, 
+    "Values" -> <|{MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`x} -> 
+      0, {MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`y} -> 
+      1, {MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`x} -> -1, {
+       MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`y} -> 0|>, "Degree" -> -1, 
     "Convention" -> "Exterior"|>],
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"faad52c6-1f93-4ab7-a670-803b53578d56"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"942e9c43-4384-42ec-bf93-d42429af0442"]
 }, Open  ]],
 
 Cell["\<\
 In the exterior convention the relations are computed with exterior products:\
 \
-\>", "ExampleText",ExpressionUUID->"7be07c18-8fe7-4180-bb46-555f5517706b"],
+\>", "ExampleText",ExpressionUUID->"c5420b82-46dc-4db5-b1de-ac7e97c3f8d2"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Obstruction", "[", 
   RowBox[{
-   RowBox[{"StringAlgebra", "[", "exterior", "]"}], ",", " ", "\"\<Jacobi\>\"",
-    ",", " ", 
+   RowBox[{"CanonicalLieBialgebra", "[", "exterior", "]"}], ",", 
+   " ", "\"\<Jacobi\>\"", ",", " ", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"CyclicWord", "[", 
@@ -4328,10 +4336,10 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{"y", ",", " ", "y"}], "}"}], "]"}]}], "}"}]}], "]"}]], "Input",\
 
- CellLabel->"In[2]:= ",ExpressionUUID->"32daca5c-005b-4bdb-b6d2-dfb60e29b9fa"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"80bf7434-b2e5-4fb4-a926-8337bdb45900"],
 
 Cell[BoxData["0"], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"29850d6f-a43a-42f3-9e00-36d2d23a2592"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"3f45cfac-e858-40a3-a193-234f59b65b3f"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4339,11 +4347,11 @@ Cell[CellGroupData[{
 Cell[BoxData[
  InterpretationBox[Cell[
   "\t", "ExampleDelimiter",ExpressionUUID->
-   "42ba0842-5bee-4406-b32a-880549465eb5"],
-  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"33d732b8-a34d-4388-\
-906f-903af302e94a"],
+   "08338dc0-0659-41dd-895d-64ac8ef6adb6"],
+  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"53fbf69e-5173-475b-\
+a828-0a60bbe3e020"],
 
-Cell["A three-letter alphabet:", "ExampleText",ExpressionUUID->"9b600a7b-0fc5-4dc5-a964-526750a8042e"],
+Cell["A three-letter alphabet:", "ExampleText",ExpressionUUID->"0a6d2e05-63e1-478b-938a-329a1a240a08"],
 
 Cell[CellGroupData[{
 
@@ -4368,7 +4376,7 @@ Cell[BoxData[
        RowBox[{"{", 
         RowBox[{"r", ",", " ", "q"}], "}"}], " ", "->", " ", "1"}]}], 
      "|>"}]}], "]"}]}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"c195c813-48dd-4c9d-afae-0d724fc00a9a"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"67705cea-9599-402c-8ddc-3242faa8ca95"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -4516,22 +4524,22 @@ Cell[BoxData[
     DynamicModuleValues:>{}], "]"}],
   ChernSimons`GradedPairing[<|
    "Degrees" -> <|
-     MTNB$1gdpdg5kzn39q`p -> -1, MTNB$1gdpdg5kzn39q`q -> 0, 
-      MTNB$1gdpdg5kzn39q`r -> -1|>, 
-    "Values" -> <|{MTNB$1gdpdg5kzn39q`p, MTNB$1gdpdg5kzn39q`p} -> 
-      0, {MTNB$1gdpdg5kzn39q`p, MTNB$1gdpdg5kzn39q`q} -> 
-      1, {MTNB$1gdpdg5kzn39q`p, MTNB$1gdpdg5kzn39q`r} -> 
-      0, {MTNB$1gdpdg5kzn39q`q, MTNB$1gdpdg5kzn39q`p} -> -1, {
-       MTNB$1gdpdg5kzn39q`q, MTNB$1gdpdg5kzn39q`q} -> 
-      0, {MTNB$1gdpdg5kzn39q`q, MTNB$1gdpdg5kzn39q`r} -> -1, {
-       MTNB$1gdpdg5kzn39q`r, MTNB$1gdpdg5kzn39q`p} -> 
-      0, {MTNB$1gdpdg5kzn39q`r, MTNB$1gdpdg5kzn39q`q} -> 
-      1, {MTNB$1gdpdg5kzn39q`r, MTNB$1gdpdg5kzn39q`r} -> 0|>, "Degree" -> -1, 
+     MTNB$1biweqcgln6jf`p -> -1, MTNB$1biweqcgln6jf`q -> 0, 
+      MTNB$1biweqcgln6jf`r -> -1|>, 
+    "Values" -> <|{MTNB$1biweqcgln6jf`p, MTNB$1biweqcgln6jf`p} -> 
+      0, {MTNB$1biweqcgln6jf`p, MTNB$1biweqcgln6jf`q} -> 
+      1, {MTNB$1biweqcgln6jf`p, MTNB$1biweqcgln6jf`r} -> 
+      0, {MTNB$1biweqcgln6jf`q, MTNB$1biweqcgln6jf`p} -> -1, {
+       MTNB$1biweqcgln6jf`q, MTNB$1biweqcgln6jf`q} -> 
+      0, {MTNB$1biweqcgln6jf`q, MTNB$1biweqcgln6jf`r} -> -1, {
+       MTNB$1biweqcgln6jf`r, MTNB$1biweqcgln6jf`p} -> 
+      0, {MTNB$1biweqcgln6jf`r, MTNB$1biweqcgln6jf`q} -> 
+      1, {MTNB$1biweqcgln6jf`r, MTNB$1biweqcgln6jf`r} -> 0|>, "Degree" -> -1, 
     "Convention" -> "Symmetric"|>],
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"51c63282-82de-4c8e-b7ef-cc71de73f177"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"559d0e4a-ac8c-417e-a85c-2b92bac6acf6"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -4540,23 +4548,23 @@ length at most ",
  Cell[BoxData[
   FormBox["2", TraditionalForm]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "55956410-da2f-4fa3-bebd-5f5e03819297"],
+  "60e93105-8687-40bd-92dc-5d90cdbcff0b"],
  ":"
-}], "ExampleText",ExpressionUUID->"ff079de7-6bb3-4a30-9688-c9445b758d55"],
+}], "ExampleText",ExpressionUUID->"7945417a-c8a9-48ab-8f9d-41e58b54b914"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"RelationsQ", "[", 
   RowBox[{
-   RowBox[{"StringAlgebra", "[", 
+   RowBox[{"CanonicalLieBialgebra", "[", 
     RowBox[{"three", ",", " ", 
      RowBox[{"\"\<EmptyWord\>\"", " ", "->", " ", "True"}]}], "]"}], ",", " ",
     "2"}], "]"}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"b06c0715-857d-4a45-a083-afa91f6018b3"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"0ad51e3b-1169-4f47-aee6-b5641b5e7320"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"c2aa7d1d-b025-4c24-8f93-0da7f6d7d107"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"ec2190e8-0067-4b2b-b0a0-51d1ae2ca161"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -4579,9 +4587,9 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell["EmptyWord", "ExampleSubsection",ExpressionUUID->"948ae832-1834-420a-aae4-128b3cbc35f9"],
+Cell["EmptyWord", "ExampleSubsection",ExpressionUUID->"b4aa7a6f-61cb-4361-bba0-ec614bf0b642"],
 
-Cell["The alphabet of the circle:", "ExampleText",ExpressionUUID->"50693552-2d9d-4a3d-a6aa-aa9d98aab19a"],
+Cell["The alphabet of the circle:", "ExampleText",ExpressionUUID->"65518524-5212-4ce0-b23f-5e3a38cf47e4"],
 
 Cell[CellGroupData[{
 
@@ -4599,7 +4607,7 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
    "]"}]}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"a9197942-6eb5-42aa-ad82-967897e07965"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"3c8f015a-3be7-4fd8-b974-ec48abb5ff97"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -4743,34 +4751,34 @@ Cell[BoxData[
      "SummaryPanel"],
     DynamicModuleValues:>{}], "]"}],
   ChernSimons`GradedPairing[<|
-   "Degrees" -> <|MTNB$1gdpdg5kzn39q`x -> -1, MTNB$1gdpdg5kzn39q`y -> 0|>, 
-    "Values" -> <|{MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`x} -> 
-      0, {MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`y} -> 
-      1, {MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`x} -> -1, {
-       MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`y} -> 0|>, "Degree" -> -1, 
+   "Degrees" -> <|MTNB$1biweqcgln6jf`x -> -1, MTNB$1biweqcgln6jf`y -> 0|>, 
+    "Values" -> <|{MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`x} -> 
+      0, {MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`y} -> 
+      1, {MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`x} -> -1, {
+       MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`y} -> 0|>, "Degree" -> -1, 
     "Convention" -> "Symmetric"|>],
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"c473ff15-6a2f-41b8-aa77-3c9d77853242"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"b9c41dbf-8798-40f0-9f94-9391be39c766"]
 }, Open  ]],
 
-Cell["The algebra extended by the empty word:", "ExampleText",ExpressionUUID->"54a37823-2cf3-412a-8fa5-7937d842b9e3"],
+Cell["The algebra extended by the empty word:", "ExampleText",ExpressionUUID->"85ff84f6-a8dd-45fe-9d43-59a5ee69c5ce"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"algebra", " ", "=", " ", 
-  RowBox[{"StringAlgebra", "[", 
+  RowBox[{"CanonicalLieBialgebra", "[", 
    RowBox[{"pairing", ",", " ", 
     RowBox[{"\"\<EmptyWord\>\"", " ", "->", " ", "True"}]}], "]"}]}]], "Input",\
 
- CellLabel->"In[2]:= ",ExpressionUUID->"a97502d7-93e7-48d5-9584-ead4e570d8a6"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"dbe75cb9-8c22-43c9-b266-4259a59e98a5"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{
-   TagBox["StringAlgebra",
+   TagBox["CanonicalLieBialgebra",
     "SummaryHead"], "[", 
    DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
     
@@ -4885,34 +4893,34 @@ Cell[BoxData[
        Dynamic[Typeset`open$$], ImageSize -> Automatic]},
      "SummaryPanel"],
     DynamicModuleValues:>{}], "]"}],
-  ChernSimons`StringAlgebra[<|
+  ChernSimons`CanonicalLieBialgebra[<|
    "Pairing" -> 
     ChernSimons`GradedPairing[<|
-      "Degrees" -> <|MTNB$1gdpdg5kzn39q`x -> -1, MTNB$1gdpdg5kzn39q`y -> 0|>, 
-       "Values" -> <|{MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`x} -> 
-         0, {MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`y} -> 
-         1, {MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`x} -> -1, {
-          MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`y} -> 0|>, "Degree" -> -1, 
+      "Degrees" -> <|MTNB$1biweqcgln6jf`x -> -1, MTNB$1biweqcgln6jf`y -> 0|>, 
+       "Values" -> <|{MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`x} -> 
+         0, {MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`y} -> 
+         1, {MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`x} -> -1, {
+          MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`y} -> 0|>, "Degree" -> -1, 
        "Convention" -> "Symmetric"|>], "EmptyWord" -> True|>],
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"4d6befec-13a6-4078-99a3-95052e88e9ea"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"8a966894-8114-4e24-81e7-eac7229a7933"]
 }, Open  ]],
 
-Cell["It reads back its empty-word setting:", "ExampleText",ExpressionUUID->"e50ca0eb-a498-4af5-9735-359493d9480b"],
+Cell["It reads back its empty-word setting:", "ExampleText",ExpressionUUID->"f82b8aff-18b1-4881-b16f-53061b29ed88"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"algebra", "[", "\"\<EmptyWord\>\"", "]"}]], "Input",
- CellLabel->"In[3]:= ",ExpressionUUID->"e7e6ff8a-eb90-4fd6-8b73-5f4d6503ccac"],
+ CellLabel->"In[3]:= ",ExpressionUUID->"de7aefcd-8fe4-4727-9f8b-cd86e9b9c094"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[3]= ",ExpressionUUID->"d2b1addb-8ba0-40cd-8504-6d97f3ef755d"]
+ CellLabel->"Out[3]= ",ExpressionUUID->"38d9cdf1-88d2-4dd4-98e8-576317f2b562"]
 }, Open  ]],
 
-Cell["And its pairing:", "ExampleText",ExpressionUUID->"53303753-df9c-4936-a3f0-87aa9a51e62c"],
+Cell["And its pairing:", "ExampleText",ExpressionUUID->"eb5f756a-502f-4043-a3b2-3048d35eaf0a"],
 
 Cell[CellGroupData[{
 
@@ -4920,10 +4928,10 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"algebra", "[", "\"\<Pairing\>\"", "]"}], " ", "===", " ", 
   "pairing"}]], "Input",
- CellLabel->"In[4]:= ",ExpressionUUID->"8ca4e69d-b66c-4753-982f-f37abc1a2e92"],
+ CellLabel->"In[4]:= ",ExpressionUUID->"b5aaa51a-8f8c-4d34-acb3-fb8d87ef1486"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[4]= ",ExpressionUUID->"5a096c17-6c32-4907-905a-40c6d92f40d6"]
+ CellLabel->"Out[4]= ",ExpressionUUID->"b07c0e60-8f23-4cd6-8d60-f6ee4a1b927f"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -4944,7 +4952,7 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleSection",
  CellID->2123667759,ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438"],
 
-Cell["The alphabet of the circle:", "ExampleText",ExpressionUUID->"28fdde56-4bdc-45bc-a6ca-333cf23e55b9"],
+Cell["The alphabet of the circle:", "ExampleText",ExpressionUUID->"a1cac382-fa26-44c2-8c3c-b8e917530889"],
 
 Cell[CellGroupData[{
 
@@ -4962,7 +4970,7 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
    "]"}]}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"2cd93241-ad25-44c2-8ffc-db92e9eeaf96"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"5fd70e94-a2db-4376-a7d4-6f11aaa558b3"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -5106,16 +5114,16 @@ Cell[BoxData[
      "SummaryPanel"],
     DynamicModuleValues:>{}], "]"}],
   ChernSimons`GradedPairing[<|
-   "Degrees" -> <|MTNB$1gdpdg5kzn39q`x -> -1, MTNB$1gdpdg5kzn39q`y -> 0|>, 
-    "Values" -> <|{MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`x} -> 
-      0, {MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`y} -> 
-      1, {MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`x} -> -1, {
-       MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`y} -> 0|>, "Degree" -> -1, 
+   "Degrees" -> <|MTNB$1biweqcgln6jf`x -> -1, MTNB$1biweqcgln6jf`y -> 0|>, 
+    "Values" -> <|{MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`x} -> 
+      0, {MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`y} -> 
+      1, {MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`x} -> -1, {
+       MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`y} -> 0|>, "Degree" -> -1, 
     "Convention" -> "Symmetric"|>],
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"490e8fdf-dffa-47e8-853c-1e746f57a922"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"3c516276-a8ce-4f1a-bdae-27993fb4336d"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -5124,9 +5132,9 @@ co-bracket applied twice with the option ",
  Cell[BoxData[
   RowBox[{"\"\<EmptyWord\>\"", " ", "->", " ", "True"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "554ef341-54a7-4551-be09-0ca978d9d978"],
+  "5cbba1f4-2860-4082-89ae-4932e2d60728"],
  ":"
-}], "ExampleText",ExpressionUUID->"f10f64c7-c975-431b-ad57-d937ef84a9de"],
+}], "ExampleText",ExpressionUUID->"84c683a6-aeaa-4bf4-83a1-24e26d3a2e8e"],
 
 Cell[CellGroupData[{
 
@@ -5134,7 +5142,7 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"Obstruction", "[", 
    RowBox[{
-    RowBox[{"StringAlgebra", "[", 
+    RowBox[{"CanonicalLieBialgebra", "[", 
      RowBox[{"pairing", ",", " ", 
       RowBox[{"\"\<EmptyWord\>\"", " ", "->", " ", "True"}]}], "]"}], ",", 
     " ", "\"\<CoJacobi\>\"", ",", " ", 
@@ -5143,9 +5151,9 @@ Cell[BoxData[
       RowBox[{"x", ",", " ", "x", ",", " ", "y", ",", " ", "y"}], "}"}], 
      "}"}]}], "]"}], " ", "===", " ", 
   RowBox[{"Expand", "[", 
-   RowBox[{"StringCobracket", "[", 
+   RowBox[{"CanonicalLieCobracket", "[", 
     RowBox[{
-     RowBox[{"StringCobracket", "[", 
+     RowBox[{"CanonicalLieCobracket", "[", 
       RowBox[{
        RowBox[{"{", 
         RowBox[{"x", ",", " ", "x", ",", " ", "y", ",", " ", "y"}], "}"}], ",",
@@ -5154,10 +5162,10 @@ Cell[BoxData[
      " ", "pairing", ",", " ", 
      RowBox[{"\"\<EmptyWord\>\"", " ", "->", " ", "True"}]}], "]"}], 
    "]"}]}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"d56cb78c-0558-4f49-8809-0db6c5f011a0"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"361f7e2a-5a18-43d4-b8da-f9b8c1bc4976"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"473cab2f-b5d9-400e-90e1-2b7318cc9b58"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"508ed98c-92eb-4b75-8b0b-2a4eda0e17c1"]
 }, Open  ]]
 }, Open  ]],
 
@@ -5170,7 +5178,7 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleSection",
  CellID->1305812373,ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f"],
 
-Cell["The alphabet of the circle:", "ExampleText",ExpressionUUID->"b88211e9-e339-4a58-bea9-8c1c470eaa98"],
+Cell["The alphabet of the circle:", "ExampleText",ExpressionUUID->"50f14a85-f419-4ba4-8b5e-a7af48119908"],
 
 Cell[CellGroupData[{
 
@@ -5188,7 +5196,7 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
    "]"}]}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"07fb5758-fef6-457b-b254-0d03caf57b01"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"ffa911ea-3373-48bc-beb2-0bfeccf9f1ed"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -5332,40 +5340,40 @@ Cell[BoxData[
      "SummaryPanel"],
     DynamicModuleValues:>{}], "]"}],
   ChernSimons`GradedPairing[<|
-   "Degrees" -> <|MTNB$1gdpdg5kzn39q`x -> -1, MTNB$1gdpdg5kzn39q`y -> 0|>, 
-    "Values" -> <|{MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`x} -> 
-      0, {MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`y} -> 
-      1, {MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`x} -> -1, {
-       MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`y} -> 0|>, "Degree" -> -1, 
+   "Degrees" -> <|MTNB$1biweqcgln6jf`x -> -1, MTNB$1biweqcgln6jf`y -> 0|>, 
+    "Values" -> <|{MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`x} -> 
+      0, {MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`y} -> 
+      1, {MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`x} -> -1, {
+       MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`y} -> 0|>, "Degree" -> -1, 
     "Convention" -> "Symmetric"|>],
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"8a01d829-1be2-4d7b-bc78-c3a980a65071"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"41e826ef-f223-4741-bbe1-f15e5a9b2368"]
 }, Open  ]],
 
 Cell[TextData[{
  "An option value that is not ",
  Cell[BoxData["True"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "45806396-3f28-49d9-af7c-5a3ff00bc3d8"],
+  "191890a1-7223-4ea4-8805-ede46fce7792"],
  " or ",
  Cell[BoxData["False"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "179624b5-eef0-4823-aff1-e55cc503e20d"],
+  "467f6e8d-911a-4f21-970f-d06448b36a1f"],
  " returns unevaluated:"
-}], "ExampleText",ExpressionUUID->"3b3e7a00-7cad-4f8a-a09f-7f003d5b6809"],
+}], "ExampleText",ExpressionUUID->"3f1057da-ea49-41eb-9d5c-4800040d907e"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"StringAlgebra", "[", 
+ RowBox[{"CanonicalLieBialgebra", "[", 
   RowBox[{"pairing", ",", " ", 
    RowBox[{"\"\<EmptyWord\>\"", " ", "->", " ", "1"}]}], "]"}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"81c04a4a-143f-438d-a8fe-bfe6702b7141"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"6cf219dd-266e-49f9-8d4a-42cce7b4c1c4"],
 
 Cell[BoxData[
- RowBox[{"StringAlgebra", "[", 
+ RowBox[{"CanonicalLieBialgebra", "[", 
   RowBox[{
    InterpretationBox[
     RowBox[{
@@ -5510,17 +5518,17 @@ Cell[BoxData[
        "SummaryPanel"],
       DynamicModuleValues:>{}], "]"}],
     ChernSimons`GradedPairing[<|
-     "Degrees" -> <|MTNB$1gdpdg5kzn39q`x -> -1, MTNB$1gdpdg5kzn39q`y -> 0|>, 
-      "Values" -> <|{MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`x} -> 
-        0, {MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`y} -> 
-        1, {MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`x} -> -1, {
-         MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`y} -> 0|>, "Degree" -> -1, 
+     "Degrees" -> <|MTNB$1biweqcgln6jf`x -> -1, MTNB$1biweqcgln6jf`y -> 0|>, 
+      "Values" -> <|{MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`x} -> 
+        0, {MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`y} -> 
+        1, {MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`x} -> -1, {
+         MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`y} -> 0|>, "Degree" -> -1, 
       "Convention" -> "Symmetric"|>],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
    RowBox[{"\<\"EmptyWord\"\>", "\[Rule]", "1"}]}], "]"}]], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"d406760c-8f54-40b8-bf54-2cf52c3b9324"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"0d11a89f-ae3c-452f-a972-4434490956eb"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -5528,11 +5536,11 @@ Cell[CellGroupData[{
 Cell[BoxData[
  InterpretationBox[Cell[
   "\t", "ExampleDelimiter",ExpressionUUID->
-   "5ab37813-7558-4054-a678-4215eef2bf36"],
-  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"e9c1ffb1-e7cd-48a5-\
-85c3-de9f36576a27"],
+   "195f4bac-39da-450c-8873-bbd9607eb22c"],
+  $Line = 0; Null]], "ExampleDelimiter",ExpressionUUID->"5529ccf4-5b1c-4a11-\
+b458-ce2cd9d67785"],
 
-Cell["The alphabet of the circle:", "ExampleText",ExpressionUUID->"f67fff54-d56a-45a1-8cdf-ba517c38acbb"],
+Cell["The alphabet of the circle:", "ExampleText",ExpressionUUID->"8b59498d-ac1b-498d-b8c0-3354755295eb"],
 
 Cell[CellGroupData[{
 
@@ -5550,7 +5558,7 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{"x", ",", " ", "y"}], "}"}], " ", "->", " ", "1"}], "|>"}]}], 
    "]"}]}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"c552e8c4-175a-40ed-91fa-6e9347f7476d"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"aa816b0c-afb6-4916-96be-05cc806e14f6"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -5694,32 +5702,32 @@ Cell[BoxData[
      "SummaryPanel"],
     DynamicModuleValues:>{}], "]"}],
   ChernSimons`GradedPairing[<|
-   "Degrees" -> <|MTNB$1gdpdg5kzn39q`x -> -1, MTNB$1gdpdg5kzn39q`y -> 0|>, 
-    "Values" -> <|{MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`x} -> 
-      0, {MTNB$1gdpdg5kzn39q`x, MTNB$1gdpdg5kzn39q`y} -> 
-      1, {MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`x} -> -1, {
-       MTNB$1gdpdg5kzn39q`y, MTNB$1gdpdg5kzn39q`y} -> 0|>, "Degree" -> -1, 
+   "Degrees" -> <|MTNB$1biweqcgln6jf`x -> -1, MTNB$1biweqcgln6jf`y -> 0|>, 
+    "Values" -> <|{MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`x} -> 
+      0, {MTNB$1biweqcgln6jf`x, MTNB$1biweqcgln6jf`y} -> 
+      1, {MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`x} -> -1, {
+       MTNB$1biweqcgln6jf`y, MTNB$1biweqcgln6jf`y} -> 0|>, "Degree" -> -1, 
     "Convention" -> "Symmetric"|>],
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"eb0c4a8f-20ca-455b-a33b-f7b307842c44"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"d430ede5-63ce-43cf-adff-9392055291dc"]
 }, Open  ]],
 
 Cell["\<\
 The Association of the data of a pairing is not a pairing object, and returns \
 unevaluated:\
-\>", "ExampleText",ExpressionUUID->"05583403-2643-4bd6-8cdb-df469f3389a6"],
+\>", "ExampleText",ExpressionUUID->"7e74da21-21ac-4beb-9050-fcd3a4d52dbb"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"StringAlgebra", "[", 
+ RowBox[{"CanonicalLieBialgebra", "[", 
   RowBox[{"Normal", "[", "pairing", "]"}], "]"}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"d0465075-2da0-4226-a188-867053480b78"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"19426265-813d-4c68-8cd1-9284af209293"],
 
 Cell[BoxData[
- RowBox[{"StringAlgebra", "[", 
+ RowBox[{"CanonicalLieBialgebra", "[", 
   RowBox[{"\[LeftAssociation]", 
    RowBox[{
     RowBox[{"\<\"Degrees\"\>", "\[Rule]", 
@@ -5749,22 +5757,22 @@ Cell[BoxData[
      RowBox[{"-", "1"}]}], ",", 
     RowBox[{"\<\"Convention\"\>", "\[Rule]", "\<\"Symmetric\"\>"}]}], 
    "\[RightAssociation]"}], "]"}]], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"8fe3ddf3-2ad4-4c28-a4b4-d6a594f45a5c"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"802827ae-9a40-4c50-9eb5-b8415b403056"]
 }, Open  ]],
 
-Cell["It has no relations, since it holds no pairing object:", "ExampleText",ExpressionUUID->"45c56677-12a9-4957-b70b-e8909d560325"],
+Cell["It has no relations, since it holds no pairing object:", "ExampleText",ExpressionUUID->"8778914a-833b-4af4-af9b-2d789adb2ea9"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Relations", "[", 
-  RowBox[{"StringAlgebra", "[", 
+  RowBox[{"CanonicalLieBialgebra", "[", 
    RowBox[{"Normal", "[", "pairing", "]"}], "]"}], "]"}]], "Input",
- CellLabel->"In[3]:= ",ExpressionUUID->"0631fc00-d09e-4570-9ceb-d1be88867974"],
+ CellLabel->"In[3]:= ",ExpressionUUID->"85e57659-b0e5-44a2-ae41-df2ae583c321"],
 
 Cell[BoxData[
  RowBox[{"Relations", "[", 
-  RowBox[{"StringAlgebra", "[", 
+  RowBox[{"CanonicalLieBialgebra", "[", 
    RowBox[{"\[LeftAssociation]", 
     RowBox[{
      RowBox[{"\<\"Degrees\"\>", "\[Rule]", 
@@ -5794,7 +5802,7 @@ Cell[BoxData[
       RowBox[{"-", "1"}]}], ",", 
      RowBox[{"\<\"Convention\"\>", "\[Rule]", "\<\"Symmetric\"\>"}]}], 
     "\[RightAssociation]"}], "]"}], "]"}]], "Output",
- CellLabel->"Out[3]= ",ExpressionUUID->"0a72e78e-d9f5-4a17-94e7-3aa437679551"]
+ CellLabel->"Out[3]= ",ExpressionUUID->"f5a68a35-7b4f-4007-922f-16a1f131bfc6"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -5862,8 +5870,8 @@ Cell["ChernSimons`", "Categorization",
  CellLabel->"Context",
  CellID->468444828,ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191"],
 
-Cell["ChernSimons/ref/StringAlgebra", "Categorization",
- CellLabel->"URI",ExpressionUUID->"696f80fa-96f5-428a-bcc1-ac3300feb480"]
+Cell["ChernSimons/ref/CanonicalLieBialgebra", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"a5a61c46-83e5-4ab1-8cbb-15ff27117a36"]
 }, Closed]],
 
 Cell["Keywords", "KeywordsSection",
@@ -5896,12 +5904,13 @@ WindowSize->{700, 770},
 WindowMargins->{{5, Automatic}, {Automatic, 0}},
 TaggingRules->{
  "Metadata" -> {
-   "title" -> "StringAlgebra", "context" -> "ChernSimons`", 
+   "title" -> "CanonicalLieBialgebra", "context" -> "ChernSimons`", 
     "keywords" -> {
-     "dIBL algebra", "string algebra", "involutive bi-Lie algebra", 
-      "cyclic words", "empty word", "structure"}, "summary" -> "", "paclet" -> 
-    "ChernSimons", "uri" -> "ChernSimons/ref/StringAlgebra", "type" -> 
-    "Symbol", "index" -> True, "language" -> "en"}},
+     "canonical Lie bialgebra", "dIBL algebra", "string algebra", 
+      "involutive bi-Lie algebra", "cyclic words", "empty word", "structure"},
+     "summary" -> "", "paclet" -> "ChernSimons", "uri" -> 
+    "ChernSimons/ref/CanonicalLieBialgebra", "type" -> "Symbol", "index" -> 
+    True, "language" -> "en"}},
 CreateCellID->True,
 CellContext->CellGroup,
 FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (July 2, 2026)",
@@ -5915,231 +5924,231 @@ ExpressionUUID->"c207366e-060a-406b-a297-9e30e1628f43"
 (*CellTagsOutline
 CellTagsIndex->{
  "TextAnnotation"->{
-  Cell[1343, 45, 3854, 88, 70, "Notes",ExpressionUUID->"4a9fc942-999a-4dee-867d-8b74a3e7aa2b",
+  Cell[1373, 46, 3922, 91, 70, "Notes",ExpressionUUID->"e5d3646c-70ca-4839-a1f7-da50d2c65248",
    CellTags->"TextAnnotation",
-   CellID->216317864]},
+   CellID->767510647]},
  "ExtendedExamples"->{
-  Cell[229377, 4105, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+  Cell[229634, 4113, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
    CellTags->"ExtendedExamples",
    CellID->533848431]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"TextAnnotation", 305144, 5916},
- {"ExtendedExamples", 305317, 5920}
+ {"TextAnnotation", 305565, 5925},
+ {"ExtendedExamples", 305738, 5929}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 111, 1, 70, "ObjectName",ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec",
+Cell[576, 22, 119, 1, 70, "ObjectName",ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec",
  CellID->1224892054],
-Cell[690, 25, 650, 18, 70, "Usage",ExpressionUUID->"8f96cfaa-b3c0-41f8-87a7-4ce82e14d153"],
-Cell[1343, 45, 3854, 88, 70, "Notes",ExpressionUUID->"4a9fc942-999a-4dee-867d-8b74a3e7aa2b",
+Cell[698, 25, 672, 19, 70, "Usage",ExpressionUUID->"866e499d-5dbf-43cd-a92c-431154e9e867"],
+Cell[1373, 46, 3922, 91, 70, "Notes",ExpressionUUID->"e5d3646c-70ca-4839-a1f7-da50d2c65248",
  CellTags->"TextAnnotation",
- CellID->216317864],
-Cell[5200, 135, 962, 29, 70, "Notes",ExpressionUUID->"778803bb-ef36-40bc-bd9e-fefd03a97fae"],
-Cell[6165, 166, 829, 19, 70, "Notes",ExpressionUUID->"3aa5d265-f0c1-4c8c-95cc-cf167b62b1bb"],
-Cell[6997, 187, 870, 26, 70, "Notes",ExpressionUUID->"9a24206e-31e9-4925-8021-b53c0e3e65ac"],
-Cell[7870, 215, 1655, 31, 70, "2ColumnTableMod",ExpressionUUID->"a2bdb55a-dfcf-47a1-8256-86836dc8f44d"],
-Cell[9528, 248, 1876, 55, 70, "Notes",ExpressionUUID->"cef7ddaa-fb83-439f-a38c-44dbf44b5f02"],
-Cell[11407, 305, 252, 4, 70, "Notes",ExpressionUUID->"442831d8-b40b-45fc-9be6-6d8a8d844c76"],
-Cell[11662, 311, 390, 10, 70, "Notes",ExpressionUUID->"ce31391b-0287-4f11-a20a-567a043fe9a2"],
-Cell[12055, 323, 1351, 25, 70, "3ColumnTableMod",ExpressionUUID->"3e47a105-fb44-4c6f-931e-071a5c414fbe"],
-Cell[13409, 350, 345, 7, 70, "Notes",ExpressionUUID->"5ce26dbd-c2c8-465d-a4b0-ad4a43a3f297"],
-Cell[13757, 359, 722, 19, 70, "Notes",ExpressionUUID->"4a36549f-e43b-47b2-97ac-2165fbdcfe56"]
+ CellID->767510647],
+Cell[5298, 139, 962, 29, 70, "Notes",ExpressionUUID->"a0c6f3d9-c013-412a-a7d9-cf2ad5feac70"],
+Cell[6263, 170, 829, 19, 70, "Notes",ExpressionUUID->"2d8aec98-61b9-4681-bd43-d0e8701af4af"],
+Cell[7095, 191, 892, 27, 70, "Notes",ExpressionUUID->"93e289ee-c9ec-435b-84d1-0a30cb44f013"],
+Cell[7990, 220, 1655, 31, 70, "2ColumnTableMod",ExpressionUUID->"2908430d-c006-44e8-b7d8-8a45f50ca014"],
+Cell[9648, 253, 1876, 55, 70, "Notes",ExpressionUUID->"00ef9693-13e4-436d-b2f2-abc0ba8a93fe"],
+Cell[11527, 310, 252, 4, 70, "Notes",ExpressionUUID->"39108809-b3a4-462c-9e51-8318c00f41eb"],
+Cell[11782, 316, 411, 11, 70, "Notes",ExpressionUUID->"040d8762-98ee-4dcc-94df-162b4e276c90"],
+Cell[12196, 329, 1351, 25, 70, "3ColumnTableMod",ExpressionUUID->"eed2e77d-d1e8-4dcc-8e61-c6e7c51f5949"],
+Cell[13550, 356, 345, 7, 70, "Notes",ExpressionUUID->"6c9b89cf-390d-4ba8-9c5c-baf8454220b1"],
+Cell[13898, 365, 722, 19, 70, "Notes",ExpressionUUID->"8ffe4eba-f5af-49b5-9535-de0b865c67aa"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14516, 383, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
+Cell[14657, 389, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
  CellID->1559318232],
-Cell[14978, 398, 2230, 64, 70, "SeeAlso",ExpressionUUID->"a61e8f07-b141-4a76-946c-f797cd0c0c54"]
+Cell[15119, 404, 2264, 66, 70, "SeeAlso",ExpressionUUID->"7400307f-5482-4609-8f1b-a5004afffe91"]
 }, Open  ]],
-Cell[17223, 465, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
+Cell[17398, 473, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
  CellID->792424486],
 Cell[CellGroupData[{
-Cell[17683, 481, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
+Cell[17858, 489, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
  CellID->38303248],
-Cell[17802, 484, 286, 6, 70, "MoreAbout",ExpressionUUID->"6d8ae0a5-2244-4071-965c-e5cd716de6a8"]
+Cell[17977, 492, 302, 6, 70, "MoreAbout",ExpressionUUID->"2cd23ae1-ad43-4ed2-b69b-571b38e28f6f"]
 }, Open  ]],
-Cell[18103, 493, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
+Cell[18294, 501, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
  CellID->47113304],
 Cell[CellGroupData[{
-Cell[18599, 510, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
+Cell[18790, 518, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
  CellID->1718580883],
-Cell[19133, 526, 171, 3, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
+Cell[19324, 534, 171, 3, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
  CellID->1969679695]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19341, 534, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
+Cell[19532, 542, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
  CellID->880084151],
-Cell[19786, 548, 359, 5, 70, "ExampleText",ExpressionUUID->"c043c65e-5dc1-41ca-bcb5-7565245974d8"],
-Cell[20148, 555, 194070, 3189, 70, "ExampleImage",ExpressionUUID->"ee41fbab-df86-42fd-b550-9b825c1bb016"],
-Cell[214221, 3746, 111, 0, 70, "ExampleText",ExpressionUUID->"5846f60a-0051-48dd-a284-aaa75d14fad6"],
+Cell[19977, 556, 359, 5, 70, "ExampleText",ExpressionUUID->"1c32d379-7c22-4912-8894-eace06ebd236"],
+Cell[20339, 563, 194070, 3189, 70, "ExampleImage",ExpressionUUID->"81a164e0-4d8d-417c-87b6-c278a6d7bb0b"],
+Cell[214412, 3754, 120, 0, 70, "ExampleText",ExpressionUUID->"55335ceb-fe47-438b-a261-a38019d2b5c0"],
 Cell[CellGroupData[{
-Cell[214357, 3750, 499, 14, 70, "Input",ExpressionUUID->"38bf42df-2270-4cdb-9da1-5ef1b1e57630"],
-Cell[214859, 3766, 6091, 130, 70, "Output",ExpressionUUID->"dc532292-aeff-4ed9-bd97-b4013272c689"]
+Cell[214557, 3758, 507, 14, 70, "Input",ExpressionUUID->"7be186eb-53c5-48ae-b4e7-721ba80f43f5"],
+Cell[215067, 3774, 6107, 130, 70, "Output",ExpressionUUID->"038f1ba4-4525-41f8-875d-309edbda63b1"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[220987, 3901, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"b74c5c58-6da8-4811-906b-417ff4fcca62"],
-Cell[221214, 3908, 111, 0, 70, "ExampleText",ExpressionUUID->"fa4ba0b6-6229-4dfd-83bb-2a33b999a34b"],
+Cell[221211, 3909, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"208ed28f-1a1a-4752-9a53-367c3311ea02"],
+Cell[221438, 3916, 120, 0, 70, "ExampleText",ExpressionUUID->"058619b1-4ff9-454f-95ef-bd5a55023581"],
 Cell[CellGroupData[{
-Cell[221350, 3912, 550, 15, 70, "Input",ExpressionUUID->"850e428b-c94b-4be2-9534-ecebf234eb96"],
-Cell[221903, 3929, 6091, 130, 70, "Output",ExpressionUUID->"fe4475bf-0700-4f14-a25b-de3900b1e837"]
+Cell[221583, 3920, 558, 15, 70, "Input",ExpressionUUID->"861ec6e6-ef89-4ef9-a981-42f793799873"],
+Cell[222144, 3937, 6107, 130, 70, "Output",ExpressionUUID->"3b8d29d1-b872-45ba-96db-edf167f0b97a"]
 }, Open  ]],
-Cell[228009, 4062, 110, 0, 70, "ExampleText",ExpressionUUID->"c485080a-3576-4f2d-9446-d4ce861726d8"],
+Cell[228266, 4070, 110, 0, 70, "ExampleText",ExpressionUUID->"e88eb556-e644-46a1-8e23-efd48f7f7329"],
 Cell[CellGroupData[{
-Cell[228144, 4066, 147, 2, 70, "Input",ExpressionUUID->"e0dd3cfd-235b-447f-8670-eda480dbe882"],
-Cell[228294, 4070, 392, 8, 70, "Output",ExpressionUUID->"5d8f914e-ce80-402a-8004-857a26c53f1e"]
+Cell[228401, 4074, 147, 2, 70, "Input",ExpressionUUID->"eb3a5e17-f6a0-4f9b-a996-c34365ab802f"],
+Cell[228551, 4078, 392, 8, 70, "Output",ExpressionUUID->"d3f6c186-5255-43aa-a530-defc5102f184"]
 }, Open  ]],
-Cell[228701, 4081, 301, 7, 70, "ExampleText",ExpressionUUID->"feeec88e-4904-4f5f-9896-cb8153f4e145"],
+Cell[228958, 4089, 301, 7, 70, "ExampleText",ExpressionUUID->"7e486008-eb79-4448-9143-2fe2bd164f74"],
 Cell[CellGroupData[{
-Cell[229027, 4092, 176, 3, 70, "Input",ExpressionUUID->"762a4ea9-1a32-4661-807e-bafcc916498f"],
-Cell[229206, 4097, 110, 1, 70, "Output",ExpressionUUID->"f2128081-5717-4b12-bc13-f04451e5ad7c"]
+Cell[229284, 4100, 176, 3, 70, "Input",ExpressionUUID->"20ab8682-bb47-40bf-bb0e-d3cf568c5ee5"],
+Cell[229463, 4105, 110, 1, 70, "Output",ExpressionUUID->"5df5504c-ed5e-442f-96f1-319ef4a11497"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[229377, 4105, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+Cell[229634, 4113, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
  CellTags->"ExtendedExamples",
  CellID->533848431],
 Cell[CellGroupData[{
-Cell[229889, 4122, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
+Cell[230146, 4130, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
  CellID->1293636265],
-Cell[230134, 4129, 129, 0, 70, "ExampleText",ExpressionUUID->"8866e932-917f-4dba-9ecd-9853d1edeb79"],
+Cell[230391, 4137, 129, 0, 70, "ExampleText",ExpressionUUID->"5156ae47-c10f-4bc7-98d7-805a2cd2ca69"],
 Cell[CellGroupData[{
-Cell[230288, 4133, 657, 18, 70, "Input",ExpressionUUID->"b1bd1605-96e4-491d-b4ac-3ae53fcc3750"],
-Cell[230948, 4153, 7053, 151, 70, "Output",ExpressionUUID->"faad52c6-1f93-4ab7-a670-803b53578d56"]
+Cell[230545, 4141, 657, 18, 70, "Input",ExpressionUUID->"3a2361d2-a7c3-4155-b39f-3b71eba566b7"],
+Cell[231205, 4161, 7053, 151, 70, "Output",ExpressionUUID->"942e9c43-4384-42ec-bf93-d42429af0442"]
 }, Open  ]],
-Cell[238016, 4307, 165, 3, 70, "ExampleText",ExpressionUUID->"7be07c18-8fe7-4180-bb46-555f5517706b"],
+Cell[238273, 4315, 165, 3, 70, "ExampleText",ExpressionUUID->"c5420b82-46dc-4db5-b1de-ac7e97c3f8d2"],
 Cell[CellGroupData[{
-Cell[238206, 4314, 589, 16, 70, "Input",ExpressionUUID->"32daca5c-005b-4bdb-b6d2-dfb60e29b9fa"],
-Cell[238798, 4332, 107, 1, 70, "Output",ExpressionUUID->"29850d6f-a43a-42f3-9e00-36d2d23a2592"]
+Cell[238463, 4322, 597, 16, 70, "Input",ExpressionUUID->"80bf7434-b2e5-4fb4-a926-8337bdb45900"],
+Cell[239063, 4340, 107, 1, 70, "Output",ExpressionUUID->"3f45cfac-e858-40a3-a193-234f59b65b3f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[238942, 4338, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"33d732b8-a34d-4388-906f-903af302e94a"],
-Cell[239169, 4345, 102, 0, 70, "ExampleText",ExpressionUUID->"9b600a7b-0fc5-4dc5-a964-526750a8042e"],
+Cell[239207, 4346, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"53fbf69e-5173-475b-a828-0a60bbe3e020"],
+Cell[239434, 4353, 102, 0, 70, "ExampleText",ExpressionUUID->"0a6d2e05-63e1-478b-938a-329a1a240a08"],
 Cell[CellGroupData[{
-Cell[239296, 4349, 715, 21, 70, "Input",ExpressionUUID->"c195c813-48dd-4c9d-afae-0d724fc00a9a"],
-Cell[240014, 4372, 7567, 161, 70, "Output",ExpressionUUID->"51c63282-82de-4c8e-b7ef-cc71de73f177"]
+Cell[239561, 4357, 715, 21, 70, "Input",ExpressionUUID->"67705cea-9599-402c-8ddc-3242faa8ca95"],
+Cell[240279, 4380, 7567, 161, 70, "Output",ExpressionUUID->"559d0e4a-ac8c-417e-a85c-2b92bac6acf6"]
 }, Open  ]],
-Cell[247596, 4536, 338, 8, 70, "ExampleText",ExpressionUUID->"ff079de7-6bb3-4a30-9688-c9445b758d55"],
+Cell[247861, 4544, 338, 8, 70, "ExampleText",ExpressionUUID->"7945417a-c8a9-48ab-8f9d-41e58b54b914"],
 Cell[CellGroupData[{
-Cell[247959, 4548, 305, 7, 70, "Input",ExpressionUUID->"b06c0715-857d-4a45-a083-afa91f6018b3"],
-Cell[248267, 4557, 110, 1, 70, "Output",ExpressionUUID->"c2aa7d1d-b025-4c24-8f93-0da7f6d7d107"]
+Cell[248224, 4556, 313, 7, 70, "Input",ExpressionUUID->"0ad51e3b-1169-4f47-aee6-b5641b5e7320"],
+Cell[248540, 4565, 110, 1, 70, "Output",ExpressionUUID->"ec2190e8-0067-4b2b-b0a0-51d1ae2ca161"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[248416, 4563, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
+Cell[248689, 4571, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
  CellID->1020263627],
 Cell[CellGroupData[{
-Cell[248706, 4572, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
+Cell[248979, 4580, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
  CellID->2061341341],
 Cell[CellGroupData[{
-Cell[248975, 4581, 93, 0, 70, "ExampleSubsection",ExpressionUUID->"948ae832-1834-420a-aae4-128b3cbc35f9"],
-Cell[249071, 4583, 105, 0, 70, "ExampleText",ExpressionUUID->"50693552-2d9d-4a3d-a6aa-aa9d98aab19a"],
+Cell[249248, 4589, 93, 0, 70, "ExampleSubsection",ExpressionUUID->"b4aa7a6f-61cb-4361-bba0-ec614bf0b642"],
+Cell[249344, 4591, 105, 0, 70, "ExampleText",ExpressionUUID->"65518524-5212-4ce0-b23f-5e3a38cf47e4"],
 Cell[CellGroupData[{
-Cell[249201, 4587, 498, 14, 70, "Input",ExpressionUUID->"a9197942-6eb5-42aa-ad82-967897e07965"],
-Cell[249702, 4603, 7056, 151, 70, "Output",ExpressionUUID->"c473ff15-6a2f-41b8-aa77-3c9d77853242"]
+Cell[249474, 4595, 498, 14, 70, "Input",ExpressionUUID->"3c8f015a-3be7-4fd8-b974-ec48abb5ff97"],
+Cell[249975, 4611, 7056, 151, 70, "Output",ExpressionUUID->"b9c41dbf-8798-40f0-9f94-9391be39c766"]
 }, Open  ]],
-Cell[256773, 4757, 117, 0, 70, "ExampleText",ExpressionUUID->"54a37823-2cf3-412a-8fa5-7937d842b9e3"],
+Cell[257046, 4765, 117, 0, 70, "ExampleText",ExpressionUUID->"85ff84f6-a8dd-45fe-9d43-59a5ee69c5ce"],
 Cell[CellGroupData[{
-Cell[256915, 4761, 276, 6, 70, "Input",ExpressionUUID->"a97502d7-93e7-48d5-9584-ead4e570d8a6"],
-Cell[257194, 4769, 6088, 130, 70, "Output",ExpressionUUID->"4d6befec-13a6-4078-99a3-95052e88e9ea"]
+Cell[257188, 4769, 284, 6, 70, "Input",ExpressionUUID->"dbe75cb9-8c22-43c9-b266-4259a59e98a5"],
+Cell[257475, 4777, 6104, 130, 70, "Output",ExpressionUUID->"8a966894-8114-4e24-81e7-eac7229a7933"]
 }, Open  ]],
-Cell[263297, 4902, 115, 0, 70, "ExampleText",ExpressionUUID->"e50ca0eb-a498-4af5-9735-359493d9480b"],
+Cell[263594, 4910, 115, 0, 70, "ExampleText",ExpressionUUID->"f82b8aff-18b1-4881-b16f-53061b29ed88"],
 Cell[CellGroupData[{
-Cell[263437, 4906, 155, 2, 70, "Input",ExpressionUUID->"e7e6ff8a-eb90-4fd6-8b73-5f4d6503ccac"],
-Cell[263595, 4910, 110, 1, 70, "Output",ExpressionUUID->"d2b1addb-8ba0-40cd-8504-6d97f3ef755d"]
+Cell[263734, 4914, 155, 2, 70, "Input",ExpressionUUID->"de7aefcd-8fe4-4727-9f8b-cd86e9b9c094"],
+Cell[263892, 4918, 110, 1, 70, "Output",ExpressionUUID->"38d9cdf1-88d2-4dd4-98e8-576317f2b562"]
 }, Open  ]],
-Cell[263720, 4914, 94, 0, 70, "ExampleText",ExpressionUUID->"53303753-df9c-4936-a3f0-87aa9a51e62c"],
+Cell[264017, 4922, 94, 0, 70, "ExampleText",ExpressionUUID->"eb5f756a-502f-4043-a3b2-3048d35eaf0a"],
 Cell[CellGroupData[{
-Cell[263839, 4918, 197, 4, 70, "Input",ExpressionUUID->"8ca4e69d-b66c-4753-982f-f37abc1a2e92"],
-Cell[264039, 4924, 110, 1, 70, "Output",ExpressionUUID->"5a096c17-6c32-4907-905a-40c6d92f40d6"]
+Cell[264136, 4926, 197, 4, 70, "Input",ExpressionUUID->"b5aaa51a-8f8c-4d34-acb3-fb8d87ef1486"],
+Cell[264336, 4932, 110, 1, 70, "Output",ExpressionUUID->"b07c0e60-8f23-4cd6-8d60-f6ee4a1b927f"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[264188, 4930, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
+Cell[264485, 4938, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
  CellID->258228157],
 Cell[CellGroupData[{
-Cell[264461, 4939, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
+Cell[264758, 4947, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
  CellID->2123667759],
-Cell[264723, 4946, 105, 0, 70, "ExampleText",ExpressionUUID->"28fdde56-4bdc-45bc-a6ca-333cf23e55b9"],
+Cell[265020, 4954, 105, 0, 70, "ExampleText",ExpressionUUID->"a1cac382-fa26-44c2-8c3c-b8e917530889"],
 Cell[CellGroupData[{
-Cell[264853, 4950, 498, 14, 70, "Input",ExpressionUUID->"2cd93241-ad25-44c2-8ffc-db92e9eeaf96"],
-Cell[265354, 4966, 7056, 151, 70, "Output",ExpressionUUID->"490e8fdf-dffa-47e8-853c-1e746f57a922"]
+Cell[265150, 4958, 498, 14, 70, "Input",ExpressionUUID->"5fd70e94-a2db-4376-a7d4-6f11aaa558b3"],
+Cell[265651, 4974, 7056, 151, 70, "Output",ExpressionUUID->"3c516276-a8ce-4f1a-bdae-27993fb4336d"]
 }, Open  ]],
-Cell[272425, 5120, 386, 8, 70, "ExampleText",ExpressionUUID->"f10f64c7-c975-431b-ad57-d937ef84a9de"],
+Cell[272722, 5128, 386, 8, 70, "ExampleText",ExpressionUUID->"84c683a6-aeaa-4bf4-83a1-24e26d3a2e8e"],
 Cell[CellGroupData[{
-Cell[272836, 5132, 946, 24, 70, "Input",ExpressionUUID->"d56cb78c-0558-4f49-8809-0db6c5f011a0"],
-Cell[273785, 5158, 110, 1, 70, "Output",ExpressionUUID->"473cab2f-b5d9-400e-90e1-2b7318cc9b58"]
+Cell[273133, 5140, 966, 24, 70, "Input",ExpressionUUID->"361f7e2a-5a18-43d4-b8da-f9b8c1bc4976"],
+Cell[274102, 5166, 110, 1, 70, "Output",ExpressionUUID->"508ed98c-92eb-4b75-8b0b-2a4eda0e17c1"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[273944, 5165, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
+Cell[274261, 5173, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
  CellID->1305812373],
-Cell[274199, 5172, 105, 0, 70, "ExampleText",ExpressionUUID->"b88211e9-e339-4a58-bea9-8c1c470eaa98"],
+Cell[274516, 5180, 105, 0, 70, "ExampleText",ExpressionUUID->"50f14a85-f419-4ba4-8b5e-a7af48119908"],
 Cell[CellGroupData[{
-Cell[274329, 5176, 498, 14, 70, "Input",ExpressionUUID->"07fb5758-fef6-457b-b254-0d03caf57b01"],
-Cell[274830, 5192, 7056, 151, 70, "Output",ExpressionUUID->"8a01d829-1be2-4d7b-bc78-c3a980a65071"]
+Cell[274646, 5184, 498, 14, 70, "Input",ExpressionUUID->"ffa911ea-3373-48bc-beb2-0bfeccf9f1ed"],
+Cell[275147, 5200, 7056, 151, 70, "Output",ExpressionUUID->"41e826ef-f223-4741-bbe1-f15e5a9b2368"]
 }, Open  ]],
-Cell[281901, 5346, 409, 10, 70, "ExampleText",ExpressionUUID->"3b3e7a00-7cad-4f8a-a09f-7f003d5b6809"],
+Cell[282218, 5354, 409, 10, 70, "ExampleText",ExpressionUUID->"3f1057da-ea49-41eb-9d5c-4800040d907e"],
 Cell[CellGroupData[{
-Cell[282335, 5360, 230, 4, 70, "Input",ExpressionUUID->"81c04a4a-143f-438d-a8fe-bfe6702b7141"],
-Cell[282568, 5366, 7477, 156, 70, "Output",ExpressionUUID->"d406760c-8f54-40b8-bf54-2cf52c3b9324"]
+Cell[282652, 5368, 238, 4, 70, "Input",ExpressionUUID->"6cf219dd-266e-49f9-8d4a-42cce7b4c1c4"],
+Cell[282893, 5374, 7485, 156, 70, "Output",ExpressionUUID->"0d11a89f-ae3c-452f-a972-4434490956eb"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[290082, 5527, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"e9c1ffb1-e7cd-48a5-85c3-de9f36576a27"],
-Cell[290309, 5534, 105, 0, 70, "ExampleText",ExpressionUUID->"f67fff54-d56a-45a1-8cdf-ba517c38acbb"],
+Cell[290415, 5535, 224, 5, 70, "ExampleDelimiter",ExpressionUUID->"5529ccf4-5b1c-4a11-b458-ce2cd9d67785"],
+Cell[290642, 5542, 105, 0, 70, "ExampleText",ExpressionUUID->"8b59498d-ac1b-498d-b8c0-3354755295eb"],
 Cell[CellGroupData[{
-Cell[290439, 5538, 498, 14, 70, "Input",ExpressionUUID->"c552e8c4-175a-40ed-91fa-6e9347f7476d"],
-Cell[290940, 5554, 7056, 151, 70, "Output",ExpressionUUID->"eb0c4a8f-20ca-455b-a33b-f7b307842c44"]
+Cell[290772, 5546, 498, 14, 70, "Input",ExpressionUUID->"aa816b0c-afb6-4916-96be-05cc806e14f6"],
+Cell[291273, 5562, 7056, 151, 70, "Output",ExpressionUUID->"d430ede5-63ce-43cf-adff-9392055291dc"]
 }, Open  ]],
-Cell[298011, 5708, 178, 3, 70, "ExampleText",ExpressionUUID->"05583403-2643-4bd6-8cdb-df469f3389a6"],
+Cell[298344, 5716, 178, 3, 70, "ExampleText",ExpressionUUID->"7e74da21-21ac-4beb-9050-fcd3a4d52dbb"],
 Cell[CellGroupData[{
-Cell[298214, 5715, 184, 3, 70, "Input",ExpressionUUID->"d0465075-2da0-4226-a188-867053480b78"],
-Cell[298401, 5720, 1161, 31, 70, "Output",ExpressionUUID->"8fe3ddf3-2ad4-4c28-a4b4-d6a594f45a5c"]
+Cell[298547, 5723, 192, 3, 70, "Input",ExpressionUUID->"19426265-813d-4c68-8cd1-9284af209293"],
+Cell[298742, 5728, 1169, 31, 70, "Output",ExpressionUUID->"802827ae-9a40-4c50-9eb5-b8415b403056"]
 }, Open  ]],
-Cell[299577, 5754, 132, 0, 70, "ExampleText",ExpressionUUID->"45c56677-12a9-4957-b70b-e8909d560325"],
+Cell[299926, 5762, 132, 0, 70, "ExampleText",ExpressionUUID->"8778914a-833b-4af4-af9b-2d789adb2ea9"],
 Cell[CellGroupData[{
-Cell[299734, 5758, 221, 4, 70, "Input",ExpressionUUID->"0631fc00-d09e-4570-9ceb-d1be88867974"],
-Cell[299958, 5764, 1226, 32, 70, "Output",ExpressionUUID->"0a72e78e-d9f5-4a17-94e7-3aa437679551"]
+Cell[300083, 5766, 229, 4, 70, "Input",ExpressionUUID->"85e57659-b0e5-44a2-ae41-df2ae583c321"],
+Cell[300315, 5772, 1234, 32, 70, "Output",ExpressionUUID->"f5a68a35-7b4f-4007-922f-16a1f131bfc6"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[301223, 5801, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
+Cell[301588, 5809, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
  CellID->1653164318],
-Cell[301483, 5808, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
+Cell[301848, 5816, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
  CellID->589267740]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[301769, 5818, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
+Cell[302134, 5826, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
  CellID->311882160],
-Cell[301882, 5821, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
+Cell[302247, 5829, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
  CellID->341476719],
 Cell[CellGroupData[{
-Cell[302383, 5837, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
+Cell[302748, 5845, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
  CellID->1755438392],
-Cell[302871, 5852, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
+Cell[303236, 5860, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
  CellID->686433507],
-Cell[303008, 5856, 139, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
+Cell[303373, 5864, 139, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
  CellID->605800465],
-Cell[303150, 5860, 136, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
+Cell[303515, 5868, 136, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
  CellID->468444828],
-Cell[303289, 5864, 129, 1, 70, "Categorization",ExpressionUUID->"696f80fa-96f5-428a-bcc1-ac3300feb480"]
+Cell[303654, 5872, 137, 1, 70, "Categorization",ExpressionUUID->"a5a61c46-83e5-4ab1-8cbb-15ff27117a36"]
 }, Closed]],
-Cell[303433, 5868, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
+Cell[303806, 5876, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
  CellID->477174294],
 Cell[CellGroupData[{
-Cell[303568, 5873, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
+Cell[303941, 5881, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
  CellID->1872225408],
-Cell[303691, 5876, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
+Cell[304064, 5884, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
  CellID->1562036412],
-Cell[303843, 5880, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
+Cell[304216, 5888, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
  CellID->158391909],
-Cell[303983, 5884, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
+Cell[304356, 5892, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
  CellID->1360575930],
-Cell[304122, 5888, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
+Cell[304495, 5896, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
  CellID->793782254]
 }, Closed]]
 }, Open  ]]

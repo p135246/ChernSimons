@@ -5,7 +5,7 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/ref/TwistedDifferential
 Keywords: [twisted differential, Maurer-Cartan, q110, Hochschild]
-SeeAlso: [TwistedCobracket, MaurerCartanElement, Obstruction, StringBracket, CyclicHochschildDifferential]
+SeeAlso: [TwistedCobracket, MaurerCartanElement, Obstruction, CanonicalLieBracket, CyclicHochschildDifferential]
 RelatedGuides: [BeilinsonDrinfeldFormalism]
 ---
 
@@ -15,11 +15,11 @@ RelatedGuides: [BeilinsonDrinfeldFormalism]
 
 <code>[TwistedDifferential]()[*m*, *p*]</code> gives the extension of the twisted differential as a derivation, applied to a product *p* of cyclic words.
 
-<!-- #| annotation: 26.09.30: Design review - the twisted differential takes the whole MaurerCartanElement and reads its part m_{1,0} and its pairing from it, so it takes no pairing argument (design 2 of the names doc, R5d, kept by Pavel); before R5d it took a BD action and a pairing, and a BD action in place of the element now returns unevaluated. Only m_{1,0} enters, as in q^m_{110} = q_{110} + q_{210} o_1 m_{10}. On a word the result is the same in both conventions, because the sign exponents of the two pictures differ by 2|m|; on a product the head must be that of the convention, and a product of the other kind returns unevaluated rather than being coerced, as for StringBracket. The extension to products is the derivation extension CyclicHochschildDifferential and StringBracket use. Prior art: the Wolfram Language has no twisted string operations; the engine the verification suites load computes the same differential as q110Twisted[mcCanonical, -], a function of the bare BD action, and T12/paclet-twisted-operations pins this function against it on every word to length 5 in both conventions, T12/paclet-twisted-operations-on-products on products of two words. No alternative interface was recorded. -->
+<!-- #| annotation: 26.09.30: Design review - the twisted differential takes the whole MaurerCartanElement and reads its part m_{1,0} and its pairing from it, so it takes no pairing argument (design 2 of the names doc, R5d, kept by Pavel); before R5d it took a BD action and a pairing, and a BD action in place of the element now returns unevaluated. Only m_{1,0} enters, as in q^m_{110} = q_{110} + q_{210} o_1 m_{10}. On a word the result is the same in both conventions, because the sign exponents of the two pictures differ by 2|m|; on a product the head must be that of the convention, and a product of the other kind returns unevaluated rather than being coerced, as for CanonicalLieBracket. The extension to products is the derivation extension CyclicHochschildDifferential and CanonicalLieBracket use. Prior art: the Wolfram Language has no twisted string operations; the engine the verification suites load computes the same differential as q110Twisted[mcCanonical, -], a function of the bare BD action, and T12/paclet-twisted-operations pins this function against it on every word to length 5 in both conventions, T12/paclet-twisted-operations-on-products on products of two words. No alternative interface was recorded. -->
 
 ## Details & Options
 
-- The twisted differential is $q^{\mathfrak{m}}_{1,1,0} = q_{1,1,0} + q_{2,1,0}\circ_1\mathfrak{m}_{1,0}$: [CyclicHochschildDifferential]() of *w* plus [StringBracket]() of the part <code>*m*[{1, 0}]</code> with *w*.
+- The twisted differential is $q^{\mathfrak{m}}_{1,1,0} = q_{1,1,0} + q_{2,1,0}\circ_1\mathfrak{m}_{1,0}$: [CyclicHochschildDifferential]() of *w* plus [CanonicalLieBracket]() of the part <code>*m*[{1, 0}]</code> with *w*.
 - The pairing is <code>*m*["Pairing"]</code>.
 - Only the part $\mathfrak{m}_{1,0}$ enters. The part $\mathfrak{m}_{2,0}$ is what [TwistedCobracket]() reads.
 - When the pairing carries no differential, [CyclicHochschildDifferential]() is $0$ and the twist is the bracket alone.
@@ -212,7 +212,7 @@ CyclicHochschildDifferential[CyclicWord[{x, y, y}], pairing]
 The twist is the bracket with the part $\mathfrak{m}_{1,0}$:
 
 ```wl
-StringBracket[CyclicWord[{x, x, y}], CyclicWord[{x, y, y}], pairing]
+CanonicalLieBracket[CyclicWord[{x, x, y}], CyclicWord[{x, y, y}], pairing]
 ```
 
 <!-- => CyclicWord[{x, x, y, y}] -->

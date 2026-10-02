@@ -5,7 +5,7 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/ref/TwistedCobracket
 Keywords: [twisted cobracket, Maurer-Cartan, q120]
-SeeAlso: [TwistedDifferential, MaurerCartanElement, StringCobracket, Obstruction]
+SeeAlso: [TwistedDifferential, MaurerCartanElement, CanonicalLieCobracket, Obstruction]
 RelatedGuides: [BeilinsonDrinfeldFormalism]
 ---
 
@@ -19,7 +19,7 @@ RelatedGuides: [BeilinsonDrinfeldFormalism]
 
 ## Details & Options
 
-- The twisted co-bracket is $q^{\mathfrak{m}}_{1,2,0} = q_{1,2,0} + q_{2,1,0}\circ_1\mathfrak{m}_{2,0}$: [StringCobracket]() of *w*, plus the insertion of the part <code>*m*[{2, 0}]</code>, in which [StringBracket]() pairs *w* with one factor and the other factor is kept, with the Koszul signs of the convention.
+- The twisted co-bracket is $q^{\mathfrak{m}}_{1,2,0} = q_{1,2,0} + q_{2,1,0}\circ_1\mathfrak{m}_{2,0}$: [CanonicalLieCobracket]() of *w*, plus the insertion of the part <code>*m*[{2, 0}]</code>, in which [CanonicalLieBracket]() pairs *w* with one factor and the other factor is kept, with the Koszul signs of the convention.
 - The pairing is <code>*m*["Pairing"]</code>.
 - Only the part $\mathfrak{m}_{2,0}$ enters. The part $\mathfrak{m}_{1,0}$ is what [TwistedDifferential]() reads.
 - On a cyclic word the result is a sum of products of two words.
@@ -32,7 +32,7 @@ RelatedGuides: [BeilinsonDrinfeldFormalism]
 
 | Option | Default | Description |
 |---|---|---|
-| <code>"EmptyWord"</code> | <code>False</code> | whether [StringCobracket]() and [StringBracket]() count the empty word <code>[CyclicWord]()[{}]</code> as a word |
+| <code>"EmptyWord"</code> | <code>False</code> | whether [CanonicalLieCobracket]() and [CanonicalLieBracket]() count the empty word <code>[CyclicWord]()[{}]</code> as a word |
 
 ## Basic Examples
 
@@ -65,7 +65,7 @@ chernSimons = MaurerCartanElement[CyclicWord[{x, x, y}] - (1/48) SymmetricProduc
 The untwisted co-bracket of $xy^2$ is $0$:
 
 ```wl
-StringCobracket[{x, y, y}, pairing]
+CanonicalLieCobracket[{x, y, y}, pairing]
 ```
 
 <!-- => 0 -->
@@ -197,7 +197,7 @@ SymmetricToExterior[TwistedCobracket[MaurerCartanElement[CyclicWord[{x, x, y}] -
 The canonical element has no two-word part, so it leaves the co-bracket as it is:
 
 ```wl
-TwistedCobracket[MaurerCartanElement[CyclicWord[{x, x, y}], pairing], {x, y, y, y}] === StringCobracket[{x, y, y, y}, pairing]
+TwistedCobracket[MaurerCartanElement[CyclicWord[{x, x, y}], pairing], {x, y, y, y}] === CanonicalLieCobracket[{x, y, y, y}, pairing]
 ```
 
 <!-- => True -->

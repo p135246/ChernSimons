@@ -5,8 +5,8 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/ref/RelationsQ
 Keywords: [relations, test, predicate, axioms, Maurer-Cartan, A-infinity, involutive bi-Lie algebra, cochain complex, Hodge decomposition]
-SeeAlso: [Obstruction, Relations, StringAlgebra, MaurerCartanElement, AInfinityAlgebra, AInfinityMorphism, CochainComplexWithPairing, HodgeDecomposition]
-RelatedGuides: [HomotopyAlgebras, StringAlgebras, BeilinsonDrinfeldFormalism, HodgeDecompositions]
+SeeAlso: [Obstruction, Relations, CanonicalLieBialgebra, MaurerCartanElement, AInfinityAlgebra, AInfinityMorphism, CochainComplexWithPairing, HodgeDecomposition]
+RelatedGuides: [HomotopyAlgebras, CanonicalLieBialgebras, BeilinsonDrinfeldFormalism, HodgeDecompositions]
 ---
 
 ## Usage
@@ -26,14 +26,14 @@ RelatedGuides: [HomotopyAlgebras, StringAlgebras, BeilinsonDrinfeldFormalism, Ho
 
 | Structure | Tuples tested |
 |---|---|
-| [StringAlgebra]()[*pairing*] | every tuple of cyclic words of length at most *n*, one tuple length per relation |
+| [CanonicalLieBialgebra]()[*pairing*] | every tuple of cyclic words of length at most *n*, one tuple length per relation |
 | [AInfinityAlgebra]() | every tuple of basis elements of length at most *n* |
 | [AInfinityMorphism]() | every tuple of basis elements of the source of length at most *n* |
 | [CochainComplexWithPairing]() | every tuple of basis elements, of the arity of each relation |
 | [PreHodgeDecomposition](), [HodgeDecomposition]() | those of the complex, and each axiom of the decomposition once |
 | [SpecialPropagator]() | those of the decomposition, and each of its four relations once |
 
-- On a string algebra with the empty word, the empty word is among the words tested.
+- On a canonical Lie bialgebra with the empty word, the empty word is among the words tested.
 - With *n*, the test is finite: it says the relations hold in that range, not that they hold. For an A-infinity algebra whose operations vanish above some arity, a large enough *n* is conclusive.
 - On a complex, a decomposition and a propagator the structure is finite and the relations multilinear, so the test is complete and takes no *n*.
 - Data without the keys and types of a complex return unevaluated, and so does anything that is not one of these structures, such as a [SullivanModel]().
@@ -45,14 +45,14 @@ RelatedGuides: [HomotopyAlgebras, StringAlgebras, BeilinsonDrinfeldFormalism, Ho
 |---|---|---|
 | <code>"EmptyWord"</code> | <code>False</code> | whether the Maurer-Cartan equation of an element includes the empty word |
 
-- The option applies to a Maurer-Cartan element and is the option of [Obstruction](). A string algebra carries its own empty-word setting.
+- The option applies to a Maurer-Cartan element and is the option of [Obstruction](). A canonical Lie bialgebra carries its own empty-word setting.
 
 ## Basic Examples
 
-The string algebra of the circle satisfies its four relations on all words of length at most $3$:
+The canonical Lie bialgebra of the circle satisfies its four relations on all words of length at most $3$:
 
 ```wl
-RelationsQ[StringAlgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], 3]
+RelationsQ[CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], 3]
 ```
 
 <!-- => True -->
@@ -158,7 +158,7 @@ RelationsQ[HodgeDecomposition[Normal[pre]]]
 With the empty word, in the exterior convention:
 
 ```wl
-RelationsQ[StringAlgebra[Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"], "EmptyWord" -> True], 3]
+RelationsQ[CanonicalLieBialgebra[Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"], "EmptyWord" -> True], 3]
 ```
 
 <!-- => True -->
@@ -229,13 +229,13 @@ RelationsQ[MaurerCartanElement[CyclicWord[{x, y}], pairing], "EmptyWord" -> True
 
 ## Properties and Relations
 
-The string algebra of the circle:
+The canonical Lie bialgebra of the circle:
 
 ```wl
-algebra = StringAlgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+algebra = CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
-<!-- => a StringAlgebra object over the particles x and y -->
+<!-- => a CanonicalLieBialgebra object over the particles x and y -->
 
 Its words of length at most $3$:
 

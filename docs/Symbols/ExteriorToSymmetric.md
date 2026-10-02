@@ -5,8 +5,8 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/ref/ExteriorToSymmetric
 Keywords: [shift isomorphism, decalage, reversal rule, position rule, sign convention, inverse]
-SeeAlso: [SymmetricToExterior, ExteriorProduct, SymmetricProduct, StringBracket, StringCobracket, ElementDegree]
-RelatedGuides: [StringAlgebras]
+SeeAlso: [SymmetricToExterior, ExteriorProduct, SymmetricProduct, CanonicalLieBracket, CanonicalLieCobracket, ElementDegree]
+RelatedGuides: [CanonicalLieBialgebras]
 ---
 
 ## Usage
@@ -21,7 +21,7 @@ RelatedGuides: [StringAlgebras]
 
 - The map sends $f_1 \wedge \cdots \wedge f_k$ to $\pm f_1 \odot \cdots \odot f_k$, with the sign $(-1)^{\sum_i (k - i) [f_i]}$ of the reversal rule or $(-1)^{\sum_i i [f_i]}$ of the position rule, $[f]$ being the exterior degree of $f$.
 - Each rule inverts the rule of the same name of [SymmetricToExterior]().
-- The reversal rule intertwines [StringBracket]() and [StringCobracket]() of the two pictures.
+- The reversal rule intertwines [CanonicalLieBracket]() and [CanonicalLieCobracket]() of the two pictures.
 - The map is linear, and `HBar` is a scalar to it.
 - A cyclic word is taken as a product of one factor, and a word may be given as the list of its particles.
 - The direction is set by the function alone, not by the `"Convention"` key of *pairing*. A [SymmetricProduct]() returns unevaluated.
@@ -173,7 +173,7 @@ e = ExteriorProduct[CyclicWord[{x}], CyclicWord[{x, y}], CyclicWord[{y, y}], ext
 The exterior bracket of the product, sent to the symmetric picture:
 
 ```wl
-ExteriorToSymmetric[StringBracket[e, exterior], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+ExteriorToSymmetric[CanonicalLieBracket[e, exterior], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => SymmetricProduct[CyclicWord[{x}], CyclicWord[{y, y}]] - 2 SymmetricProduct[CyclicWord[{y}], CyclicWord[{x, y}]] -->
@@ -181,7 +181,7 @@ ExteriorToSymmetric[StringBracket[e, exterior], GradedPairing[<|x -> -1, y -> 0|
 It is the symmetric bracket of the image of the product, so the reversal rule intertwines the brackets of the two pictures:
 
 ```wl
-StringBracket[ExteriorToSymmetric[e, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+CanonicalLieBracket[ExteriorToSymmetric[e, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => SymmetricProduct[CyclicWord[{x}], CyclicWord[{y, y}]] - 2 SymmetricProduct[CyclicWord[{y}], CyclicWord[{x, y}]] -->

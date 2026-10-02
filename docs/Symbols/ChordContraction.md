@@ -5,8 +5,8 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/ref/ChordContraction
 Keywords: [chord, contraction, joining, cutting, bracket term, co-bracket term, empty word]
-SeeAlso: [StringBracket, StringCobracket, KoszulSign, CyclicWord, GradedPairing]
-RelatedGuides: [StringAlgebras]
+SeeAlso: [CanonicalLieBracket, CanonicalLieCobracket, KoszulSign, CyclicWord, GradedPairing]
+RelatedGuides: [CanonicalLieBialgebras]
 ---
 
 ## Usage
@@ -15,7 +15,7 @@ RelatedGuides: [StringAlgebras]
 
 <code>[ChordContraction]()[*w*, {*i*, *j*}, *pairing*]</code> gives the term of the co-bracket of the cyclic word *w* in which particles *i* and *j* are contracted and *w* is cut into two arcs.
 
-<!-- #| annotation: 26.09.30: Design review - ChordContraction is exported because it is the one term the bracket and the co-bracket share, and the published notebook shows the chord sum term by term, which the API could not before the decision of 2026-09-21. The joining and the cutting term share the name and differ in arity, two words against one, each with its position pair. It is the one operation of the paclet that takes no word as the list of its particles, because its position pair is a list too. A position outside the word, or two equal positions in the cutting form, match no definition and return unevaluated; no alternative was recorded. The function reads the pairing value, the degrees and the convention off the GradedPairing object, so StringBracket and StringCobracket are plain sums of it. Prior art: the Wolfram Language has no cyclic words or chord diagrams; the verification suites pin the chord sums against StringBracket and StringCobracket, which they pin against the bracket and the co-bracket of the engine. -->
+<!-- #| annotation: 26.09.30: Design review - ChordContraction is exported because it is the one term the bracket and the co-bracket share, and the published notebook shows the chord sum term by term, which the API could not before the decision of 2026-09-21. The joining and the cutting term share the name and differ in arity, two words against one, each with its position pair. It is the one operation of the paclet that takes no word as the list of its particles, because its position pair is a list too. A position outside the word, or two equal positions in the cutting form, match no definition and return unevaluated; no alternative was recorded. The function reads the pairing value, the degrees and the convention off the GradedPairing object, so CanonicalLieBracket and CanonicalLieCobracket are plain sums of it. Prior art: the Wolfram Language has no cyclic words or chord diagrams; the verification suites pin the chord sums against CanonicalLieBracket and CanonicalLieCobracket, which they pin against the bracket and the co-bracket of the engine. -->
 
 ## Details & Options
 
@@ -24,7 +24,7 @@ RelatedGuides: [StringAlgebras]
 - On one word the chord cuts the circle into two: the arc from *i* to *j* and the arc from *j* to *i*, each without its endpoints.
 - The value is the pairing value of the two particles, times the Koszul sign of the convention of *pairing*, times the resulting word, or product of two words, in canonical form.
 - The `"Convention"` key of *pairing* selects the sign, and in the cutting form also the head of the product: [SymmetricProduct]() under `"Symmetric"`, [ExteriorProduct]() under `"Exterior"`.
-- [StringBracket]() is the sum over every pair $\{i, j\}$ of positions, and [StringCobracket]() is one half of the sum over every ordered pair of distinct positions.
+- [CanonicalLieBracket]() is the sum over every pair $\{i, j\}$ of positions, and [CanonicalLieCobracket]() is one half of the sum over every ordered pair of distinct positions.
 - The words are given as [CyclicWord]() expressions, and positions count from $1$ along the list of particles.
 - [ChordContraction]() has the following option:
 
@@ -139,7 +139,7 @@ Total[Table[ChordContraction[CyclicWord[{x, y}], CyclicWord[{x, y, y}], {i, j}, 
 It is the bracket:
 
 ```wl
-StringBracket[CyclicWord[{x, y}], CyclicWord[{x, y, y}], pairing]
+CanonicalLieBracket[CyclicWord[{x, y}], CyclicWord[{x, y, y}], pairing]
 ```
 
 <!-- => -CyclicWord[{x, y, y}] -->
@@ -165,7 +165,7 @@ Total[(pair |-> ChordContraction[CyclicWord[{x, y, y, y, y}], pair, pairing]) /@
 It is the co-bracket:
 
 ```wl
-StringCobracket[CyclicWord[{x, y, y, y, y}], pairing]
+CanonicalLieCobracket[CyclicWord[{x, y, y, y, y}], pairing]
 ```
 
 <!-- => -2 SymmetricProduct[CyclicWord[{y}], CyclicWord[{y, y}]] -->

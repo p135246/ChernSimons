@@ -5,7 +5,7 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/ref/HBar
 Keywords: [HBar, Planck constant, formal variable, BD algebra, genus]
-SeeAlso: [StringBeilinsonDrinfeldOperator, StringBeilinsonDrinfeldBracket, MaurerCartanElement, Obstruction, ElementDegree]
+SeeAlso: [CanonicalBeilinsonDrinfeldOperator, CanonicalBeilinsonDrinfeldBracket, MaurerCartanElement, Obstruction, ElementDegree]
 RelatedGuides: [BeilinsonDrinfeldFormalism]
 ---
 
@@ -20,7 +20,7 @@ RelatedGuides: [BeilinsonDrinfeldFormalism]
 - [HBar]() is a symbol with no value.
 - Every operation treats it as a scalar.
 - Its symmetric degree is <code>[ElementDegree]()[HBar, *pairing*, "Symmetric"]</code>, which is $2(n-3)$. It has no bar or exterior degree.
-- It is the weight of the bracket term in [StringBeilinsonDrinfeldOperator](), $\Delta = \widehat{q}_{1,1,0} + \widehat{q}_{1,2,0} + \hbar\,\widehat{q}_{2,1,0}$.
+- It is the weight of the bracket term in [CanonicalBeilinsonDrinfeldOperator](), $\Delta = \widehat{q}_{1,1,0} + \widehat{q}_{1,2,0} + \hbar\,\widehat{q}_{2,1,0}$.
 - In a BD action it is the weight $\hbar^g$ of the genus-$g$ component.
 - The BD formalism never inverts it. Negative powers appear only in the localized BV picture, where the BV action is $\hbar^{-1}$ times the BD one.
 - It displays as $\hbar$.
@@ -48,7 +48,7 @@ pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 It appears in the operator of the Beilinson-Drinfeld algebra:
 
 ```wl
-StringBeilinsonDrinfeldOperator[SymmetricProduct[CyclicWord[{x, y, y, y}], CyclicWord[{x, y}], pairing], pairing]
+CanonicalBeilinsonDrinfeldOperator[SymmetricProduct[CyclicWord[{x, y, y, y}], CyclicWord[{x, y}], pairing], pairing]
 ```
 
 <!-- => 2*HBar*CyclicWord[{x, y, y, y}] - SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}], CyclicWord[{x, y}]] -->
@@ -56,7 +56,7 @@ StringBeilinsonDrinfeldOperator[SymmetricProduct[CyclicWord[{x, y, y, y}], Cycli
 Setting it to zero gives the classical limit:
 
 ```wl
-StringBeilinsonDrinfeldOperator[SymmetricProduct[CyclicWord[{x, y, y, y}], CyclicWord[{x, y}], pairing], pairing] /. HBar -> 0
+CanonicalBeilinsonDrinfeldOperator[SymmetricProduct[CyclicWord[{x, y, y, y}], CyclicWord[{x, y}], pairing], pairing] /. HBar -> 0
 ```
 
 <!-- => -SymmetricProduct[CyclicWord[{y}], CyclicWord[{y}], CyclicWord[{x, y}]] -->
@@ -86,7 +86,7 @@ ElementDegree[HBar^2, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Symm
 Every operation treats it as a scalar:
 
 ```wl
-StringBracket[HBar CyclicWord[{x}], CyclicWord[{x, y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+CanonicalLieBracket[HBar CyclicWord[{x}], CyclicWord[{x, y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
 <!-- => -(HBar*CyclicWord[{x}]) -->

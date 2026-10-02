@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/GenerateCyclicWords
 Keywords: [cyclic words, enumeration, necklaces, graded alphabet]
 SeeAlso: [CyclicWord, ElementDegree, GradedPairing, Tuples]
-RelatedGuides: [StringAlgebras]
+RelatedGuides: [CanonicalLieBialgebras]
 ---
 
 ## Usage
@@ -147,7 +147,7 @@ CyclicWord[{x, x}, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 A check of an identity runs over this enumeration, which fixes its truncation. The co-Jacobi identity on all words of length at most $4$:
 
 ```wl
-DeleteDuplicates[Obstruction[StringAlgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], "CoJacobi", {#}] & /@ GenerateCyclicWords[4, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "UpTo" -> True]]
+DeleteDuplicates[Obstruction[CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], "CoJacobi", {#}] & /@ GenerateCyclicWords[4, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "UpTo" -> True]]
 ```
 
 <!-- => {0} -->

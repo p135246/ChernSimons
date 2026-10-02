@@ -5,8 +5,8 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/ref/Relations
 Keywords: [relations, defining identities, axioms, arity, involutive bi-Lie algebra, A-infinity, cochain complex, Hodge decomposition]
-SeeAlso: [Obstruction, RelationsQ, StringAlgebra, AInfinityAlgebra, AInfinityMorphism, CochainComplexWithPairing, PreHodgeDecomposition]
-RelatedGuides: [HomotopyAlgebras, StringAlgebras, HodgeDecompositions]
+SeeAlso: [Obstruction, RelationsQ, CanonicalLieBialgebra, AInfinityAlgebra, AInfinityMorphism, CochainComplexWithPairing, PreHodgeDecomposition]
+RelatedGuides: [HomotopyAlgebras, CanonicalLieBialgebras, HodgeDecompositions]
 ---
 
 ## Usage
@@ -21,10 +21,10 @@ RelatedGuides: [HomotopyAlgebras, StringAlgebras, HodgeDecompositions]
 
 | Structure | Relation | Arity |
 |---|---|---|
-| [StringAlgebra]()[*pairing*] | `"Jacobi"` | $3$ |
-| [StringAlgebra]()[*pairing*] | `"CoJacobi"` | $1$ |
-| [StringAlgebra]()[*pairing*] | `"Drinfeld"` | $2$ |
-| [StringAlgebra]()[*pairing*] | `"Involutivity"` | $1$ |
+| [CanonicalLieBialgebra]()[*pairing*] | `"Jacobi"` | $3$ |
+| [CanonicalLieBialgebra]()[*pairing*] | `"CoJacobi"` | $1$ |
+| [CanonicalLieBialgebra]()[*pairing*] | `"Drinfeld"` | $2$ |
+| [CanonicalLieBialgebra]()[*pairing*] | `"Involutivity"` | $1$ |
 | [AInfinityAlgebra]() | `"AInfinity"` | `All` |
 | [AInfinityMorphism]() | `"AInfinityMorphism"` | `All` |
 | [CochainComplexWithPairing]() | `"DifferentialDegree"`, `"DifferentialSquare"` | $1$ |
@@ -36,8 +36,8 @@ RelatedGuides: [HomotopyAlgebras, StringAlgebras, HodgeDecompositions]
 | [HodgeDecomposition]() | those of a pre-Hodge decomposition, and `"Isotropic"` | $0$ for its own |
 | [SpecialPropagator]() | `"Chain"`, `"Projector"`, `"Square"`, `"Symmetry"`, then those of its decomposition | $0$ for its own |
 
-- The four relations of a string algebra are the defining identities of an involutive bi-Lie algebra: the Jacobi identity of the bracket, the co-Jacobi identity of the co-bracket, their Drinfeld compatibility, and involutivity.
-- The relations of a string algebra do not depend on the convention of the pairing or on the empty word.
+- The four relations of a canonical Lie bialgebra are the defining identities of an involutive bi-Lie algebra: the Jacobi identity of the bracket, the co-Jacobi identity of the co-bracket, their Drinfeld compatibility, and involutivity.
+- The relations of a canonical Lie bialgebra do not depend on the convention of the pairing or on the empty word.
 - The arity `All` says that the relation is defined on every positive number of arguments: an A-infinity algebra has one relation of each arity, and so has a morphism. [RelationsQ]() bounds the arity by the length of the tuples it tests.
 - The relations of a cochain complex with a pairing of degree $n$ are its axioms, each an identity on elements:
 
@@ -69,10 +69,10 @@ RelatedGuides: [HomotopyAlgebras, StringAlgebras, HodgeDecompositions]
 
 ## Basic Examples
 
-The relations of the string algebra of the circle:
+The relations of the canonical Lie bialgebra of the circle:
 
 ```wl
-Relations[StringAlgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]]
+Relations[CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]]
 ```
 
 <!-- => <|"Jacobi" -> 3, "CoJacobi" -> 1, "Drinfeld" -> 2, "Involutivity" -> 1|> -->
@@ -161,13 +161,13 @@ pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 
 <!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
 
-Its string algebra with the empty word:
+Its canonical Lie bialgebra with the empty word:
 
 ```wl
-algebra = StringAlgebra[pairing, "EmptyWord" -> True]
+algebra = CanonicalLieBialgebra[pairing, "EmptyWord" -> True]
 ```
 
-<!-- => a StringAlgebra object over the particles x and y, with the empty word -->
+<!-- => a CanonicalLieBialgebra object over the particles x and y, with the empty word -->
 
 A test of every relation reads both halves of an entry, the name to give [Obstruction]() and the arity to build the tuples:
 
@@ -182,20 +182,20 @@ KeyValueMap[{name, arity} |-> name -> Union[(t |-> Obstruction[algebra, name, t]
 The relations do not depend on the convention or on the empty word:
 
 ```wl
-Relations[StringAlgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]] === Relations[StringAlgebra[Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"], "EmptyWord" -> True]]
+Relations[CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]] === Relations[CanonicalLieBialgebra[Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"], "EmptyWord" -> True]]
 ```
 
 <!-- => True -->
 
 ---
 
-The string algebra of the circle:
+The canonical Lie bialgebra of the circle:
 
 ```wl
-algebra = StringAlgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
+algebra = CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
-<!-- => a StringAlgebra object over the particles x and y -->
+<!-- => a CanonicalLieBialgebra object over the particles x and y -->
 
 The arity is the length of the tuple [Obstruction]() takes:
 

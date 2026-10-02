@@ -5,8 +5,8 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/ref/SymmetricToExterior
 Keywords: [shift isomorphism, decalage, reversal rule, position rule, sign convention]
-SeeAlso: [ExteriorToSymmetric, SymmetricProduct, ExteriorProduct, StringBracket, StringCobracket, ElementDegree, KoszulSign]
-RelatedGuides: [StringAlgebras]
+SeeAlso: [ExteriorToSymmetric, SymmetricProduct, ExteriorProduct, CanonicalLieBracket, CanonicalLieCobracket, ElementDegree, KoszulSign]
+RelatedGuides: [CanonicalLieBialgebras]
 ---
 
 ## Usage
@@ -15,13 +15,13 @@ RelatedGuides: [StringAlgebras]
 
 <code>[SymmetricToExterior]()[*e*, *pairing*, *rule*]</code> gives it with the sign of *rule*, `"Reversal"` or `"Position"`.
 
-<!-- #| annotation: 26.09.30: Design review - SymmetricToExterior and ExteriorToSymmetric replace ShiftIsomorphism and its "Inverse" option (Pavel, 2026-09-30), so that each name says which way it converts. The direction is set by the function, never by the "Convention" key of the pairing, so both take any pairing, and a product of the other head returns unevaluated. The sign rule is the option "Rule", and the positional third argument of ShiftIsomorphism stays as a shortcut for it. The reversal rule is the default because it is the rule that intertwines StringBracket and StringCobracket in every arity; the position rule is kept so that the difference between the two can be examined rather than assumed. The rules are "Reversal" and "Position", in the third argument and in the option; since R7 (Pavel, 2026-10-01) any other value returns unevaluated, where before every string but "Position" gave the reversal sign. A cyclic word is a product of one factor, the rule every product of the paclet follows. Alternative name considered: ShiftIsomorphism. Prior art: the Wolfram Language has Wedge and TensorWedge but no graded symmetric algebra of cyclic words and no decalage isomorphism; the engine the verification suites load pins both rules on every tuple of words to length 3. -->
+<!-- #| annotation: 26.09.30: Design review - SymmetricToExterior and ExteriorToSymmetric replace ShiftIsomorphism and its "Inverse" option (Pavel, 2026-09-30), so that each name says which way it converts. The direction is set by the function, never by the "Convention" key of the pairing, so both take any pairing, and a product of the other head returns unevaluated. The sign rule is the option "Rule", and the positional third argument of ShiftIsomorphism stays as a shortcut for it. The reversal rule is the default because it is the rule that intertwines CanonicalLieBracket and CanonicalLieCobracket in every arity; the position rule is kept so that the difference between the two can be examined rather than assumed. The rules are "Reversal" and "Position", in the third argument and in the option; since R7 (Pavel, 2026-10-01) any other value returns unevaluated, where before every string but "Position" gave the reversal sign. A cyclic word is a product of one factor, the rule every product of the paclet follows. Alternative name considered: ShiftIsomorphism. Prior art: the Wolfram Language has Wedge and TensorWedge but no graded symmetric algebra of cyclic words and no decalage isomorphism; the engine the verification suites load pins both rules on every tuple of words to length 3. -->
 
 ## Details & Options
 
 - The symmetric and the exterior products are graded by $[-]_1$ and $[-]$, one apart, and the decalage isomorphism between them carries a sign.
 - The map sends $f_1 \odot \cdots \odot f_k$ to $\pm f_1 \wedge \cdots \wedge f_k$, with the sign $(-1)^{\sum_i (k - i) [f_i]}$ of the reversal rule or $(-1)^{\sum_i i [f_i]}$ of the position rule, $[f]$ being the exterior degree of $f$.
-- The reversal rule intertwines [StringBracket]() and [StringCobracket]() in every arity; the position rule does not.
+- The reversal rule intertwines [CanonicalLieBracket]() and [CanonicalLieCobracket]() in every arity; the position rule does not.
 - The two rules differ by the sign $(-1)^{k \sum_i [f_i]}$. They agree on every product of an even number of factors, and on an odd number of factors they differ exactly when the total exterior degree is odd.
 - The map is linear, and `HBar` is a scalar to it.
 - A cyclic word is taken as a product of one factor, and a word may be given as the list of its particles.
@@ -253,7 +253,7 @@ pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 The symmetric co-bracket of $xyyy$ in the exterior picture:
 
 ```wl
-SymmetricToExterior[StringCobracket[CyclicWord[{x, y, y, y}], pairing], pairing]
+SymmetricToExterior[CanonicalLieCobracket[CyclicWord[{x, y, y, y}], pairing], pairing]
 ```
 
 <!-- => ExteriorProduct[CyclicWord[{y}], CyclicWord[{y}]] -->
@@ -261,7 +261,7 @@ SymmetricToExterior[StringCobracket[CyclicWord[{x, y, y, y}], pairing], pairing]
 It is the exterior co-bracket, so the reversal rule intertwines the co-brackets of the two pictures:
 
 ```wl
-StringCobracket[CyclicWord[{x, y, y, y}], Append[pairing, "Convention" -> "Exterior"]]
+CanonicalLieCobracket[CyclicWord[{x, y, y, y}], Append[pairing, "Convention" -> "Exterior"]]
 ```
 
 <!-- => ExteriorProduct[CyclicWord[{y}], CyclicWord[{y}]] -->

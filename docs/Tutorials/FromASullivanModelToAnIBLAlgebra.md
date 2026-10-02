@@ -156,13 +156,13 @@ GenerateCyclicWords[2, pairing]
 The bracket glues two words by pairing one letter of each:
 
 ```wl
-StringBracket[CyclicWord[{1, a}], CyclicWord[{a^2, a}], pairing]
+CanonicalLieBracket[CyclicWord[{1, a}], CyclicWord[{a^2, a}], pairing]
 ```
 
-The four defining identities of an involutive bi-Lie algebra are the relations of the [StringAlgebra]() of the pairing, and they hold, as they must for any alphabet with a graded antisymmetric pairing:
+The four defining identities of an involutive bi-Lie algebra are the relations of the [CanonicalLieBialgebra]() of the pairing, and they hold, as they must for any alphabet with a graded antisymmetric pairing:
 
 ```wl
-With[{algebra = StringAlgebra[pairing], u = CyclicWord[{1, a}], v = CyclicWord[{a^2, a}]},
+With[{algebra = CanonicalLieBialgebra[pairing], u = CyclicWord[{1, a}], v = CyclicWord[{a^2, a}]},
  {Obstruction[algebra, "Jacobi", {u, v, u}], Obstruction[algebra, "CoJacobi", {u}],
   Obstruction[algebra, "Drinfeld", {u, v}], Obstruction[algebra, "Involutivity", {u}]}]
 ```

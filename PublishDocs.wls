@@ -24,6 +24,8 @@
    Usage: PublishDocs.wls          deploy, relink, then check
           PublishDocs.wls relink   only the relink and the check, on what is deployed
           PublishDocs.wls check    only the check against the target
+          PublishDocs.wls audit    every link of every served page and deployed notebook, internal and
+                                   external, with its status, written to Research/Artifacts/PacletLinks_<date>.md
    Exit 1 on any failed stage. The archive at obj/hajek_pavel/s1paper/ChernSimons.paclet is
    Publish.wls's business and is never touched here; no version is bumped. *)
 
@@ -54,6 +56,13 @@ PublishDocs[ { "check" } ] :=
     If[ ! DirectoryQ[ DocumentationRoot[ ] ], FailStage[ "no built paclet at ", $built, ": run PackageDocs.wls first" ] ];
     ConnectCloud[ ];
     Exit[ Boole[ ! And[ HTTPCheck[ ], LinkCheck[ ] ] ] ]
+  )
+
+PublishDocs[ { "audit" } ] :=
+  (
+    If[ ! DirectoryQ[ DocumentationRoot[ ] ], FailStage[ "no built paclet at ", $built, ": run PackageDocs.wls first" ] ];
+    ConnectCloud[ ];
+    Exit[ Boole[ ! Audit[ ] ] ]
   )
 
 PublishDocs[ { "relink" } ] :=
@@ -212,6 +221,96 @@ LinkCheck[ ] :=
 
 (* the scraper reads the Kernel extension's "Symbols"; they are declared in the built PacletInfo.wl
    only, and the tracked file stays as it is *)
+(* the audit reads every served page and every deployed notebook, collects every href of the HTML
+   and every URL string of the notebooks, resolves anchors, relative paths and paclet: URIs to the
+   address a browser would fetch, reads each distinct address once and writes the table; a page
+   anchor and a script fragment are not links and are left out *)
+Audit[ ] :=
+  Module[ { start = AbsoluteTime[ ], pages, found, resolved, status, unread, bad, report, date, file },
+    pages = Prepend[ PageURL /@ Pages[ ], $target ];
+    Print[ "audit: ", Length[ pages ], " served pages" ];
+    found = Join @@ Map[ page |-> Map[ { page, # } &,
+      DeleteDuplicates @ StringCases[ Replace[ Quiet @ TimeConstrained[ URLRead[ page, "Body" ], 120, "" ], Except[ _String ] -> "" ],
+        "href=\"" ~~ Shortest[ h__ ] ~~ "\"" :> h ] ], pages ];
+    Print[ "  ", Length[ found ], " hrefs in the HTML" ];
+    found = Join[ found, Join @@ Map[ object |-> Map[ { First @ object, # } &,
+      DeleteDuplicates @ Cases[ CloudGet[ object ], s_String /; StringStartsQ[ s, "http://" | "https://" | "paclet:" ] :> s, Infinity ] ],
+      DeployedNotebooks[ ] ] ];
+    Print[ "  ", Length[ found ], " links with the notebooks" ];
+    resolved = DeleteCases[ Map[ { First @ #, Last @ #, ResolveLink @@ # } &, found ], { _, _, None } ];
+    status = Association @ Map[ url |-> url -> ReadStatus[ url ], DeleteDuplicates[ resolved[[ All, 3 ]] ] ];
+    Print[ "  ", Length[ status ], " distinct addresses read, ", Round[ AbsoluteTime[ ] - start ], " s" ];
+    (* a status of 0 is a read this machine could not complete in two attempts, not an answer of
+       the server; it is reported but does not fail the audit, since the same address reads at 200
+       from another client *)
+    unread = Select[ resolved, status[ Last @ # ] === 0 & ];
+    bad = Select[ resolved, ! MatchQ[ status[ Last @ # ], 0 | 200 ] & ];
+    date = DateString[ { "YearShort", "Month", "Day" } ];
+    file = FileNameJoin[ { $repository, "Research", "Artifacts", "PacletLinks_" <> date <> ".md" } ];
+    report = StringRiffle[ Flatten @ {
+      "# Links of the documentation site, " <> DateString[ "ISODate" ],
+      "",
+      "Every `href` of the served HTML of the resource root and the " <> ToString[ Length[ pages ] - 1 ] <> " pages, and every URL inside the deployed notebooks, resolved to the address a browser fetches and read once. " <>
+        ToString[ Length[ status ] ] <> " distinct addresses, " <> ToString[ Count[ status, 200 ] ] <> " at 200, " <> ToString[ Length[ DeleteDuplicates[ bad[[ All, 3 ]] ] ] ] <> " failing.",
+      "",
+      "## Failing links",
+      "",
+      If[ bad === { }, "None.", { "| status | address | written as | on page |", "|---|---|---|---|",
+        Map[ row |-> "| " <> ToString[ status[ row[[ 3 ]] ] ] <> " | " <> row[[ 3 ]] <> " | `" <> row[[ 2 ]] <> "` | " <> row[[ 1 ]] <> " |", bad ] } ],
+      "",
+      "## Addresses this machine could not read",
+      "",
+      "A status of 0 is a read that did not complete in two attempts of 90 s, not an answer of the server.",
+      "",
+      If[ unread === { }, "None.", { "| address | on page |", "|---|---|",
+        Map[ row |-> "| " <> row[[ 3 ]] <> " | " <> row[[ 1 ]] <> " |", DeleteDuplicatesBy[ unread, #[[ 3 ]] & ] ] } ],
+      "",
+      "## Every distinct address",
+      "",
+      "| status | class | address | pages |", "|---|---|---|---|",
+      KeyValueMap[ { url, code } |-> "| " <> ToString[ code ] <> " | " <> LinkClass[ url ] <> " | " <> url <> " | " <> ToString @ Length @ DeleteDuplicates @ Cases[ resolved, { page_, _, url } :> page ] <> " |",
+        KeySortBy[ status, { LinkClass[ # ], # } & ] ],
+      "" }, "\n" ];
+    Export[ file, report, "Text" ];
+    Print[ "  written: ", file ];
+    Scan[ row |-> Print[ "  !! ", status[ row[[ 3 ]] ], "  ", row[[ 3 ]], "  on ", row[[ 1 ]] ], Take[ DeleteDuplicatesBy[ bad, #[[ 3 ]] & ], UpTo[ 40 ] ] ];
+    Scan[ row |-> Print[ "  ?? unread  ", row[[ 3 ]], "  on ", row[[ 1 ]] ], DeleteDuplicatesBy[ unread, #[[ 3 ]] & ] ];
+    Print[ If[ bad === { }, "ok", "FAILED" ] ];
+    bad === { }
+  ]
+
+(* a redirect is followed by hand, since the kernel reports the first hop of some chains; the status
+   is the one of the address a browser ends at, at most three hops away *)
+ReadStatus[ url_String, hops_Integer : 3 ] :=
+  Module[ { response, code, location },
+    response = Replace[ Quiet @ TimeConstrained[ URLRead[ url, { "StatusCode", "Headers" } ], 90, $TimedOut ], Except[ _Association ] -> <| |> ];
+    If[ ! KeyExistsQ[ response, "StatusCode" ],
+      response = Replace[ Quiet @ TimeConstrained[ URLRead[ url, { "StatusCode", "Headers" } ], 90, $TimedOut ], Except[ _Association ] -> <| |> ] ];
+    code = Lookup[ response, "StatusCode", 0 ];
+    location = Lookup[ Association @ Map[ ToLowerCase[ First @ # ] -> Last @ # &, Lookup[ response, "Headers", { } ] ], "location", None ];
+    If[ 300 <= code < 400 && StringQ[ location ] && hops > 0,
+      ReadStatus[ If[ StringStartsQ[ location, "http" ], location, URLBuild[ { url, location } ] ], hops - 1 ],
+      code ] ]
+
+ResolveLink[ page_String, link_String ] :=
+  Which[
+    StringStartsQ[ link, "#" | "javascript:" | "mailto:" ] || StringContainsQ[ link, "'+" ], None,
+    StringStartsQ[ link, "http://" | "https://" ], link,
+    StringStartsQ[ link, "paclet:" <> $name <> "/" ], $target <> "/Documentation/" <> $name <> "/" <> StringDrop[ link, StringLength[ "paclet:" <> $name <> "/" ] ] <> ".html",
+    StringStartsQ[ link, "paclet:" ], "https://reference.wolfram.com/language/" <> StringDrop[ link, StringLength[ "paclet:" ] ] <> ".html",
+    StringStartsQ[ link, "//" ], "https:" <> link,
+    StringStartsQ[ link, "/" ], "https://www.wolframcloud.com" <> link,
+    True, StringRiffle[ Append[ Most @ StringSplit[ page, "/" ], link ], "/" ]
+  ]
+
+LinkClass[ url_String ] :=
+  Which[
+    StringStartsQ[ url, $target ], "resource",
+    StringContainsQ[ url, "reference.wolfram.com" ], "wolfram documentation",
+    StringContainsQ[ url, "wolfram.com" | "wolframcloud.com" | "wolframcdn.com" ], "wolfram",
+    True, "external"
+  ]
+
 DeclareSymbols[ ] :=
   Module[ { symbols, file, info },
     symbols = Sort[ Map[ name |-> $context <> Last @ StringSplit[ name, "`" ],
@@ -285,7 +384,7 @@ PatchVendor[ symbols_List ] :=
    deploys it as <target>/HeroImage.png and puts it on the landing page; PureMath's publish.wls does
    the same *)
 InjectHero[ ] :=
-  With[ { image = Quiet @ Import[ FileNameJoin[ { $built, "Assets", "StringOperations.png" } ] ] },
+  With[ { image = Quiet @ Import[ PacletObject[ File[ $built ] ][ "AssetLocation", "HeroImage" ] ] },
     If[ ! ImageQ[ image ], Print[ "  !! no hero image in the built paclet; the landing page gets none" ],
       Quiet @ Unprotect[ PacletResource`Private`deployExtraPacletWebFiles ];
       PrependTo[ DownValues[ PacletResource`Private`deployExtraPacletWebFiles ],
