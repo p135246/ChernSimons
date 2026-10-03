@@ -16,11 +16,7 @@ SourceControlURL: https://github.com/p135246/ChernSimons
 
 ## Basic Description
 
-The theory is the large-$n$ limit of $U(n)$ Chern-Simons theory on a closed oriented manifold. Its action is a Beilinson-Drinfeld action on the cyclic words of the de Rham cohomology, equivalently a Maurer-Cartan element of an IBL-infinity algebra. It is related to string topology and to symplectic field theory. One can imagine it as the open part of an open-closed string field theory of holomorphic curves in a cotangent bundle, the closed part being the symplectic field theory of the unit cotangent bundle.
-
-The paclet has four areas. Canonical Lie bialgebras: a graded alphabet with a pairing, its cyclic words, and the bracket, the co-bracket and the differential that make them the canonical involutive Lie bialgebra of Cieliebak, Fukaya and Latschev. Beilinson-Drinfeld formalism: the operator on products of cyclic words, its Maurer-Cartan elements, the canonical element of a Poincaré duality algebra and the twisted structure. Algebraic models: Sullivan models with an orientation, the test for Hodge type, the nondegenerate quotient, Hodge decompositions and special propagators. Homotopy algebras: finite-dimensional A-infinity algebras and their morphisms, with the relations of every structure in one place.
-
-The paclet maps the computational boundary of the theory, gives LLM agents a computational interface for checking papers, verifies the axiomatic formalization in bounded cases, and computes string topology operations.
+Computable aspects of the Chern-Simons theory proposed by Cieliebak, Fukaya and Latschev: the large-$n$ limit of $U(n)$ Chern-Simons theory on a closed oriented manifold, as a Beilinson-Drinfeld action on the cyclic words of the de Rham cohomology or as a Maurer-Cartan element of the canonical involutive Lie bialgebra. The deployed landing page shows the introduction of the guide Chern-Simons Theory in its place.
 
 ## Details & Options
 

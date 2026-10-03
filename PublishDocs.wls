@@ -126,7 +126,7 @@ InjectWebContent[ ] :=
       With[ { start = FirstPosition[ cells, Cell[ _, "Subsection", ___, CellTags -> { ___, tag, ___ }, ___ ], { 0 }, { 1 } ][[ 1 ]] },
         If[ start === 0, { },
           TakeWhile[ Drop[ cells, start ], #[[ 2 ]] =!= "Subsection" & ] // Select[ #[[ 2 ]] === style & ] ] ];
-    long = section[ "LongDescription", "Text" ];
+    long = Replace[ GuideIntroCells[ ], { } -> section[ "LongDescription", "Text" ] ];
     details = section[ "Details", "Notes" ];
     Print[ "web content: ", Length[ long ], " description cells, ", Length[ details ], " details cells" ];
     Quiet @ Unprotect[ PacletResource`Private`prepareShingleInfo ];
@@ -153,6 +153,18 @@ InjectWebContent[ ] :=
               Print[ "landing page: written as static HTML: ",
                 Head @ CloudExport[ template, { "String", "text/html" }, CloudObject[ tgt ], Permissions -> "Public" ] ] ];
             deployed ] ] ];
+  ]
+
+(* the landing page says what the root guide says: its Basic Description is the Abstract of
+   docs/Guides/ChernSimons.md, one Text cell per paragraph with the links and the bold of the
+   markdown, the image lines left to the hero; the definition's own Basic Description is the
+   fallback when the guide has none *)
+GuideIntroCells[ ] :=
+  Module[ { text, section, paragraphs },
+    text = Import[ FileNameJoin[ { $pacletDirectory, "docs", "Guides", $name <> ".md" } ], "Text" ];
+    section = First[ StringCases[ text, "\n## Abstract\n" ~~ Shortest[ body___ ] ~~ "\n## " :> body ], "" ];
+    paragraphs = Select[ StringTrim /@ StringSplit[ section, "\n" ~~ WhitespaceCharacter ... ~~ "\n" ], # =!= "" && ! StringStartsQ[ #, "![" ] & ];
+    Map[ paragraph |-> Cell[ TextData[ inlineTextData[ StringReplace[ paragraph, "\n" -> " " ] ] ], "Text" ], paragraphs ]
   ]
 
 DocumentationRoot[ ] := FileNameJoin[ { $built, "Documentation", "English" } ]
