@@ -4,7 +4,7 @@ Computable aspects of the Chern-Simons theory proposed in [Cieliebak, Fukaya, La
 
 > 📖 **[Wolfram Paclet Documentation](https://www.wolframcloud.com/obj/hajek_pavel/DeployedResources/Paclet/ChernSimons)**
 
-Based on the original implementation of the canonical IBL algebra on cyclic words in the Wolfram Notebook Archive notebook [Algebraic Model of String Operations](https://notebookarchive.org/2024-07-6ij9go2).
+Based on the original implementation of the canonical IBL algebra in the Wolfram Notebook Archive notebook [Algebraic Model of String Operations](https://notebookarchive.org/2024-07-6ij9go2).
 
 ## 🎯 Goals
 
@@ -21,7 +21,6 @@ Needs["ChernSimons`"]
 ```
 
 Requires [Wolfram Engine](https://www.wolfram.com/engine/) 15.0.1 or higher.
-The Engine is freely available; a graphical interface is either the paid [Mathematica](https://www.wolfram.com/mathematica/) or an open source alternative such as [Wolfram Language for Jupyter](https://github.com/WolframResearch/WolframLanguageForJupyter) or the [Wolfram extension for VS Code](https://marketplace.visualstudio.com/items?itemName=WolframResearch.wolfram).
 
 ## 📜 Licence
 
