@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/ExteriorProduct
 Keywords: [exterior product, wedge, Koszul sign, graded commutative]
 SeeAlso: [SymmetricProduct, SymmetricToExterior, ExteriorToSymmetric, ElementDegree, CanonicalLieBracket, CanonicalLieCobracket, GradedPairing]
-RelatedGuides: [CanonicalLieBialgebras]
+RelatedGuides: [CanonicalLieBialgebra]
 ---
 
 ## Usage

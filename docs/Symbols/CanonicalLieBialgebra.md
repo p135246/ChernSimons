@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/CanonicalLieBialgebra
 Keywords: [canonical Lie bialgebra, dIBL algebra, string algebra, involutive bi-Lie algebra, cyclic words, empty word, structure]
 SeeAlso: [Obstruction, Relations, RelationsQ, GradedPairing, CanonicalLieBracket, CanonicalLieCobracket, CyclicHochschildDifferential]
-RelatedGuides: [CanonicalLieBialgebras]
+RelatedGuides: [CanonicalLieBialgebra]
 ---
 
 ## Usage

@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/CyclicHochschildDifferential
 Keywords: [differential, cyclic cochain complex, non-formal, nilmanifold, involutive bi-Lie algebra]
 SeeAlso: [CanonicalLieBracket, CanonicalLieCobracket, TwistedDifferential, CanonicalBeilinsonDrinfeldOperator, NondegenerateQuotient, GradedPairing, CanonicalMaurerCartan]
-RelatedGuides: [CanonicalLieBialgebras]
+RelatedGuides: [CanonicalLieBialgebra]
 ---
 
 ## Usage

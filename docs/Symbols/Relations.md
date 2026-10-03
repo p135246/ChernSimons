@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/Relations
 Keywords: [relations, defining identities, axioms, arity, involutive bi-Lie algebra, A-infinity, cochain complex, Hodge decomposition]
 SeeAlso: [Obstruction, RelationsQ, CanonicalLieBialgebra, AInfinityAlgebra, AInfinityMorphism, CochainComplexWithPairing, PreHodgeDecomposition]
-RelatedGuides: [HomotopyAlgebras, CanonicalLieBialgebras, HodgeDecompositions]
+RelatedGuides: [HomotopyAlgebras, CanonicalLieBialgebra, HodgeDecompositions]
 ---
 
 ## Usage

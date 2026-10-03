@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/ElementDegree
 Keywords: [degree, grading, bar degree, exterior degree, symmetric degree, HBar, Planck degree, BD action, cyclic word]
 SeeAlso: [CyclicWord, GradedPairing, ExteriorProduct, SymmetricProduct, HBar, KoszulSign, MaurerCartanBasis]
-RelatedGuides: [CanonicalLieBialgebras]
+RelatedGuides: [CanonicalLieBialgebra]
 ---
 
 ## Usage

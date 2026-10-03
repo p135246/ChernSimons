@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/RelationsQ
 Keywords: [relations, test, predicate, axioms, Maurer-Cartan, A-infinity, involutive bi-Lie algebra, cochain complex, Hodge decomposition]
 SeeAlso: [Obstruction, Relations, CanonicalLieBialgebra, MaurerCartanElement, AInfinityAlgebra, AInfinityMorphism, CochainComplexWithPairing, HodgeDecomposition]
-RelatedGuides: [HomotopyAlgebras, CanonicalLieBialgebras, BeilinsonDrinfeldFormalism, HodgeDecompositions]
+RelatedGuides: [HomotopyAlgebras, CanonicalLieBialgebra, BeilinsonDrinfeldFormalism, HodgeDecompositions]
 ---
 
 ## Usage

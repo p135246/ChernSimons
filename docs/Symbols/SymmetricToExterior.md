@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/SymmetricToExterior
 Keywords: [shift isomorphism, decalage, reversal rule, position rule, sign convention]
 SeeAlso: [ExteriorToSymmetric, SymmetricProduct, ExteriorProduct, CanonicalLieBracket, CanonicalLieCobracket, ElementDegree, KoszulSign]
-RelatedGuides: [CanonicalLieBialgebras]
+RelatedGuides: [CanonicalLieBialgebra]
 ---
 
 ## Usage

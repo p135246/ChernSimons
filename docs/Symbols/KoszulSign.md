@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/KoszulSign
 Keywords: [Koszul sign, permutation, graded, parity, transposition]
 SeeAlso: [ElementDegree, ExteriorProduct, SymmetricProduct, SymmetricToExterior, Signature]
-RelatedGuides: [CanonicalLieBialgebras]
+RelatedGuides: [CanonicalLieBialgebra]
 ---
 
 ## Usage

@@ -38,6 +38,7 @@ BuildDocs[ arguments_List ] :=
     If[ requested === { }, Print[ "Up to date: ", Length @ AllPages[ ], " pages" ]; Exit[ 0 ] ];
     Print[ Length @ requested, " page", If[ Length @ requested === 1, "", "s" ], " to build" ];
     Scan[ BuildPage, requested ];
+    Scan[ page |-> If[ FileExistsQ[ TargetPath[ page ] ], Polish[ page, TargetPath[ page ] ] ], requested ];
     Scan[ kind |-> Print[ "  ", kind, ": ", Length @ FileNames[ "*.nb", TargetDirectory[ kind ] ], " built" ],
       Keys[ $kinds ] ]
   ]
@@ -83,5 +84,33 @@ BuildPage[ page_List ] :=
 
 Scan[ kind |-> If[ ! DirectoryQ[ TargetDirectory[ kind ] ],
     CreateDirectory[ TargetDirectory[ kind ], CreateIntermediateDirectories -> True ] ], Keys[ $kinds ] ]
+
+(* two things the converter's templates do not do: inline math is set in the text's own size, as
+   the built-in pages set it, not at 0.9 of it; and a guide's Abstract is one cell per paragraph,
+   with an image line of the Abstract as a centered picture, where the Guide template joins the
+   paragraphs into one cell and drops the image *)
+Polish[ page_List, target_String ] :=
+  Module[ { notebook = Get[ target ] },
+    If[ First[ page ] === "Guides",
+      With[ { cells = AbstractCells[ SourcePath[ page ] ] },
+        If[ cells =!= { },
+          notebook = notebook /. Cell[ _, "GuideAbstract", ___ ] :> Sequence @@ cells ] ] ];
+    notebook = notebook /. Cell[ BoxData[ boxes_ ], "InlineFormula", before___, FontSize -> _, after___ ] :> Cell[ BoxData[ boxes ], "InlineFormula", before, after ];
+    Export[ target, notebook ];
+    Print[ "  polished ", First[ page ], "/", Last[ page ], ": ", Count[ notebook, Cell[ _, "GuideAbstract", ___ ], Infinity ], " abstract cells, ",
+      Count[ notebook, Cell[ _, "InlineFormula", ___, FontSize -> _, ___ ], Infinity ], " reduced-size formulas" ]
+  ]
+
+AbstractCells[ source_String ] :=
+  Module[ { text = Import[ source, "Text" ], section, paragraphs },
+    section = First[ StringCases[ text, "\n## Abstract\n" ~~ Shortest[ body___ ] ~~ "\n## " :> body ], "" ];
+    paragraphs = Select[ StringTrim /@ StringSplit[ section, "\n" ~~ WhitespaceCharacter ... ~~ "\n" ], # =!= "" & ];
+    Map[ paragraph |-> If[ imageLineQ[ paragraph ],
+        With[ { block = imageBlock[ paragraph ] },
+          Cell[ BoxData[ ToBoxes[ Image[ Import[ ExpandFileName @ FileNameJoin[ { DirectoryName[ source ], block[ "Path" ] } ] ], ImageSize -> 520 ] ] ],
+            "GuideAbstract", TextAlignment -> Center ] ],
+        Cell[ TextData[ inlineTextData[ StringReplace[ paragraph, "\n" -> " " ] ] ], "GuideAbstract" ] ],
+      paragraphs ]
+  ]
 
 BuildDocs[ Rest[ $ScriptCommandLine ] ]

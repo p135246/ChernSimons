@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    194065,       4387]
-NotebookOptionsPosition[    182092,       4186]
-NotebookOutlinePosition[    183078,       4214]
-CellTagsIndexPosition[    183035,       4211]
+NotebookDataLength[    192432,       4319]
+NotebookOptionsPosition[    180466,       4118]
+NotebookOutlinePosition[    181452,       4146]
+CellTagsIndexPosition[    181409,       4143]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -27,15 +27,13 @@ Cell[TextData[{
  "The dIBL algebra of a closed oriented ",
  Cell[BoxData[
   FormBox[
-   StyleBox["n", "TI"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "9f897693-7f3d-4f6a-bf8c-e302065939c6"],
+   StyleBox["n", "TI"], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "5149d7ca-03d3-4878-b9b6-c77bdeb7e04d"],
  "-manifold ",
  Cell[BoxData[
   FormBox[
-   StyleBox["X", "TI"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "91d67f94-08f2-4756-84f3-94eee6576ea3"],
+   StyleBox["X", "TI"], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "511a12ea-69d2-43ad-9a51-e98c27488f36"],
  " lives on the cyclic words of a graded alphabet, and the alphabet is a \
 basis of ",
  Cell[BoxData[
@@ -44,15 +42,13 @@ basis of ",
     SuperscriptBox[
      StyleBox["H", "TI"], "*"], "(", 
     StyleBox["X", "TI"], ")"}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "350fe529-9132-41c4-807d-3105f4aa2fe8"],
+  ExpressionUUID->"9b973c60-7473-4a63-9932-c7b4182eb907"],
  " shifted by one, with the pairing that Poincar\[EAcute] duality gives it. \
 This tutorial builds that alphabet without ever mentioning ",
  Cell[BoxData[
   FormBox[
-   StyleBox["X", "TI"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "77f49707-c9fd-4b58-a29f-c6a521aa721d"],
+   StyleBox["X", "TI"], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "8f469ba1-006e-44ff-8c70-d46185ab79b0"],
  ": it starts from a Sullivan minimal model, puts the natural orientation on \
 it, checks that the resulting oriented PDGA is of Hodge type, passes to the \
 nondegenerate quotient, and reads the canonical Maurer-Cartan element off the \
@@ -62,43 +58,38 @@ triple product of the quotient. The running example is ",
    SuperscriptBox[
     StyleBox["CP",
      FontSlant->"Plain"], "2"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "f359076b-8842-42ab-8005-e8d8ccdd169a"],
+  ExpressionUUID->"84360919-a7e4-428b-b916-8c4d08f123d3"],
  "."
-}], "Text",ExpressionUUID->"9d47005c-b7e4-4454-ae7b-908d64881c13"],
+}], "Text",ExpressionUUID->"66560352-bbd3-4177-b6e9-9ebcd6d66ae1"],
 
-Cell["Five steps, and each one is a single function.", "Text",ExpressionUUID->"f3053b8c-1021-4564-87d0-ccb771bd1e43"],
+Cell["Five steps, and each one is a single function.", "Text",ExpressionUUID->"4e148c84-ecce-4e82-9aa2-04cb45c7c3ea"],
 
-Cell["The minimal model", "Section",ExpressionUUID->"fda1ec98-6bd7-4f30-b892-a833d9b57ffd"],
+Cell["The minimal model", "Section",ExpressionUUID->"0673151e-271f-4632-9d75-d0c0fa362f48"],
 
 Cell[TextData[{
  "A Sullivan minimal model is a free graded commutative algebra ",
  Cell[BoxData[
   FormBox[
    RowBox[{"\[CapitalLambda]", 
-    StyleBox["U", "TI"]}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "c604e2e6-8dfa-4fea-a292-3a2e1f8e6d31"],
+    StyleBox["U", "TI"]}], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "112a5b29-bfb6-4b25-bce8-6fcb0fd00509"],
  " with a differential. For ",
  Cell[BoxData[
   FormBox[
    SuperscriptBox[
     StyleBox["CP",
      FontSlant->"Plain"], 
-    StyleBox["m", "TI"]], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "2219955c-af27-4972-a519-d00cf216aa86"],
+    StyleBox["m", "TI"]], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "9519dc41-193b-4ec0-aa5c-7632344e7bc5"],
  " it has two generators: ",
  Cell[BoxData[
   FormBox[
-   StyleBox["a", "TI"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "ae65061f-79fb-4c98-896e-46c8d0e07a2f"],
+   StyleBox["a", "TI"], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "331f9b57-804d-4ed0-b14b-40e632647db8"],
  " in degree ",
  Cell[BoxData[
-  FormBox["2", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "dbd360c8-db71-4132-8ae9-d1520ab3f889"],
+  FormBox["2", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "3e6e16a8-e165-4c3a-87d1-57fe9f58b66c"],
  " with ",
  Cell[BoxData[
   FormBox[
@@ -106,22 +97,18 @@ Cell[TextData[{
     StyleBox["d",
      FontSlant->"Plain"], 
     StyleBox["a", "TI"], "\[LongEqual]", "0"}], TraditionalForm]], 
-  "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "cc1a763f-6c9c-4bf3-89ee-413fd6b114f6"],
+  "InlineFormula",ExpressionUUID->"f35f021c-8131-4599-a33b-9071920a3d0f"],
  ", and ",
  Cell[BoxData[
   FormBox[
-   StyleBox["b", "TI"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "29ca5932-bc0e-452c-a63f-ae7c02cbc471"],
+   StyleBox["b", "TI"], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "fe9cec45-9796-4541-bee7-11b149788d2a"],
  " in degree ",
  Cell[BoxData[
   FormBox[
    RowBox[{"2", 
     StyleBox["m", "TI"], "+", "1"}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "497c23ac-deee-4289-944c-5c12a50b24f6"],
+  ExpressionUUID->"914dde3c-2548-48a1-b85f-83e8f7f9972c"],
  " with ",
  Cell[BoxData[
   FormBox[
@@ -133,10 +120,9 @@ Cell[TextData[{
      StyleBox["a", "TI"], 
      RowBox[{
       StyleBox["m", "TI"], "+", "1"}]]}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "76b5b8f3-66ed-4db4-84cb-aec7042cf33b"],
+  ExpressionUUID->"9eb655a6-3880-45f1-80c6-4cd0f42a4259"],
  "."
-}], "Text",ExpressionUUID->"d8c3801e-99a0-4aa8-bfc2-05646e366eaf"],
+}], "Text",ExpressionUUID->"7caf128e-20cf-4f54-ba18-071ceebc3639"],
 
 Cell[CellGroupData[{
 
@@ -148,20 +134,20 @@ Cell[BoxData[{
   ";"}], "\n", 
  RowBox[{"Normal", "[", 
   RowBox[{"model", "[", "\"\<Generators\>\"", "]"}], "]"}]}], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"06d36ab9-54f9-4c71-828e-5703af0e9db7"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"9f650659-36f1-4395-934d-c373bf653869"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
    RowBox[{"a", "\[Rule]", "2"}], ",", 
    RowBox[{"b", "\[Rule]", "5"}]}], "}"}]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"cc2fb087-479d-4890-8de6-04e6d39dbdb7"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"af74bfac-6f7a-469c-b83b-2c841352d99e"]
 }, Open  ]],
 
 Cell["\<\
 The differential is stored on the generators and extended as a derivation. It \
 raises degree by one:\
-\>", "Text",ExpressionUUID->"692a568d-dd83-4b10-84fd-b6aff38ce92c"],
+\>", "Text",ExpressionUUID->"b4fd6432-c141-4b69-acc3-a71cd2ddaed9"],
 
 Cell[CellGroupData[{
 
@@ -173,14 +159,14 @@ Cell[BoxData[
    RowBox[{"SullivanModelDifferential", "[", 
     RowBox[{
      RowBox[{"a", " ", "b"}], ",", " ", "model"}], "]"}]}], "}"}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"45affeb4-199a-49e8-9b6c-a3b6a74c50e4"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"5f6be69c-2c05-4ce2-acc2-0e1380ef41c6"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
    SuperscriptBox["a", "3"], ",", 
    SuperscriptBox["a", "4"]}], "}"}]], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"a7cc7760-5145-46bb-9bfc-baca70c4804d"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"cf4c2294-edb7-489d-a48e-abb008b15a34"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -193,10 +179,10 @@ model declares them. ",
     "paclet:ChernSimons/ref/SullivanModelBasis", "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "def895ee-be46-42ec-845f-6748bfe7c157"],
+  "7493959f-b845-45e8-9fbc-5d427635ff9a"],
  " lists the monomials of one degree; the algebra is infinite-dimensional, \
 one or two monomials in every degree from here up."
-}], "Text",ExpressionUUID->"0ca4cea9-03c3-40af-9aa5-d898ff070c68"],
+}], "Text",ExpressionUUID->"d341f7b4-59f0-492c-8fda-ff08185f193f"],
 
 Cell[CellGroupData[{
 
@@ -207,7 +193,7 @@ Cell[BoxData[
     RowBox[{"model", ",", " ", "k"}], "]"}], ",", " ", 
    RowBox[{"{", 
     RowBox[{"k", ",", " ", "0", ",", " ", "8"}], "}"}]}], "]"}]], "Input",
- CellLabel->"In[3]:= ",ExpressionUUID->"da402e86-0183-44f7-9168-7078f1312bbe"],
+ CellLabel->"In[3]:= ",ExpressionUUID->"3270296f-ef16-4271-840a-e352d4b29c80"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -225,10 +211,10 @@ Cell[BoxData[
     RowBox[{"a", " ", "b"}], "}"}], ",", 
    RowBox[{"{", 
     SuperscriptBox["a", "4"], "}"}]}], "}"}]], "Output",
- CellLabel->"Out[3]= ",ExpressionUUID->"e5a806b9-6d35-4824-a258-90ce7d3c0e4f"]
+ CellLabel->"Out[3]= ",ExpressionUUID->"ee093a7f-9a2f-450b-b40d-fede3cda7238"]
 }, Open  ]],
 
-Cell["The orientation, and the pairing it defines", "Section",ExpressionUUID->"5c85f806-a07b-42ae-994f-92e47b7eb2ac"],
+Cell["The orientation, and the pairing it defines", "Section",ExpressionUUID->"00d4cc9e-6b24-45b7-88e4-41e8dbcabf6f"],
 
 Cell[TextData[{
  "The cohomology of this model is ",
@@ -242,55 +228,46 @@ Cell[TextData[{
     RowBox[{"(", 
      SuperscriptBox[
       StyleBox["a", "TI"], "3"], ")"}]}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "c3f1ee7a-de65-493f-94a3-5025f07c04d9"],
+  ExpressionUUID->"8e3feec4-c7ef-405d-ae2d-3f998d7a22af"],
  ", so the top class is ",
  Cell[BoxData[
   FormBox[
    SuperscriptBox[
     StyleBox["a", "TI"], "2"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "26842f80-fae8-4559-bb2a-2c7f617994e9"],
+  ExpressionUUID->"a5cfc3ee-240a-4616-9a51-483ab69d3d8b"],
  " in degree ",
  Cell[BoxData[
-  FormBox["4", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "45950cbb-92c3-4223-be72-5dba7a6ed474"],
+  FormBox["4", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "5cd18905-8eec-448e-9603-29a8cc691290"],
  ". Let the orientation ",
  Cell[BoxData[
   FormBox[
-   StyleBox["O", "TI"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "4ed88769-b465-4a9a-946e-5da2a1050864"],
+   StyleBox["O", "TI"], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "fe879aad-6064-4166-85ed-a209dadefc58"],
  " be the coefficient of that monomial: ",
  Cell[BoxData[
-  FormBox["1", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "9a26bb5c-c8d0-4621-a147-0ae5650fa8aa"],
+  FormBox["1", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "143a1f46-077a-4509-a23b-90be1c2d45e9"],
  " on ",
  Cell[BoxData[
   FormBox[
    SuperscriptBox[
     StyleBox["a", "TI"], "2"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "c8095eef-7e69-4db8-a41a-6e7bbb66d939"],
+  ExpressionUUID->"b2b4fe0a-4dd9-469f-bbb5-549403451863"],
  " and ",
  Cell[BoxData[
-  FormBox["0", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "fbf39323-d540-40ac-8454-03513c3547dd"],
+  FormBox["0", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "327dd08d-bb9c-43dd-9cf2-5e61493ad676"],
  " on everything else. That is what ",
  Cell[BoxData[
   RowBox[{"model", "[", "\"\<Orientation\>\"", "]"}]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "73270fc2-4d30-4e4a-8f11-adc53d8b2a5b"],
+  ExpressionUUID->"2fdd0e3f-fb4c-4001-8fda-a2e7bcf9e747"],
  " records, as its values on the monomials of degree ",
  Cell[BoxData[
-  FormBox["4", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "ec527af4-645d-47eb-a6bc-2ab2c66426bb"],
+  FormBox["4", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "762c91d9-d24c-4201-952f-1bde8ba0bfbf"],
  "."
-}], "Text",ExpressionUUID->"9b04c9e8-063b-48f7-bf34-e1c1f8d6bd1e"],
+}], "Text",ExpressionUUID->"9450e1d4-9191-4f34-b145-9adc48208757"],
 
 Cell[CellGroupData[{
 
@@ -299,7 +276,7 @@ Cell[BoxData[
   RowBox[{
    RowBox[{"model", "[", "\"\<Orientation\>\"", "]"}], ",", " ", 
    RowBox[{"model", "[", "\"\<Degree\>\"", "]"}]}], "}"}]], "Input",
- CellLabel->"In[4]:= ",ExpressionUUID->"71ccf89a-2859-4606-9f99-76802ecb82e1"],
+ CellLabel->"In[4]:= ",ExpressionUUID->"607c0e47-8145-4ebb-9a33-82c773a20a50"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -308,7 +285,7 @@ Cell[BoxData[
     RowBox[{
      SuperscriptBox["a", "2"], "\[Rule]", "1"}], "\[RightAssociation]"}], ",",
     "4"}], "}"}]], "Output",
- CellLabel->"Out[4]= ",ExpressionUUID->"f1e386da-9877-40e9-9d92-f5877d61d643"]
+ CellLabel->"Out[4]= ",ExpressionUUID->"14994dae-e0fb-4b81-adcc-9ec3fdfa8c61"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -320,26 +297,23 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "9228e4a2-0f0e-4822-86eb-64cf48d8a288"],
+  "6c210d33-9e6a-44b4-93d8-48483b52a55d"],
  " applies it. Everything outside degree ",
  Cell[BoxData[
-  FormBox["4", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "c6166519-7b42-4f86-9d1c-b8e128c9d128"],
+  FormBox["4", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "4191a10a-4224-45ee-aca4-281fef37ae65"],
  " is killed, and inside degree ",
  Cell[BoxData[
-  FormBox["4", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "32f7c888-b792-4249-9860-6d903e62fbd4"],
+  FormBox["4", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "9af0ef33-0904-4bc1-82ec-b611e2eb2748"],
  " only ",
  Cell[BoxData[
   FormBox[
    SuperscriptBox[
     StyleBox["a", "TI"], "2"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "1cbccbba-ce1f-4972-8b48-57f8dc0256ca"],
+  ExpressionUUID->"67fa9b4e-5994-448f-9a34-87d99e5c62d6"],
  " survives:"
-}], "Text",ExpressionUUID->"cc9d972a-014f-4f8c-bba9-e3b670070235"],
+}], "Text",ExpressionUUID->"1fa73ecb-0600-47a5-8fcc-f80e54d72b89"],
 
 Cell[CellGroupData[{
 
@@ -354,12 +328,12 @@ Cell[BoxData[
      RowBox[{"a", "^", "3"}], ",", " ", "model"}], "]"}], ",", " ", 
    RowBox[{"SullivanModelOrientation", "[", 
     RowBox[{"b", ",", " ", "model"}], "]"}]}], "}"}]], "Input",
- CellLabel->"In[5]:= ",ExpressionUUID->"f0c2abd4-8fe7-4aea-ad8a-066e779e52d0"],
+ CellLabel->"In[5]:= ",ExpressionUUID->"3beb4018-c214-4f18-9545-a51074a31997"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"1", ",", "0", ",", "0"}], "}"}]], "Output",
- CellLabel->"Out[5]= ",ExpressionUUID->"41958a2c-f827-4d8d-a17c-4993b9448d88"]
+ CellLabel->"Out[5]= ",ExpressionUUID->"863bd3fb-41c2-4f5c-b6a1-824e8e2c78d5"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -381,9 +355,7 @@ Cell[TextData[{
        StyleBox["v", "TI"], "1"], 
       SubscriptBox[
        StyleBox["v", "TI"], "2"]}], ")"}]}], TraditionalForm]], 
-  "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "58887037-ba1a-4d76-81b0-2713d8b90c58"],
+  "InlineFormula",ExpressionUUID->"8851364e-a328-4346-acde-c550f224bffd"],
  ", the orientation of the product. On ",
  Cell[BoxData[
   FormBox[
@@ -391,10 +363,9 @@ Cell[TextData[{
     StyleBox["a", "TI"], ",", 
     SuperscriptBox[
      StyleBox["a", "TI"], "2"]}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "b41aa49a-1aea-441a-830d-8a0f1619bc44"],
+  ExpressionUUID->"c77d8ec1-fd61-4361-8918-dc5e192f56bd"],
  " it is the antidiagonal, which is Poincar\[EAcute] duality:"
-}], "Text",ExpressionUUID->"63a5a0c6-afe1-4cfc-a72c-587a2649801b"],
+}], "Text",ExpressionUUID->"922c3012-dbb4-4f36-a9f2-26c31c64b8a8"],
 
 Cell[CellGroupData[{
 
@@ -411,7 +382,7 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"j", ",", " ", "0", ",", " ", "2"}], "}"}]}], "]"}], " ", "//", 
   " ", "MatrixForm"}]], "Input",
- CellLabel->"In[6]:= ",ExpressionUUID->"7705598d-a533-4ba8-b94b-bd46fbd4eb21"],
+ CellLabel->"In[6]:= ",ExpressionUUID->"29ab8317-8964-462b-a0d6-57ee5b271e6a"],
 
 Cell[BoxData[
  TagBox[
@@ -430,7 +401,7 @@ Cell[BoxData[
         Offset[0.2]}}], "\[NoBreak]", ")"}],
   Function[BoxForm`e$, 
    MatrixForm[BoxForm`e$]]]], "Output",
- CellLabel->"Out[6]= ",ExpressionUUID->"d7ff3722-28a0-4746-9639-c002004e9607"]
+ CellLabel->"Out[6]= ",ExpressionUUID->"6b8d1ba4-98be-43db-9948-3bdfd220b706"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -438,9 +409,8 @@ Cell[TextData[{
  StyleBox["orientation", "TI"],
  " in the sense of Lambrechts-Stanley: it has degree ",
  Cell[BoxData[
-  FormBox["4", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "ac4eb3c3-c326-4569-9646-8df8ba4c382a"],
+  FormBox["4", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "8ba77add-8e0c-4fc0-a2c4-e721c33ab67a"],
  ", it kills the image of the differential, and it does not vanish on the \
 kernel. Together with the perfect pairing it induces on cohomology, that \
 makes ",
@@ -452,17 +422,15 @@ makes ",
      StyleBox["d",
       FontSlant->"Plain"], ",", 
      StyleBox["O", "TI"]}], ")"}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "9d947d17-7138-49c9-baa5-e170a3450d88"],
+  ExpressionUUID->"1e10e395-424d-407c-ad4a-22d7567ce4f1"],
  " an oriented PDGA of degree ",
  Cell[BoxData[
-  FormBox["4", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "d2d82de4-3c1c-42d3-adb9-60cbc958d49a"],
+  FormBox["4", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "0176f845-b6d6-405b-b91e-984bb78221a0"],
  "."
-}], "Text",ExpressionUUID->"77d756da-07a8-41e6-95f2-c18b4c9d7763"],
+}], "Text",ExpressionUUID->"310b7922-f9b3-454c-b1a8-849fa2b69dbb"],
 
-Cell["Is it of Hodge type?", "Section",ExpressionUUID->"3b200831-e6c4-4556-ad2c-2331d32e3e16"],
+Cell["Is it of Hodge type?", "Section",ExpressionUUID->"f344a8ae-f34d-4b78-a5cd-1bbd6af67d01"],
 
 Cell[TextData[{
  "The pairing is ",
@@ -471,20 +439,17 @@ Cell[TextData[{
  Cell[BoxData[
   FormBox[
    RowBox[{"\[CapitalLambda]", 
-    StyleBox["U", "TI"]}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "f8cd6e11-bbfc-4820-99d7-e72a329c9aa3"],
+    StyleBox["U", "TI"]}], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "b3642a31-cbce-4c3e-b57d-50c52c3bace9"],
  " above degree ",
  Cell[BoxData[
-  FormBox["4", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "30af28ea-e74a-4332-937e-4074efd98948"],
+  FormBox["4", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "9e1d870c-15da-413b-ab25-72cf9e59690e"],
  " is paired to zero with everything, because the orientation only sees \
 degree ",
  Cell[BoxData[
-  FormBox["4", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "cb29c3d3-8321-4ec7-9d44-d144b3b8e097"],
+  FormBox["4", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "9d0e56e1-78a6-45d0-b93f-acf7fac17526"],
  ". Those elements form the ",
  StyleBox["degenerate subspace", "TI"],
  " ",
@@ -493,11 +458,10 @@ degree ",
    SubscriptBox[
     StyleBox["V", "TI"], 
     StyleBox["deg",
-     FontSlant->"Plain"]], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "d02f9760-f650-43ec-b781-ef55f94afe8d"],
+     FontSlant->"Plain"]], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "357f275f-aac5-448a-86b0-a991b025c214"],
  "."
-}], "Text",ExpressionUUID->"8a9dae66-c102-4d3d-8439-da3cc4ca1ce3"],
+}], "Text",ExpressionUUID->"4ee50585-8c46-41a2-880c-ab2c23b6eb34"],
 
 Cell[CellGroupData[{
 
@@ -510,7 +474,7 @@ Cell[BoxData[
     RowBox[{"model", ",", " ", "6"}], "]"}], ",", " ", 
    RowBox[{"DegenerateSubspace", "[", 
     RowBox[{"model", ",", " ", "7"}], "]"}]}], "}"}]], "Input",
- CellLabel->"In[7]:= ",ExpressionUUID->"df739d8b-d24c-4c9e-b830-b5cc6bb42be1"],
+ CellLabel->"In[7]:= ",ExpressionUUID->"626b97ed-04ba-4d2d-b0bf-b807e42659e3"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -520,7 +484,7 @@ Cell[BoxData[
     SuperscriptBox["a", "3"], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{"a", " ", "b"}], "}"}]}], "}"}]], "Output",
- CellLabel->"Out[7]= ",ExpressionUUID->"3bad02b0-24a4-4a8f-a7d0-542bd722fd55"]
+ CellLabel->"Out[7]= ",ExpressionUUID->"2f0a2657-893f-426d-bd9c-ba62d6fb8447"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -536,46 +500,42 @@ Cell[TextData[{
      FontSlant->"Plain"], " ", 
     StyleBox["d",
      FontSlant->"Plain"], "\[CirclePlus]", 
-    StyleBox["C", "TI"]}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "0049e42f-7784-4d6d-a808-0b4ee0e1a652"],
+    StyleBox["C", "TI"]}], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "8d0ef929-cfc1-46fa-bf02-f8e9522ef396"],
  " with ",
  Cell[BoxData[
   FormBox[
    RowBox[{
     StyleBox["C", "TI"], "\[Perpendicular]", 
     StyleBox["C", "TI"], "\[CirclePlus]", 
-    StyleBox["H", "TI"]}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "82128cd6-ec42-408a-9fba-327a989629a9"],
+    StyleBox["H", "TI"]}], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "9a4ba78a-319a-49fc-8485-b630b566c659"],
  ". Over a field of characteristic ",
  Cell[BoxData[
   FormBox[
    RowBox[{"\[NotEqual]", "2"}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "92544553-d5ed-48e9-a313-2b12f9f751e5"],
+  ExpressionUUID->"57fc6eec-add4-4a06-8103-ecb7ae9da466"],
  " and for a quotient of finite type, that happens exactly when ",
  Cell[BoxData[
   FormBox[
    SubscriptBox[
     StyleBox["V", "TI"], 
     StyleBox["deg",
-     FontSlant->"Plain"]], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "5a58b82c-9b05-4fc7-8bc7-8ab1395f7f44"],
+     FontSlant->"Plain"]], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "70774bb5-adcb-4cb2-8f69-00ab9e196b3f"],
  " is acyclic, equivalently exactly when the quotient map onto the \
 nondegenerate quotient is a quasi-isomorphism. So the test is one cohomology \
 computation."
-}], "Text",ExpressionUUID->"7b0d4f3d-6bab-4665-a730-c9f6b121ba33"],
+}], "Text",ExpressionUUID->"72f30b5c-d5aa-4c22-86bd-ce871256a445"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"HodgeTypeQ", "[", "model", "]"}]], "Input",
- CellLabel->"In[8]:= ",ExpressionUUID->"222988d6-780e-4cd8-bde0-7c09f28247d1"],
+ CellLabel->"In[8]:= ",ExpressionUUID->"9a9d29b1-114b-4493-8458-93fa1d1d85cb"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[8]= ",ExpressionUUID->"04cbe296-3f4d-4577-a89a-a661b13cf412"]
+ CellLabel->"Out[8]= ",ExpressionUUID->"f1cee1da-ac2b-4004-b559-f650772925fc"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -586,7 +546,7 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "24a3b698-5433-4998-87b8-246e6b605cb4"],
+  "7ad3cf01-4685-41af-9c48-849321998378"],
  " shows why, degree by degree. The fourth column is the cohomology of the \
 degenerate subspace, and it vanishes throughout. Here the second and fifth \
 columns agree as well, which says more: the quotient carries no differential, \
@@ -598,24 +558,23 @@ so it ",
    SuperscriptBox[
     StyleBox["CP",
      FontSlant->"Plain"], "2"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "4af9175e-5553-4fc6-aff5-e3bb2cd9d037"],
+  ExpressionUUID->"6d2ce963-fbf2-4ae4-8e74-79728292c20a"],
  " is formal. A Hodge-type model whose quotient keeps a differential has ",
- Cell[BoxData["Cohomology"], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "097ca59e-b45e-484d-b387-0d0c01c02b64"],
+ Cell[BoxData[
+ "Cohomology"], "InlineFormula",ExpressionUUID->
+  "0bd28a32-1992-4d6c-82f2-ff288b9c429b"],
  " strictly below ",
- Cell[BoxData["Quotient"], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "1de32992-fbd3-41fd-b84b-831a77c26140"],
+ Cell[BoxData[
+ "Quotient"], "InlineFormula",ExpressionUUID->
+  "19b5be12-fed3-4946-b249-245fc9fed2e1"],
  ", and the next tutorial shows one."
-}], "Text",ExpressionUUID->"d7d061a1-1c4d-4a24-b06c-c9eeca8e6f4e"],
+}], "Text",ExpressionUUID->"386ecb58-af6e-4c8b-9be8-0dfc2c4f7d2d"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"HodgeTypeReport", "[", "model", "]"}]], "Input",
- CellLabel->"In[9]:= ",ExpressionUUID->"9f1d5c30-3494-4f4f-956c-651eb120a4d5"],
+ CellLabel->"In[9]:= ",ExpressionUUID->"679ab863-dc37-4d7a-be15-ab2e9fca1ebd"],
 
 Cell[BoxData[
  TagBox[
@@ -1960,7 +1919,7 @@ lastPathIsLeafHeader, TypeSystem`NestedGrid`PackagePrivate`headerHidden$ = And[
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output",
- CellLabel->"Out[9]= ",ExpressionUUID->"39890d6a-5a28-44d1-8abd-fd42a341152b"]
+ CellLabel->"Out[9]= ",ExpressionUUID->"5d99d841-854d-4e3f-9aaf-fe5d8d1b38f2"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -1970,9 +1929,8 @@ Cell[TextData[{
    SubscriptBox[
     StyleBox["V", "TI"], 
     StyleBox["deg",
-     FontSlant->"Plain"]], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "217b9ba6-2886-46fb-8aed-97edb05a4c59"],
+     FontSlant->"Plain"]], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "3305d41d-51ae-4663-9015-3ab4413533e4"],
  " is spanned by ",
  Cell[BoxData[
   FormBox[
@@ -1983,9 +1941,7 @@ Cell[TextData[{
     SuperscriptBox[
      StyleBox["a", "TI"], "2"], 
     StyleBox["b", "TI"], ",", "\[Ellipsis]"}], TraditionalForm]], 
-  "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "ac7861d5-f81f-47e0-9df5-63a4f9277404"],
+  "InlineFormula",ExpressionUUID->"6ed56143-8316-4d8c-84fe-5934afe28c2d"],
  " together with ",
  Cell[BoxData[
   FormBox[
@@ -1994,9 +1950,7 @@ Cell[TextData[{
      StyleBox["a", "TI"], "3"], ",", 
     SuperscriptBox[
      StyleBox["a", "TI"], "4"], ",", "\[Ellipsis]"}], TraditionalForm]], 
-  "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "ae569e5d-f4bb-4bde-b970-12fc6e5ceeaf"],
+  "InlineFormula",ExpressionUUID->"49b25034-9690-421e-8a34-4417d42ae366"],
  ", and ",
  Cell[BoxData[
   FormBox[
@@ -2013,12 +1967,11 @@ Cell[TextData[{
      StyleBox["a", "TI"], 
      RowBox[{
       StyleBox["k", "TI"], "+", "3"}]]}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "9f5603cf-cd5d-4be8-98a1-1fd09c053792"],
+  ExpressionUUID->"e6a4d6be-b93a-423d-a8c5-17ba2c8c6cfc"],
  " matches them up in pairs. That is the acyclicity, in closed form."
-}], "Text",ExpressionUUID->"e4c29bee-82a3-46cd-926c-a99703ca0f64"],
+}], "Text",ExpressionUUID->"676c1371-d9df-402a-a8a1-93346b7649be"],
 
-Cell["The nondegenerate quotient", "Section",ExpressionUUID->"f5a936d8-c694-441e-b44b-fcf087e99661"],
+Cell["The nondegenerate quotient", "Section",ExpressionUUID->"35002852-5c36-4792-83f4-c21f29844290"],
 
 Cell[TextData[{
  "Dividing by ",
@@ -2027,14 +1980,13 @@ Cell[TextData[{
    SubscriptBox[
     StyleBox["V", "TI"], 
     StyleBox["deg",
-     FontSlant->"Plain"]], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "41741cc3-e8bd-4bd8-b1cc-eefea8b657e3"],
+     FontSlant->"Plain"]], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "6a98fac4-5c04-43a5-814a-01efac8f0712"],
  " leaves a finite-dimensional algebra on which the pairing is perfect: a \
 Poincar\[EAcute] duality algebra, and, because the quotient map is a \
 quasi-isomorphism, a differential Poincar\[EAcute] duality model of the \
 original PDGA."
-}], "Text",ExpressionUUID->"bf8f6bee-a3dd-4a43-9540-4d1e85a8e038"],
+}], "Text",ExpressionUUID->"e81e4ce8-7a64-4066-a8b0-36ce96ccc17b"],
 
 Cell[CellGroupData[{
 
@@ -2047,7 +1999,7 @@ Cell[BoxData[{
    RowBox[{"pd", "[", "\"\<Basis\>\"", "]"}], ",", " ", 
    RowBox[{"pd", "[", "\"\<Degrees\>\"", "]"}]}], "}"}]}], "Input",
  CellLabel->
-  "In[10]:= ",ExpressionUUID->"181a64d7-9f29-4715-9b0e-20232c566553"],
+  "In[10]:= ",ExpressionUUID->"e75a961c-52bf-47b2-a191-d5fbdf815b9f"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -2058,7 +2010,7 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{"0", ",", "2", ",", "4"}], "}"}]}], "}"}]], "Output",
  CellLabel->
-  "Out[10]= ",ExpressionUUID->"c540123d-87cd-4d70-b6cd-63d2738517e4"]
+  "Out[10]= ",ExpressionUUID->"354fb85f-0f9e-46be-bdd2-e2e52d941d28"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -2068,8 +2020,7 @@ Cell[TextData[{
    SuperscriptBox[
     StyleBox["CP",
      FontSlant->"Plain"], "2"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "5c441671-6690-4716-9732-1290c907fa92"],
+  ExpressionUUID->"0ae33101-594a-4056-b975-8243855537c4"],
  " the quotient is the cohomology ring itself, with zero differential, as it \
 must be, ",
  Cell[BoxData[
@@ -2077,11 +2028,10 @@ must be, ",
    SuperscriptBox[
     StyleBox["CP",
      FontSlant->"Plain"], "2"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "617f9ba8-4a05-4a58-9479-c4a6e89e7836"],
+  ExpressionUUID->"8d7c76d6-4214-43dc-8cf1-5d7ff4e7b1c6"],
  " being formal. The pairing is stored as a matrix in that basis, and it is \
 invertible:"
-}], "Text",ExpressionUUID->"5f83a699-60ac-4ec7-89a6-e08f4c53fe02"],
+}], "Text",ExpressionUUID->"4152d6fe-396b-4996-aad5-c74e4a5e2059"],
 
 Cell[CellGroupData[{
 
@@ -2090,7 +2040,7 @@ Cell[BoxData[
   RowBox[{"pd", "[", "\"\<Pairing\>\"", "]"}], " ", "//", " ", 
   "MatrixForm"}]], "Input",
  CellLabel->
-  "In[11]:= ",ExpressionUUID->"48f56395-2e39-4df5-a101-bf4a5e824700"],
+  "In[11]:= ",ExpressionUUID->"f020fc34-199a-4549-aefc-f7f81a744011"],
 
 Cell[BoxData[
  TagBox[
@@ -2110,10 +2060,10 @@ Cell[BoxData[
   Function[BoxForm`e$, 
    MatrixForm[BoxForm`e$]]]], "Output",
  CellLabel->
-  "Out[11]= ",ExpressionUUID->"9adeada7-74b9-466e-b428-e03d453bd372"]
+  "Out[11]= ",ExpressionUUID->"e0daf40a-04ac-473d-913a-07816a4e10e3"]
 }, Open  ]],
 
-Cell["And the differential vanishes:", "Text",ExpressionUUID->"1c9900f7-cc90-49d7-8da8-29683c67429d"],
+Cell["And the differential vanishes:", "Text",ExpressionUUID->"8160842e-c5d9-4976-9b8b-bf9dfe6fb9a3"],
 
 Cell[CellGroupData[{
 
@@ -2122,7 +2072,7 @@ Cell[BoxData[
   RowBox[{"pd", "[", "\"\<Differential\>\"", "]"}], " ", "//", " ", 
   "MatrixForm"}]], "Input",
  CellLabel->
-  "In[12]:= ",ExpressionUUID->"661f9cd9-15d0-4ec2-8e5d-f2e92451ca88"],
+  "In[12]:= ",ExpressionUUID->"16592d79-9d9b-444b-a67c-49f431142f80"],
 
 Cell[BoxData[
  TagBox[
@@ -2142,7 +2092,7 @@ Cell[BoxData[
   Function[BoxForm`e$, 
    MatrixForm[BoxForm`e$]]]], "Output",
  CellLabel->
-  "Out[12]= ",ExpressionUUID->"cce5ecc5-d220-458f-aa69-31ce93395b67"]
+  "Out[12]= ",ExpressionUUID->"3b434c50-d42a-4321-9958-16c3d5b7db2c"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -2161,11 +2111,10 @@ Cell[TextData[{
      SubscriptBox[
       StyleBox["e", "TI"], 
       StyleBox["k", "TI"]]}], ")"}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "e8cdc099-5502-4f07-bbaf-ce5dafd1ce02"],
+  ExpressionUUID->"c5b53abe-110c-40aa-bf28-ef0c633d55b3"],
  " are what the Maurer-Cartan element below is built from; they are kept as \
 an Association on the index triples, the zero ones dropped."
-}], "Text",ExpressionUUID->"cdc2c56b-a056-4e31-aafa-dabd64abaae8"],
+}], "Text",ExpressionUUID->"9060bf9c-233e-41fe-920c-9ae1d3bdb43b"],
 
 Cell[CellGroupData[{
 
@@ -2173,7 +2122,7 @@ Cell[BoxData[
  RowBox[{"Normal", "[", 
   RowBox[{"pd", "[", "\"\<Triple\>\"", "]"}], "]"}]], "Input",
  CellLabel->
-  "In[13]:= ",ExpressionUUID->"9ef8932c-d52a-412c-8b1e-b1dc9d7f8203"],
+  "In[13]:= ",ExpressionUUID->"1d1631dc-8680-41c1-96d2-bd2a06252b73"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -2198,26 +2147,24 @@ Cell[BoxData[
      RowBox[{"3", ",", "1", ",", "1"}], "}"}], "\[Rule]", "1"}]}], 
   "}"}]], "Output",
  CellLabel->
-  "Out[13]= ",ExpressionUUID->"697b8c3f-ef5a-430c-ac1b-436c22852eeb"]
+  "Out[13]= ",ExpressionUUID->"b6805397-8627-41f3-bbb5-818e83023deb"]
 }, Open  ]],
 
-Cell["The dual pairing, and the alphabet", "Section",ExpressionUUID->"24bfb478-97a8-4d15-9b2e-ebc91eaa3739"],
+Cell["The dual pairing, and the alphabet", "Section",ExpressionUUID->"08a6c919-f0c8-478c-a264-15679d490871"],
 
 Cell[TextData[{
  "Shifting the quotient down by one turns the graded symmetric pairing of \
 degree ",
  Cell[BoxData[
   FormBox[
-   StyleBox["n", "TI"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "559a0b80-a85d-45eb-9dbe-3a8b1da7fffb"],
+   StyleBox["n", "TI"], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "e2721384-5ead-4309-863c-c508b5a010b9"],
  " into a graded antisymmetric pairing of degree ",
  Cell[BoxData[
   FormBox[
    RowBox[{
     StyleBox["n", "TI"], "-", "2"}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "32ce16d2-33db-4a15-a128-75abffa68160"],
+  ExpressionUUID->"4540c05c-3518-4049-bec5-1eec92204d0e"],
  ", which is what the IBL operations want. ",
  Cell[BoxData[
   TemplateBox[{
@@ -2226,10 +2173,10 @@ degree ",
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "24716467-4872-464b-b430-94f71bcf44e5"],
+  "dbadb460-90c5-4114-b239-855fbca5e7e6"],
  " applied to the algebra does exactly that, taking the basis monomials as \
 the particles of the alphabet."
-}], "Text",ExpressionUUID->"14d6664c-a3ed-4745-bf9c-afb4b3acadf9"],
+}], "Text",ExpressionUUID->"0ebeae1f-e849-44e8-9bbf-71508e6daa0f"],
 
 Cell[CellGroupData[{
 
@@ -2240,7 +2187,7 @@ Cell[BoxData[{
  RowBox[{"Normal", "[", 
   RowBox[{"pairing", "[", "\"\<Degrees\>\"", "]"}], "]"}]}], "Input",
  CellLabel->
-  "In[14]:= ",ExpressionUUID->"857f5e4b-fddc-47a7-add9-57291328ad32"],
+  "In[14]:= ",ExpressionUUID->"5c3801cd-12f0-433e-842f-5326d37fa687"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -2251,7 +2198,7 @@ Cell[BoxData[
    RowBox[{
     SuperscriptBox["a", "2"], "\[Rule]", "3"}]}], "}"}]], "Output",
  CellLabel->
-  "Out[14]= ",ExpressionUUID->"961cdeec-2c19-4687-90e8-a02e607883f3"]
+  "Out[14]= ",ExpressionUUID->"ad25d279-7611-4d6d-9e90-47b39aea0a6d"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2264,13 +2211,13 @@ Cell[BoxData[
     RowBox[{"pd", "[", "\"\<Degree\>\"", "]"}], " ", "-", " ", "2"}]}], 
   "}"}]], "Input",
  CellLabel->
-  "In[15]:= ",ExpressionUUID->"63d6cd63-d8a0-4404-a3c7-437026ac540a"],
+  "In[15]:= ",ExpressionUUID->"828eb0d6-f472-4cce-84c4-3dedffb5d896"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"2", ",", "2"}], "}"}]], "Output",
  CellLabel->
-  "Out[15]= ",ExpressionUUID->"4826643e-a149-4b80-af02-6ebe89579a22"]
+  "Out[15]= ",ExpressionUUID->"2e7ddbf1-66d9-4620-823a-4e69d43fb615"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2279,7 +2226,7 @@ Cell[BoxData[
  RowBox[{"Normal", "[", 
   RowBox[{"pairing", "[", "\"\<Values\>\"", "]"}], "]"}]], "Input",
  CellLabel->
-  "In[16]:= ",ExpressionUUID->"bfa4fcd3-55ac-47da-a7e7-a493222cd136"],
+  "In[16]:= ",ExpressionUUID->"d3646b94-8b58-4f3f-8997-b87e3e7c9cab"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -2319,15 +2266,14 @@ Cell[BoxData[
       SuperscriptBox["a", "2"]}], "}"}], "\[Rule]", "0"}]}], "}"}]], "Output",\
 
  CellLabel->
-  "Out[16]= ",ExpressionUUID->"4b70b21f-9acd-4ac9-b327-124919bd9979"]
+  "Out[16]= ",ExpressionUUID->"a3080337-5e08-4825-bb76-48bed5aa633d"]
 }, Open  ]],
 
 Cell[TextData[{
  "From here on this is an ordinary alphabet, and the whole IBL layer applies \
 to it. The quotient itself rides along as the ",
- Cell[BoxData["\"\<Algebra\>\""], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "40ab56b9-2ef6-4645-abc2-032b1813f1a6"],
+ Cell[BoxData["\"\<Algebra\>\""], "InlineFormula",ExpressionUUID->
+  "af853880-1417-4826-a78c-c8680ddd3608"],
  " key of the pairing object, which is where ",
  Cell[BoxData[
   TemplateBox[{
@@ -2337,31 +2283,28 @@ to it. The quotient itself rides along as the ",
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "b3324462-7c69-4c8b-996a-2f400186b061"],
+  "66b88b22-b8d9-48a0-b733-a9cfced33f9c"],
  " reads the chain-level differential from; for ",
  Cell[BoxData[
   FormBox[
    SuperscriptBox[
     StyleBox["CP",
      FontSlant->"Plain"], "2"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "9093dda7-6612-4c82-8e3d-a0851f3cd1a8"],
+  ExpressionUUID->"2e79478e-70be-4de2-ae03-99cfe18bce5b"],
  " that differential is zero, the model being formal, and the next tutorial \
 shows the alphabet where it is not. There are three cyclic words of length \
 two, for instance, because ",
  Cell[BoxData[
   FormBox[
    RowBox[{"1", "\[CenterDot]", "1"}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "2171bc14-48bd-4829-9571-583479d93de1"],
+  ExpressionUUID->"d64e3795-debd-4bd5-aa91-4377629f44f5"],
  ", ",
  Cell[BoxData[
   FormBox[
    RowBox[{
     StyleBox["a", "TI"], "\[CenterDot]", 
-    StyleBox["a", "TI"]}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "e40c9eed-ac81-4ee1-b87b-f1e3bf42b8b1"],
+    StyleBox["a", "TI"]}], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "936e8001-dc9f-4029-9cc4-e5d5f7c6dfb6"],
  " and ",
  Cell[BoxData[
   FormBox[
@@ -2370,10 +2313,9 @@ two, for instance, because ",
      StyleBox["a", "TI"], "2"], "\[CenterDot]", 
     SuperscriptBox[
      StyleBox["a", "TI"], "2"]}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "963022c5-db3f-45d1-8539-0090232352da"],
+  ExpressionUUID->"95b1d70b-18aa-4fe6-85ef-1eba16a08a9d"],
  " are cyclically antisymmetric and so vanish:"
-}], "Text",ExpressionUUID->"8e932cee-1dd2-4e9d-b0e6-1e6b00cb4bcf"],
+}], "Text",ExpressionUUID->"a8fc354f-9049-4805-9e46-432e34e5d25f"],
 
 Cell[CellGroupData[{
 
@@ -2381,7 +2323,7 @@ Cell[BoxData[
  RowBox[{"GenerateCyclicWords", "[", 
   RowBox[{"2", ",", " ", "pairing"}], "]"}]], "Input",
  CellLabel->
-  "In[17]:= ",ExpressionUUID->"99d55326-e270-4bb2-bbda-02ddd82acdf0"],
+  "In[17]:= ",ExpressionUUID->"b528e242-e200-4469-b99a-419ff80cbd4f"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -2404,10 +2346,10 @@ Cell[BoxData[
     ChernSimons`CyclicWord[{MTNB$1tayod6vjy684`a, MTNB$1tayod6vjy684`a^2}],
     Editable->False]}], "}"}]], "Output",
  CellLabel->
-  "Out[17]= ",ExpressionUUID->"b2058c25-1e78-4ace-adf9-169acc27fd25"]
+  "Out[17]= ",ExpressionUUID->"42fd0f11-586f-4761-a9a3-700bed99b9c2"]
 }, Open  ]],
 
-Cell["The bracket glues two words by pairing one letter of each:", "Text",ExpressionUUID->"ad0c59b1-89c8-4079-9b2c-ff5a895853a5"],
+Cell["The bracket glues two words by pairing one letter of each:", "Text",ExpressionUUID->"cb029726-08bb-403d-a50a-f872a1e17fcb"],
 
 Cell[CellGroupData[{
 
@@ -2423,7 +2365,7 @@ Cell[BoxData[
       RowBox[{"a", "^", "2"}], ",", " ", "a"}], "}"}], "]"}], ",", " ", 
    "pairing"}], "]"}]], "Input",
  CellLabel->
-  "In[18]:= ",ExpressionUUID->"ed8e3746-4b94-4cd4-af95-0352087f712e"],
+  "In[18]:= ",ExpressionUUID->"be21e8b8-abf3-4af9-a58a-af87e2d42057"],
 
 Cell[BoxData[
  RowBox[{"-", 
@@ -2434,7 +2376,7 @@ Cell[BoxData[
    ChernSimons`CyclicWord[{1, MTNB$1tayod6vjy684`a^2}],
    Editable->False]}]], "Output",
  CellLabel->
-  "Out[18]= ",ExpressionUUID->"07e03df8-f616-4323-9615-e2c837b55f09"]
+  "Out[18]= ",ExpressionUUID->"4d49ead5-de6c-4664-bc4b-2ca35fb9cf69"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -2448,10 +2390,10 @@ relations of the ",
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "faabf629-51dc-451d-b95c-49695e578cfb"],
+  "4ac03280-1c37-4e45-9b2f-54e8ffc812cf"],
  " of the pairing, and they hold, as they must for any alphabet with a graded \
 antisymmetric pairing:"
-}], "Text",ExpressionUUID->"aaee2aa6-1930-4c4f-93e2-cfcdf770d303"],
+}], "Text",ExpressionUUID->"a2b0906a-78af-4d3c-b96d-9d23384df8d0"],
 
 Cell[CellGroupData[{
 
@@ -2489,84 +2431,87 @@ Cell[BoxData[
       RowBox[{"algebra", ",", " ", "\"\<Involutivity\>\"", ",", " ", 
        RowBox[{"{", "u", "}"}]}], "]"}]}], "}"}]}], "]"}]], "Input",
  CellLabel->
-  "In[19]:= ",ExpressionUUID->"6cb84747-9762-42cf-8cfd-3922e46feca7"],
+  "In[19]:= ",ExpressionUUID->"8b549ef1-b54a-4d09-8b6d-f09c53dc165c"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]], "Output",
  CellLabel->
-  "Out[19]= ",ExpressionUUID->"aea7fb65-392b-4516-bb3f-3bc44a44ee17"]
+  "Out[19]= ",ExpressionUUID->"cf3a4ae5-a95a-47a8-b9b8-faac6e16e624"]
 }, Open  ]],
 
-Cell["The canonical Maurer-Cartan element", "Section",ExpressionUUID->"3bfd68ed-7183-427d-85a8-7766e4d3f163"],
+Cell["The canonical Maurer-Cartan element", "Section",ExpressionUUID->"1bb89939-2501-43a8-9df5-145a9cb34eb8"],
 
 Cell["\<\
 The triple product of the Poincar\[EAcute] duality algebra is a cyclic \
 three-cochain, so it is an element of the cyclic words of length three. \
 Written in a basis it is\
-\>", "Text",ExpressionUUID->"7e3b76f8-1871-4fdf-940e-7553c24008b4"],
+\>", "Text",ExpressionUUID->"e8a815be-6039-44c5-a38b-0f6d410259e6"],
 
 Cell[BoxData[
  PaneBox[
   FormBox[
    RowBox[{
-    SubsuperscriptBox[
-     StyleBox["m", "TI"], 
-     RowBox[{"1", ",", "0"}], 
-     StyleBox["can",
-      FontSlant->"Plain"]], "\[LongEqual]", 
-    SuperscriptBox[
-     RowBox[{"(", 
-      RowBox[{"-", "1"}], ")"}], 
+    RowBox[{
+     SubsuperscriptBox[
+      StyleBox["m", "TI"], 
+      RowBox[{"1", ",", "0"}], 
+      StyleBox["can",
+       FontSlant->"Plain"]], "\[LongEqual]", 
      RowBox[{
-      StyleBox["n", "TI"], "-", "2"}]], 
-    FractionBox["1", "3"], 
-    UnderscriptBox["\[Sum]", 
-     RowBox[{
-      StyleBox["i", "TI"], ",", 
-      StyleBox["j", "TI"], ",", 
-      StyleBox["k", "TI"]}],
-     LimitsPositioning->True], 
-    RowBox[{"\[PlusMinus]", " "}], 
-    SuperscriptBox[
-     RowBox[{"(", 
-      RowBox[{"-", "1"}], ")"}], 
-     RowBox[{"deg", 
-      SubscriptBox[
-       StyleBox["e", "TI"], 
-       StyleBox["j", "TI"]]}]], " ", 
-    StyleBox["O", "TI"], 
-    RowBox[{"(", 
-     RowBox[{
-      SubscriptBox[
-       StyleBox["e", "TI"], 
-       StyleBox["i", "TI"]], 
-      SubscriptBox[
-       StyleBox["e", "TI"], 
-       StyleBox["j", "TI"]], 
-      SubscriptBox[
-       StyleBox["e", "TI"], 
-       StyleBox["k", "TI"]]}], ")"}], " ", 
-    SuperscriptBox[
-     StyleBox["e", "TI"], 
-     StyleBox["i", "TI"]], 
-    SuperscriptBox[
-     StyleBox["e", "TI"], 
-     StyleBox["j", "TI"]], 
-    SuperscriptBox[
-     StyleBox["e", "TI"], 
-     StyleBox["k", "TI"]], ","}],
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"-", "1"}], ")"}], 
+       RowBox[{
+        StyleBox["n", "TI"], "-", "2"}]], 
+      FractionBox["1", "3"], 
+      RowBox[{
+       UnderscriptBox["\[Sum]", 
+        RowBox[{
+         StyleBox["i", "TI"], ",", 
+         StyleBox["j", "TI"], ",", 
+         StyleBox["k", "TI"]}],
+        LimitsPositioning->True], 
+       RowBox[{
+        RowBox[{"\[PlusMinus]", " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"-", "1"}], ")"}], 
+          RowBox[{"deg", 
+           SubscriptBox[
+            StyleBox["e", "TI"], 
+            StyleBox["j", "TI"]]}]]}], " ", 
+        StyleBox["O", "TI"], 
+        RowBox[{"(", 
+         RowBox[{
+          SubscriptBox[
+           StyleBox["e", "TI"], 
+           StyleBox["i", "TI"]], 
+          SubscriptBox[
+           StyleBox["e", "TI"], 
+           StyleBox["j", "TI"]], 
+          SubscriptBox[
+           StyleBox["e", "TI"], 
+           StyleBox["k", "TI"]]}], ")"}], " ", 
+        SuperscriptBox[
+         StyleBox["e", "TI"], 
+         StyleBox["i", "TI"]], 
+        SuperscriptBox[
+         StyleBox["e", "TI"], 
+         StyleBox["j", "TI"]], 
+        SuperscriptBox[
+         StyleBox["e", "TI"], 
+         StyleBox["k", "TI"]]}]}]}]}], ","}],
    TraditionalForm],
   Alignment->Center,
-  ImageSize->Full]], "DisplayFormula",ExpressionUUID->"90811555-9138-46fa-\
-8f77-dfbf57ed5c8c"],
+  ImageSize->Full]], "DisplayFormula",ExpressionUUID->"db2ea580-da3c-40ce-\
+a807-425b44a9d20e"],
 
 Cell[TextData[{
  "the ",
  Cell[BoxData[
-  FormBox["\[PlusMinus]", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "c670d72a-6b76-4db7-9fa8-1cb55cfada00"],
+  FormBox["\[PlusMinus]", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "40cc1dce-27fc-4851-8277-426402c5d19a"],
  " being the reversal sign. ",
  Cell[BoxData[
   TemplateBox[{
@@ -2576,15 +2521,14 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "9cd4976d-8c9e-4ffc-a63e-68a05ce2774d"],
+  "fcd090a6-eb76-400f-9685-71e70f889fd8"],
  " evaluates it, as the part ",
  Cell[BoxData[
   FormBox[
    SubscriptBox[
     StyleBox["m", "TI"], 
     RowBox[{"1", ",", "0"}]], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "11bdc0c3-7c17-4175-b79d-e277c5002b66"],
+  ExpressionUUID->"a24a01cf-ec67-42b4-aabe-4d9977ca5028"],
  " of a ",
  Cell[BoxData[
   TemplateBox[{
@@ -2594,9 +2538,9 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "69f9013a-f6a5-4ebd-aa86-bbd5c875412f"],
+  "844d8edd-87c3-4e8b-a9b2-03108cb050c4"],
  "."
-}], "Text",ExpressionUUID->"1d0fae14-3b24-4e9e-ade0-64e6a68fc343"],
+}], "Text",ExpressionUUID->"b5382257-d679-434f-a4ed-cb6af97494b6"],
 
 Cell[CellGroupData[{
 
@@ -2608,7 +2552,7 @@ Cell[BoxData[{
   RowBox[{"{", 
    RowBox[{"1", ",", " ", "0"}], "}"}], "]"}]}], "Input",
  CellLabel->
-  "In[20]:= ",ExpressionUUID->"1282d373-cf0f-4ab6-9503-97c20acdada5"],
+  "In[20]:= ",ExpressionUUID->"0973f0f7-5c8e-4935-aabb-9f847045e015"],
 
 Cell[BoxData[
  RowBox[{
@@ -2625,7 +2569,7 @@ Cell[BoxData[
    ChernSimons`CyclicWord[{1, MTNB$1tayod6vjy684`a, MTNB$1tayod6vjy684`a}],
    Editable->False]}]], "Output",
  CellLabel->
-  "Out[20]= ",ExpressionUUID->"4396be94-380a-466f-a751-53d95d6d9c52"]
+  "Out[20]= ",ExpressionUUID->"80822709-623b-439e-b3bf-11885bf660f9"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -2635,16 +2579,13 @@ Cell[TextData[{
    RowBox[{"2", "(", 
     RowBox[{
      StyleBox["n", "TI"], "-", "3"}], ")"}], TraditionalForm]], 
-  "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "648a74cb-2d1b-4afa-acb1-1e2e2972fc67"],
+  "InlineFormula",ExpressionUUID->"75825fd4-b6bc-4091-b8a8-6b244b222328"],
  ", which is the degree of ",
  Cell[BoxData[
-  FormBox["\[HBar]", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "679841e8-f4ed-4a01-a01d-082fd7382072"],
+  FormBox["\[HBar]", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "b9b222f9-3584-4fb3-ae04-0932e5847ac1"],
  " and so of a BD action:"
-}], "Text",ExpressionUUID->"2778ec28-1ed0-4a42-af40-11dae496ead1"],
+}], "Text",ExpressionUUID->"545072f8-186e-42d1-b841-f759841d5263"],
 
 Cell[CellGroupData[{
 
@@ -2662,13 +2603,13 @@ Cell[BoxData[
     RowBox[{"HBar", ",", " ", "pairing", ",", " ", "\"\<Symmetric\>\""}], 
     "]"}]}], "}"}]], "Input",
  CellLabel->
-  "In[21]:= ",ExpressionUUID->"3d8f4309-b816-40aa-873d-68019487fc18"],
+  "In[21]:= ",ExpressionUUID->"508933af-09aa-4d36-a4ae-ba6b27262702"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"2", ",", "2"}], "}"}]], "Output",
  CellLabel->
-  "Out[21]= ",ExpressionUUID->"04f2d56a-c6f8-406d-9a62-e55de6f0a10f"]
+  "Out[21]= ",ExpressionUUID->"dc7dcd3d-1961-458a-9ded-031e33900b5d"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -2684,22 +2625,20 @@ word of length three the equation reduces to ",
      RowBox[{
       StyleBox["m", "TI"], "\[CircleDot]", 
       StyleBox["m", "TI"]}], ")"}], "\[LongEqual]", "0"}], TraditionalForm]], 
-  "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "94e150e0-aaf7-4789-ba83-e61ed738849a"],
+  "InlineFormula",ExpressionUUID->"d3651518-154c-41fb-aaab-137141b3a7a5"],
  ", which is associativity of the algebra written in these coordinates."
-}], "Text",ExpressionUUID->"83271497-725a-40bd-a01e-3ca364720443"],
+}], "Text",ExpressionUUID->"fb1d48d3-b7b7-4ff9-b7b8-1142835f137b"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"RelationsQ", "[", "m", "]"}]], "Input",
  CellLabel->
-  "In[22]:= ",ExpressionUUID->"49ac88a8-2224-45b6-b155-f47892ab393b"],
+  "In[22]:= ",ExpressionUUID->"80599932-c364-4da5-abbe-3c5ee856f492"],
 
 Cell[BoxData["True"], "Output",
  CellLabel->
-  "Out[22]= ",ExpressionUUID->"237a72ec-4e4b-4ea7-b6f5-6519352747ff"]
+  "Out[22]= ",ExpressionUUID->"5508d561-daf6-4f74-812a-c483f53c4c25"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -2709,33 +2648,29 @@ Cell[TextData[{
    SuperscriptBox[
     StyleBox["CP",
      FontSlant->"Plain"], "2"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "bcf85899-f621-43b4-88ee-aa078bef61c6"],
+  ExpressionUUID->"1c68b90e-4522-4ffc-8c5b-e59b69d35c68"],
  ": the operations ",
  Cell[BoxData[
   FormBox[
    SubsuperscriptBox[
     StyleBox["q", "TI"], 
     RowBox[{"1", ",", "1", ",", "0"}], 
-    StyleBox["m", "TI"]], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "5ea7141b-f17e-4cac-a018-87aceae194a3"],
+    StyleBox["m", "TI"]], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "68aa0e07-069a-478c-9a6c-5bd23e6f4122"],
  ", ",
  Cell[BoxData[
   FormBox[
    SubscriptBox[
     StyleBox["q", "TI"], 
     RowBox[{"2", ",", "1", ",", "0"}]], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "67d3c0a1-0467-4cba-bf1e-5a034fdd52ff"],
+  ExpressionUUID->"6f1539ea-594a-49fe-86f9-f6e724580625"],
  ", ",
  Cell[BoxData[
   FormBox[
    SubscriptBox[
     StyleBox["q", "TI"], 
     RowBox[{"1", ",", "2", ",", "0"}]], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "18b0887b-91e0-4fbb-ad33-5300aba5d9a7"],
+  ExpressionUUID->"96d4c05f-538c-4fc5-9e2d-c16bab10ab06"],
  ", whose twisted homology is the cyclic cohomology of the Poincar\[EAcute] \
 duality algebra. When the quotient keeps a differential, the chain-level \
 operation ",
@@ -2744,8 +2679,7 @@ operation ",
    SubscriptBox[
     StyleBox["q", "TI"], 
     RowBox[{"1", ",", "1", ",", "0"}]], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "dd90dc9a-d246-4301-b800-65c15b66e7a6"],
+  ExpressionUUID->"23a09afc-9fb0-404b-964d-e1354b94cbf8"],
  ", ",
  Cell[BoxData[
   TemplateBox[{
@@ -2755,28 +2689,26 @@ operation ",
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "d9d8b4e7-84df-4568-bba8-099e82ab1108"],
+  "5365c860-2ac1-417b-9ae6-99efa32ac69d"],
  ", is nonzero before any twisting, and ",
  Cell[BoxData[
   FormBox[
    SubsuperscriptBox[
     StyleBox["q", "TI"], 
     RowBox[{"1", ",", "1", ",", "0"}], 
-    StyleBox["m", "TI"]], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "be43558f-adeb-4756-9e4e-b71207eb8563"],
+    StyleBox["m", "TI"]], TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "fc1f0522-d5fc-4da7-8d3a-c215dc0a3760"],
  " stacks the bracket with the element on top of it; ",
  Cell[BoxData[
   FormBox[
    SuperscriptBox[
     StyleBox["CP",
      FontSlant->"Plain"], "2"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "c65f702f-40b5-4202-8265-6251114f0de7"],
+  ExpressionUUID->"0d1ca9e0-fb49-4ac0-b218-944f0d42b54a"],
  ", being formal, has none."
-}], "Text",ExpressionUUID->"150c8267-12c4-4cb9-8239-7f980c0281d5"],
+}], "Text",ExpressionUUID->"2b8fa2d8-da4a-4a30-ad8c-85833497e4e2"],
 
-Cell["The whole catalogue", "Section",ExpressionUUID->"aee9d6ec-a591-44ce-af5a-3439702b8810"],
+Cell["The whole catalogue", "Section",ExpressionUUID->"b1ef7d93-3895-48a1-8162-1c72f61af7fd"],
 
 Cell[TextData[{
  "Every model in ",
@@ -2787,10 +2719,10 @@ Cell[TextData[{
     "ChernSimons Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "b033cb74-f7f3-492d-85a7-547189f8bdea"],
+  "d8f06079-4e74-4db9-8eeb-a7ef85987f57"],
  " runs through the same five steps. The one exception is the last row, and \
 it is the point of the next tutorial."
-}], "Text",ExpressionUUID->"6b93a40f-cc60-4ac9-8a04-1686359ac74a"],
+}], "Text",ExpressionUUID->"cc1a3afb-2424-406d-8490-6eb14032f65b"],
 
 Cell[CellGroupData[{
 
@@ -2850,7 +2782,7 @@ Cell[BoxData[{
       "   ", "\"\<Degree4Obstruction\>\""}], "}"}]}], "]"}], "]"}]}], "Input",\
 
  CellLabel->
-  "In[23]:= ",ExpressionUUID->"7ef15188-2c21-4ddd-9bd6-f68d82cb1476"],
+  "In[23]:= ",ExpressionUUID->"dd5ed88a-f289-4a0c-99bb-3532fdb7635a"],
 
 Cell[BoxData[
  TagBox[
@@ -4051,7 +3983,7 @@ lastPathIsLeafHeader, TypeSystem`NestedGrid`PackagePrivate`headerHidden$ = And[
   SelectWithContents->True,
   Selectable->False]], "Output",
  CellLabel->
-  "Out[23]= ",ExpressionUUID->"7a2bee73-1e1a-4e50-9373-7b296da0fe17"]
+  "Out[23]= ",ExpressionUUID->"d0402760-79e1-41be-b876-ea0ba21ad9bb"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4067,7 +3999,7 @@ Cell[TextData[{
      TextData["ChernSimons"]], "paclet:ChernSimons/guide/ChernSimons"},
    "RefLinkPlain",
    BaseStyle->{"InlineFormula"}]], "InlineFormula",ExpressionUUID->
-  "5bf564fc-d4fb-40f6-882b-e80d53c7214e"],
+  "626893eb-bfdc-47bb-bc03-967ab0e77372"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -4076,7 +4008,7 @@ Cell[TextData[{
     "paclet:ChernSimons/guide/BeilinsonDrinfeldFormalism"},
    "RefLinkPlain",
    BaseStyle->{"InlineFormula"}]], "InlineFormula",ExpressionUUID->
-  "a19a4875-c6e7-452c-925b-ca074ab874b7"],
+  "0d1b2bcd-8736-4691-8f18-298c68192998"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -4084,9 +4016,9 @@ Cell[TextData[{
      TextData["AlgebraicModels"]], "paclet:ChernSimons/guide/AlgebraicModels"},
    "RefLinkPlain",
    BaseStyle->{"InlineFormula"}]], "InlineFormula",ExpressionUUID->
-  "c78223c5-3d33-412c-ae4f-33fdaabca5d9"]
-}], "TutorialMoreAbout",ExpressionUUID->"607d13e6-15a2-4a9f-9184-\
-acafcfaf317a"]
+  "6f9c81c6-9562-4952-a7d0-c1811e4fdaef"]
+}], "TutorialMoreAbout",ExpressionUUID->"0fd9c491-cb1c-4232-ad90-\
+31f0e879fb17"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4102,7 +4034,7 @@ Cell[TextData[{
     "paclet:ChernSimons/tutorial/HodgeTypeAndTheNondegenerateQuotient"},
    "RefLinkPlain",
    BaseStyle->{"InlineFormula"}]], "InlineFormula",ExpressionUUID->
-  "6d939b59-797d-48b8-bcf1-10d7f855cf15"],
+  "00e4745b-6901-4dcc-9438-b62234e29c16"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -4111,8 +4043,8 @@ Cell[TextData[{
     "paclet:ChernSimons/tutorial/TheCanonicalIBLAlgebraOfTheCircle"},
    "RefLinkPlain",
    BaseStyle->{"InlineFormula"}]], "InlineFormula",ExpressionUUID->
-  "8764ab39-48be-4c1e-a95b-20cddb679775"]
-}], "RelatedTutorials",ExpressionUUID->"9b5877f4-64ea-4c94-82c9-4754e4f6478f"]
+  "d9a386a1-4fa4-4a12-b1ed-51a964b804e6"]
+}], "RelatedTutorials",ExpressionUUID->"c11a9345-8ed7-49ec-8d47-fb3f249482b8"]
 }, Open  ]]
 }, Open  ]],
 
@@ -4153,7 +4085,7 @@ Cell["ChernSimons`", "Categorization",
  CellID->468444828,ExpressionUUID->"ede4e8bf-a791-499c-bac0-9252a967c621"],
 
 Cell["ChernSimons/tutorial/FromASullivanModelToAnIBLAlgebra", "Categorization",
- CellLabel->"URI",ExpressionUUID->"7669c24f-477f-4cb0-ab71-712575c2b53d"]
+ CellLabel->"URI",ExpressionUUID->"03220d7b-2e0d-4047-9ea3-6961ea066828"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -4216,176 +4148,176 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 131, 1, 70, "Title",ExpressionUUID->"4ddb5767-1f00-4973-a411-49eacd07850d",
  CellID->509267359],
-Cell[710, 25, 1651, 42, 70, "Text",ExpressionUUID->"9d47005c-b7e4-4454-ae7b-908d64881c13"],
-Cell[2364, 69, 117, 0, 70, "Text",ExpressionUUID->"f3053b8c-1021-4564-87d0-ccb771bd1e43"],
-Cell[2484, 71, 91, 0, 70, "Section",ExpressionUUID->"fda1ec98-6bd7-4f30-b892-a833d9b57ffd"],
-Cell[2578, 73, 2029, 65, 70, "Text",ExpressionUUID->"d8c3801e-99a0-4aa8-bfc2-05646e366eaf"],
+Cell[710, 25, 1516, 37, 70, "Text",ExpressionUUID->"66560352-bbd3-4177-b6e9-9ebcd6d66ae1"],
+Cell[2229, 64, 117, 0, 70, "Text",ExpressionUUID->"4e148c84-ecce-4e82-9aa2-04cb45c7c3ea"],
+Cell[2349, 66, 91, 0, 70, "Section",ExpressionUUID->"0673151e-271f-4632-9d75-d0c0fa362f48"],
+Cell[2443, 68, 1810, 56, 70, "Text",ExpressionUUID->"7caf128e-20cf-4f54-ba18-071ceebc3639"],
 Cell[CellGroupData[{
-Cell[4632, 142, 357, 8, 70, "Input",ExpressionUUID->"06d36ab9-54f9-4c71-828e-5703af0e9db7"],
-Cell[4992, 152, 212, 5, 70, "Output",ExpressionUUID->"cc2fb087-479d-4890-8de6-04e6d39dbdb7"]
+Cell[4278, 128, 357, 8, 70, "Input",ExpressionUUID->"9f650659-36f1-4395-934d-c373bf653869"],
+Cell[4638, 138, 212, 5, 70, "Output",ExpressionUUID->"af74bfac-6f7a-469c-b83b-2c841352d99e"]
 }, Open  ]],
-Cell[5219, 160, 180, 3, 70, "Text",ExpressionUUID->"692a568d-dd83-4b10-84fd-b6aff38ce92c"],
+Cell[4865, 146, 180, 3, 70, "Text",ExpressionUUID->"b4fd6432-c141-4b69-acc3-a71cd2ddaed9"],
 Cell[CellGroupData[{
-Cell[5424, 167, 356, 8, 70, "Input",ExpressionUUID->"45affeb4-199a-49e8-9b6c-a3b6a74c50e4"],
-Cell[5783, 177, 202, 5, 70, "Output",ExpressionUUID->"a7cc7760-5145-46bb-9bfc-baca70c4804d"]
+Cell[5070, 153, 356, 8, 70, "Input",ExpressionUUID->"5f6be69c-2c05-4ce2-acc2-0e1380ef41c6"],
+Cell[5429, 163, 202, 5, 70, "Output",ExpressionUUID->"cf4c2294-edb7-489d-a48e-abb008b15a34"]
 }, Open  ]],
-Cell[6000, 185, 598, 13, 70, "Text",ExpressionUUID->"0ca4cea9-03c3-40af-9aa5-d898ff070c68"],
+Cell[5646, 171, 598, 13, 70, "Text",ExpressionUUID->"d341f7b4-59f0-492c-8fda-ff08185f193f"],
 Cell[CellGroupData[{
-Cell[6623, 202, 314, 7, 70, "Input",ExpressionUUID->"da402e86-0183-44f7-9168-7078f1312bbe"],
-Cell[6940, 211, 531, 16, 70, "Output",ExpressionUUID->"e5a806b9-6d35-4824-a258-90ce7d3c0e4f"]
+Cell[6269, 188, 314, 7, 70, "Input",ExpressionUUID->"3270296f-ef16-4271-840a-e352d4b29c80"],
+Cell[6586, 197, 531, 16, 70, "Output",ExpressionUUID->"ee093a7f-9a2f-450b-b40d-fede3cda7238"]
 }, Open  ]],
-Cell[7486, 230, 117, 0, 70, "Section",ExpressionUUID->"5c85f806-a07b-42ae-994f-92e47b7eb2ac"],
-Cell[7606, 232, 2043, 60, 70, "Text",ExpressionUUID->"9b04c9e8-063b-48f7-bf34-e1c1f8d6bd1e"],
+Cell[7132, 216, 117, 0, 70, "Section",ExpressionUUID->"00d4cc9e-6b24-45b7-88e4-41e8dbcabf6f"],
+Cell[7252, 218, 1800, 51, 70, "Text",ExpressionUUID->"9450e1d4-9191-4f34-b145-9adc48208757"],
 Cell[CellGroupData[{
-Cell[9674, 296, 253, 5, 70, "Input",ExpressionUUID->"71ccf89a-2859-4606-9f99-76802ecb82e1"],
-Cell[9930, 303, 273, 7, 70, "Output",ExpressionUUID->"f1e386da-9877-40e9-9d92-f5877d61d643"]
+Cell[9077, 273, 253, 5, 70, "Input",ExpressionUUID->"607c0e47-8145-4ebb-9a33-82c773a20a50"],
+Cell[9333, 280, 273, 7, 70, "Output",ExpressionUUID->"14994dae-e0fb-4b81-adcc-9ec3fdfa8c61"]
 }, Open  ]],
-Cell[10218, 313, 992, 28, 70, "Text",ExpressionUUID->"cc9d972a-014f-4f8c-bba9-e3b670070235"],
+Cell[9621, 290, 911, 25, 70, "Text",ExpressionUUID->"1fa73ecb-0600-47a5-8fcc-f80e54d72b89"],
 Cell[CellGroupData[{
-Cell[11235, 345, 481, 11, 70, "Input",ExpressionUUID->"f0c2abd4-8fe7-4aea-ad8a-066e779e52d0"],
-Cell[11719, 358, 162, 3, 70, "Output",ExpressionUUID->"41958a2c-f827-4d8d-a17c-4993b9448d88"]
+Cell[10557, 319, 481, 11, 70, "Input",ExpressionUUID->"3beb4018-c214-4f18-9545-a51074a31997"],
+Cell[11041, 332, 162, 3, 70, "Output",ExpressionUUID->"863bd3fb-41c2-4f5c-b6a1-824e8e2c78d5"]
 }, Open  ]],
-Cell[11896, 364, 1017, 32, 70, "Text",ExpressionUUID->"63a5a0c6-afe1-4cfc-a72c-587a2649801b"],
+Cell[11218, 338, 960, 29, 70, "Text",ExpressionUUID->"922c3012-dbb4-4f36-a9f2-26c31c64b8a8"],
 Cell[CellGroupData[{
-Cell[12938, 400, 522, 13, 70, "Input",ExpressionUUID->"7705598d-a533-4ba8-b94b-bd46fbd4eb21"],
-Cell[13463, 415, 593, 17, 70, "Output",ExpressionUUID->"d7ff3722-28a0-4746-9639-c002004e9607"]
+Cell[12203, 371, 522, 13, 70, "Input",ExpressionUUID->"29ab8317-8964-462b-a0d6-57ee5b271e6a"],
+Cell[12728, 386, 593, 17, 70, "Output",ExpressionUUID->"6b8d1ba4-98be-43db-9948-3bdfd220b706"]
 }, Open  ]],
-Cell[14071, 435, 1005, 27, 70, "Text",ExpressionUUID->"77d756da-07a8-41e6-95f2-c18b4c9d7763"],
-Cell[15079, 464, 94, 0, 70, "Section",ExpressionUUID->"3b200831-e6c4-4556-ad2c-2331d32e3e16"],
-Cell[15176, 466, 1103, 33, 70, "Text",ExpressionUUID->"8a9dae66-c102-4d3d-8439-da3cc4ca1ce3"],
+Cell[13336, 406, 924, 24, 70, "Text",ExpressionUUID->"310b7922-f9b3-454c-b1a8-849fa2b69dbb"],
+Cell[14263, 432, 94, 0, 70, "Section",ExpressionUUID->"f344a8ae-f34d-4b78-a5cd-1bbd6af67d01"],
+Cell[14360, 434, 995, 29, 70, "Text",ExpressionUUID->"4ee50585-8c46-41a2-880c-ab2c23b6eb34"],
 Cell[CellGroupData[{
-Cell[16304, 503, 411, 9, 70, "Input",ExpressionUUID->"df739d8b-d24c-4c9e-b830-b5cc6bb42be1"],
-Cell[16718, 514, 285, 8, 70, "Output",ExpressionUUID->"3bad02b0-24a4-4a8f-a7d0-542bd722fd55"]
+Cell[15380, 467, 411, 9, 70, "Input",ExpressionUUID->"626b97ed-04ba-4d2d-b0bf-b807e42659e3"],
+Cell[15794, 478, 285, 8, 70, "Output",ExpressionUUID->"2f0a2657-893f-426d-bd9c-ba62d6fb8447"]
 }, Open  ]],
-Cell[17018, 525, 1543, 43, 70, "Text",ExpressionUUID->"7b0d4f3d-6bab-4665-a730-c9f6b121ba33"],
+Cell[16094, 489, 1435, 39, 70, "Text",ExpressionUUID->"72f30b5c-d5aa-4c22-86bd-ce871256a445"],
 Cell[CellGroupData[{
-Cell[18586, 572, 146, 2, 70, "Input",ExpressionUUID->"222988d6-780e-4cd8-bde0-7c09f28247d1"],
-Cell[18735, 576, 110, 1, 70, "Output",ExpressionUUID->"04cbe296-3f4d-4577-a89a-a661b13cf412"]
+Cell[17554, 532, 146, 2, 70, "Input",ExpressionUUID->"9a9d29b1-114b-4493-8458-93fa1d1d85cb"],
+Cell[17703, 536, 110, 1, 70, "Output",ExpressionUUID->"f1cee1da-ac2b-4004-b559-f650772925fc"]
 }, Open  ]],
-Cell[18860, 580, 1266, 31, 70, "Text",ExpressionUUID->"d7d061a1-1c4d-4a24-b06c-c9eeca8e6f4e"],
+Cell[17828, 540, 1189, 30, 70, "Text",ExpressionUUID->"386ecb58-af6e-4c8b-9be8-0dfc2c4f7d2d"],
 Cell[CellGroupData[{
-Cell[20151, 615, 151, 2, 70, "Input",ExpressionUUID->"9f1d5c30-3494-4f4f-956c-651eb120a4d5"],
-Cell[20305, 619, 68205, 1343, 70, "Output",ExpressionUUID->"39890d6a-5a28-44d1-8abd-fd42a341152b"]
+Cell[19042, 574, 151, 2, 70, "Input",ExpressionUUID->"679ab863-dc37-4d7a-be15-ab2e9fca1ebd"],
+Cell[19196, 578, 68205, 1343, 70, "Output",ExpressionUUID->"5d99d841-854d-4e3f-9aaf-fe5d8d1b38f2"]
 }, Open  ]],
-Cell[88525, 1965, 1571, 53, 70, "Text",ExpressionUUID->"e4c29bee-82a3-46cd-926c-a99703ca0f64"],
-Cell[90099, 2020, 100, 0, 70, "Section",ExpressionUUID->"f5a936d8-c694-441e-b44b-fcf087e99661"],
-Cell[90202, 2022, 574, 14, 70, "Text",ExpressionUUID->"bf8f6bee-a3dd-4a43-9540-4d1e85a8e038"],
+Cell[87416, 1924, 1457, 47, 70, "Text",ExpressionUUID->"676c1371-d9df-402a-a8a1-93346b7649be"],
+Cell[88876, 1973, 100, 0, 70, "Section",ExpressionUUID->"35002852-5c36-4792-83f4-c21f29844290"],
+Cell[88979, 1975, 547, 13, 70, "Text",ExpressionUUID->"e81e4ce8-7a64-4066-a8b0-36ce96ccc17b"],
 Cell[CellGroupData[{
-Cell[90801, 2040, 363, 9, 70, "Input",ExpressionUUID->"181a64d7-9f29-4715-9b0e-20232c566553"],
-Cell[91167, 2051, 301, 9, 70, "Output",ExpressionUUID->"c540123d-87cd-4d70-b6cd-63d2738517e4"]
+Cell[89551, 1992, 363, 9, 70, "Input",ExpressionUUID->"e75a961c-52bf-47b2-a191-d5fbdf815b9f"],
+Cell[89917, 2003, 301, 9, 70, "Output",ExpressionUUID->"354fb85f-0f9e-46be-bdd2-e2e52d941d28"]
 }, Open  ]],
-Cell[91483, 2063, 709, 20, 70, "Text",ExpressionUUID->"5f83a699-60ac-4ec7-89a6-e08f4c53fe02"],
+Cell[90233, 2015, 655, 18, 70, "Text",ExpressionUUID->"4152d6fe-396b-4996-aad5-c74e4a5e2059"],
 Cell[CellGroupData[{
-Cell[92217, 2087, 198, 5, 70, "Input",ExpressionUUID->"48f56395-2e39-4df5-a101-bf4a5e824700"],
-Cell[92418, 2094, 597, 18, 70, "Output",ExpressionUUID->"9adeada7-74b9-466e-b428-e03d453bd372"]
+Cell[90913, 2037, 198, 5, 70, "Input",ExpressionUUID->"f020fc34-199a-4549-aefc-f7f81a744011"],
+Cell[91114, 2044, 597, 18, 70, "Output",ExpressionUUID->"e0daf40a-04ac-473d-913a-07816a4e10e3"]
 }, Open  ]],
-Cell[93030, 2115, 101, 0, 70, "Text",ExpressionUUID->"1c9900f7-cc90-49d7-8da8-29683c67429d"],
+Cell[91726, 2065, 101, 0, 70, "Text",ExpressionUUID->"8160842e-c5d9-4976-9b8b-bf9dfe6fb9a3"],
 Cell[CellGroupData[{
-Cell[93156, 2119, 203, 5, 70, "Input",ExpressionUUID->"661f9cd9-15d0-4ec2-8e5d-f2e92451ca88"],
-Cell[93362, 2126, 597, 18, 70, "Output",ExpressionUUID->"cce5ecc5-d220-458f-aa69-31ce93395b67"]
+Cell[91852, 2069, 203, 5, 70, "Input",ExpressionUUID->"16592d79-9d9b-444b-a67c-49f431142f80"],
+Cell[92058, 2076, 597, 18, 70, "Output",ExpressionUUID->"3b434c50-d42a-4321-9958-16c3d5b7db2c"]
 }, Open  ]],
-Cell[93974, 2147, 686, 20, 70, "Text",ExpressionUUID->"cdc2c56b-a056-4e31-aafa-dabd64abaae8"],
+Cell[92670, 2097, 659, 19, 70, "Text",ExpressionUUID->"9060bf9c-233e-41fe-920c-9ae1d3bdb43b"],
 Cell[CellGroupData[{
-Cell[94685, 2171, 184, 4, 70, "Input",ExpressionUUID->"9ef8932c-d52a-412c-8b1e-b1dc9d7f8203"],
-Cell[94872, 2177, 745, 23, 70, "Output",ExpressionUUID->"697b8c3f-ef5a-430c-ac1b-436c22852eeb"]
+Cell[93354, 2120, 184, 4, 70, "Input",ExpressionUUID->"1d1631dc-8680-41c1-96d2-bd2a06252b73"],
+Cell[93541, 2126, 745, 23, 70, "Output",ExpressionUUID->"b6805397-8627-41f3-bbb5-818e83023deb"]
 }, Open  ]],
-Cell[95632, 2203, 108, 0, 70, "Section",ExpressionUUID->"24bfb478-97a8-4d15-9b2e-ebc91eaa3739"],
-Cell[95743, 2205, 1021, 26, 70, "Text",ExpressionUUID->"14d6664c-a3ed-4745-bf9c-afb4b3acadf9"],
+Cell[94301, 2152, 108, 0, 70, "Section",ExpressionUUID->"08a6c919-f0c8-478c-a264-15679d490871"],
+Cell[94412, 2154, 967, 24, 70, "Text",ExpressionUUID->"0ebeae1f-e849-44e8-9bbf-71508e6daa0f"],
 Cell[CellGroupData[{
-Cell[96789, 2235, 301, 7, 70, "Input",ExpressionUUID->"857f5e4b-fddc-47a7-add9-57291328ad32"],
-Cell[97093, 2244, 302, 9, 70, "Output",ExpressionUUID->"961cdeec-2c19-4687-90e8-a02e607883f3"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[97432, 2258, 289, 8, 70, "Input",ExpressionUUID->"63d6cd63-d8a0-4404-a3c7-437026ac540a"],
-Cell[97724, 2268, 156, 4, 70, "Output",ExpressionUUID->"4826643e-a149-4b80-af02-6ebe89579a22"]
+Cell[95404, 2182, 301, 7, 70, "Input",ExpressionUUID->"5c3801cd-12f0-433e-842f-5326d37fa687"],
+Cell[95708, 2191, 302, 9, 70, "Output",ExpressionUUID->"ad25d279-7611-4d6d-9e90-47b39aea0a6d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[97917, 2277, 189, 4, 70, "Input",ExpressionUUID->"bfa4fcd3-55ac-47da-a7e7-a493222cd136"],
-Cell[98109, 2283, 1125, 38, 70, "Output",ExpressionUUID->"4b70b21f-9acd-4ac9-b327-124919bd9979"]
-}, Open  ]],
-Cell[99249, 2324, 1925, 51, 70, "Text",ExpressionUUID->"8e932cee-1dd2-4e9d-b0e6-1e6b00cb4bcf"],
-Cell[CellGroupData[{
-Cell[101199, 2379, 189, 4, 70, "Input",ExpressionUUID->"99d55326-e270-4bb2-bbda-02ddd82acdf0"],
-Cell[101391, 2385, 728, 21, 70, "Output",ExpressionUUID->"b2058c25-1e78-4ace-adf9-169acc27fd25"]
-}, Open  ]],
-Cell[102134, 2409, 129, 0, 70, "Text",ExpressionUUID->"ad0c59b1-89c8-4079-9b2c-ff5a895853a5"],
-Cell[CellGroupData[{
-Cell[102288, 2413, 423, 12, 70, "Input",ExpressionUUID->"ed8e3746-4b94-4cd4-af95-0352087f712e"],
-Cell[102714, 2427, 313, 9, 70, "Output",ExpressionUUID->"07e03df8-f616-4323-9615-e2c837b55f09"]
-}, Open  ]],
-Cell[103042, 2439, 577, 14, 70, "Text",ExpressionUUID->"aaee2aa6-1930-4c4f-93e2-cfcdf770d303"],
-Cell[CellGroupData[{
-Cell[103644, 2457, 1379, 34, 70, "Input",ExpressionUUID->"6cb84747-9762-42cf-8cfd-3922e46feca7"],
-Cell[105026, 2493, 176, 4, 70, "Output",ExpressionUUID->"aea7fb65-392b-4516-bb3f-3bc44a44ee17"]
-}, Open  ]],
-Cell[105217, 2500, 109, 0, 70, "Section",ExpressionUUID->"3bfd68ed-7183-427d-85a8-7766e4d3f163"],
-Cell[105329, 2502, 250, 4, 70, "Text",ExpressionUUID->"7e3b76f8-1871-4fdf-940e-7553c24008b4"],
-Cell[105582, 2508, 1415, 53, 70, "DisplayFormula",ExpressionUUID->"90811555-9138-46fa-8f77-dfbf57ed5c8c"],
-Cell[107000, 2563, 1146, 35, 70, "Text",ExpressionUUID->"1d0fae14-3b24-4e9e-ade0-64e6a68fc343"],
-Cell[CellGroupData[{
-Cell[108171, 2602, 307, 8, 70, "Input",ExpressionUUID->"1282d373-cf0f-4ab6-9503-97c20acdada5"],
-Cell[108481, 2612, 565, 15, 70, "Output",ExpressionUUID->"4396be94-380a-466f-a751-53d95d6d9c52"]
-}, Open  ]],
-Cell[109061, 2630, 557, 16, 70, "Text",ExpressionUUID->"2778ec28-1ed0-4a42-af40-11dae496ead1"],
-Cell[CellGroupData[{
-Cell[109643, 2650, 534, 14, 70, "Input",ExpressionUUID->"3d8f4309-b816-40aa-873d-68019487fc18"],
-Cell[110180, 2666, 156, 4, 70, "Output",ExpressionUUID->"04f2d56a-c6f8-406d-9a62-e55de6f0a10f"]
-}, Open  ]],
-Cell[110351, 2673, 664, 17, 70, "Text",ExpressionUUID->"83271497-725a-40bd-a01e-3ca364720443"],
-Cell[CellGroupData[{
-Cell[111040, 2694, 146, 3, 70, "Input",ExpressionUUID->"49ac88a8-2224-45b6-b155-f47892ab393b"],
-Cell[111189, 2699, 114, 2, 70, "Output",ExpressionUUID->"237a72ec-4e4b-4ea7-b6f5-6519352747ff"]
-}, Open  ]],
-Cell[111318, 2704, 2430, 72, 70, "Text",ExpressionUUID->"150c8267-12c4-4cb9-8239-7f980c0281d5"],
-Cell[113751, 2778, 93, 0, 70, "Section",ExpressionUUID->"aee9d6ec-a591-44ce-af5a-3439702b8810"],
-Cell[113847, 2780, 500, 12, 70, "Text",ExpressionUUID->"6b93a40f-cc60-4ac9-8a04-1686359ac74a"],
-Cell[CellGroupData[{
-Cell[114372, 2796, 2392, 56, 70, "Input",ExpressionUUID->"7ef15188-2c21-4ddd-9bd6-f68d82cb1476"],
-Cell[116767, 2854, 60935, 1199, 70, "Output",ExpressionUUID->"7a2bee73-1e1a-4e50-9373-7b296da0fe17"]
+Cell[96047, 2205, 289, 8, 70, "Input",ExpressionUUID->"828eb0d6-f472-4cce-84c4-3dedffb5d896"],
+Cell[96339, 2215, 156, 4, 70, "Output",ExpressionUUID->"2e7ddbf1-66d9-4620-823a-4e69d43fb615"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[177739, 4058, 190, 2, 70, "TutorialMoreAboutSection",ExpressionUUID->"5257eb3e-c622-464d-9014-cc39ccdeadf5",
+Cell[96532, 2224, 189, 4, 70, "Input",ExpressionUUID->"d3646b94-8b58-4f3f-8997-b87e3e7c9cab"],
+Cell[96724, 2230, 1125, 38, 70, "Output",ExpressionUUID->"a3080337-5e08-4825-bb76-48bed5aa633d"]
+}, Open  ]],
+Cell[97864, 2271, 1790, 46, 70, "Text",ExpressionUUID->"a8fc354f-9049-4805-9e46-432e34e5d25f"],
+Cell[CellGroupData[{
+Cell[99679, 2321, 189, 4, 70, "Input",ExpressionUUID->"b528e242-e200-4469-b99a-419ff80cbd4f"],
+Cell[99871, 2327, 728, 21, 70, "Output",ExpressionUUID->"42fd0f11-586f-4761-a9a3-700bed99b9c2"]
+}, Open  ]],
+Cell[100614, 2351, 129, 0, 70, "Text",ExpressionUUID->"cb029726-08bb-403d-a50a-f872a1e17fcb"],
+Cell[CellGroupData[{
+Cell[100768, 2355, 423, 12, 70, "Input",ExpressionUUID->"be21e8b8-abf3-4af9-a58a-af87e2d42057"],
+Cell[101194, 2369, 313, 9, 70, "Output",ExpressionUUID->"4d49ead5-de6c-4664-bc4b-2ca35fb9cf69"]
+}, Open  ]],
+Cell[101522, 2381, 577, 14, 70, "Text",ExpressionUUID->"a2b0906a-78af-4d3c-b96d-9d23384df8d0"],
+Cell[CellGroupData[{
+Cell[102124, 2399, 1379, 34, 70, "Input",ExpressionUUID->"8b549ef1-b54a-4d09-8b6d-f09c53dc165c"],
+Cell[103506, 2435, 176, 4, 70, "Output",ExpressionUUID->"cf3a4ae5-a95a-47a8-b9b8-faac6e16e624"]
+}, Open  ]],
+Cell[103697, 2442, 109, 0, 70, "Section",ExpressionUUID->"1bb89939-2501-43a8-9df5-145a9cb34eb8"],
+Cell[103809, 2444, 250, 4, 70, "Text",ExpressionUUID->"e8a815be-6039-44c5-a38b-0f6d410259e6"],
+Cell[104062, 2450, 1639, 57, 70, "DisplayFormula",ExpressionUUID->"db2ea580-da3c-40ce-a807-425b44a9d20e"],
+Cell[105704, 2509, 1092, 33, 70, "Text",ExpressionUUID->"b5382257-d679-434f-a4ed-cb6af97494b6"],
+Cell[CellGroupData[{
+Cell[106821, 2546, 307, 8, 70, "Input",ExpressionUUID->"0973f0f7-5c8e-4935-aabb-9f847045e015"],
+Cell[107131, 2556, 565, 15, 70, "Output",ExpressionUUID->"80822709-623b-439e-b3bf-11885bf660f9"]
+}, Open  ]],
+Cell[107711, 2574, 500, 13, 70, "Text",ExpressionUUID->"545072f8-186e-42d1-b841-f759841d5263"],
+Cell[CellGroupData[{
+Cell[108236, 2591, 534, 14, 70, "Input",ExpressionUUID->"508933af-09aa-4d36-a4ae-ba6b27262702"],
+Cell[108773, 2607, 156, 4, 70, "Output",ExpressionUUID->"dc7dcd3d-1961-458a-9ded-031e33900b5d"]
+}, Open  ]],
+Cell[108944, 2614, 634, 15, 70, "Text",ExpressionUUID->"fb1d48d3-b7b7-4ff9-b7b8-1142835f137b"],
+Cell[CellGroupData[{
+Cell[109603, 2633, 146, 3, 70, "Input",ExpressionUUID->"80599932-c364-4da5-abbe-3c5ee856f492"],
+Cell[109752, 2638, 114, 2, 70, "Output",ExpressionUUID->"5508d561-daf6-4f74-812a-c483f53c4c25"]
+}, Open  ]],
+Cell[109881, 2643, 2241, 65, 70, "Text",ExpressionUUID->"2b8fa2d8-da4a-4a30-ad8c-85833497e4e2"],
+Cell[112125, 2710, 93, 0, 70, "Section",ExpressionUUID->"b1ef7d93-3895-48a1-8162-1c72f61af7fd"],
+Cell[112221, 2712, 500, 12, 70, "Text",ExpressionUUID->"cc1a3afb-2424-406d-8490-6eb14032f65b"],
+Cell[CellGroupData[{
+Cell[112746, 2728, 2392, 56, 70, "Input",ExpressionUUID->"dd5ed88a-f289-4a0c-99bb-3532fdb7635a"],
+Cell[115141, 2786, 60935, 1199, 70, "Output",ExpressionUUID->"d0402760-79e1-41be-b876-ea0ba21ad9bb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[176113, 3990, 190, 2, 70, "TutorialMoreAboutSection",ExpressionUUID->"5257eb3e-c622-464d-9014-cc39ccdeadf5",
  CellID->23220180],
-Cell[177932, 4062, 930, 26, 70, "TutorialMoreAbout",ExpressionUUID->"607d13e6-15a2-4a9f-9184-acafcfaf317a"]
+Cell[176306, 3994, 930, 26, 70, "TutorialMoreAbout",ExpressionUUID->"0fd9c491-cb1c-4232-ad90-31f0e879fb17"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[178899, 4093, 128, 1, 70, "RelatedTutorialsSection",ExpressionUUID->"b2e45423-8573-455e-a176-5d94c88daeca",
+Cell[177273, 4025, 128, 1, 70, "RelatedTutorialsSection",ExpressionUUID->"b2e45423-8573-455e-a176-5d94c88daeca",
  CellID->415694126],
-Cell[179030, 4096, 720, 18, 70, "RelatedTutorials",ExpressionUUID->"9b5877f4-64ea-4c94-82c9-4754e4f6478f"]
+Cell[177404, 4028, 720, 18, 70, "RelatedTutorials",ExpressionUUID->"c11a9345-8ed7-49ec-8d47-fb3f249482b8"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[179799, 4120, 110, 1, 70, "MetadataSection",ExpressionUUID->"38acdcf9-123b-4203-93d8-59fc1f9c4ab9",
+Cell[178173, 4052, 110, 1, 70, "MetadataSection",ExpressionUUID->"38acdcf9-123b-4203-93d8-59fc1f9c4ab9",
  CellID->311882160],
-Cell[179912, 4123, 476, 12, 70, "History",ExpressionUUID->"72ab9502-89c9-4b16-9ce4-9a5270f3244a",
+Cell[178286, 4055, 476, 12, 70, "History",ExpressionUUID->"72ab9502-89c9-4b16-9ce4-9a5270f3244a",
  CellID->341476719],
 Cell[CellGroupData[{
-Cell[180413, 4139, 123, 1, 70, "CategorizationSection",ExpressionUUID->"92ac9f0b-ee9b-473e-a1b0-116a912bcdd0",
+Cell[178787, 4071, 123, 1, 70, "CategorizationSection",ExpressionUUID->"92ac9f0b-ee9b-473e-a1b0-116a912bcdd0",
  CellID->1122911449],
-Cell[180539, 4142, 136, 2, 70, "Categorization",ExpressionUUID->"42f179a2-5985-429e-8a53-eaef0eb8edd1",
+Cell[178913, 4074, 136, 2, 70, "Categorization",ExpressionUUID->"42f179a2-5985-429e-8a53-eaef0eb8edd1",
  CellID->686433507],
-Cell[180678, 4146, 139, 2, 70, "Categorization",ExpressionUUID->"5ee37782-a9f3-410a-9c77-31ee5fde0f9c",
+Cell[179052, 4078, 139, 2, 70, "Categorization",ExpressionUUID->"5ee37782-a9f3-410a-9c77-31ee5fde0f9c",
  CellID->605800465],
-Cell[180820, 4150, 136, 2, 70, "Categorization",ExpressionUUID->"ede4e8bf-a791-499c-bac0-9252a967c621",
+Cell[179194, 4082, 136, 2, 70, "Categorization",ExpressionUUID->"ede4e8bf-a791-499c-bac0-9252a967c621",
  CellID->468444828],
-Cell[180959, 4154, 153, 1, 70, "Categorization",ExpressionUUID->"7669c24f-477f-4cb0-ab71-712575c2b53d"]
+Cell[179333, 4086, 153, 1, 70, "Categorization",ExpressionUUID->"03220d7b-2e0d-4047-9ea3-6961ea066828"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[181149, 4160, 111, 1, 70, "KeywordsSection",ExpressionUUID->"cad3e2f5-97ed-4ec0-b746-8f0b1d4c7db5",
+Cell[179523, 4092, 111, 1, 70, "KeywordsSection",ExpressionUUID->"cad3e2f5-97ed-4ec0-b746-8f0b1d4c7db5",
  CellID->1427428552],
-Cell[181263, 4163, 110, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+Cell[179637, 4095, 110, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
  CellID->1251852827],
-Cell[181376, 4166, 112, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+Cell[179750, 4098, 112, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
  CellID->1251852827],
-Cell[181491, 4169, 106, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+Cell[179865, 4101, 106, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
  CellID->1251852827],
-Cell[181600, 4172, 118, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+Cell[179974, 4104, 118, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
  CellID->1251852827],
-Cell[181721, 4175, 109, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+Cell[180095, 4107, 109, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
  CellID->1251852827],
-Cell[181833, 4178, 108, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+Cell[180207, 4110, 108, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
  CellID->1251852827],
-Cell[181944, 4181, 120, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+Cell[180318, 4113, 120, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
  CellID->1251852827]
 }, Closed]]
 }, Open  ]]

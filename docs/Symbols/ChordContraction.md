@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/ChordContraction
 Keywords: [chord, contraction, joining, cutting, bracket term, co-bracket term, empty word]
 SeeAlso: [CanonicalLieBracket, CanonicalLieCobracket, KoszulSign, CyclicWord, GradedPairing]
-RelatedGuides: [CanonicalLieBialgebras]
+RelatedGuides: [CanonicalLieBialgebra]
 ---
 
 ## Usage

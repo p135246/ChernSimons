@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/Obstruction
 Keywords: [obstruction, relation, Jacobi identity, co-Jacobi identity, Drinfeld compatibility, involutivity, Maurer-Cartan equation, BD master equation, A-infinity relation, A-infinity morphism, cochain complex, Hodge decomposition]
 SeeAlso: [Relations, RelationsQ, CanonicalLieBialgebra, MaurerCartanElement, AInfinityAlgebra, AInfinityMorphism, CochainComplexWithPairing, HodgeDecomposition]
-RelatedGuides: [HomotopyAlgebras, CanonicalLieBialgebras, BeilinsonDrinfeldFormalism, HodgeDecompositions]
+RelatedGuides: [HomotopyAlgebras, CanonicalLieBialgebra, BeilinsonDrinfeldFormalism, HodgeDecompositions]
 ---
 
 ## Usage

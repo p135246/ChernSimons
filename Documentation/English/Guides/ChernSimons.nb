@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     28739,        744]
-NotebookOptionsPosition[     20373,        599]
-NotebookOutlinePosition[     21643,        632]
-CellTagsIndexPosition[     21600,        629]
+NotebookDataLength[     32260,        856]
+NotebookOptionsPosition[     23520,        706]
+NotebookOutlinePosition[     24812,        739]
+CellTagsIndexPosition[     24769,        736]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,35 +24,140 @@ Cell["Chern-Simons Theory", "GuideTitle",
  CellID->942062912,ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3"],
 
 Cell[TextData[{
- "The theory is the large-",
+ "This paclet contains computable aspects of a version of ",
+ StyleBox["Chern-Simons theory",
+  FontWeight->"Bold"],
+ " announced by ",
+ ButtonBox["Cieliebak, Fukaya and Latschev",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/1508.02741"], None}],
+ ", defined by ",
+ ButtonBox["Cieliebak and Volkov",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/2312.05922"], None}],
+ " and, among others, studied in ",
+ ButtonBox["H\[AAcute]jek's PhD thesis",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/2003.07933"], None}],
+ ". It corresponds to the ",
+ StyleBox["large-",
+  FontWeight->"Bold"],
  Cell[BoxData[
   FormBox[
    StyleBox["n", "TI"], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "4b1628e5-c2f2-4815-ac89-c7a2fa88119f"],
- " limit of ",
+  FontWeight->"Bold",ExpressionUUID->"72733162-6c8b-4494-8506-f30767154e38"],
+ StyleBox[" limit",
+  FontWeight->"Bold"],
+ " of ",
  Cell[BoxData[
   FormBox[
    RowBox[{
     StyleBox["U", "TI"], "(", 
     StyleBox["n", "TI"], ")"}], TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "ffcc1178-9f81-4343-8360-f6e75ddc2f7e"],
- " Chern-Simons theory on a closed oriented manifold. Its action is a \
-Beilinson-Drinfeld action on the cyclic words of the de Rham cohomology, \
-equivalently a Maurer-Cartan element of an IBL-infinity algebra. It is \
-related to string topology: the bracket and the co-bracket of cyclic words \
-model the string topology operations on the free loop space of the manifold. \
-It is related to symplectic field theory, whose algebraic structure is an \
-IBL-infinity algebra as well. One can imagine it as the open part of an \
-open-closed string field theory of holomorphic curves in the cotangent \
-bundle, the closed part being the symplectic field theory of the unit \
-cotangent bundle. Its areas are the canonical Lie bialgebras of cyclic words, \
-the Beilinson-Drinfeld formalism with its Maurer-Cartan elements, the \
-algebraic models from which the graded alphabet of the cyclic words is read, \
-and the homotopy algebras. Each area has its own guide."
-}], "GuideAbstract",
- CellID->2001916300,ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925"]
+  ExpressionUUID->"cf492e13-f752-4b28-ad39-dd63d93763a8"],
+ " Chern-Simons theory on a closed oriented manifold (see also the recent \
+paper of ",
+ ButtonBox["Hamilton",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/2505.15938"], None}],
+ ")."
+}], "GuideAbstract",ExpressionUUID->"3b0202d3-ce5d-4d18-becb-b253c8cc5683"],
+
+Cell[TextData[{
+ "It can be formulated on the ",
+ StyleBox["cyclic words",
+  FontWeight->"Bold"],
+ " of the de Rham cohomology either as an IBL-infinity ",
+ StyleBox["Maurer-Cartan element",
+  FontWeight->"Bold"],
+ " of a ",
+ StyleBox["canonical involutive bi-Lie algebra",
+  FontWeight->"Bold"],
+ " (IBL), or equivalently, as a ",
+ StyleBox["Beilinson-Drinfeld action",
+  FontWeight->"Bold"],
+ " of a ",
+ StyleBox["canonical BD operator",
+  FontWeight->"Bold"],
+ ". The action defines an ",
+ StyleBox["open string field theory",
+  FontWeight->"Bold"],
+ " on the de Rham cohomology that corresponds to a ",
+ StyleBox["quantum A-infinity algebra",
+  FontWeight->"Bold"],
+ " generalizing ",
+ ButtonBox["Stasheff",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://doi.org/10.1090/S0002-9947-1963-0158400-5"], None}],
+ "'s ",
+ StyleBox["A-infinity homotopy transfer",
+  FontWeight->"Bold"],
+ " from trees to ",
+ StyleBox["trivalent ribbon graphs",
+  FontWeight->"Bold"],
+ " (see ",
+ ButtonBox["M\[UDoubleDot]nster and Sachs",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/1109.4101"], None}],
+ ")."
+}], "GuideAbstract",ExpressionUUID->"2f43d31e-0fb7-41c8-bd3d-e6a1058b4d9b"],
+
+Cell[TextData[{
+ "This open string field theory can be thought of as the open sector of an ",
+ StyleBox["open-closed string field theory",
+  FontWeight->"Bold"],
+ " (",
+ ButtonBox["M\[UDoubleDot]nster and Sachs",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/1303.3444"], None}],
+ "), with the closed part being the ",
+ StyleBox["symplectic field theory",
+  FontWeight->"Bold"],
+ " of the unit cotangent bundle, and the ",
+ StyleBox["IBL-infinity morphism",
+  FontWeight->"Bold"],
+ " between the canonical IBL algebra twisted by the Maurer-Cartan element and \
+the IBL-infinity algebra of symplectic field theory twisted by the canonical \
+augmentation being obtained by integrating forms over the ",
+ StyleBox["moduli spaces of holomorphic curves",
+  FontWeight->"Bold"],
+ " with boundary punctures on the zero section (open string insertions), \
+where the forms are pulled back, and interior punctures asymptotic to Reeb \
+orbits (closed string insertions)."
+}], "GuideAbstract",ExpressionUUID->"46c0dd44-a743-4309-b792-accce04ddd58"],
+
+Cell[TextData[{
+ "If the manifold is simply connected, the structure is related to ",
+ StyleBox["string topology",
+  FontWeight->"Bold"],
+ ": the twisted IBL-infinity algebra is a chain model of ",
+ StyleBox["Chas-Sullivan equivariant string topology",
+  FontWeight->"Bold"],
+ " relative to a base point, via ",
+ StyleBox["Chen's iterated integrals",
+  FontWeight->"Bold"],
+ ". If the manifold is homologically simply connected, strong vanishing \
+results hold (",
+ ButtonBox["Cieliebak, H\[AAcute]jek and Volkov",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/2202.06837"], None}],
+ ") and the structure can be equivalently computed by taking a ",
+ StyleBox["Poincar\[EAcute] duality model",
+  FontWeight->"Bold"],
+ " of the de Rham cohomology and the canonical IBL algebra on its cyclic \
+words equipped with the ",
+ StyleBox["cyclic Hochschild differential",
+  FontWeight->"Bold"],
+ "."
+}], "GuideAbstract",ExpressionUUID->"d09d2ba2-f636-4208-bf8b-da3b58e9abfb"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -64,12 +169,12 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  ButtonBox[
-  RowBox[{"Canonical", " ", "Lie", " ", "Bialgebras"}],
+  RowBox[{"Canonical", " ", "Lie", " ", "Bialgebra"}],
   BaseStyle->"Link",
   ButtonData->
-   "paclet:ChernSimons/guide/CanonicalLieBialgebras"]], \
-"GuideFunctionsSubsection",ExpressionUUID->"d1902efc-0e64-4952-b285-\
-ddfebe0abc95"],
+   "paclet:ChernSimons/guide/CanonicalLieBialgebra"]], \
+"GuideFunctionsSubsection",ExpressionUUID->"d3f106a1-bfb4-4798-8fe2-\
+0bfce850ec8f"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -80,10 +185,10 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "9a831e82-ad07-4b60-882b-61b2e1fc7160"],
+  "39318d46-faec-4b53-a58c-b7457158f8c4"],
  " \[LongDash] ",
  "the graded alphabet with a pairing that the cyclic words are written in"
-}], "GuideText",ExpressionUUID->"2cae568d-ff8b-4a25-89e5-0938dbcbfa65"],
+}], "GuideText",ExpressionUUID->"6ee60af0-fce4-43e4-b245-6b73511f894c"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -94,10 +199,10 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "fd7c1bf8-3dd1-4a58-b1c9-a028d3e48a04"],
+  "c3b6adf0-daa0-440d-b25f-5a64d0540511"],
  " \[LongDash] ",
  "a cyclic word of particles"
-}], "GuideText",ExpressionUUID->"643f3c6f-9a4c-479e-bf01-0bf98fb2e7e5"],
+}], "GuideText",ExpressionUUID->"e24a6880-65c5-407c-9d37-b60a1c21f287"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -109,10 +214,10 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "b2795f37-73ab-4a13-8ddd-0512f764b1e1"],
+  "1b5df8d7-e7da-4249-bed4-2fbd5ff46974"],
  " \[LongDash] ",
  "the bracket of two cyclic words"
-}], "GuideText",ExpressionUUID->"f3961de8-a9b8-4d50-b667-76676990fea6"],
+}], "GuideText",ExpressionUUID->"1c400385-e0af-44c2-b946-551856028b35"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -124,10 +229,10 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "77e5b454-e4b1-4783-a4eb-22138bc36f04"],
+  "79ddfd70-74d9-45d4-a65a-c46b6072a152"],
  " \[LongDash] ",
  "the co-bracket of a cyclic word"
-}], "GuideText",ExpressionUUID->"ec3fe556-33c5-4813-a840-5a13b717c49b"],
+}], "GuideText",ExpressionUUID->"28c7d9dd-9d7e-40a9-85ea-2533bf69636b"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -139,11 +244,11 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "67a36267-c0d0-41c4-8714-65c202a1dd50"],
+  "937719df-512a-453c-a0b3-174638309699"],
  " \[LongDash] ",
  "the differential involutive bi-Lie algebra of the cyclic words of an \
 alphabet"
-}], "GuideText",ExpressionUUID->"0c55d09a-37f4-4bdc-b414-9eaa62efa516"]
+}], "GuideText",ExpressionUUID->"cbe21e0b-e8c5-4095-8383-c2165a367041"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -155,8 +260,8 @@ Cell[BoxData[
   BaseStyle->"Link",
   ButtonData->
    "paclet:ChernSimons/guide/BeilinsonDrinfeldFormalism"]], \
-"GuideFunctionsSubsection",ExpressionUUID->"7767994c-eda6-4fc9-b308-\
-47f74dbdfec6"],
+"GuideFunctionsSubsection",ExpressionUUID->"680d00a2-1cb7-4236-95c1-\
+c0cc45743605"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -168,10 +273,10 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "8fc9f3cc-8398-4538-b2ea-c7503d9a9bed"],
+  "ea1f02cc-6fe7-4af7-be5a-e176b858195b"],
  " \[LongDash] ",
  "the Beilinson-Drinfeld operator on the symmetric powers of cyclic words"
-}], "GuideText",ExpressionUUID->"ec570d29-8ca8-461b-bafc-8c6d18234bc0"],
+}], "GuideText",ExpressionUUID->"0fe6918c-c8b7-47ca-8dc0-f299891799b2"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -182,14 +287,13 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "c4c70cda-0cab-41e9-8dbd-d9ceff37dbea"],
+  "24cba0b8-7289-4f3c-a02b-62d757e59cd6"],
  " \[LongDash] ",
  "the formal variable ",
  Cell[BoxData[
-  FormBox["\[HBar]", TraditionalForm]], "InlineFormula",
-  FontSize->0.9 Inherited,ExpressionUUID->
-  "f378fdf4-048e-4a22-944d-0f050703d3f5"]
-}], "GuideText",ExpressionUUID->"fc596297-db1e-4d6c-aa47-042bf828a3d3"],
+  FormBox["\[HBar]", TraditionalForm]], "InlineFormula",ExpressionUUID->
+  "87c5b314-afea-4f63-9ef0-4236034b2a0e"]
+}], "GuideText",ExpressionUUID->"f74bd985-e6c6-43d4-80e7-e75cc92a5f27"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -201,11 +305,11 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "88bed1ae-18b7-4609-b671-40c22e82742d"],
+  "4634ab34-5c26-4700-9010-2214ca937a49"],
  " \[LongDash] ",
  "an element given by its parts or by its action, the unknown of the master \
 equation"
-}], "GuideText",ExpressionUUID->"0cb3027e-f6ff-4503-9b25-8f7f085bbcab"],
+}], "GuideText",ExpressionUUID->"81be3a00-279f-4f79-8027-64ee0165f156"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -217,11 +321,11 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "5fe4e452-9881-4a31-ab79-7694746f8bc6"],
+  "65388577-7bd1-4073-84e1-f5c6be1b44b8"],
  " \[LongDash] ",
  "the canonical Maurer-Cartan element of a Poincar\[EAcute] duality algebra, \
 made from its triple product"
-}], "GuideText",ExpressionUUID->"489f7236-f081-4860-8991-39286dfee858"],
+}], "GuideText",ExpressionUUID->"ff0cccae-4cf3-4447-b2a9-26b7c2b51a52"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -233,10 +337,10 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "65855d97-7d80-4a98-aebb-be93603a11dd"],
+  "295ff6ed-f3fd-4c5f-ab9a-dea9b6c8caf0"],
  " \[LongDash] ",
  "the differential twisted by a Maurer-Cartan element"
-}], "GuideText",ExpressionUUID->"b1e655aa-8c1b-49e8-a6bf-0a3b44bd87ed"]
+}], "GuideText",ExpressionUUID->"ac6fc28f-1857-4633-9f5d-fa10f1df7f7c"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -247,7 +351,7 @@ Cell[BoxData[
   BaseStyle->"Link",
   ButtonData->
    "paclet:ChernSimons/guide/AlgebraicModels"]], "GuideFunctionsSubsection",Ex\
-pressionUUID->"0a42cf45-7fd2-4310-ae07-158245d7a362"],
+pressionUUID->"5c365e74-5322-4e2e-9dad-efccc15ba36c"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -258,10 +362,10 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "740b9f97-fb0e-43bd-8a63-061e443feff3"],
+  "402f88e8-1c60-4d9c-a581-edc220c549d2"],
  " \[LongDash] ",
  "a Sullivan model with an orientation"
-}], "GuideText",ExpressionUUID->"f07e4f91-fcbf-469f-bc3a-7f1a8d0222dd"],
+}], "GuideText",ExpressionUUID->"f81513d4-cf42-4e43-9a6f-0a0093a9fb77"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -272,10 +376,10 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "284442ea-a714-44bc-8f6f-0d57990230bd"],
+  "80cb7a81-3db4-498b-90ed-005e1998a4fa"],
  " \[LongDash] ",
  "tests whether a model is of Hodge type"
-}], "GuideText",ExpressionUUID->"06cdb297-906f-4ca8-bff0-b06748364f69"],
+}], "GuideText",ExpressionUUID->"f44c3314-d2c9-4491-90a2-5e6c17eb89ac"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -287,11 +391,11 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "3d5061c1-e8cf-4ad0-8a0d-818048ac549a"],
+  "276b7f82-8109-450f-a1ce-e42d844b7205"],
  " \[LongDash] ",
  "the Poincar\[EAcute] duality algebra of a model, its quotient by the \
 degenerate subspace"
-}], "GuideText",ExpressionUUID->"f4dfe197-00b1-4e1c-a984-de53a65ae9a2"],
+}], "GuideText",ExpressionUUID->"97b9dbb0-73b0-4963-aa95-1be56050ac79"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -303,10 +407,10 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "0b700152-453b-4a01-a25d-aeb453694e53"],
+  "8109c098-35cc-42bb-b536-29b21dd1ab86"],
  " \[LongDash] ",
  "a Hodge decomposition of a model"
-}], "GuideText",ExpressionUUID->"3bf91187-e552-4d4c-9582-703fb3aea190"]
+}], "GuideText",ExpressionUUID->"0de2c401-d3f6-4a44-b1bd-12a7c83d6228"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -317,7 +421,7 @@ Cell[BoxData[
   BaseStyle->"Link",
   ButtonData->
    "paclet:ChernSimons/guide/HomotopyAlgebras"]], "GuideFunctionsSubsection",E\
-xpressionUUID->"e8b151db-3012-4c4e-b02b-c9e1fd81b127"],
+xpressionUUID->"4eb30e86-3432-44c2-9141-e7bc7cee492c"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -328,10 +432,10 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "cedd56d7-4a60-4103-8a7b-a1c1ce0ede8c"],
+  "42a3d0ca-a633-422d-8fe7-3324aed932de"],
  " \[LongDash] ",
  "a finite-dimensional A-infinity algebra"
-}], "GuideText",ExpressionUUID->"9e1968c6-b321-4759-8d6f-9c05de7494f4"],
+}], "GuideText",ExpressionUUID->"cf3ed4b9-6f09-4764-8fe5-c2a3c755a58b"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -343,10 +447,10 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "85c7c119-4030-4043-bdb8-30be15c61aa1"],
+  "68ca15db-9553-4e53-a155-27d443309c6f"],
  " \[LongDash] ",
  "a morphism of A-infinity algebras"
-}], "GuideText",ExpressionUUID->"ed55a03f-21e4-48e5-a026-1abc883960ba"],
+}], "GuideText",ExpressionUUID->"2adc6698-e88b-41be-a710-8a014a9e1ab8"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -357,10 +461,10 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "3070dc8d-086e-4574-9d65-cf3e41f554f0"],
+  "df6dd1d7-ca4d-403e-b44e-0db44475a486"],
  " \[LongDash] ",
  "tests the relations of a structure"
-}], "GuideText",ExpressionUUID->"4e63260e-ec4b-47e9-9356-e46739e37642"]
+}], "GuideText",ExpressionUUID->"7da9a686-e7e3-47f1-87d2-dc9499b4534e"]
 }, Open  ]]
 }, Open  ]],
 
@@ -377,7 +481,7 @@ Cell[TextData[Cell[BoxData[
   "RefLinkPlain",
   BaseStyle->{
    "InlineFormula"}]], \
-"InlineFormula",ExpressionUUID->"b77c5ef2-1dfa-43c9-a957-5224aec6aa13"]], \
+"InlineFormula",ExpressionUUID->"75738a5b-3d30-494f-ae78-f34237d050ef"]], \
 "GuideTutorial",
  CellID->806871991,ExpressionUUID->"c8d52b1f-06c5-4db0-bd0a-f386b59efcef"],
 
@@ -389,7 +493,7 @@ Cell[TextData[Cell[BoxData[
   "RefLinkPlain",
   BaseStyle->{
    "InlineFormula"}]], \
-"InlineFormula",ExpressionUUID->"472949f2-cbde-4543-88f1-e4cda70db6f1"]], \
+"InlineFormula",ExpressionUUID->"26b5c6aa-9261-407a-9c15-73aff3431fe8"]], \
 "GuideTutorial",
  CellID->806871991,ExpressionUUID->"c8d52b1f-06c5-4db0-bd0a-f386b59efcef"],
 
@@ -401,7 +505,7 @@ Cell[TextData[Cell[BoxData[
   "RefLinkPlain",
   BaseStyle->{
    "InlineFormula"}]], \
-"InlineFormula",ExpressionUUID->"63438615-d2b8-463f-bfa6-7033a756472a"]], \
+"InlineFormula",ExpressionUUID->"5f416e32-0d5a-40c4-9b78-3fc29f5a247c"]], \
 "GuideTutorial",
  CellID->806871991,ExpressionUUID->"c8d52b1f-06c5-4db0-bd0a-f386b59efcef"]
 }, Open  ]],
@@ -415,12 +519,12 @@ Cell["Related Guides", "GuideMoreAboutSection",
 Cell[TextData[Cell[BoxData[
  TemplateBox[{
    Cell[
-    TextData["CanonicalLieBialgebras"]], 
-   "paclet:ChernSimons/guide/CanonicalLieBialgebras"},
+    TextData["CanonicalLieBialgebra"]], 
+   "paclet:ChernSimons/guide/CanonicalLieBialgebra"},
   "RefLinkPlain",
   BaseStyle->{
    "InlineFormula"}]], \
-"InlineFormula",ExpressionUUID->"8d7af73c-5771-4bf2-a373-f28eadbc1a02"]], \
+"InlineFormula",ExpressionUUID->"1d70982e-c7be-4f48-9b7f-e25b89e9c60d"]], \
 "GuideMoreAbout",
  CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"],
 
@@ -432,7 +536,7 @@ Cell[TextData[Cell[BoxData[
   "RefLinkPlain",
   BaseStyle->{
    "InlineFormula"}]], \
-"InlineFormula",ExpressionUUID->"cbf247a8-5e7c-40a3-a3a2-204ce120eefb"]], \
+"InlineFormula",ExpressionUUID->"70332f29-fa4b-43d9-824c-f7327a5e4c6c"]], \
 "GuideMoreAbout",
  CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"],
 
@@ -444,7 +548,7 @@ Cell[TextData[Cell[BoxData[
   "RefLinkPlain",
   BaseStyle->{
    "InlineFormula"}]], \
-"InlineFormula",ExpressionUUID->"c02c4332-9f32-40a2-92e2-963cc580a996"]], \
+"InlineFormula",ExpressionUUID->"7afcd9df-3f38-4470-b080-2ec938a7e825"]], \
 "GuideMoreAbout",
  CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"],
 
@@ -456,10 +560,12 @@ Cell[TextData[Cell[BoxData[
   "RefLinkPlain",
   BaseStyle->{
    "InlineFormula"}]], \
-"InlineFormula",ExpressionUUID->"a52a3946-b155-49ef-b5b4-902525623cc9"]], \
+"InlineFormula",ExpressionUUID->"2f6dffde-ae49-4fcb-a9e1-d78287d5246d"]], \
 "GuideMoreAbout",
  CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"]
 }, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell["Related Links", "GuideRelatedLinksSection",
  CellID->415694148,ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049"],
@@ -469,50 +575,51 @@ related to surfaces with boundary (2015)",
  BaseStyle->"Hyperlink",
  ButtonData->{
    URL["https://arxiv.org/abs/1508.02741"], None}]], "GuideRelatedLinks",Expre\
-ssionUUID->"e8ee1f50-8b08-4445-8403-3faf202fbfed"],
+ssionUUID->"7b8907ea-4004-48f1-a78c-12da1d7c012c"],
 
 Cell[TextData[ButtonBox["H\[AAcute]jek: Twisted IBL-infinity-algebra and \
 string topology: first look and examples (2018)",
  BaseStyle->"Hyperlink",
  ButtonData->{
    URL["https://arxiv.org/abs/1811.05281"], None}]], "GuideRelatedLinks",Expre\
-ssionUUID->"ed38581f-8b06-42d2-9b60-33eaf2922df5"],
+ssionUUID->"e9d8b682-b2ca-4078-bf4d-19cd94e60fe7"],
 
 Cell[TextData[ButtonBox["H\[AAcute]jek: IBL-infinity model of string topology \
 from perturbative Chern-Simons theory (2020)",
  BaseStyle->"Hyperlink",
  ButtonData->{
    URL["https://arxiv.org/abs/2003.07933"], None}]], "GuideRelatedLinks",Expre\
-ssionUUID->"b419dc41-0615-40fe-87dd-588ccbb40a44"],
+ssionUUID->"28d334f3-cc16-4e65-ac74-1cc299c27566"],
 
 Cell[TextData[ButtonBox["Cieliebak, H\[AAcute]jek, Volkov: Chain-level \
 equivariant string topology: algebra versus analysis (2022)",
  BaseStyle->"Hyperlink",
  ButtonData->{
    URL["https://arxiv.org/abs/2202.06837"], None}]], "GuideRelatedLinks",Expre\
-ssionUUID->"fae89d5b-a69c-4fd0-9357-28216665fbe5"],
+ssionUUID->"c819c6c5-1f02-431e-911c-9d19eefa7451"],
 
 Cell[TextData[ButtonBox["Cieliebak, Volkov: Chern-Simons theory and string \
 topology (2023)",
  BaseStyle->"Hyperlink",
  ButtonData->{
    URL["https://arxiv.org/abs/2312.05922"], None}]], "GuideRelatedLinks",Expre\
-ssionUUID->"5aed9984-1c83-490f-8c7d-eb9da8427bfa"],
+ssionUUID->"2e585afa-820f-4d51-bf12-c789e35ee077"],
 
 Cell[TextData[ButtonBox["Cieliebak, Volkov: String topology operations under \
 Chen's iterated integrals and homotopy transfer (2026)",
  BaseStyle->"Hyperlink",
  ButtonData->{
    URL["https://arxiv.org/abs/2607.03782"], None}]], "GuideRelatedLinks",Expre\
-ssionUUID->"21641e81-45df-4347-aff4-17fcd116ac19"],
+ssionUUID->"822bfac9-ae5a-4eba-b9c9-ffe562d782b4"],
 
 Cell[TextData[ButtonBox["Algebraic Model of String Operations, Wolfram \
 Notebook Archive (2024)",
  BaseStyle->"Hyperlink",
  ButtonData->{
    URL["https://notebookarchive.org/2024-07-6ij9go2"], 
-   None}]], "GuideRelatedLinks",ExpressionUUID->"a8ab49b5-1578-41d4-b7ab-\
-2a57fd3cbbfd"],
+   None}]], "GuideRelatedLinks",ExpressionUUID->"68a124b4-ed47-4146-9578-\
+442832350f33"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -551,7 +658,7 @@ Cell["ChernSimons`", "Categorization",
  CellID->468444828,ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e"],
 
 Cell["ChernSimons/guide/ChernSimons", "Categorization",
- CellLabel->"URI",ExpressionUUID->"c190549e-87de-42ad-b6a3-160594414424"]
+ CellLabel->"URI",ExpressionUUID->"4a9c1384-46b9-48ee-ae97-70f6bf0510d5"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -594,11 +701,11 @@ Cell["Hodge decomposition", "Keywords",
 
 Cell["A-infinity algebra", "Keywords",
  CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"]
-}, Closed]]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{700, 770},
-WindowMargins->{{4, Automatic}, {Automatic, 0}},
+WindowMargins->{{448, Automatic}, {Automatic, 0}},
 TaggingRules->{
  "Metadata" -> {
    "title" -> "ChernSimons", "context" -> "ChernSimons`", 
@@ -612,7 +719,7 @@ TaggingRules->{
 cyclic words, the Beilinson-Drinfeld formalism and its Maurer-Cartan \
 elements, algebraic models, and homotopy algebras", "paclet" -> "ChernSimons",
      "uri" -> "ChernSimons/guide/ChernSimons", "type" -> "Guide", "index" -> 
-    True, "language" -> "en"}},
+    True, "language" -> "en"}, "Paclet" -> "None"},
 CreateCellID->True,
 CellContext->CellGroup,
 FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (July 2, 2026)",
@@ -632,122 +739,126 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 116, 1, 70, "GuideTitle",ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3",
+Cell[576, 22, 116, 1, 86, "GuideTitle",ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3",
  CellID->942062912],
-Cell[695, 25, 1510, 29, 70, "GuideAbstract",ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925",
- CellID->2001916300]
+Cell[695, 25, 1383, 42, 80, "GuideAbstract",ExpressionUUID->"3b0202d3-ce5d-4d18-becb-b253c8cc5683"],
+Cell[2081, 69, 1207, 39, 115, "GuideAbstract",ExpressionUUID->"2f43d31e-0fb7-41c8-bd3d-e6a1058b4d9b"],
+Cell[3291, 110, 1063, 23, 149, "GuideAbstract",ExpressionUUID->"46c0dd44-a743-4309-b792-accce04ddd58"],
+Cell[4357, 135, 992, 24, 115, "GuideAbstract",ExpressionUUID->"d09d2ba2-f636-4208-bf8b-da3b58e9abfb"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2242, 59, 109, 1, 70, "GuideFunctionsSection",ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774",
+Cell[5386, 164, 109, 1, 71, "GuideFunctionsSection",ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774",
  CellID->1866139230],
 Cell[CellGroupData[{
-Cell[2376, 64, 260, 7, 70, "GuideFunctionsSubsection",ExpressionUUID->"d1902efc-0e64-4952-b285-ddfebe0abc95"],
-Cell[2639, 73, 507, 12, 70, "GuideText",ExpressionUUID->"2cae568d-ff8b-4a25-89e5-0938dbcbfa65"],
-Cell[3149, 87, 456, 12, 70, "GuideText",ExpressionUUID->"643f3c6f-9a4c-479e-bf01-0bf98fb2e7e5"],
-Cell[3608, 101, 484, 13, 70, "GuideText",ExpressionUUID->"f3961de8-a9b8-4d50-b667-76676990fea6"],
-Cell[4095, 116, 488, 13, 70, "GuideText",ExpressionUUID->"ec3fe556-33c5-4813-a840-5a13b717c49b"],
-Cell[4586, 131, 536, 14, 70, "GuideText",ExpressionUUID->"0c55d09a-37f4-4bdc-b414-9eaa62efa516"]
+Cell[5520, 169, 258, 7, 36, "GuideFunctionsSubsection",ExpressionUUID->"d3f106a1-bfb4-4798-8fe2-0bfce850ec8f"],
+Cell[5781, 178, 507, 12, 24, "GuideText",ExpressionUUID->"6ee60af0-fce4-43e4-b245-6b73511f894c"],
+Cell[6291, 192, 456, 12, 24, "GuideText",ExpressionUUID->"e24a6880-65c5-407c-9d37-b60a1c21f287"],
+Cell[6750, 206, 484, 13, 24, "GuideText",ExpressionUUID->"1c400385-e0af-44c2-b946-551856028b35"],
+Cell[7237, 221, 488, 13, 24, "GuideText",ExpressionUUID->"28c7d9dd-9d7e-40a9-85ea-2533bf69636b"],
+Cell[7728, 236, 536, 14, 40, "GuideText",ExpressionUUID->"cbe21e0b-e8c5-4095-8383-c2165a367041"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5159, 150, 282, 8, 70, "GuideFunctionsSubsection",ExpressionUUID->"7767994c-eda6-4fc9-b308-47f74dbdfec6"],
-Cell[5444, 160, 554, 13, 70, "GuideText",ExpressionUUID->"ec570d29-8ca8-461b-bafc-8c6d18234bc0"],
-Cell[6001, 175, 596, 16, 70, "GuideText",ExpressionUUID->"fc596297-db1e-4d6c-aa47-042bf828a3d3"],
-Cell[6600, 193, 537, 14, 70, "GuideText",ExpressionUUID->"0cb3027e-f6ff-4503-9b25-8f7f085bbcab"],
-Cell[7140, 209, 562, 14, 70, "GuideText",ExpressionUUID->"489f7236-f081-4860-8991-39286dfee858"],
-Cell[7705, 225, 504, 13, 70, "GuideText",ExpressionUUID->"b1e655aa-8c1b-49e8-a6bf-0a3b44bd87ed"]
+Cell[8301, 255, 282, 8, 36, "GuideFunctionsSubsection",ExpressionUUID->"680d00a2-1cb7-4236-95c1-c0cc45743605"],
+Cell[8586, 265, 554, 13, 40, "GuideText",ExpressionUUID->"0fe6918c-c8b7-47ca-8dc0-f299891799b2"],
+Cell[9143, 280, 569, 15, 24, "GuideText",ExpressionUUID->"f74bd985-e6c6-43d4-80e7-e75cc92a5f27"],
+Cell[9715, 297, 537, 14, 40, "GuideText",ExpressionUUID->"81be3a00-279f-4f79-8027-64ee0165f156"],
+Cell[10255, 313, 562, 14, 40, "GuideText",ExpressionUUID->"ff0cccae-4cf3-4447-b2a9-26b7c2b51a52"],
+Cell[10820, 329, 504, 13, 24, "GuideText",ExpressionUUID->"ac6fc28f-1857-4633-9f5d-fa10f1df7f7c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8246, 243, 235, 6, 70, "GuideFunctionsSubsection",ExpressionUUID->"0a42cf45-7fd2-4310-ae07-158245d7a362"],
-Cell[8484, 251, 472, 12, 70, "GuideText",ExpressionUUID->"f07e4f91-fcbf-469f-bc3a-7f1a8d0222dd"],
-Cell[8959, 265, 468, 12, 70, "GuideText",ExpressionUUID->"06cdb297-906f-4ca8-bff0-b06748364f69"],
-Cell[9430, 279, 547, 14, 70, "GuideText",ExpressionUUID->"f4dfe197-00b1-4e1c-a984-de53a65ae9a2"],
-Cell[9980, 295, 491, 13, 70, "GuideText",ExpressionUUID->"3bf91187-e552-4d4c-9582-703fb3aea190"]
+Cell[11361, 347, 235, 6, 36, "GuideFunctionsSubsection",ExpressionUUID->"5c365e74-5322-4e2e-9dad-efccc15ba36c"],
+Cell[11599, 355, 472, 12, 24, "GuideText",ExpressionUUID->"f81513d4-cf42-4e43-9a6f-0a0093a9fb77"],
+Cell[12074, 369, 468, 12, 24, "GuideText",ExpressionUUID->"f44c3314-d2c9-4491-90a2-5e6c17eb89ac"],
+Cell[12545, 383, 547, 14, 40, "GuideText",ExpressionUUID->"97b9dbb0-73b0-4963-aa95-1be56050ac79"],
+Cell[13095, 399, 491, 13, 24, "GuideText",ExpressionUUID->"0de2c401-d3f6-4a44-b1bd-12a7c83d6228"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10508, 313, 237, 6, 70, "GuideFunctionsSubsection",ExpressionUUID->"e8b151db-3012-4c4e-b02b-c9e1fd81b127"],
-Cell[10748, 321, 481, 12, 70, "GuideText",ExpressionUUID->"9e1968c6-b321-4759-8d6f-9c05de7494f4"],
-Cell[11232, 335, 481, 13, 70, "GuideText",ExpressionUUID->"ed55a03f-21e4-48e5-a026-1abc883960ba"],
-Cell[11716, 350, 464, 12, 70, "GuideText",ExpressionUUID->"4e63260e-ec4b-47e9-9356-e46739e37642"]
+Cell[13623, 417, 237, 6, 36, "GuideFunctionsSubsection",ExpressionUUID->"4eb30e86-3432-44c2-9141-e7bc7cee492c"],
+Cell[13863, 425, 481, 12, 24, "GuideText",ExpressionUUID->"cf3ed4b9-6f09-4764-8fe5-c2a3c755a58b"],
+Cell[14347, 439, 481, 13, 24, "GuideText",ExpressionUUID->"2adc6698-e88b-41be-a710-8a014a9e1ab8"],
+Cell[14831, 454, 464, 12, 24, "GuideText",ExpressionUUID->"7da9a686-e7e3-47f1-87d2-dc9499b4534e"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[12229, 368, 118, 1, 70, "GuideTutorialsSection",ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8",
+Cell[15344, 472, 118, 1, 73, "GuideTutorialsSection",ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8",
  CellID->415694126],
-Cell[12350, 371, 397, 10, 70, "GuideTutorial",ExpressionUUID->"c8d52b1f-06c5-4db0-bd0a-f386b59efcef",
+Cell[15465, 475, 397, 10, 22, "GuideTutorial",ExpressionUUID->"c8d52b1f-06c5-4db0-bd0a-f386b59efcef",
  CellID->806871991],
-Cell[12750, 383, 405, 10, 70, "GuideTutorial",ExpressionUUID->"c8d52b1f-06c5-4db0-bd0a-f386b59efcef",
+Cell[15865, 487, 405, 10, 22, "GuideTutorial",ExpressionUUID->"c8d52b1f-06c5-4db0-bd0a-f386b59efcef",
  CellID->806871991],
-Cell[13158, 395, 399, 10, 70, "GuideTutorial",ExpressionUUID->"c8d52b1f-06c5-4db0-bd0a-f386b59efcef",
+Cell[16273, 499, 399, 10, 22, "GuideTutorial",ExpressionUUID->"c8d52b1f-06c5-4db0-bd0a-f386b59efcef",
  CellID->806871991]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13594, 410, 189, 2, 70, "GuideMoreAboutSection",ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50",
+Cell[16709, 514, 189, 2, 73, "GuideMoreAboutSection",ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50",
  CellID->23220180],
-Cell[13786, 414, 376, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+Cell[16901, 518, 374, 10, 22, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
  CellID->1567025153],
-Cell[14165, 426, 384, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+Cell[17278, 530, 384, 10, 22, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
  CellID->1567025153],
-Cell[14552, 438, 361, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+Cell[17665, 542, 361, 10, 22, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
  CellID->1567025153],
-Cell[14916, 450, 364, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+Cell[18029, 554, 364, 10, 22, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
  CellID->1567025153]
 }, Open  ]],
-Cell[15295, 463, 124, 1, 70, "GuideRelatedLinksSection",ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049",
- CellID->415694148],
-Cell[15422, 466, 289, 5, 70, "GuideRelatedLinks",ExpressionUUID->"e8ee1f50-8b08-4445-8403-3faf202fbfed"],
-Cell[15714, 473, 295, 5, 70, "GuideRelatedLinks",ExpressionUUID->"ed38581f-8b06-42d2-9b60-33eaf2922df5"],
-Cell[16012, 480, 297, 5, 70, "GuideRelatedLinks",ExpressionUUID->"b419dc41-0615-40fe-87dd-588ccbb40a44"],
-Cell[16312, 487, 305, 5, 70, "GuideRelatedLinks",ExpressionUUID->"fae89d5b-a69c-4fd0-9357-28216665fbe5"],
-Cell[16620, 494, 265, 5, 70, "GuideRelatedLinks",ExpressionUUID->"5aed9984-1c83-490f-8c7d-eb9da8427bfa"],
-Cell[16888, 501, 306, 5, 70, "GuideRelatedLinks",ExpressionUUID->"21641e81-45df-4347-aff4-17fcd116ac19"],
-Cell[17197, 508, 284, 6, 70, "GuideRelatedLinks",ExpressionUUID->"a8ab49b5-1578-41d4-b7ab-2a57fd3cbbfd"],
 Cell[CellGroupData[{
-Cell[17506, 518, 110, 1, 70, "MetadataSection",ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2",
+Cell[18430, 569, 124, 1, 73, "GuideRelatedLinksSection",ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049",
+ CellID->415694148],
+Cell[18557, 572, 289, 5, 23, "GuideRelatedLinks",ExpressionUUID->"7b8907ea-4004-48f1-a78c-12da1d7c012c"],
+Cell[18849, 579, 295, 5, 23, "GuideRelatedLinks",ExpressionUUID->"e9d8b682-b2ca-4078-bf4d-19cd94e60fe7"],
+Cell[19147, 586, 297, 5, 23, "GuideRelatedLinks",ExpressionUUID->"28d334f3-cc16-4e65-ac74-1cc299c27566"],
+Cell[19447, 593, 305, 5, 40, "GuideRelatedLinks",ExpressionUUID->"c819c6c5-1f02-431e-911c-9d19eefa7451"],
+Cell[19755, 600, 265, 5, 23, "GuideRelatedLinks",ExpressionUUID->"2e585afa-820f-4d51-bf12-c789e35ee077"],
+Cell[20023, 607, 306, 5, 40, "GuideRelatedLinks",ExpressionUUID->"822bfac9-ae5a-4eba-b9c9-ffe562d782b4"],
+Cell[20332, 614, 284, 6, 23, "GuideRelatedLinks",ExpressionUUID->"68a124b4-ed47-4146-9578-442832350f33"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20653, 625, 110, 1, 71, "MetadataSection",ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2",
  CellID->311882160],
-Cell[17619, 521, 476, 12, 70, "History",ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513",
+Cell[20766, 628, 476, 12, 25, "History",ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513",
  CellID->341476719],
 Cell[CellGroupData[{
-Cell[18120, 537, 123, 1, 70, "CategorizationSection",ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b",
+Cell[21267, 644, 123, 1, 20, "CategorizationSection",ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b",
  CellID->1122911449],
-Cell[18246, 540, 133, 2, 70, "Categorization",ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475",
+Cell[21393, 647, 133, 2, 70, "Categorization",ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475",
  CellID->686433507],
-Cell[18382, 544, 139, 2, 70, "Categorization",ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c",
+Cell[21529, 651, 139, 2, 70, "Categorization",ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c",
  CellID->605800465],
-Cell[18524, 548, 136, 2, 70, "Categorization",ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e",
+Cell[21671, 655, 136, 2, 70, "Categorization",ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e",
  CellID->468444828],
-Cell[18663, 552, 129, 1, 70, "Categorization",ExpressionUUID->"c190549e-87de-42ad-b6a3-160594414424"]
+Cell[21810, 659, 129, 1, 70, "Categorization",ExpressionUUID->"4a9c1384-46b9-48ee-ae97-70f6bf0510d5",
+ CellID->2042078513]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[18829, 558, 111, 1, 70, "KeywordsSection",ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead",
+Cell[21976, 665, 111, 1, 20, "KeywordsSection",ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead",
  CellID->1427428552],
-Cell[18943, 561, 115, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[22090, 668, 115, 1, 20, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[19061, 564, 109, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[22208, 671, 109, 1, 20, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[19173, 567, 108, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[22320, 674, 108, 1, 20, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[19284, 570, 108, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[22431, 677, 108, 1, 20, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[19395, 573, 121, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[22542, 680, 121, 1, 20, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[19519, 576, 122, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[22666, 683, 122, 1, 20, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[19644, 579, 117, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[22791, 686, 117, 1, 20, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[19764, 582, 111, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[22911, 689, 111, 1, 20, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[19878, 585, 119, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[23025, 692, 119, 1, 20, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[20000, 588, 110, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[23147, 695, 110, 1, 20, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[20113, 591, 115, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
- CellID->1251852827],
-Cell[20231, 594, 114, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
- CellID->1251852827]
-}, Closed]]
+Cell[23260, 698, 115, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->117057204],
+Cell[23378, 701, 114, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->285406976]
+}, Open  ]]
 }, Open  ]]
 }
 ]
 *)
 
-(* End of internal cache information *)

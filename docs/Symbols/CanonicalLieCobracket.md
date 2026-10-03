@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/CanonicalLieCobracket
 Keywords: [cobracket, co-Lie, co-derivation, involutive bi-Lie algebra]
 SeeAlso: [CanonicalLieBracket, ChordContraction, CanonicalLieBialgebra, Obstruction, SymmetricProduct, ExteriorProduct, GradedPairing]
-RelatedGuides: [CanonicalLieBialgebras]
+RelatedGuides: [CanonicalLieBialgebra]
 ---
 
 ## Usage

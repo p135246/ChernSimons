@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/SymmetricProduct
 Keywords: [symmetric product, odot, Koszul sign, shifted grading]
 SeeAlso: [ExteriorProduct, SymmetricToExterior, ExteriorToSymmetric, ElementDegree, CanonicalLieBracket, CanonicalLieCobracket, GradedPairing]
-RelatedGuides: [CanonicalLieBialgebras, BeilinsonDrinfeldFormalism]
+RelatedGuides: [CanonicalLieBialgebra, BeilinsonDrinfeldFormalism]
 ---
 
 ## Usage

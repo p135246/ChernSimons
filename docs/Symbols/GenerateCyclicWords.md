@@ -6,7 +6,7 @@ Paclet: ChernSimons
 URI: ChernSimons/ref/GenerateCyclicWords
 Keywords: [cyclic words, enumeration, necklaces, graded alphabet]
 SeeAlso: [CyclicWord, ElementDegree, GradedPairing, Tuples]
-RelatedGuides: [CanonicalLieBialgebras]
+RelatedGuides: [CanonicalLieBialgebra]
 ---
 
 ## Usage

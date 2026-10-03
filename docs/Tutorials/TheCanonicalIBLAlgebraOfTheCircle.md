@@ -6,7 +6,7 @@ Context: ChernSimons`
 Paclet: ChernSimons
 URI: ChernSimons/tutorial/TheCanonicalIBLAlgebraOfTheCircle
 Keywords: [circle, canonical Maurer-Cartan element, Hochschild differential, cyclic words, alphabet, x squared y]
-RelatedGuides: [ChernSimons, CanonicalLieBialgebras, BeilinsonDrinfeldFormalism]
+RelatedGuides: [ChernSimons, CanonicalLieBialgebra, BeilinsonDrinfeldFormalism]
 RelatedTutorials: [FromASullivanModelToAnIBLAlgebra, HodgeTypeAndTheNondegenerateQuotient]
 ---
 
