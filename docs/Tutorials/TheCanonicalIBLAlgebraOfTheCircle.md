@@ -10,7 +10,7 @@ RelatedGuides: [ChernSimons, CanonicalLieBialgebra, BeilinsonDrinfeldFormalism]
 RelatedTutorials: [FromASullivanModelToAnIBLAlgebra, HodgeTypeAndTheNondegenerateQuotient]
 ---
 
-The alphabet the rest of this paclet is written against, a particle $x$ of degree $-1$, a particle $y$ of degree $0$ and the single pairing value $\langle x,y\rangle = 1$, is not an arbitrary choice of example. It is what the construction of the companion tutorial produces when it is fed the minimal model of $S^1$. This tutorial runs it, and then checks the three facts about the circle that the paper's Section 2 proves.
+The alphabet the rest of this paclet is written against, a letter $x$ of degree $-1$, a letter $y$ of degree $0$ and the single pairing value $\langle x,y\rangle = 1$, is not an arbitrary choice of example. It is what the construction of the companion tutorial produces when it is fed the minimal model of $S^1$. This tutorial runs it, and then checks the three facts about the circle that the paper's Section 2 proves.
 
 ## The model of the circle
 
@@ -108,7 +108,7 @@ The Hochschild differential. Twisting $\mathfrak{q}_{2,1,0}$ by $\mathfrak{m}^{\
 
 <!-- => {0, 0} -->
 
-The bracket and the co-bracket as surfaces, the strings propagating from the top to the bottom: each red curve is a pairing that annihilates two particles and produces a scalar, and there is exactly one interacting pair in each operation.
+The bracket and the co-bracket as surfaces, the strings propagating from the top to the bottom: each red curve is a pairing that annihilates two letters and produces a scalar, and there is exactly one interacting pair in each operation.
 
 ![The bracket and the co-bracket of cyclic words as surfaces](../images/StringOperations.png "ExampleImage")
 

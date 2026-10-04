@@ -13,18 +13,18 @@ RelatedGuides: [CanonicalLieBialgebra, BeilinsonDrinfeldFormalism]
 
 <code>[GradedPairing]()[*degrees*, *spec*]</code> gives the pairing object of the graded alphabet with the degrees *degrees* and the pairing values *spec*.
 
-<code>[GradedPairing]()[*degrees*, *spec*, *dual*, *evaluation*]</code> gives the pairing object that also carries the dual alphabet *dual* and the values *evaluation* of particles on dual particles.
+<code>[GradedPairing]()[*degrees*, *spec*, *dual*, *evaluation*]</code> gives the pairing object that also carries the dual alphabet *dual* and the values *evaluation* of letters on dual letters.
 
-<code>[GradedPairing]()[*algebra*]</code> gives the pairing object of the Poincaré duality algebra *algebra*, with its basis monomials as particles.
+<code>[GradedPairing]()[*algebra*]</code> gives the pairing object of the Poincaré duality algebra *algebra*, with its basis monomials as letters.
 
-<code>[GradedPairing]()[*algebra*, *particles*]</code> gives the pairing object of *algebra*, with the list *particles* naming its basis.
+<code>[GradedPairing]()[*algebra*, *letters*]</code> gives the pairing object of *algebra*, with the list *letters* naming its basis.
 
 <!-- #| annotation: 26.09.30: Design review - the graded alphabet is one object passed as the last argument of every operation, rather than degrees held in global variables as in the engine, so that two alphabets can be used side by side and every function computes from its arguments alone. The object is a tagged head around one Association, GradedPairing[assoc], since T0b; before it was a plain Association. The tag lets it be recognized by GradedPairingQ, dispatched on and shown as a summary box, and the upvalues Append, Normal, Keys, KeyExistsQ, Lookup, KeyDrop and KeyTake keep it usable like the Association it wraps. The convention is a key of the object and not an argument of each operation, so Append[pairing, "Convention" -> "Exterior"] switches every later operation at once; the engine instead passes the convention as an explicit argument (q210Odot, q210Wedge). An alphabet whose nonzero values have more than one degree is an attempt that failed, so it gives a Failure, while an algebra object with malformed parts returns unevaluated. GradedPairing[algebra] moved to ChernSimons beside the other forms in R5c, so that the part reads the PoincareDualityAlgebra of AlgebraicModels and no dependency runs the other way. Prior art: the Wolfram Language has no object for a graded alphabet with a pairing; the engine the verification suites load keeps the degrees of the circle in globals, and T12/paclet-pairing-object pins the degree, the completed values and the default convention of this object on the circle. -->
 
 ## Details & Options
 
-- *degrees* is an association from particles to integer degrees. A particle is an arbitrary expression, usually a symbol; multi-character names are allowed.
-- *spec* is either a function of two particles, or an association giving some of the values. In the association form the other values are completed by graded antisymmetry, $\langle q, p\rangle = -(-1)^{|p||q|}\langle p, q\rangle$, and every pair left out is $0$.
+- *degrees* is an association from letters to integer degrees. A letter is an arbitrary expression, usually a symbol; multi-character names are allowed.
+- *spec* is either a function of two letters, or an association giving some of the values. In the association form the other values are completed by graded antisymmetry, $\langle q, p\rangle = -(-1)^{|p||q|}\langle p, q\rangle$, and every pair left out is $0$.
 - The result is a tagged object <code>[GradedPairing]()[*assoc*]</code> around one association. <code>*pairing*["*key*"]</code> gives the value of a key, and <code>[Normal]()</code> gives the association.
 - <code>[Append]()</code>, <code>[Keys]()</code>, <code>[KeyExistsQ]()</code>, <code>[Lookup]()</code>, <code>[KeyDrop]()</code> and <code>[KeyTake]()</code> act on the object as on its association, and <code>[Append]()</code>, <code>[KeyDrop]()</code> and <code>[KeyTake]()</code> give a pairing object again.
 - The object has the following keys:
@@ -32,7 +32,7 @@ RelatedGuides: [CanonicalLieBialgebra, BeilinsonDrinfeldFormalism]
 | Key | Value |
 |---|---|
 | `"Degrees"` | the *degrees* association, verbatim |
-| `"Values"` | the completed pairing, an association from ordered pairs of particles to their value |
+| `"Values"` | the completed pairing, an association from ordered pairs of letters to their value |
 | `"Degree"` | the common degree $\lvert p\rvert+\lvert q\rvert$ over all pairs with $\langle p,q\rangle\neq 0$ |
 | `"Convention"` | `"Symmetric"` by default, `"Exterior"` for the exterior picture |
 | `"Dual"` | an association with its own `"Degrees"` and `"Values"`, present only in the four-argument form |
@@ -40,21 +40,21 @@ RelatedGuides: [CanonicalLieBialgebra, BeilinsonDrinfeldFormalism]
 
 - The nonzero values must all have one degree $\lvert p\rvert+\lvert q\rvert$. Otherwise the result is a <code>[Failure]()</code> whose message says that the pairing has no well-defined degree, and whose `"Degrees"` lists the degrees found.
 - The convention selects the picture every later operation works in: `"Symmetric"` uses the [SymmetricProduct]() grading $[-]_1 = [-]-1$, `"Exterior"` the [ExteriorProduct]() grading $[-]$. <code>[Append]()[*pairing*, "Convention" -> "Exterior"]</code> switches it.
-- In the four-argument form *dual* is an association from dual particles to their degrees, and *evaluation* gives $\langle p, \alpha\rangle$ for a particle $p$ and a dual particle $\alpha$. It is read by [DualPairing](), which issues a message and returns unevaluated on a pairing object without it. [ElementDegree]() reads the degrees of the dual particles as well.
-- In the forms built from an algebra the particles are a basis of $H[1]$: the particle of the basis vector $e_i$ has degree $\lvert e_i\rvert - 1$, and the values are $\langle se_i, se_j\rangle = (-1)^{\lvert e_i\rvert}\mathcal{O}(e_ie_j)$. This sign turns the graded symmetric pairing of degree $n$ into a graded antisymmetric one of degree $n-2$.
+- In the four-argument form *dual* is an association from dual letters to their degrees, and *evaluation* gives $\langle p, \alpha\rangle$ for a letter $p$ and a dual letter $\alpha$. It is read by [DualPairing](), which issues a message and returns unevaluated on a pairing object without it. [ElementDegree]() reads the degrees of the dual letters as well.
+- In the forms built from an algebra the letters are a basis of $H[1]$: the letter of the basis vector $e_i$ has degree $\lvert e_i\rvert - 1$, and the values are $\langle se_i, se_j\rangle = (-1)^{\lvert e_i\rvert}\mathcal{O}(e_ie_j)$. This sign turns the graded symmetric pairing of degree $n$ into a graded antisymmetric one of degree $n-2$.
 - The `"Algebra"` key is where [CanonicalMaurerCartan]() reads the triple product from.
 - An algebra object without a list of basis monomials, integer degrees and a Gram matrix of the matching size returns unevaluated.
 - The object displays as a summary box: the alphabet, the degree of the pairing and the convention, with the degrees, the matrix of values, the dual alphabet and the algebra under the opener.
 
 ## Basic Examples
 
-The alphabet of the circle, a particle *x* of degree $-1$, a particle *y* of degree $0$ and the pairing value $\langle x, y\rangle = 1$:
+The alphabet of the circle, a letter *x* of degree $-1$, a letter *y* of degree $0$ and the pairing value $\langle x, y\rangle = 1$:
 
 ```wl
 GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 ---
 
@@ -88,7 +88,7 @@ GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]["Degree"]
 
 ## Scope
 
-*spec* may be a function of two particles instead of an association:
+*spec* may be a function of two letters instead of an association:
 
 ```wl
 GradedPairing[<|x -> -1, y -> 0|>, {p, q} |-> Boole[p =!= q] Signature[{p, q}]]["Values"]
@@ -98,7 +98,7 @@ GradedPairing[<|x -> -1, y -> 0|>, {p, q} |-> Boole[p =!= q] Signature[{p, q}]][
 
 ---
 
-Particles are arbitrary expressions, so an alphabet of multi-character names works the same way:
+Letters are arbitrary expressions, so an alphabet of multi-character names works the same way:
 
 ```wl
 GradedPairing[<|alpha -> -1, beta -> 0, gamma -> -1|>, <|{alpha, beta} -> 1, {gamma, beta} -> 1|>]["Degree"]
@@ -114,7 +114,7 @@ The four-argument form attaches a dual alphabet:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1, with the dual alphabet a and b -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1, with the dual alphabet a and b -->
 
 It is carried under the key `"Dual"`:
 
@@ -126,7 +126,7 @@ pairing["Dual"]
 
 ---
 
-The pairing object of the minimal model of the circle, with the basis monomials as particles:
+The pairing object of the minimal model of the circle, with the basis monomials as letters:
 
 ```wl
 GradedPairing[NondegenerateQuotient[SullivanModel["Circle"]]]["Degrees"]
@@ -136,7 +136,7 @@ GradedPairing[NondegenerateQuotient[SullivanModel["Circle"]]]["Degrees"]
 
 ---
 
-The same algebra with the particles named *x* and *y*:
+The same algebra with the letters named *x* and *y*:
 
 ```wl
 GradedPairing[NondegenerateQuotient[SullivanModel["Circle"]], {x, y}]["Degrees"]
@@ -198,7 +198,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 [ElementDegree]() reads the degrees out of the pairing object, in each of the three gradings:
 

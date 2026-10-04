@@ -19,25 +19,25 @@ RelatedGuides: [CanonicalLieBialgebra]
 
 ## Details & Options
 
-- The bracket is the operation $\mathfrak{q}_{2,1,0}$ of the involutive bi-Lie structure. It gives, for two cyclic words, the sum over one particle of each of the pairing value of the two particles, times a Koszul sign, times the cyclic word made of the two remainders.
+- The bracket is the operation $\mathfrak{q}_{2,1,0}$ of the involutive bi-Lie structure. It gives, for two cyclic words, the sum over one letter of each of the pairing value of the two letters, times a Koszul sign, times the cyclic word made of the two remainders.
 - The bracket is the sum of [ChordContraction]() over every pair of positions.
 - The convention of *pairing* selects the picture: `"Symmetric"` gives the bracket of the [SymmetricProduct]() grading, `"Exterior"` that of the [ExteriorProduct]() grading. The two differ by signs, not by the contraction.
 - In the two-argument form the bracket is applied to each pair of factors of *p* in turn, with the Koszul sign of the shuffle, and the other factors are carried along. The extension lowers the number of factors by one, so it is $0$ on a single cyclic word, and a single remaining factor is the word itself.
 - Both forms are linear: they distribute over sums and pull out scalars.
-- A word may be given as the list of its particles.
+- A word may be given as the list of its letters.
 - A product whose head disagrees with the convention of *pairing* returns unevaluated.
 - [CanonicalLieBracket]() has the following option:
 
 | Option | Default | Description |
 |---|---|---|
-| <code>"EmptyWord"</code> | <code>False</code> | whether the contraction of two one-particle words is the empty word <code>[CyclicWord]()[{}]</code> rather than $0$ |
+| <code>"EmptyWord"</code> | <code>False</code> | whether the contraction of two one-letter words is the empty word <code>[CyclicWord]()[{}]</code> rather than $0$ |
 
 - With `"EmptyWord" -> False` the bracket is that of the positive-length convention. With `"EmptyWord" -> True` it is that of the empty-word extension, in which the empty word has degree $0$ and is central, so its bracket with any word is $0$.
 - The identities of the bracket, `"Jacobi"` and `"Drinfeld"`, are relations of the [CanonicalLieBialgebra]() of *pairing*, computed by [Obstruction]().
 
 ## Basic Examples
 
-The bracket, on the left, joins two strings into one; the strings propagate from the top to the bottom, and the red curve is the pairing that annihilates one particle of each word:
+The bracket, on the left, joins two strings into one; the strings propagate from the top to the bottom, and the red curve is the pairing that annihilates one letter of each word:
 
 ![The bracket and the co-bracket of cyclic words as surfaces](../images/StringOperations.png "ExampleImage")
 
@@ -77,7 +77,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The extension on a product of two words gives the remaining word:
 
@@ -103,7 +103,7 @@ The alphabet of the circle in the exterior picture:
 exterior = Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1, in the exterior convention -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1, in the exterior convention -->
 
 The extension on an exterior product:
 
@@ -115,7 +115,7 @@ CanonicalLieBracket[ExteriorProduct[CyclicWord[{x}], CyclicWord[{x, y}], exterio
 
 ---
 
-Words may be given as lists of particles:
+Words may be given as lists of letters:
 
 ```wl
 CanonicalLieBracket[{x}, {x, y}, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
@@ -137,7 +137,7 @@ Outer[CanonicalLieBracket[#1, #2, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} ->
 
 ### EmptyWord
 
-The bracket of two one-particle words is $0$ in the positive-length convention:
+The bracket of two one-letter words is $0$ in the positive-length convention:
 
 ```wl
 CanonicalLieBracket[{x}, {y}, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
@@ -163,7 +163,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The sum of [ChordContraction]() over all pairs of positions:
 
@@ -209,7 +209,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 A product of three words:
 
@@ -243,7 +243,7 @@ The alphabet of the circle in the exterior picture:
 exterior = Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1, in the exterior convention -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1, in the exterior convention -->
 
 A symmetric product under an exterior pairing returns unevaluated, since the extension is defined for a [SymmetricProduct]() under `"Symmetric"` and for an [ExteriorProduct]() under `"Exterior"`:
 
@@ -271,7 +271,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 On two factors the extension gives the remaining word:
 

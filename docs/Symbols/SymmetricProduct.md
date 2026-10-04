@@ -13,11 +13,11 @@ RelatedGuides: [CanonicalLieBialgebra, BeilinsonDrinfeldFormalism]
 
 <code>[SymmetricProduct]()[*u*, *v*, …, *pairing*]</code> gives the graded symmetric product $u\odot v\odot\cdots$ of the cyclic words *u*, *v*, …, in canonical order with the Koszul sign of the symmetric grading.
 
-<!-- #| annotation: 26.09.30: Design review - the symmetric product is the default of the two pictures the paper works in: a pairing object built by GradedPairing carries "Convention" -> "Symmetric", and the Beilinson-Drinfeld exports compute in it only. The sign translation between it and the exterior product is the heart of the project, so both products are exported and SymmetricToExterior and ExteriorToSymmetric carry one to the other. The pairing is the last positional argument, because the sort needs the symmetric degrees and they depend on the pairing degree; it is consumed, and the result SymmetricProduct[u, v, ...] carries only its factors, so an expression without a pairing is inert and is the normal form. A single remaining factor is the word itself, never a one-factor product, the rule every product of the paclet follows; the engine keeps a one-factor odot instead, which is why the comparison with it starts at two factors. The product carries its own linearity rules and accepts lists of particles, so a sum or a scalar multiple composes without a wrapper. Prior art: the Wolfram Language has no graded symmetric product; Symmetrize symmetrizes arrays. The engine the verification suites load builds its odot and wedge from one constructor, and T12/paclet-products-and-shift pins this product against its odot on all products of two and three words to length 3. -->
+<!-- #| annotation: 26.09.30: Design review - the symmetric product is the default of the two pictures the paper works in: a pairing object built by GradedPairing carries "Convention" -> "Symmetric", and the Beilinson-Drinfeld exports compute in it only. The sign translation between it and the exterior product is the heart of the project, so both products are exported and SymmetricToExterior and ExteriorToSymmetric carry one to the other. The pairing is the last positional argument, because the sort needs the symmetric degrees and they depend on the pairing degree; it is consumed, and the result SymmetricProduct[u, v, ...] carries only its factors, so an expression without a pairing is inert and is the normal form. A single remaining factor is the word itself, never a one-factor product, the rule every product of the paclet follows; the engine keeps a one-factor odot instead, which is why the comparison with it starts at two factors. The product carries its own linearity rules and accepts lists of letters, so a sum or a scalar multiple composes without a wrapper. Prior art: the Wolfram Language has no graded symmetric product; Symmetrize symmetrizes arrays. The engine the verification suites load builds its odot and wedge from one constructor, and T12/paclet-products-and-shift pins this product against its odot on all products of two and three words to length 3. -->
 
 ## Details & Options
 
-- The factors are cyclic words or lists of particles, and the last argument is the pairing object.
+- The factors are cyclic words or lists of letters, and the last argument is the pairing object.
 - The factors are brought into canonical rotation and sorted in the symmetric grading $[-]_1 = [-]-1$, the one [ElementDegree]() gives under `"Symmetric"`. Exchanging two factors $u$ and $v$ costs $(-1)^{[u]_1[v]_1}$, the sign [KoszulSign]() gives with *parity* $0$.
 - The pairing is consumed: the result is an expression <code>[SymmetricProduct]()[*u'*, *v'*, …]</code> of the sorted factors, possibly with a scalar sign in front.
 - A product with a repeated factor of odd symmetric degree is $0$.
@@ -70,7 +70,7 @@ SymmetricProduct[CyclicWord[{x}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} ->
 
 ---
 
-Factors may be given as lists of particles:
+Factors may be given as lists of letters:
 
 ```wl
 SymmetricProduct[{y}, {x}, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
@@ -116,7 +116,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The two pictures sort the same factors with different signs. In the symmetric picture:
 

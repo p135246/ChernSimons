@@ -24,7 +24,7 @@ RelatedGuides: [CanonicalLieBialgebra]
 - The reversal rule intertwines [CanonicalLieBracket]() and [CanonicalLieCobracket]() in every arity; the position rule does not.
 - The two rules differ by the sign $(-1)^{k \sum_i [f_i]}$. They agree on every product of an even number of factors, and on an odd number of factors they differ exactly when the total exterior degree is odd.
 - The map is linear, and `HBar` is a scalar to it.
-- A cyclic word is taken as a product of one factor, and a word may be given as the list of its particles.
+- A cyclic word is taken as a product of one factor, and a word may be given as the list of its letters.
 - The direction is set by the function alone, not by the `"Convention"` key of *pairing*. An [ExteriorProduct]() returns unevaluated.
 - [ExteriorToSymmetric]() is the inverse map, with either rule.
 - [SymmetricToExterior]() has the following option:
@@ -74,7 +74,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 A product of three words:
 
@@ -100,7 +100,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 A cyclic word is a product of one factor:
 
@@ -110,7 +110,7 @@ SymmetricToExterior[CyclicWord[{y}], pairing]
 
 <!-- => CyclicWord[{y}] -->
 
-A word may be given as the list of its particles:
+A word may be given as the list of its letters:
 
 ```wl
 SymmetricToExterior[{y}, pairing]
@@ -146,7 +146,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 A single factor of even symmetric degree:
 
@@ -180,7 +180,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 A product of two words:
 
@@ -206,7 +206,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 A product of three words:
 
@@ -248,7 +248,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The symmetric co-bracket of $xyyy$ in the exterior picture:
 

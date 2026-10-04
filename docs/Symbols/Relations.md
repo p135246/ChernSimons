@@ -159,7 +159,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 Its canonical Lie bialgebra with the empty word:
 
@@ -167,7 +167,7 @@ Its canonical Lie bialgebra with the empty word:
 algebra = CanonicalLieBialgebra[pairing, "EmptyWord" -> True]
 ```
 
-<!-- => a CanonicalLieBialgebra object over the particles x and y, with the empty word -->
+<!-- => a CanonicalLieBialgebra object over the letters x and y, with the empty word -->
 
 A test of every relation reads both halves of an entry, the name to give [Obstruction]() and the arity to build the tuples:
 
@@ -195,7 +195,7 @@ The canonical Lie bialgebra of the circle:
 algebra = CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
-<!-- => a CanonicalLieBialgebra object over the particles x and y -->
+<!-- => a CanonicalLieBialgebra object over the letters x and y -->
 
 The arity is the length of the tuple [Obstruction]() takes:
 

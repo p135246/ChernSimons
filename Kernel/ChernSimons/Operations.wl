@@ -6,19 +6,19 @@ PackageExported[SymmetricToExterior]
 PackageExported[ExteriorToSymmetric]
 PackageExported[DualPairing]
 
-ChordContraction::usage = "ChordContraction[u, v, {i, j}, pairing] gives the term of the bracket of the cyclic words u and v in which particle i of u is contracted against particle j of v.\nChordContraction[w, {i, j}, pairing] gives the term of the co-bracket of the cyclic word w in which particles i and j are contracted and w is cut into two arcs.\nThe option \"EmptyWord\" -> True keeps an empty remainder or an empty arc as the empty word rather than giving 0.";
+ChordContraction::usage = "ChordContraction[u, v, {i, j}, pairing] gives the term of the bracket of the cyclic words u and v in which letter i of u is contracted against letter j of v.\nChordContraction[w, {i, j}, pairing] gives the term of the co-bracket of the cyclic word w in which letters i and j are contracted and w is cut into two arcs.\nThe option \"EmptyWord\" -> True keeps an empty remainder or an empty arc as the empty word rather than giving 0.";
 
-CanonicalLieBracket::usage = "CanonicalLieBracket[u, v, pairing] gives the bracket q(2,1,0) of the cyclic words u and v, in the convention of pairing.\nCanonicalLieBracket[p, pairing] gives the extension of the bracket as a derivation, applied to a product p of cyclic words.\nThe option \"EmptyWord\" -> True gives the bracket of the extension by the empty word, in which the bracket of two one-particle words is the empty word rather than 0.";
+CanonicalLieBracket::usage = "CanonicalLieBracket[u, v, pairing] gives the bracket q(2,1,0) of the cyclic words u and v, in the convention of pairing.\nCanonicalLieBracket[p, pairing] gives the extension of the bracket as a derivation, applied to a product p of cyclic words.\nThe option \"EmptyWord\" -> True gives the bracket of the extension by the empty word, in which the bracket of two one-letter words is the empty word rather than 0.";
 
-CanonicalLieCobracket::usage = "CanonicalLieCobracket[w, pairing] gives the co-bracket q(1,2,0) of the cyclic word w, a product of two cyclic words, in the convention of pairing.\nCanonicalLieCobracket[p, pairing] gives the extension of the co-bracket as a co-derivation, applied to a product p of cyclic words.\nThe option \"EmptyWord\" -> True gives the co-bracket of the extension by the empty word, in which a cut next to a contracted particle is kept with the empty word as its empty arc.";
+CanonicalLieCobracket::usage = "CanonicalLieCobracket[w, pairing] gives the co-bracket q(1,2,0) of the cyclic word w, a product of two cyclic words, in the convention of pairing.\nCanonicalLieCobracket[p, pairing] gives the extension of the co-bracket as a co-derivation, applied to a product p of cyclic words.\nThe option \"EmptyWord\" -> True gives the co-bracket of the extension by the empty word, in which a cut next to a contracted letter is kept with the empty word as its empty arc.";
 
-CyclicHochschildDifferential::usage = "CyclicHochschildDifferential[w, pairing] gives the differential q(1,1,0) of the cyclic word w, induced particle by particle by the differential of the Poincare duality algebra that pairing carries.\nCyclicHochschildDifferential[p, pairing] gives the extension of the differential as a derivation, applied to a product p of cyclic words.";
+CyclicHochschildDifferential::usage = "CyclicHochschildDifferential[w, pairing] gives the differential q(1,1,0) of the cyclic word w, induced letter by letter by the differential of the Poincare duality algebra that pairing carries.\nCyclicHochschildDifferential[p, pairing] gives the extension of the differential as a derivation, applied to a product p of cyclic words.";
 
 SymmetricToExterior::usage = "SymmetricToExterior[e, pairing] gives the exterior product that corresponds to the symmetric product e, with the sign of the reversal rule.\nSymmetricToExterior[e, pairing, rule] gives it with the sign of rule, \"Reversal\" or \"Position\".\nThe option \"Rule\" gives the sign rule as the third argument does, \"Reversal\" by default.";
 
 ExteriorToSymmetric::usage = "ExteriorToSymmetric[e, pairing] gives the symmetric product that corresponds to the exterior product e, with the sign of the reversal rule; it inverts SymmetricToExterior[e, pairing].\nExteriorToSymmetric[e, pairing, rule] gives it with the sign of rule, \"Reversal\" or \"Position\", and inverts SymmetricToExterior with the same rule.\nThe option \"Rule\" gives the sign rule as the third argument does, \"Reversal\" by default.";
 
-DualPairing::usage = "DualPairing[u, v, pairing] gives the value of the cyclic word u of particles on the cyclic word v of dual particles.\nDualPairing[p, q, pairing] gives the value of the product p of cyclic words on the product q of dual cyclic words, two symmetric or two exterior products.";
+DualPairing::usage = "DualPairing[u, v, pairing] gives the value of the cyclic word u of letters on the cyclic word v of dual letters.\nDualPairing[p, q, pairing] gives the value of the product p of cyclic words on the product q of dual cyclic words, two symmetric or two exterior products.";
 
 Options[ChordContraction] = {"EmptyWord" -> False}
 
@@ -139,13 +139,13 @@ CyclicHochschildDifferential[Times[scalar_, e_], pairing_GradedPairing] /;
 CyclicHochschildDifferential[w_List, pairing_GradedPairing] := CyclicHochschildDifferential[CyclicWord[w], pairing]
 
 CyclicHochschildDifferential[CyclicWord[w_List], pairing_GradedPairing] := With[
-	{particles = Keys[pairing["Degrees"]], matrix = Lookup[Lookup[pairing, "Algebra", <||>], "Differential", None]},
+	{letters = Keys[pairing["Degrees"]], matrix = Lookup[Lookup[pairing, "Algebra", <||>], "Differential", None]},
 	If[matrix === None, 0,
-		With[{images = AssociationThread[particles -> Transpose[matrix]]},
+		With[{images = AssociationThread[letters -> Transpose[matrix]]},
 			Expand[Total[Table[
 				Times[(-1)^ElementDegree[Drop[w, j], pairing, "Bar"], images[w[[j]]][[q]],
-					CyclicWord[ReplacePart[w, j -> particles[[q]]], pairing]],
-				{j, Length[w]}, {q, Length[particles]}], 2]]]]]
+					CyclicWord[ReplacePart[w, j -> letters[[q]]], pairing]],
+				{j, Length[w]}, {q, Length[letters]}], 2]]]]]
 
 CyclicHochschildDifferential[SymmetricProduct[factors__CyclicWord], pairing_GradedPairing] /;
 	pairing["Convention"] =!= "Exterior" := Expand[Total[Map[

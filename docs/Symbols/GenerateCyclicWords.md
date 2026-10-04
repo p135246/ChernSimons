@@ -13,13 +13,13 @@ RelatedGuides: [CanonicalLieBialgebra]
 
 <code>[GenerateCyclicWords]()[*n*, *pairing*]</code> gives the nonzero cyclic words of length *n* over the alphabet of *pairing*, each in its canonical rotation.
 
-<!-- #| annotation: 26.09.30: Design review - the enumeration is the normalization of CyclicWord applied to every tuple of particles, with duplicates and zeros removed, so it lists exactly the representatives the operations give and nothing needs to be compared up to rotation. The length is exact by default and "UpTo" -> True gives every length up to n; the empty word is left out unless "EmptyWord" -> True, the positive-length convention of the paper. Only the degrees are read, so an Association of degrees may stand in for the pairing object. Alternative name considered: CyclicWords, the name until 2026-09-30. Prior art: the Wolfram Language has no enumeration of necklaces or cyclic words, and Tuples gives the linear words the enumeration starts from. The verification suites build their test words from this function, as pacletWords in T12, and compare the operations on them with the engine they load. -->
+<!-- #| annotation: 26.09.30: Design review - the enumeration is the normalization of CyclicWord applied to every tuple of letters, with duplicates and zeros removed, so it lists exactly the representatives the operations give and nothing needs to be compared up to rotation. The length is exact by default and "UpTo" -> True gives every length up to n; the empty word is left out unless "EmptyWord" -> True, the positive-length convention of the paper. Only the degrees are read, so an Association of degrees may stand in for the pairing object. Alternative name considered: CyclicWords, the name until 2026-09-30. Prior art: the Wolfram Language has no enumeration of necklaces or cyclic words, and Tuples gives the linear words the enumeration starts from. The verification suites build their test words from this function, as pacletWords in T12, and compare the operations on them with the engine they load. -->
 
 ## Details & Options
 
-- *pairing* is a pairing object built by [GradedPairing](), or an association from particles to degrees.
+- *pairing* is a pairing object built by [GradedPairing](), or an association from letters to degrees.
 - Only canonical representatives are listed, and the words that a rotation sends to minus themselves are left out, since they are $0$. The list is a basis of the space of cyclic words of length *n*.
-- The words come in the order in which <code>[Tuples]()</code> of the particles first reaches them.
+- The words come in the order in which <code>[Tuples]()</code> of the letters first reaches them.
 - The result is a list of inert one-argument [CyclicWord]() expressions.
 - A negative *n* returns unevaluated.
 - [GenerateCyclicWords]() has the following options:
@@ -70,7 +70,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The number of words by length:
 
@@ -82,7 +82,7 @@ Table[Length[GenerateCyclicWords[n, pairing]], {n, 6}]
 
 ---
 
-A three-particle alphabet enumerates the same way:
+A three-letter alphabet enumerates the same way:
 
 ```wl
 GenerateCyclicWords[2, GradedPairing[<|alpha -> -1, beta -> 0, gamma -> -1|>, <|{alpha, beta} -> 1, {gamma, beta} -> 1|>]]
@@ -160,7 +160,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The words of length $4$, with their degrees in the three gradings:
 

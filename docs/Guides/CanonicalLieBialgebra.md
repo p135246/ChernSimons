@@ -28,9 +28,9 @@ This guide collects the alphabet, its cyclic words and their degrees; the **exte
 ### Graded alphabets and cyclic words
 
 - `GradedPairing` a graded alphabet with a pairing, from degrees and pairing values or from a Poincaré duality algebra
-- `CyclicWord` a cyclic word of particles, and its canonical rotation with the Koszul sign
+- `CyclicWord` a cyclic word of letters, and its canonical rotation with the Koszul sign
 - `GenerateCyclicWords` the nonzero cyclic words of a given length
-- `ElementDegree` the bar, exterior or symmetric degree of a particle, a cyclic word or a product
+- `ElementDegree` the bar, exterior or symmetric degree of a letter, a cyclic word or a product
 - `KoszulSign` the sign of a permutation of graded objects
 - `Signature` (WL) the sign of a permutation
 - `GradedPairingQ` tests whether an expression is a graded alphabet with a pairing
@@ -46,9 +46,9 @@ This guide collects the alphabet, its cyclic words and their degrees; the **exte
 ### Bracket and co-bracket
 
 - `CyclicHochschildDifferential` the differential $\mathfrak{q}_{1,1,0}$, induced by the differential of the Poincaré duality algebra
-- `CanonicalLieBracket` the bracket $\mathfrak{q}_{2,1,0}$, joining two cyclic words at a contracted pair of particles
-- `CanonicalLieCobracket` the co-bracket $\mathfrak{q}_{1,2,0}$, cutting a cyclic word in two at a contracted pair of particles
-- `ChordContraction` one term of the bracket or of the co-bracket, a single contracted pair of particles
+- `CanonicalLieBracket` the bracket $\mathfrak{q}_{2,1,0}$, joining two cyclic words at a contracted pair of letters
+- `CanonicalLieCobracket` the co-bracket $\mathfrak{q}_{1,2,0}$, cutting a cyclic word in two at a contracted pair of letters
+- `ChordContraction` one term of the bracket or of the co-bracket, a single contracted pair of letters
 
 ### Canonical Lie bialgebras and their relations
 

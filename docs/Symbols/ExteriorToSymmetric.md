@@ -23,7 +23,7 @@ RelatedGuides: [CanonicalLieBialgebra]
 - Each rule inverts the rule of the same name of [SymmetricToExterior]().
 - The reversal rule intertwines [CanonicalLieBracket]() and [CanonicalLieCobracket]() of the two pictures.
 - The map is linear, and `HBar` is a scalar to it.
-- A cyclic word is taken as a product of one factor, and a word may be given as the list of its particles.
+- A cyclic word is taken as a product of one factor, and a word may be given as the list of its letters.
 - The direction is set by the function alone, not by the `"Convention"` key of *pairing*. A [SymmetricProduct]() returns unevaluated.
 - [ExteriorToSymmetric]() has the following option:
 
@@ -72,7 +72,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 A cyclic word is a product of one factor:
 
@@ -82,7 +82,7 @@ ExteriorToSymmetric[CyclicWord[{y}], pairing]
 
 <!-- => CyclicWord[{y}] -->
 
-A word may be given as the list of its particles:
+A word may be given as the list of its letters:
 
 ```wl
 ExteriorToSymmetric[{y}, pairing]
@@ -118,7 +118,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 A product of three words:
 
@@ -160,7 +160,7 @@ The alphabet of the circle in the exterior picture:
 exterior = Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1, in the exterior convention -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1, in the exterior convention -->
 
 A product of three words:
 

@@ -10,7 +10,7 @@ MaurerCartanElement::usage = "MaurerCartanElement[parts, pairing] is the element
 
 MaurerCartanBasis::usage = "MaurerCartanBasis[pairing, n] gives the products of cyclic words of total length at most n whose symmetric degree is that of HBar, the genus-zero monomials of a BD action.\nMaurerCartanBasis[degree, pairing, n] gives the products of cyclic words of total length at most n of the given symmetric degree.\nThe option \"EmptyWord\" -> True lets the empty word be a factor, with at most n factors in a monomial.";
 
-MaurerCartanAnsatz::usage = "MaurerCartanAnsatz[coefficient, pairing, n] gives the general genus-zero MaurerCartanElement over MaurerCartanBasis[pairing, n], with the unknown coefficient[w] on a word w and coefficient[{w1, w2, ...}] on a product, named by particle lists.\nMaurerCartanAnsatz[coefficient, degree, pairing, n] gives the general element over MaurerCartanBasis[degree, pairing, n].\nThe option \"EmptyWord\" -> True lets the empty word be a factor of the monomials.";
+MaurerCartanAnsatz::usage = "MaurerCartanAnsatz[coefficient, pairing, n] gives the general genus-zero MaurerCartanElement over MaurerCartanBasis[pairing, n], with the unknown coefficient[w] on a word w and coefficient[{w1, w2, ...}] on a product, named by letter lists.\nMaurerCartanAnsatz[coefficient, degree, pairing, n] gives the general element over MaurerCartanBasis[degree, pairing, n].\nThe option \"EmptyWord\" -> True lets the empty word be a factor of the monomials.";
 
 TwistedDifferential::usage = "TwistedDifferential[m, w] gives the differential q(1,1,0) twisted by the MaurerCartanElement m, applied to the cyclic word w.\nTwistedDifferential[m, p] gives the extension of the twisted differential as a derivation, applied to a product p of cyclic words.\nThe option \"EmptyWord\" -> True gives the twist with the bracket of the empty-word extension.";
 
@@ -179,9 +179,9 @@ CanonicalBeilinsonDrinfeldHomotopy[a0_, b_, pairing_GradedPairing, n_Integer, t_
 		a0, order]]
 
 CanonicalMaurerCartan[pairing_GradedPairing] /; KeyExistsQ[pairing, "Algebra"] := With[
-	{particles = Keys[pairing["Degrees"]], degrees = Values[pairing["Degrees"]],
+	{letters = Keys[pairing["Degrees"]], degrees = Values[pairing["Degrees"]],
 		n = pairing["Algebra"]["Degree"], triple = pairing["Algebra"]["Triple"]},
 	MaurerCartanElement[<|{1, 0} -> (1/3) Total[KeyValueMap[
 		{t, value} |-> With[{a = degrees[[t[[1]]]], b = degrees[[t[[2]]]], c = degrees[[t[[3]]]]},
-			(-1)^(n - 1 + b + a b + b c + c a) value CyclicWord[particles[[t]], pairing]],
+			(-1)^(n - 1 + b + a b + b c + c a) value CyclicWord[letters[[t]], pairing]],
 		triple]]|>, pairing] /; IntegerQ[n] && AssociationQ[triple]]

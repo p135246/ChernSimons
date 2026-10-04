@@ -15,12 +15,12 @@ RelatedGuides: [BeilinsonDrinfeldFormalism]
 
 <code>[MaurerCartanAnsatz]()[*coefficient*, *degree*, *pairing*, *n*]</code> gives the general element over <code>[MaurerCartanBasis]()[*degree*, *pairing*, *n*]</code>.
 
-<!-- #| annotation: 26.09.30: Design review - the Ansatz is the general genus-zero element over MaurerCartanBasis, so that Obstruction[m, "Equations"] turns it into the scalar equations on its unknowns: the round trip from an element to its equations and back. The unknowns are named by particle lists, coefficient[{x, x, y}] on a word and coefficient[{{y}, {y}}] on a product, because coefficient[CyclicWord[...]] would fail the scalar test FreeQ[scalar, CyclicWord | ...] of every linearity rule of the operations (R2; Pavel: the simpler the better, kept). Both forms give a MaurerCartanElement, one function having one kind of result, and a pairing in the exterior convention returns unevaluated, since the BD layer lives in the symmetric picture; before R5d the Ansatz gave symmetric products under an exterior key (R5d, kept by Pavel). Prior art: the Wolfram Language has no Maurer-Cartan equations; T12/paclet-maurer-cartan-ansatz-round-trip pins the circle's Ansatz to length 4, its unknowns and its one equation. No alternative interface was recorded. -->
+<!-- #| annotation: 26.09.30: Design review - the Ansatz is the general genus-zero element over MaurerCartanBasis, so that Obstruction[m, "Equations"] turns it into the scalar equations on its unknowns: the round trip from an element to its equations and back. The unknowns are named by letter lists, coefficient[{x, x, y}] on a word and coefficient[{{y}, {y}}] on a product, because coefficient[CyclicWord[...]] would fail the scalar test FreeQ[scalar, CyclicWord | ...] of every linearity rule of the operations (R2; Pavel: the simpler the better, kept). Both forms give a MaurerCartanElement, one function having one kind of result, and a pairing in the exterior convention returns unevaluated, since the BD layer lives in the symmetric picture; before R5d the Ansatz gave symmetric products under an exterior key (R5d, kept by Pavel). Prior art: the Wolfram Language has no Maurer-Cartan equations; T12/paclet-maurer-cartan-ansatz-round-trip pins the circle's Ansatz to length 4, its unknowns and its one equation. No alternative interface was recorded. -->
 
 ## Details & Options
 
-- The unknown on a cyclic word is *coefficient*[*w*], *w* the list of its particles.
-- The unknown on a product is *coefficient*[{$w_1$, $w_2$, …}], the list of the particle lists of its factors, so an equation can be read without the Ansatz beside it.
+- The unknown on a cyclic word is *coefficient*[*w*], *w* the list of its letters.
+- The unknown on a product is *coefficient*[{$w_1$, $w_2$, …}], the list of the letter lists of its factors, so an equation can be read without the Ansatz beside it.
 - The monomials of one word make up the part $\mathfrak{m}_{1,0}$ of the element, and the products of $\ell$ words the part $\mathfrak{m}_{\ell,0}$.
 - The default degree is that of [HBar](), <code>[ElementDegree]()[HBar, *pairing*, "Symmetric"]</code>, the degree of a BD action.
 - <code>[Obstruction]()[*m*, "Equations"]</code> of the result gives the equations the unknowns must satisfy, one for each product of words in the obstruction.
@@ -39,7 +39,7 @@ The general element of the circle at truncation $4$:
 m = MaurerCartanAnsatz[c, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], 4]
 ```
 
-<!-- => a MaurerCartanElement object with the parts {1, 0} and {2, 0}, over the particles x and y, in the symmetric convention -->
+<!-- => a MaurerCartanElement object with the parts {1, 0} and {2, 0}, over the letters x and y, in the symmetric convention -->
 
 Its parts, with one unknown per monomial:
 
@@ -105,7 +105,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 Where the unknowns solve the equations, the element solves the Maurer-Cartan equation:
 

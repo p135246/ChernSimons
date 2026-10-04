@@ -11,7 +11,7 @@ RelatedGuides: [CanonicalLieBialgebra]
 
 ## Usage
 
-<code>[DualPairing]()[*u*, *v*, *pairing*]</code> gives the value of the cyclic word *u* of particles on the cyclic word *v* of dual particles.
+<code>[DualPairing]()[*u*, *v*, *pairing*]</code> gives the value of the cyclic word *u* of letters on the cyclic word *v* of dual letters.
 
 <code>[DualPairing]()[*p*, *q*, *pairing*]</code> gives the value of the product *p* of cyclic words on the product *q* of dual cyclic words, two symmetric or two exterior products.
 
@@ -29,13 +29,13 @@ RelatedGuides: [CanonicalLieBialgebra]
 | two [ExteriorProduct]() | the sum over the matchings of the factors, with no weight |
 | a word and a product | $0$ |
 
-- On two words the value is a number: the sum over the rotations of *v*, each with its Koszul sign, of the product of the values of the *evaluation* association on the matched particles, times the reversal sign of the degrees of *u*.
+- On two words the value is a number: the sum over the rotations of *v*, each with its Koszul sign, of the product of the values of the *evaluation* association on the matched letters, times the reversal sign of the degrees of *u*.
 - A word of length $k$ has up to $k$ rotations matching a dual word, and the value counts them all, so a value may exceed $1$.
 - Words of different lengths give $0$.
 - On two products the value is the sum over all matchings of the factors of *p* with the factors of *q*: each term is the product of the values on the matched words, times the Koszul sign of the permutation that realizes the matching, times a sign of the degrees of the factors of *p*.
 - Products with different numbers of factors give $0$.
 - A symmetric product against an exterior product returns unevaluated.
-- [DualPairing]() is linear in both arguments, and a word may be given as the list of its particles.
+- [DualPairing]() is linear in both arguments, and a word may be given as the list of its letters.
 
 ## Basic Examples
 
@@ -65,7 +65,7 @@ The circle with its dual alphabet:
 dual = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y and dual particles a and b, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y and dual letters a and b, of pairing degree -1 -->
 
 Two symmetric products of two factors each, with the weight $1/2!$:
 
@@ -83,7 +83,7 @@ The circle with its dual alphabet, in the exterior picture:
 exterior = Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>], "Convention" -> "Exterior"]
 ```
 
-<!-- => a GradedPairing object with particles x and y and dual particles a and b, of pairing degree -1, in the exterior convention -->
+<!-- => a GradedPairing object with letters x and y and dual letters a and b, of pairing degree -1, in the exterior convention -->
 
 The same data as exterior products, which carry no factorial weight:
 
@@ -101,7 +101,7 @@ The circle with its dual alphabet:
 dual = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y and dual particles a and b, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y and dual letters a and b, of pairing degree -1 -->
 
 The pairing is on cyclic words, so a rotation of the dual word gives the same value:
 
@@ -159,7 +159,7 @@ The circle with its dual alphabet:
 dual = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>, <|a -> -1, b -> 0|>, <|{x, a} -> 1, {y, b} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y and dual particles a and b, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y and dual letters a and b, of pairing degree -1 -->
 
 On two symmetric products of two factors:
 

@@ -27,7 +27,7 @@ RelatedGuides: [BeilinsonDrinfeldFormalism]
 - [SymmetricToExterior]() relates the two pictures: it sends $f\odot g$ to $(-1)^{|f|_\wedge} f\wedge g$, so over the circle $y\odot y$ corresponds to $-y\wedge y$.
 - On a product the twisted co-bracket acts on each factor in turn, with the Koszul sign of the shuffle.
 - A product of the other kind returns unevaluated.
-- [TwistedCobracket]() is linear in its second argument, and a word may be given as the list of its particles.
+- [TwistedCobracket]() is linear in its second argument, and a word may be given as the list of its letters.
 - [TwistedCobracket]() has the following option:
 
 | Option | Default | Description |
@@ -52,7 +52,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The Chern-Simons truncation:
 
@@ -60,7 +60,7 @@ The Chern-Simons truncation:
 chernSimons = MaurerCartanElement[CyclicWord[{x, x, y}] - (1/48) SymmetricProduct[{y}, {y}, pairing], pairing]
 ```
 
-<!-- => a MaurerCartanElement object with the parts {1, 0} and {2, 0}, over the particles x and y, in the symmetric convention -->
+<!-- => a MaurerCartanElement object with the parts {1, 0} and {2, 0}, over the letters x and y, in the symmetric convention -->
 
 The untwisted co-bracket of $xy^2$ is $0$:
 
@@ -86,7 +86,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The Chern-Simons truncation:
 
@@ -94,7 +94,7 @@ The Chern-Simons truncation:
 chernSimons = MaurerCartanElement[CyclicWord[{x, x, y}] - (1/48) SymmetricProduct[{y}, {y}, pairing], pairing]
 ```
 
-<!-- => a MaurerCartanElement object with the parts {1, 0} and {2, 0}, over the particles x and y, in the symmetric convention -->
+<!-- => a MaurerCartanElement object with the parts {1, 0} and {2, 0}, over the letters x and y, in the symmetric convention -->
 
 On $xy^3$ both the co-bracket and the twist contribute:
 
@@ -120,7 +120,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The same alphabet in the exterior convention:
 
@@ -128,7 +128,7 @@ The same alphabet in the exterior convention:
 exterior = Append[pairing, "Convention" -> "Exterior"]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1, in the exterior convention -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1, in the exterior convention -->
 
 The Chern-Simons truncation, sent to the exterior picture by [SymmetricToExterior]():
 
@@ -136,7 +136,7 @@ The Chern-Simons truncation, sent to the exterior picture by [SymmetricToExterio
 element = MaurerCartanElement[SymmetricToExterior[CyclicWord[{x, x, y}] - (1/48) SymmetricProduct[{y}, {y}, pairing], pairing], exterior]
 ```
 
-<!-- => a MaurerCartanElement object with the parts {1, 0} and {2, 0}, over the particles x and y, in the exterior convention -->
+<!-- => a MaurerCartanElement object with the parts {1, 0} and {2, 0}, over the letters x and y, in the exterior convention -->
 
 The twisted co-bracket of $xy^2$ in the exterior picture:
 
@@ -184,7 +184,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The symmetric result, sent to the exterior picture, is the exterior result:
 
@@ -210,7 +210,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 An exterior product under a symmetric pairing returns unevaluated, after the product has brought its factors to their canonical order:
 

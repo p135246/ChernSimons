@@ -126,7 +126,7 @@ Normal[pd["Triple"]]
 
 ## The dual pairing, and the alphabet
 
-Shifting the quotient down by one turns the graded symmetric pairing of degree $n$ into a graded antisymmetric pairing of degree $n-2$, which is what the IBL operations want. [GradedPairing]() applied to the algebra does exactly that, taking the basis monomials as the particles of the alphabet.
+Shifting the quotient down by one turns the graded symmetric pairing of degree $n$ into a graded antisymmetric pairing of degree $n-2$, which is what the IBL operations want. [GradedPairing]() applied to the algebra does exactly that, taking the basis monomials as the letters of the alphabet.
 
 ```wl
 pairing = GradedPairing[pd];

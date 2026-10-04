@@ -37,7 +37,7 @@ The areas of the paclet are the canonical Lie bialgebras of cyclic words, the Be
 ### [Canonical Lie Bialgebra](paclet:ChernSimons/guide/CanonicalLieBialgebra)
 
 - `GradedPairing` the graded alphabet with a pairing that the cyclic words are written in
-- `CyclicWord` a cyclic word of particles
+- `CyclicWord` a cyclic word of letters
 - `CanonicalLieBracket` the bracket of two cyclic words
 - `CanonicalLieCobracket` the co-bracket of a cyclic word
 - `CanonicalLieBialgebra` the differential involutive bi-Lie algebra of the cyclic words of an alphabet

@@ -24,13 +24,13 @@ with $|f|$ the symmetric degree of $f$.
 - On two cyclic words it is $\{u, v\} = (-1)^{|u|}[u, v]$.
 - It is already present on the symmetric powers of cyclic words before $\hbar$ is adjoined, and carries no $\hbar$ itself.
 - The derived bracket of $\Delta$, the failure of $\Delta$ to be a derivation, is $\hbar$ times this bracket. That derived bracket is the BV bracket of the localization at $\hbar$.
-- *f* and *g* are cyclic words, symmetric products of cyclic words, lists of particles, or linear combinations of these. The bracket is bilinear.
+- *f* and *g* are cyclic words, symmetric products of cyclic words, lists of letters, or linear combinations of these. The bracket is bilinear.
 - A pairing object in the exterior convention returns unevaluated.
 - [CanonicalBeilinsonDrinfeldBracket]() has the following option:
 
 | Option | Default | Description |
 |---|---|---|
-| <code>"EmptyWord"</code> | <code>False</code> | whether the bracket is that of the extension by the empty word, in which the bracket of two one-particle words is the empty word |
+| <code>"EmptyWord"</code> | <code>False</code> | whether the bracket is that of the extension by the empty word, in which the bracket of two one-letter words is the empty word |
 
 ## Basic Examples
 
@@ -50,7 +50,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 On two words it is [CanonicalLieBracket]() up to the sign of the symmetric degree of the first word:
 
@@ -76,7 +76,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The bracket of a product and a word:
 
@@ -86,7 +86,7 @@ CanonicalBeilinsonDrinfeldBracket[SymmetricProduct[CyclicWord[{x}], CyclicWord[{
 
 <!-- => -SymmetricProduct[CyclicWord[{x}], CyclicWord[{y, y}]] -->
 
-Words may be given as lists of particles:
+Words may be given as lists of letters:
 
 ```wl
 CanonicalBeilinsonDrinfeldBracket[{x, y, y, y}, {x, y}, pairing]
@@ -112,9 +112,9 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
-The bracket of two one-particle words is $0$ in the positive-length convention:
+The bracket of two one-letter words is $0$ in the positive-length convention:
 
 ```wl
 CanonicalBeilinsonDrinfeldBracket[CyclicWord[{x}], CyclicWord[{y}], pairing]
@@ -138,7 +138,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The bracket is free of $\hbar$:
 
@@ -164,7 +164,7 @@ The alphabet of the circle in the exterior picture:
 exterior = Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1, in the exterior convention -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1, in the exterior convention -->
 
 The bracket lives in the symmetric picture, so an exterior pairing returns unevaluated:
 

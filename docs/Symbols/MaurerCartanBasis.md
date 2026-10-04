@@ -51,7 +51,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The degree of [HBar]():
 
@@ -87,7 +87,7 @@ A three-letter alphabet:
 three = GradedPairing[<|p -> -1, q -> 0, r -> -1|>, <|{p, q} -> 1, {r, q} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles p, q and r, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters p, q and r, of pairing degree -1 -->
 
 Its basis up to total length $3$:
 
@@ -107,7 +107,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The monomials the empty word adds up to total length $4$:
 
@@ -135,7 +135,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The first form is the second in the degree of [HBar]():
 

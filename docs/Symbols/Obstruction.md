@@ -43,7 +43,7 @@ RelatedGuides: [HomotopyAlgebras, CanonicalLieBialgebra, BeilinsonDrinfeldFormal
 
 - On a canonical Lie bialgebra the operations are [CanonicalLieBracket]() and [CanonicalLieCobracket]() with their extensions to products, in the convention of the pairing, and with the empty word when the algebra has it.
 - In the exterior convention the products in the string relations are exterior products.
-- A cyclic word may be given as the list of its particles.
+- A cyclic word may be given as the list of its letters.
 - On a canonical Lie bialgebra a nonzero value is a counterexample to the identity for that pairing.
 - On an A-infinity algebra the convention is the shifted one: the term whose inner operation takes the arguments $r+1$ through $r+s$ carries the sign of the sum of the shifted degrees of the first $r$ arguments, and the relation on $e_1, \dots, e_n$ is $\sum_{r+s+t=n} (-1)^{|e_1|+\cdots+|e_r|}\, m_{r+1+t}(e_1,\dots,e_r, m_s(e_{r+1},\dots,e_{r+s}), \dots, e_n) = 0$.
 - On an A-infinity morphism the left-hand side carries the same signs with the components $f_k$ outside, and the right-hand side sums over all compositions of the arguments into blocks, so a target with operations beyond $m_2$ is handled.
@@ -85,7 +85,7 @@ The canonical Lie bialgebra of the circle:
 algebra = CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
-<!-- => a CanonicalLieBialgebra object over the particles x and y -->
+<!-- => a CanonicalLieBialgebra object over the letters x and y -->
 
 Its words of length at most $3$:
 
@@ -111,7 +111,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The canonical element of the circle solves the Maurer-Cartan equation:
 
@@ -157,7 +157,7 @@ The alphabet of the circle in the exterior convention:
 exterior = Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1, in the exterior convention -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1, in the exterior convention -->
 
 Its canonical Lie bialgebra with the empty word:
 
@@ -165,7 +165,7 @@ Its canonical Lie bialgebra with the empty word:
 algebra = CanonicalLieBialgebra[exterior, "EmptyWord" -> True]
 ```
 
-<!-- => a CanonicalLieBialgebra object over the particles x and y, in the exterior convention, with the empty word -->
+<!-- => a CanonicalLieBialgebra object over the letters x and y, in the exterior convention, with the empty word -->
 
 The co-Jacobi identity holds on every word of length at most $6$, the empty word among them:
 
@@ -177,7 +177,7 @@ Union[(w |-> Obstruction[algebra, "CoJacobi", {w}]) /@ GenerateCyclicWords[6, ex
 
 ---
 
-A word may be given as the list of its particles:
+A word may be given as the list of its letters:
 
 ```wl
 Obstruction[CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], "Drinfeld", {{x, y}, {x, y, y}}]
@@ -193,7 +193,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The `"Equations"` form turns an Ansatz into the equations on its unknowns:
 
@@ -357,7 +357,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 Without the empty word the word $(x y)$ solves the Maurer-Cartan equation:
 
@@ -383,7 +383,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The Jacobi obstruction is the composite of the extensions of the bracket:
 
@@ -401,7 +401,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 A BD action with a genus-one part:
 
@@ -453,7 +453,7 @@ A three-letter alphabet:
 three = GradedPairing[<|p -> -1, q -> 0, r -> -1|>, <|{p, q} -> 1, {r, q} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles p, q and r, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters p, q and r, of pairing degree -1 -->
 
 Nothing here is particular to the circle. The word $(p p q)$ is a Maurer-Cartan element:
 
@@ -479,7 +479,7 @@ The canonical Lie bialgebra of the circle:
 algebra = CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
-<!-- => a CanonicalLieBialgebra object over the particles x and y -->
+<!-- => a CanonicalLieBialgebra object over the letters x and y -->
 
 A canonical Lie bialgebra has four relations, so its relation cannot be omitted, and the expression returns unevaluated:
 
@@ -513,7 +513,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The empty word belongs to the algebra, so the option given with a canonical Lie bialgebra returns unevaluated:
 

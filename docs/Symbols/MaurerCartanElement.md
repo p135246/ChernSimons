@@ -22,7 +22,7 @@ RelatedGuides: [BeilinsonDrinfeldFormalism]
 - The part $\mathfrak{m}_{\ell,g}$ is a sum of products of $\ell$ cyclic words with coefficients free of [HBar](), where $\ell$ is the number of factors and $g$ the genus.
 - The BD action of the element is $s = \sum_{\ell, g} \hbar^g\,\mathfrak{m}_{\ell,g}$, and the second form splits *s* into its parts.
 - A part with $\ell = 1$ is a sum of cyclic words. The products of a part with $\ell \geq 2$ carry the head of the convention of *pairing*: [SymmetricProduct]() under `"Symmetric"`, [ExteriorProduct]() under `"Exterior"`.
-- A word may be given as the list of its particles.
+- A word may be given as the list of its letters.
 - The terms are kept as given, expanded and grouped by $\{\ell, g\}$. Words are not brought to a canonical rotation, so the element of an expanded BD action *s* gives *s* back.
 - The zero BD action gives the element with no parts.
 - For an element *m* the following properties are available:
@@ -49,7 +49,7 @@ The canonical element of the circle, from its BD action:
 MaurerCartanElement[CyclicWord[{x, x, y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
-<!-- => a MaurerCartanElement object with the one part {1, 0} -> CyclicWord[{x, x, y}], over the particles x and y, in the symmetric convention -->
+<!-- => a MaurerCartanElement object with the one part {1, 0} -> CyclicWord[{x, x, y}], over the letters x and y, in the symmetric convention -->
 
 ---
 
@@ -59,7 +59,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The Chern-Simons truncation of the circle, from its two parts:
 
@@ -67,7 +67,7 @@ The Chern-Simons truncation of the circle, from its two parts:
 m = MaurerCartanElement[<|{1, 0} -> CyclicWord[{x, x, y}], {2, 0} -> -(1/48) SymmetricProduct[{y}, {y}, pairing]|>, pairing]
 ```
 
-<!-- => a MaurerCartanElement object with the parts {1, 0} and {2, 0}, over the particles x and y, in the symmetric convention -->
+<!-- => a MaurerCartanElement object with the parts {1, 0} and {2, 0}, over the letters x and y, in the symmetric convention -->
 
 Its part $\mathfrak{m}_{2,0}$:
 
@@ -93,7 +93,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The Chern-Simons truncation, from its BD action:
 
@@ -101,7 +101,7 @@ The Chern-Simons truncation, from its BD action:
 m = MaurerCartanElement[CyclicWord[{x, x, y}] - (1/48) SymmetricProduct[{y}, {y}, pairing], pairing]
 ```
 
-<!-- => a MaurerCartanElement object with the parts {1, 0} and {2, 0}, over the particles x and y, in the symmetric convention -->
+<!-- => a MaurerCartanElement object with the parts {1, 0} and {2, 0}, over the letters x and y, in the symmetric convention -->
 
 Its parts:
 
@@ -125,7 +125,7 @@ Its pairing:
 m["Pairing"]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 ---
 
@@ -139,7 +139,7 @@ MaurerCartanElement[CyclicWord[{x, x, y}] + g HBar CyclicWord[{x, x, y, y}], Gra
 
 ---
 
-A word may be given as the list of its particles:
+A word may be given as the list of its letters:
 
 ```wl
 MaurerCartanElement[<|{1, 0} -> {x, x, y}|>, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]["Parts"]
@@ -165,7 +165,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The same alphabet in the exterior convention:
 
@@ -173,7 +173,7 @@ The same alphabet in the exterior convention:
 exterior = Append[pairing, "Convention" -> "Exterior"]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1, in the exterior convention -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1, in the exterior convention -->
 
 In the exterior convention the parts carry exterior products:
 
@@ -191,7 +191,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The BD action of the general element at truncation $4$:
 
@@ -217,7 +217,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The Chern-Simons truncation solves the Maurer-Cartan equation:
 
@@ -283,7 +283,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 A product with the head of the other convention returns unevaluated:
 

@@ -65,7 +65,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The canonical element of the circle is a Maurer-Cartan element:
 
@@ -209,7 +209,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 Without the empty word the word $(x y)$ solves the Maurer-Cartan equation:
 
@@ -235,7 +235,7 @@ The canonical Lie bialgebra of the circle:
 algebra = CanonicalLieBialgebra[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
 ```
 
-<!-- => a CanonicalLieBialgebra object over the particles x and y -->
+<!-- => a CanonicalLieBialgebra object over the letters x and y -->
 
 Its words of length at most $3$:
 
@@ -261,7 +261,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 On an element the test is whether the obstruction is $0$:
 

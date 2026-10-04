@@ -184,9 +184,9 @@ The alphabet of the quotient of $\mathbb{CP}^2$:
 pairing = GradedPairing[NondegenerateQuotient[SullivanModel["ComplexProjectiveSpace"[2]]]]
 ```
 
-<!-- => a GradedPairing object with particles 1, a and a^2, of pairing degree 2 -->
+<!-- => a GradedPairing object with letters 1, a and a^2, of pairing degree 2 -->
 
-The degrees of the particles are shifted:
+The degrees of the letters are shifted:
 
 ```wl
 Normal[pairing["Degrees"]]

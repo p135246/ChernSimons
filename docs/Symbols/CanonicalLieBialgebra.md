@@ -28,7 +28,7 @@ RelatedGuides: [CanonicalLieBialgebra]
 | <code>*a*["EmptyWord"]</code> | `True` or `False` |
 
 - [Obstruction](), [Relations](), [RelationsQ](), the accessors and the summary box answer only when *assoc* has a `"Pairing"` holding a [GradedPairing]() object and an `"EmptyWord"` holding `True` or `False`.
-- The algebra displays as a summary box: the alphabet and whether the empty word is in, with the convention, the degree and the degrees of the particles under the opener.
+- The algebra displays as a summary box: the alphabet and whether the empty word is in, with the convention, the degree and the degrees of the letters under the opener.
 - [CanonicalLieBialgebra]() has the following option:
 
 | Option | Default | Description |
@@ -86,7 +86,7 @@ The alphabet of the circle in the exterior picture:
 exterior = Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1, in the exterior convention -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1, in the exterior convention -->
 
 In the exterior convention the relations are computed with exterior products:
 
@@ -104,7 +104,7 @@ A three-letter alphabet:
 three = GradedPairing[<|p -> -1, q -> 0, r -> -1|>, <|{p, q} -> 1, {r, q} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles p, q and r, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters p, q and r, of pairing degree -1 -->
 
 The relations of its algebra with the empty word hold on all words of length at most $2$:
 
@@ -124,7 +124,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The algebra extended by the empty word:
 
@@ -158,7 +158,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The co-Jacobi obstruction of the algebra with the empty word is the co-bracket applied twice with the option `"EmptyWord" -> True`:
 
@@ -176,7 +176,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 An option value that is not `True` or `False` returns unevaluated:
 
@@ -194,7 +194,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The Association of the data of a pairing is not a pairing object, and returns unevaluated:
 

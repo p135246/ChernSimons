@@ -26,14 +26,14 @@ RelatedGuides: [BeilinsonDrinfeldFormalism]
 - On a cyclic word the result is the same in both conventions.
 - On a product the twisted differential acts on each factor in turn, with the Koszul sign of the shuffle, in the picture the convention of the pairing selects: a [SymmetricProduct]() under `"Symmetric"`, an [ExteriorProduct]() under `"Exterior"`.
 - A product of the other kind returns unevaluated.
-- [TwistedDifferential]() is linear in its second argument, and a word may be given as the list of its particles.
+- [TwistedDifferential]() is linear in its second argument, and a word may be given as the list of its letters.
 - When *m* solves the Maurer-Cartan equation, the twisted differential squares to zero.
 - For the element <code>[CanonicalMaurerCartan]()[*pairing*]</code> of a Poincaré duality algebra it is the dual of the cyclic Hochschild differential of the algebra, whose homology is Connes' cyclic cohomology.
 - [TwistedDifferential]() has the following option:
 
 | Option | Default | Description |
 |---|---|---|
-| <code>"EmptyWord"</code> | <code>False</code> | whether the bracket of two one-particle words is the empty word <code>[CyclicWord]()[{}]</code> rather than $0$ |
+| <code>"EmptyWord"</code> | <code>False</code> | whether the bracket of two one-letter words is the empty word <code>[CyclicWord]()[{}]</code> rather than $0$ |
 
 ## Basic Examples
 
@@ -53,7 +53,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The canonical element of the circle:
 
@@ -61,7 +61,7 @@ The canonical element of the circle:
 m = MaurerCartanElement[CyclicWord[{x, x, y}], pairing]
 ```
 
-<!-- => a MaurerCartanElement object with the one part {1, 0} -> CyclicWord[{x, x, y}], over the particles x and y, in the symmetric convention -->
+<!-- => a MaurerCartanElement object with the one part {1, 0} -> CyclicWord[{x, x, y}], over the letters x and y, in the symmetric convention -->
 
 On a product it acts factor by factor:
 
@@ -79,7 +79,7 @@ The alphabet of the circle in the exterior convention:
 exterior = Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1, in the exterior convention -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1, in the exterior convention -->
 
 The canonical element in that convention:
 
@@ -87,7 +87,7 @@ The canonical element in that convention:
 m = MaurerCartanElement[CyclicWord[{x, x, y}], exterior]
 ```
 
-<!-- => a MaurerCartanElement object with the one part {1, 0} -> CyclicWord[{x, x, y}], over the particles x and y, in the exterior convention -->
+<!-- => a MaurerCartanElement object with the one part {1, 0} -> CyclicWord[{x, x, y}], over the letters x and y, in the exterior convention -->
 
 On a cyclic word the result is that of the symmetric convention:
 
@@ -107,7 +107,7 @@ TwistedDifferential[m, ExteriorProduct[{x, y, y}, {y}, exterior]]
 
 ---
 
-Words may be given as lists of particles:
+Words may be given as lists of letters:
 
 ```wl
 TwistedDifferential[MaurerCartanElement[{x, x, y}, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], {x, y, y}]
@@ -133,7 +133,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The part $\mathfrak{m}_{2,0}$ of the Chern-Simons truncation does not enter:
 
@@ -147,7 +147,7 @@ TwistedDifferential[MaurerCartanElement[CyclicWord[{x, x, y}] - (1/48) Symmetric
 
 ### EmptyWord
 
-The twist by a one-particle word of a one-particle word is $0$ by default:
+The twist by a one-letter word of a one-letter word is $0$ by default:
 
 ```wl
 TwistedDifferential[MaurerCartanElement[CyclicWord[{y}], GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]], {x}]
@@ -173,7 +173,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The canonical element of the circle:
 
@@ -181,7 +181,7 @@ The canonical element of the circle:
 m = MaurerCartanElement[{x, x, y}, pairing]
 ```
 
-<!-- => a MaurerCartanElement object with the one part {1, 0} -> CyclicWord[{x, x, y}], over the particles x and y, in the symmetric convention -->
+<!-- => a MaurerCartanElement object with the one part {1, 0} -> CyclicWord[{x, x, y}], over the letters x and y, in the symmetric convention -->
 
 For a Maurer-Cartan element it squares to zero on every word of length at most $5$:
 
@@ -199,7 +199,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 The pairing carries no differential, so the untwisted differential is $0$:
 
@@ -225,7 +225,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 An exterior product under a symmetric pairing returns unevaluated, after the product has brought its factors to their canonical order:
 

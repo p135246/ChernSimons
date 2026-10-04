@@ -100,4 +100,4 @@ As a pattern test it selects the pairing objects of a list:
 Select[{GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], <|x -> -1, y -> 0|>, x}, GradedPairingQ]
 ```
 
-<!-- => a list of one GradedPairing object, with particles x and y, of pairing degree -1 -->
+<!-- => a list of one GradedPairing object, with letters x and y, of pairing degree -1 -->

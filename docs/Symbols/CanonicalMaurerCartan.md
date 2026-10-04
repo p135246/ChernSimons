@@ -13,16 +13,16 @@ RelatedGuides: [BeilinsonDrinfeldFormalism]
 
 <code>[CanonicalMaurerCartan]()[*pairing*]</code> gives the canonical Maurer-Cartan element of the Poincaré duality algebra that *pairing* carries, a [MaurerCartanElement]() with the one part $\mathfrak{m}_{1,0}$.
 
-<!-- #| annotation: 26.09.30: Design review - the function reads everything off the pairing object: the degrees of the particles from the pairing, and the degree n and the "Triple" key from its "Algebra" key, which GradedPairing[algebra] supplies, so the element is built over whatever particle names the pairing gives. On a pairing without an algebra it returns unevaluated; before R3 it issued GradedPairing::algebra and aborted the whole evaluation, and the message is gone. Since R5d it gives a MaurerCartanElement with the one part m_{1,0} rather than a bare BD action, and since R5c it lives in the ChernSimons part beside GradedPairing[algebra], so that ChernSimons reads the PoincareDualityAlgebra of the algebraic models and the dependency runs one way. It is the one function of the paclet that produces a Maurer-Cartan element rather than taking one as given; the geometric element, with ribbon graphs and configuration-space integrals, is not implemented. Prior art: the Wolfram Language has no Poincare duality algebras or cyclic words; the engine the verification suites load computes the element as pdCanonicalMC, and T17/canonical-element-is-the-engine-element pins this function against it over the catalogue and Kodaira-Thurston, with the words brought to the paclet's canonical rotation. No alternative interface was recorded. -->
+<!-- #| annotation: 26.09.30: Design review - the function reads everything off the pairing object: the degrees of the letters from the pairing, and the degree n and the "Triple" key from its "Algebra" key, which GradedPairing[algebra] supplies, so the element is built over whatever letter names the pairing gives. On a pairing without an algebra it returns unevaluated; before R3 it issued GradedPairing::algebra and aborted the whole evaluation, and the message is gone. Since R5d it gives a MaurerCartanElement with the one part m_{1,0} rather than a bare BD action, and since R5c it lives in the ChernSimons part beside GradedPairing[algebra], so that ChernSimons reads the PoincareDualityAlgebra of the algebraic models and the dependency runs one way. It is the one function of the paclet that produces a Maurer-Cartan element rather than taking one as given; the geometric element, with ribbon graphs and configuration-space integrals, is not implemented. Prior art: the Wolfram Language has no Poincare duality algebras or cyclic words; the engine the verification suites load computes the element as pdCanonicalMC, and T17/canonical-element-is-the-engine-element pins this function against it over the catalogue and Kodaira-Thurston, with the words brought to the paclet's canonical rotation. No alternative interface was recorded. -->
 
 ## Details & Options
 
 - The triple product of a Poincaré duality algebra $(H, \mathcal{O})$ of degree $n$ is a cyclic three-cochain on $H[1]$, hence an element of the cyclic words of length three.
 - In a basis $(e_i)$ the element is $\mathfrak{m}^{\mathrm{can}}_{1,0} = (-1)^{n-2}\frac{1}{3}\sum_{i,j,k} \pm\,(-1)^{\deg e_j}\,\mathcal{O}(e_i\cdot e_j\cdot e_k)\; e^ie^je^k$, with $\pm$ the reversal sign $(-1)^{\lvert e^k\rvert(\lvert e^i\rvert+\lvert e^j\rvert)+\lvert e^j\rvert\lvert e^i\rvert}$.
-- In the degrees $a$, $b$, $c$ of the three particles the sign of a summand is $(-1)^{n-1+b+ab+bc+ca}$.
+- In the degrees $a$, $b$, $c$ of the three letters the sign of a summand is $(-1)^{n-1+b+ab+bc+ca}$.
 - The summand is invariant under cyclic rotation. A cyclic word with three distinct rotations is produced three times and has the full coefficient; a word $e^ie^ie^i$ is produced once and keeps the factor $\tfrac13$.
 - *pairing* must carry an `"Algebra"` key, which <code>[GradedPairing]()[*algebra*]</code> supplies.
-- The degrees of the particles are read off *pairing*, and the degree $n$ and the `"Triple"` key off the algebra.
+- The degrees of the letters are read off *pairing*, and the degree $n$ and the `"Triple"` key off the algebra.
 - On a pairing without an algebra [CanonicalMaurerCartan]() returns unevaluated.
 - The element carries only the product, in its part <code>*m*[{1, 0}]</code>, and it carries *pairing*.
 - When the algebra has a nonzero differential, the canonical dIBL structure of a cyclic cochain complex carries it in $\mathfrak{q}_{1,1,0}$, which is [CyclicHochschildDifferential](); see [NondegenerateQuotient]().
@@ -36,7 +36,7 @@ The canonical element of the circle:
 m = CanonicalMaurerCartan[GradedPairing[NondegenerateQuotient[SullivanModel["Circle"]], {x, y}]]
 ```
 
-<!-- => a MaurerCartanElement object with the one part {1, 0} -> CyclicWord[{x, x, y}], over the particles x and y, in the symmetric convention -->
+<!-- => a MaurerCartanElement object with the one part {1, 0} -> CyclicWord[{x, x, y}], over the letters x and y, in the symmetric convention -->
 
 Its one part is the element $x^2y$ the paper's Section 2 starts from:
 
@@ -56,7 +56,7 @@ RelationsQ[m]
 
 ---
 
-For $\mathbb{CP}^2$ there are two cyclic words, with the default particles being the basis monomials:
+For $\mathbb{CP}^2$ there are two cyclic words, with the default letters being the basis monomials:
 
 ```wl
 CanonicalMaurerCartan[GradedPairing[NondegenerateQuotient[SullivanModel["ComplexProjectiveSpace"[2]]]]][{1, 0}]
@@ -66,7 +66,7 @@ CanonicalMaurerCartan[GradedPairing[NondegenerateQuotient[SullivanModel["Complex
 
 ## Scope
 
-The particles can be named anything; the element is the same up to the relabelling:
+The letters can be named anything; the element is the same up to the relabelling:
 
 ```wl
 CanonicalMaurerCartan[GradedPairing[NondegenerateQuotient[SullivanModel["ComplexProjectiveSpace"[2]]], {e0, e1, e2}]][{1, 0}]
@@ -130,7 +130,7 @@ The alphabet of $\mathbb{CP}^2$:
 pairing = GradedPairing[NondegenerateQuotient[SullivanModel["ComplexProjectiveSpace"[2]]]]
 ```
 
-<!-- => a GradedPairing object with particles 1, a and a^2, of pairing degree 2, carrying the algebra of CP^2, of degree 4 -->
+<!-- => a GradedPairing object with letters 1, a and a^2, of pairing degree 2, carrying the algebra of CP^2, of degree 4 -->
 
 The symmetric degree of a word of the element is $2(n-3)$:
 
@@ -156,7 +156,7 @@ The canonical element of the circle:
 m = CanonicalMaurerCartan[GradedPairing[NondegenerateQuotient[SullivanModel["Circle"]], {x, y}]]
 ```
 
-<!-- => a MaurerCartanElement object with the one part {1, 0} -> CyclicWord[{x, x, y}], over the particles x and y, in the symmetric convention -->
+<!-- => a MaurerCartanElement object with the one part {1, 0} -> CyclicWord[{x, x, y}], over the letters x and y, in the symmetric convention -->
 
 Twisting $\mathfrak{q}_{2,1,0}$ by it gives the dual of the cyclic Hochschild differential. On the circle that operator inserts one letter $x$:
 

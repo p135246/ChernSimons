@@ -24,7 +24,7 @@ RelatedGuides: [BeilinsonDrinfeldFormalism]
 - $\Delta$ obeys the BD axiom
 $$\Delta(f f') = \Delta(f) f' + (-1)^{|f|} f \Delta(f') + (-1)^{|f|}\hbar\,\{f, f'\},$$
 with $|f|$ the symmetric degree of $f$, whose bracket is [CanonicalBeilinsonDrinfeldBracket]() and carries no $\hbar$ of its own.
-- *e* is a [CyclicWord](), a [SymmetricProduct]() of cyclic words, a list of particles, or a linear combination of these.
+- *e* is a [CyclicWord](), a [SymmetricProduct]() of cyclic words, a list of letters, or a linear combination of these.
 - The operator is linear, and [HBar]() is a scalar to it.
 - A pairing object in the exterior convention, or an [ExteriorProduct](), returns unevaluated.
 - [CanonicalBeilinsonDrinfeldOperator]() has the following option:
@@ -51,7 +51,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 A product of two words:
 
@@ -79,7 +79,7 @@ CanonicalBeilinsonDrinfeldOperator[CanonicalBeilinsonDrinfeldOperator[p, pairing
 
 ## Scope
 
-A word may be given as the list of its particles:
+A word may be given as the list of its letters:
 
 ```wl
 CanonicalBeilinsonDrinfeldOperator[{x, y, y, y}, GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]]
@@ -117,9 +117,9 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
-On a product of two one-particle words the operator is $0$ in the positive-length convention:
+On a product of two one-letter words the operator is $0$ in the positive-length convention:
 
 ```wl
 CanonicalBeilinsonDrinfeldOperator[SymmetricProduct[CyclicWord[{x}], CyclicWord[{y}], pairing], pairing]
@@ -143,7 +143,7 @@ The alphabet of the circle:
 pairing = GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1 -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1 -->
 
 A product of two words:
 
@@ -193,7 +193,7 @@ The alphabet of the circle in the exterior picture:
 exterior = Append[GradedPairing[<|x -> -1, y -> 0|>, <|{x, y} -> 1|>], "Convention" -> "Exterior"]
 ```
 
-<!-- => a GradedPairing object with particles x and y, of pairing degree -1, in the exterior convention -->
+<!-- => a GradedPairing object with letters x and y, of pairing degree -1, in the exterior convention -->
 
 The Beilinson-Drinfeld algebra lives in the symmetric picture, so an exterior pairing returns unevaluated:
 

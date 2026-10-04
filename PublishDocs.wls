@@ -151,7 +151,7 @@ InjectWebContent[ ] :=
                HTML is written over it as a plain file, which is what the cloud serves *)
             If[ urls === <| |> || urls === { },
               Print[ "landing page: written as static HTML: ",
-                Head @ CloudExport[ template, { "String", "text/html" }, CloudObject[ tgt ], Permissions -> "Public" ] ] ];
+                Head @ CloudExport[ CenterHero[ template ], { "String", "text/html" }, CloudObject[ tgt ], Permissions -> "Public" ] ] ];
             deployed ] ] ];
   ]
 
@@ -166,6 +166,19 @@ GuideIntroCells[ ] :=
     paragraphs = Select[ StringTrim /@ StringSplit[ section, "\n" ~~ WhitespaceCharacter ... ~~ "\n" ], # =!= "" && ! StringStartsQ[ #, "![" ] & ];
     Map[ paragraph |-> Cell[ TextData[ inlineTextData[ StringReplace[ paragraph, "\n" -> " " ] ] ], "Text" ], paragraphs ]
   ]
+
+(* the shingle sets the description and the hero side by side as two table cells of half width,
+   which squeezes the text into a column; the static page stacks them: the text at full width, the
+   hero centered below it *)
+CenterHero[ html_String ] :=
+  StringReplace[ html, "</head>" -> StringJoin[
+    "<style>",
+    "#shingle main.shingle-content .top-of-shingle-copy { display: block !important; }",
+    "#shingle main.shingle-content .top-of-shingle-copy .more-description,",
+    "#shingle main.shingle-content .top-of-shingle-copy .hero-image-frame { display: block !important; width: 100% !important; padding: 0 !important; }",
+    "#shingle main.shingle-content .top-of-shingle-copy .hero-image-frame { text-align: center; margin: 1.5em 0; }",
+    "#shingle main.shingle-content .top-of-shingle-copy .hero-image { max-width: 100%; width: 820px; }",
+    "</style></head>" ], 1 ]
 
 DocumentationRoot[ ] := FileNameJoin[ { $built, "Documentation", "English" } ]
 

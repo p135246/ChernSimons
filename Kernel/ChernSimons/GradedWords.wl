@@ -6,13 +6,13 @@ PackageExported[KoszulSign]
 PackageExported[ExteriorProduct]
 PackageExported[SymmetricProduct]
 
-GradedPairing::usage = "GradedPairing[degrees, spec] gives the pairing object of the graded alphabet with the Association degrees of particles to their degrees and the pairing values spec, a function of two particles or an Association of some of the values.\nGradedPairing[degrees, spec, dual, evaluation] also carries the dual alphabet, the Association dual of dual particles to their degrees and the Association evaluation of the values of particles on dual particles.\nGradedPairing[algebra] gives the pairing object of the PoincareDualityAlgebra algebra, with its basis monomials as particles.\nGradedPairing[algebra, particles] gives the pairing object of algebra, with the list particles naming its basis.";
+GradedPairing::usage = "GradedPairing[degrees, spec] gives the pairing object of the graded alphabet with the Association degrees of letters to their degrees and the pairing values spec, a function of two letters or an Association of some of the values.\nGradedPairing[degrees, spec, dual, evaluation] also carries the dual alphabet, the Association dual of dual letters to their degrees and the Association evaluation of the values of letters on dual letters.\nGradedPairing[algebra] gives the pairing object of the PoincareDualityAlgebra algebra, with its basis monomials as letters.\nGradedPairing[algebra, letters] gives the pairing object of algebra, with the list letters naming its basis.";
 
-CyclicWord::usage = "CyclicWord[w] is the cyclic word whose particles are the list w.\nCyclicWord[w, pairing] gives the canonical rotation of w times its Koszul sign, or 0 when a rotation sends w to minus itself.\nThe option \"EmptyWord\" -> True makes CyclicWord[{}, pairing] the empty word rather than 0.";
+CyclicWord::usage = "CyclicWord[w] is the cyclic word whose letters are the list w.\nCyclicWord[w, pairing] gives the canonical rotation of w times its Koszul sign, or 0 when a rotation sends w to minus itself.\nThe option \"EmptyWord\" -> True makes CyclicWord[{}, pairing] the empty word rather than 0.";
 
 GenerateCyclicWords::usage = "GenerateCyclicWords[n, pairing] gives the nonzero cyclic words of length n over the alphabet of pairing, each in its canonical rotation.\nThe option \"UpTo\" -> True gives every length up to n, and the option \"EmptyWord\" -> True counts the empty word as the word of length 0.";
 
-ElementDegree::usage = "ElementDegree[x, pairing, \"Bar\"] gives the bar degree of x, the sum of the degrees of its particles.\nElementDegree[x, pairing, \"Exterior\"] gives the exterior degree of x, the bar degree plus the degree of the pairing, the grading of ExteriorProduct.\nElementDegree[x, pairing, \"Symmetric\"] gives the symmetric degree of x, the exterior degree minus 1, the grading of SymmetricProduct.";
+ElementDegree::usage = "ElementDegree[x, pairing, \"Bar\"] gives the bar degree of x, the sum of the degrees of its letters.\nElementDegree[x, pairing, \"Exterior\"] gives the exterior degree of x, the bar degree plus the degree of the pairing, the grading of ExteriorProduct.\nElementDegree[x, pairing, \"Symmetric\"] gives the symmetric degree of x, the exterior degree minus 1, the grading of SymmetricProduct.";
 
 KoszulSign::usage = "KoszulSign[perm, degrees, parity] gives the sign of bringing objects of the given degrees into the order perm, each pair that crosses contributing the product of their degrees plus parity to the exponent of -1.";
 
@@ -47,14 +47,14 @@ GradedPairing[degrees_Association, spec_, dualDegrees_Association, evaluation_As
 
 GradedPairing[algebra_PoincareDualityAlgebra] /; ListQ[algebra["Basis"]] := GradedPairing[algebra, algebra["Basis"]]
 
-GradedPairing[algebra_PoincareDualityAlgebra, particles_List] /; And[
+GradedPairing[algebra_PoincareDualityAlgebra, letters_List] /; And[
 		ListQ[algebra["Basis"]], VectorQ[algebra["Degrees"], IntegerQ], MatrixQ[algebra["Pairing"]],
-		Length[particles] === Length[algebra["Basis"]] === Length[algebra["Degrees"]] === Length[algebra["Pairing"]]] := With[
+		Length[letters] === Length[algebra["Basis"]] === Length[algebra["Degrees"]] === Length[algebra["Pairing"]]] := With[
 	{pairing = GradedPairing[
-		AssociationThread[particles -> algebra["Degrees"] - 1],
+		AssociationThread[letters -> algebra["Degrees"] - 1],
 		Association[Catenate[Table[
-			{particles[[i]], particles[[j]]} -> (-1)^algebra["Degrees"][[i]] algebra["Pairing"][[i, j]],
-			{i, Length[particles]}, {j, Length[particles]}]]]]},
+			{letters[[i]], letters[[j]]} -> (-1)^algebra["Degrees"][[i]] algebra["Pairing"][[i, j]],
+			{i, Length[letters]}, {j, Length[letters]}]]]]},
 	Append[pairing, "Algebra" -> Normal[algebra]] /; MatchQ[pairing, _GradedPairing]]
 
 CyclicWord[w_List, data : _GradedPairing | _Association, opts : OptionsPattern[]] := With[

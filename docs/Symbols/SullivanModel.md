@@ -267,7 +267,7 @@ Its nondegenerate quotient gives the alphabet of the sphere:
 pairing = GradedPairing[NondegenerateQuotient[model]]
 ```
 
-<!-- => a GradedPairing object with particles 1 of degree -1 and v of degree 3, of pairing degree 2 -->
+<!-- => a GradedPairing object with letters 1 of degree -1 and v of degree 3, of pairing degree 2 -->
 
 The canonical Maurer-Cartan element of that alphabet, in weight $(1, 0)$:
 
